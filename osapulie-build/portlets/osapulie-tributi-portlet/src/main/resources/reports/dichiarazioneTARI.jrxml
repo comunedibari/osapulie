@@ -1,0 +1,3415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DichiarazioneTARI" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.7715610000000044"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="2535"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="UtenzeIscrizioneDataset">
+		<field name="indirizzo" class="java.lang.String"/>
+		<field name="civico" class="java.lang.String"/>
+		<field name="sc" class="java.lang.String"/>
+		<field name="p" class="java.lang.String"/>
+		<field name="interno" class="java.lang.String"/>
+		<field name="esp" class="java.lang.String"/>
+		<field name="suff" class="java.lang.String"/>
+		<field name="sez" class="java.lang.String"/>
+		<field name="foglio" class="java.lang.String"/>
+		<field name="num" class="java.lang.String"/>
+		<field name="sub" class="java.lang.String"/>
+		<field name="cat" class="java.lang.String"/>
+		<field name="tipo" class="java.lang.String"/>
+		<field name="mq" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="UtenzeVariazioneDataset">
+		<field name="indirizzo" class="java.lang.String"/>
+		<field name="civico" class="java.lang.String"/>
+		<field name="sc" class="java.lang.String"/>
+		<field name="p" class="java.lang.String"/>
+		<field name="interno" class="java.lang.String"/>
+		<field name="esp" class="java.lang.String"/>
+		<field name="suff" class="java.lang.String"/>
+		<field name="sez" class="java.lang.String"/>
+		<field name="foglio" class="java.lang.String"/>
+		<field name="num" class="java.lang.String"/>
+		<field name="sub" class="java.lang.String"/>
+		<field name="cat" class="java.lang.String"/>
+		<field name="tipo" class="java.lang.String"/>
+		<field name="varDiSuperficieDa" class="java.lang.String"/>
+		<field name="varDiSuperficieA" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="UtenzeCessazioneDataset">
+		<field name="indirizzo" class="java.lang.String"/>
+		<field name="civico" class="java.lang.String"/>
+		<field name="sc" class="java.lang.String"/>
+		<field name="p" class="java.lang.String"/>
+		<field name="interno" class="java.lang.String"/>
+		<field name="esp" class="java.lang.String"/>
+		<field name="suff" class="java.lang.String"/>
+		<field name="sez" class="java.lang.String"/>
+		<field name="foglio" class="java.lang.String"/>
+		<field name="num" class="java.lang.String"/>
+		<field name="sub" class="java.lang.String"/>
+		<field name="cat" class="java.lang.String"/>
+		<field name="tipo" class="java.lang.String"/>
+		<field name="mq" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Occupanti Dataset">
+		<field name="cognome" class="java.lang.String"/>
+		<field name="nome" class="java.lang.String"/>
+		<field name="codiceFiscale" class="java.lang.String"/>
+		<field name="dataNascita" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="aDecorrereDa" class="java.lang.String">
+		<fieldDescription><![CDATA[aDecorrereDa]]></fieldDescription>
+	</field>
+	<field name="codiceFiscale" class="java.lang.String">
+		<fieldDescription><![CDATA[codiceFiscale]]></fieldDescription>
+	</field>
+	<field name="cognome" class="java.lang.String">
+		<fieldDescription><![CDATA[cognome]]></fieldDescription>
+	</field>
+	<field name="comuneNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneNascita]]></fieldDescription>
+	</field>
+	<field name="comuneResidenza" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneResidenza]]></fieldDescription>
+	</field>
+	<field name="dataNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[dataNascita]]></fieldDescription>
+	</field>
+	<field name="dataOccupazione" class="java.lang.String">
+		<fieldDescription><![CDATA[dataOccupazione]]></fieldDescription>
+	</field>
+	<field name="detenzioneImmobile" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[detenzioneImmobile]]></fieldDescription>
+	</field>
+	<field name="diSuperficie" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[diSuperficie]]></fieldDescription>
+	</field>
+	<field name="espSedeLegale" class="java.lang.String">
+		<fieldDescription><![CDATA[espSedeLegale]]></fieldDescription>
+	</field>
+	<field name="indirizzoResidenza" class="java.lang.String">
+		<fieldDescription><![CDATA[indirizzoResidenza]]></fieldDescription>
+	</field>
+	<field name="intSedeLegale" class="java.lang.String">
+		<fieldDescription><![CDATA[intSedeLegale]]></fieldDescription>
+	</field>
+	<field name="iscrizione" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[iscrizione]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="nomeSocieta" class="java.lang.String">
+		<fieldDescription><![CDATA[nomeSocieta]]></fieldDescription>
+	</field>
+	<field name="nonResidente" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[nonResidente]]></fieldDescription>
+	</field>
+	<field name="nonResidenteNucleoFam" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[nonResidenteNucleoFam]]></fieldDescription>
+	</field>
+	<field name="noteNonResidente" class="java.lang.String">
+		<fieldDescription><![CDATA[noteNonResidente]]></fieldDescription>
+	</field>
+	<field name="numeroSedeLegale" class="java.lang.String">
+		<fieldDescription><![CDATA[numeroSedeLegale]]></fieldDescription>
+	</field>
+	<field name="pSedeLegale" class="java.lang.String">
+		<fieldDescription><![CDATA[pSedeLegale]]></fieldDescription>
+	</field>
+	<field name="comuneSedeLegale" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneSedeLegale]]></fieldDescription>
+	</field>
+	<field name="partitaIva" class="java.lang.String">
+		<fieldDescription><![CDATA[partitaIva]]></fieldDescription>
+	</field>
+	<field name="pertinenza" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[pertinenza]]></fieldDescription>
+	</field>
+	<field name="provResidenza" class="java.lang.String">
+		<fieldDescription><![CDATA[provResidenza]]></fieldDescription>
+	</field>
+	<field name="provinciaNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[provinciaNascita]]></fieldDescription>
+	</field>
+	<field name="riduzione" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[riduzione]]></fieldDescription>
+	</field>
+	<field name="ruolo" class="java.lang.String">
+		<fieldDescription><![CDATA[ruolo]]></fieldDescription>
+	</field>
+	<field name="scSedeLegale" class="java.lang.String">
+		<fieldDescription><![CDATA[scSedeLegale]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[telefono]]></fieldDescription>
+	</field>
+	<field name="tipoDichiarazione" class="java.lang.String">
+		<fieldDescription><![CDATA[tipoDichiarazione]]></fieldDescription>
+	</field>
+	<field name="tipoPersona" class="java.lang.String">
+		<fieldDescription><![CDATA[tipoPersona]]></fieldDescription>
+	</field>
+	<field name="totaleNucleoFamiliare" class="java.lang.String">
+		<fieldDescription><![CDATA[totaleNucleoFamiliare]]></fieldDescription>
+	</field>
+	<field name="totaleNucleoInResidenza" class="java.lang.String">
+		<fieldDescription><![CDATA[totaleNucleoInResidenza]]></fieldDescription>
+	</field>
+	<field name="varAgevolazioni" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[varAgevolazioni]]></fieldDescription>
+	</field>
+	<field name="varAgevolazioniTipologia" class="java.lang.String">
+		<fieldDescription><![CDATA[varAgevolazioniTipologia]]></fieldDescription>
+	</field>
+	<field name="varAltro" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[varAltro]]></fieldDescription>
+	</field>
+	<field name="varAltroNote" class="java.lang.String">
+		<fieldDescription><![CDATA[varAltroNote]]></fieldDescription>
+	</field>
+	<field name="varCompNuclA" class="java.lang.String">
+		<fieldDescription><![CDATA[varCompNuclA]]></fieldDescription>
+	</field>
+	<field name="varCompNuclDa" class="java.lang.String">
+		<fieldDescription><![CDATA[varCompNuclDa]]></fieldDescription>
+	</field>
+	<field name="varCompNuclNote" class="java.lang.String">
+		<fieldDescription><![CDATA[varCompNuclNote]]></fieldDescription>
+	</field>
+	<field name="varCompNucleoFam" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[varCompNucleoFam]]></fieldDescription>
+	</field>
+	<field name="varDatiAnagrafici" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[varDatiAnagrafici]]></fieldDescription>
+	</field>
+	<field name="varDatiAnagraficiNote" class="java.lang.String">
+		<fieldDescription><![CDATA[varDatiAnagraficiNote]]></fieldDescription>
+	</field>
+	<field name="varRevoca" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[varRevoca]]></fieldDescription>
+	</field>
+	<field name="variazione" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[variazione]]></fieldDescription>
+	</field>
+	<field name="viaSedeLegale" class="java.lang.String">
+		<fieldDescription><![CDATA[viaSedeLegale]]></fieldDescription>
+	</field>
+	<field name="tipoUtenza" class="java.lang.String"/>
+	<field name="indirizzoSpedizione" class="java.lang.String"/>
+	<field name="civicoSpedizione" class="java.lang.String"/>
+	<field name="espSpedizione" class="java.lang.String"/>
+	<field name="comuneSpedizione" class="java.lang.String"/>
+	<field name="provinciaSpedizione" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="158" splitType="Stretch">
+			<staticText>
+				<reportElement x="394" y="0" width="161" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<text><![CDATA[UFFICIO TRIBUTI DEL COMUNE DI]]></text>
+			</staticText>
+			<line>
+				<reportElement x="437" y="33" width="115" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="440" y="13" width="115" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$P{comune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="106" y="23" width="304" height="23"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TASSA SUI RIFIUTI - TARI
+]]></text>
+			</staticText>
+			<image>
+				<reportElement key="Logo" x="34" y="7" width="54" height="46" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="3" y="53" width="127" height="20"/>
+				<textFieldExpression><![CDATA["Comune di " +$P{comune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="108" y="73" width="304" height="23"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="14" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[UTENZE DOMESTICHE
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="83" width="114" height="13"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DICHIARAZIONE DI:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="444" y="106" width="68" height="14"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ISCRIZIONE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="106" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equals("iscrizione")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="444" y="121" width="69" height="14"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[VARIAZIONE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="121" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equals("variazione")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="444" y="136" width="68" height="14"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CESSAZIONE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="136" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equals("cessazione")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="106" width="144" height="13"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TIPO CONTRIBUENTE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="121" width="54" height="14"/>
+				<text><![CDATA[Persona]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="132" y="122" width="68" height="14"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[GIURIDICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="122" width="35" height="14"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[FISICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="122" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{tipoPersona}.equals("giuridica")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="122" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{tipoPersona}.equals("fisica")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="292" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="6" width="119" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[La/Il Sottoscritta/o]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="119" y="6" width="435" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cognome}+" "+$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="172" y="30" width="49" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[nata/o a ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement x="470" y="30" width="84" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataNascita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="449" y="30" width="21" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[il ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="221" y="30" width="172" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comuneNascita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="30" width="28" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA["("+$F{provinciaNascita}+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="74" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[codice fiscale]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="30" width="94" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codiceFiscale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="54" width="74" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[residente in ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="54" width="245" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comuneResidenza}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="79" width="74" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[all' indirizzo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="79" width="479" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{indirizzoResidenza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="54" width="212" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA["("+$F{provResidenza}+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="152" width="51" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="384" y="152" width="35" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Pec]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="418" y="152" width="123" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="152" width="129" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="103" width="74" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[in qualità di ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="214" y="103" width="62" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[della società]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="103" width="55" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[partita iva]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="127" width="83" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[con sede legale in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="128" width="35" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[alla via]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="103" width="130" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ruolo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="128" width="100" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comuneSedeLegale}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="103" width="115" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeSocieta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="103" width="103" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{partitaIva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="225" y="128" width="130" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroSedeLegale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-219" y="169" width="91" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[con sede legale in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-219" y="169" width="91" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[con sede legale in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-219" y="169" width="91" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[con sede legale in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-219" y="169" width="91" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[con sede legale in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="129" width="19" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[esp.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="129" width="15" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[sc.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="474" y="129" width="10" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[p.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="513" y="129" width="14" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[int.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="413" y="129" width="17" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{espSedeLegale}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="129" width="17" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{scSedeLegale}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="489" y="129" width="17" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pSedeLegale}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="533" y="129" width="20" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{intSedeLegale}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="129" width="17" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroSedeLegale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="360" y="129" width="5" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[n.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="184" width="264" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[INVIO CARTELLA e/o COMUNICAZIONI c/o:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="205" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equals("iscrizione")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="229" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equals("variazione")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="205" width="186" height="14"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[RESIDENZA E/O SEDE LEGALE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="229" width="41" height="14"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[ALTRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="261" width="555" height="26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DICHIARA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="226" y="152" width="123" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fax}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="192" y="152" width="35" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Fax]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="229" width="40" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[indirizzo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="111" y="229" width="100" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{indirizzoSpedizione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="209" y="229" width="23" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[num]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="231" y="229" width="16" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{civicoSpedizione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="248" y="229" width="24" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[esp]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="273" y="229" width="19" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{espSpedizione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="296" y="229" width="44" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[comune]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="338" y="229" width="67" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comuneSpedizione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="402" y="229" width="50" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[provincia]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="453" y="229" width="100" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{provinciaSpedizione}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25">
+			<staticText>
+				<reportElement x="353" y="2" width="70" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[a decorrere dal]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="427" y="2" width="100" height="20"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aDecorrereDa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="31" y="2" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equals("iscrizione")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="2" width="195" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoDichiarazione}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="76">
+			<componentElement>
+				<reportElement key="table 1" x="0" y="0" width="555" height="76"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="UtenzeIscrizioneDataset">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="567">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="567" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Via/P.zza]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="567" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{indirizzo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[N°]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{civico}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SC]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{sc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[P]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{p}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[INT]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{interno}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[ESP]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{esp}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SUFF]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{suff}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SEZ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{sez}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[FG]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{foglio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[NUM]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{num}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SUB]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{sub}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[CAT]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{cat}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[USO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[MQ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{mq}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="319">
+			<textField>
+				<reportElement x="304" y="113" width="229" height="69"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noteNonResidente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-386" y="-34" width="141" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[COGNOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="113" width="37" height="12"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[note:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="281" width="289" height="33"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<text><![CDATA[TOTALE componenti NUCLEO FAMILIARE (compreso denunciante):]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="523" y="281" width="29" height="16"/>
+				<textFieldExpression><![CDATA[$F{totaleNucleoFamiliare}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="195" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{riduzione}==true]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="10" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{pertinenza}==true]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="70" width="237" height="42"/>
+				<textElement textAlignment="Justified">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[a tal fine, dichiaro che il mio nucleo familiare nelll'immobile di residenza è di persone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="71" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{nonResidente}==true]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="281" width="182" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="10"/>
+				</textElement>
+				<text><![CDATA[dichiaro di detenere/occupare l'immobile con:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="509" y="71" width="26" height="25"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totaleNucleoInResidenza}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="26" y="194" width="506" height="33"/>
+				<textElement textAlignment="Justified">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[CHIEDO la riduzione del 20% ai sensi dell'art.23 del regolamento Tari per l'immobile tenuto a disposizione]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="10" width="300" height="15"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[dichiaro che il box/garage/cantinola è di pertinenza dell'abitazione]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="37" width="167" height="13"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PER I NON RESIDENTI:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="70" width="212" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[dichiaro di NON essere residente nell'immobile]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="245" width="167" height="13"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PER I RESIDENTI:]]></text>
+			</staticText>
+		</band>
+		<band height="66">
+			<componentElement>
+				<reportElement key="table 1" x="0" y="0" width="555" height="66"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Occupanti Dataset">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="201">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="201" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Cognome]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="201" height="35"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{cognome}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="205">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="205" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nome]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="205" height="35"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="211">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="211" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Data di nascita]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="211" height="35"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{codiceFiscale}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="284">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="284" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Codice Fiscale]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="284" height="35"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{dataNascita}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="40">
+			<staticText>
+				<reportElement x="354" y="14" width="70" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[a decorrere dal]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="428" y="14" width="100" height="20"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aDecorrereDa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="51" y="14" width="195" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoDichiarazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="32" y="14" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equals("iscrizione")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+		</band>
+		<band height="76">
+			<componentElement>
+				<reportElement key="table 1" x="0" y="0" width="555" height="76"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="UtenzeVariazioneDataset">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="497">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="497" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Via/P.zza]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="497" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{indirizzo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[N°]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{civico}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SC]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{sc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[P]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{p}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[INT]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{interno}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[ESP]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{esp}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SUFF]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{suff}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SEZ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{sez}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[FG]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{foglio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[NUM]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{num}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SUB]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{sub}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[CAT]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{cat}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[USO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[DA MQ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{varDiSuperficieDa}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:tableHeader height="30" rowSpan="1"/>
+						<jr:tableFooter height="30" rowSpan="1"/>
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" isBold="true"/>
+								</textElement>
+								<text><![CDATA[A MQ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1"/>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{varDiSuperficieA}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="291">
+			<staticText>
+				<reportElement x="27" y="11" width="182" height="17"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[di superficie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="41" width="221" height="17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[del numero dei componenti il nucleo familiare da]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="41" width="16" height="17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[a]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="40" width="30" height="17"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[note]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="77" width="68" height="17"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[dati anagrafici]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="108" width="43" height="17"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[revoca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="107" width="438" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[applicazione delle seguenti agevolazioni(specificare tipologia)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="173" width="28" height="17"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[altro]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="255" y="41" width="20" height="17"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{varCompNuclDa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="41" width="18" height="17"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{varCompNuclA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="12" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{diSuperficie}==true]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="43" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{varCompNucleoFam}== true]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="78" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{varDatiAnagrafici}==true]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="110" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{varRevoca}==true]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="174" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{varAltro}==true]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="110" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{varAgevolazioni}==true]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="75" width="37" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[note:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="377" y="42" width="168" height="17"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{varCompNuclNote}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="77" width="387" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{varDatiAnagraficiNote}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="137" width="534" height="32"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{varAgevolazioniTipologia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="58" y="175" width="481" height="114"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{varAltroNote}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-365" y="-36" width="6" height="13">
+					<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equalsIgnoreCase("variazione")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+		</band>
+		<band height="32">
+			<staticText>
+				<reportElement x="32" y="6" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equals("cessazione")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="428" y="6" width="100" height="20"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aDecorrereDa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="51" y="6" width="195" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoDichiarazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="354" y="6" width="70" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[a decorrere dal]]></text>
+			</staticText>
+		</band>
+		<band height="76">
+			<componentElement>
+				<reportElement key="table 1" x="0" y="0" width="555" height="76"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="UtenzeCessazioneDataset">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="497">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="497" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Via/P.zza]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="497" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{indirizzo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[N°]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{civico}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SC]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{sc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[P]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{p}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[INT]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{interno}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[ESP]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{esp}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="35">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="35" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SUFF]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="35" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{suff}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SEZ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{sez}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[FG]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{foglio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[NUM]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{num}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[SUB]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{sub}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[CAT]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{cat}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[USO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[MQ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="35"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{mq}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="271">
+			<textField>
+				<reportElement x="420" y="16" width="129" height="17"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataDecesso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="16" width="209" height="17"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nominativoDeceduto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="344" y="16" width="71" height="17"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[ avvenuto il ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="16" width="96" height="17"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Decesso del Sig. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="16" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "decesso" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="84" y="214" width="447" height="45"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{altriMotivi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="297" y="161" width="252" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Immobile venduto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="214" width="44" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Altro]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="247" y="38" width="305" height="17"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{soggettoDuplicazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="277" y="139" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "restituito" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="303" y="119" width="30" height="17"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[prov.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="139" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "concessione" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="161" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "vuoto" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="333" y="119" width="53" height="17"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{provEmigrazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="387" y="119" width="32" height="17"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[in via]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="419" y="119" width="129" height="17"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{viaEmigrazione}+" "+$F{civicoEmigrazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="38" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "duplicazione" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="183" y="119" width="119" height="17"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comuneEmigrazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="277" y="161" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "venduto" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="297" y="139" width="252" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Immobile restituito al proprietario per fine locazione]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="38" width="204" height="17"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Cambio domicilio per coabitazione con ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="119" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "trasferimento" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="119" width="142" height="17"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Trasferimento nel Comune di ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="139" width="229" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Immobile di proprietà concesso in locazione]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="161" width="229" height="41"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Immobile di proprietà vuoto da cose e persone prive di contratti attivi e di fornitura dei servizi pubblici a rete]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="214" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "altro" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="57" width="126" height="17"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{indirizzoCoabitazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="42" y="57" width="32" height="17"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[in via]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="297" y="57" width="27" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[piano]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="225" y="57" width="17" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{civicoCoabitazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="248" y="57" width="23" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[pal.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="275" y="57" width="17" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{scalaCoabitazione}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="367" y="57" width="20" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{intCoabitazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="347" y="57" width="14" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[int.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="57" width="19" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[esp.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="57" width="13" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[n.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="327" y="57" width="17" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pianoCoabitazione}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="57" width="17" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{espSedeLegale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="440" y="57" width="19" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[suff.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="464" y="57" width="17" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{suffCoabitazione}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="531">
+			<staticText>
+				<reportElement x="2" y="176" width="383" height="14"/>
+				<text><![CDATA[(si allegano copie del documento di riconoscimento del del delelgante e del delegato)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="202" width="236" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA DEL DELEGATO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="202" width="236" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA DEL DELEGANTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="554" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[L.196/2003: Il/la sottoscritto/a autorizza il trattamento delle informazioni fornite con la presente comunicazione per l'istrutoria e le verifiche necesarie.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="288" y="66" width="237" height="1"/>
+			</line>
+			<line>
+				<reportElement x="155" y="95" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="16" y="118" width="169" height="13"/>
+				<text><![CDATA[Allega la seguente documentazione:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="304" y="242" width="237" height="1"/>
+			</line>
+			<line>
+				<reportElement x="396" y="173" width="143" height="1"/>
+			</line>
+			<line>
+				<reportElement x="14" y="143" width="237" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="289" y="26" width="236" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Firma del dichiarante (per esteso e leggibile)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="83" width="131" height="13"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[ESTREMI DEL DOCUMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="12" width="555" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[D.P.R. N 445/2000: Il/la sottoscritto/a è consapevole che nel caso in cui abbia dichiarato il falso, potrà essere denunciato per falso in atto pubblico e truffa.]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="79" y="288" width="100" height="15"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="18" y="242" width="237" height="1"/>
+			</line>
+			<line>
+				<reportElement x="305" y="308" width="237" height="1"/>
+			</line>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="19" y="52" width="100" height="15"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="306" y="268" width="236" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA IMPIEGATO RICEVENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="161" width="390" height="15"/>
+				<text><![CDATA[IL SOTTOSCRITTO/A DELEGA ALLA PRESENTAZIONE DELL'ISTANZA IL/LA SIG.]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

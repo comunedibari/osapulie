@@ -1,0 +1,102 @@
+<data enableBatchRequests="false" enableBoxcarring="false" name="visuraOsapPermanenteService" serviceNamespace="http://servizi.osapulie.it" serviceStatus="active">
+   <config id="default">
+      <property name="carbon_datasource_name">OSAPULIE_SERVIZI_DS</property>
+   </config>
+   <query id="select_with_key_visura_osap_permanente_query" useConfig="default">
+      <sql>SELECT id, codiceFiscale, dataAggiornamento, contoCorrente, annoRiferimento, importoDocumento, numeroDocumento FROM visura_osap_permanente WHERE codiceFiscale = ? AND annoRiferimento >= ? AND annoRiferimento &lt;= ?</sql>
+      <result element="visureOsapPermanente" rowName="visuraOsapPermanente">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="dataAggiornamento" name="dataAggiornamento" xsdType="xs:date"/>
+         <element column="contoCorrente" name="contoCorrente" xsdType="xs:string"/>
+         <element column="annoRiferimento" name="annoRiferimento" xsdType="xs:integer"/>
+         <element column="importoDocumento" name="importoDocumento" xsdType="xs:double"/>
+         <element column="numeroDocumento" name="numeroDocumento" xsdType="xs:string"/>
+      </result>
+      <param name="codiceFiscale" sqlType="STRING"/>
+      <param name="annoDa" sqlType="INTEGER"/>
+      <param name="annoA" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_id_visura_osap_permanente_query" useConfig="default">
+      <sql>SELECT id, codiceFiscale, dataAggiornamento, contoCorrente, annoRiferimento, importoDocumento, numeroDocumento FROM visura_osap_permanente WHERE id = ?</sql>
+      <result element="visureOsapPermanente" rowName="visuraOsapPermanente">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="dataAggiornamento" name="dataAggiornamento" xsdType="xs:date"/>
+         <element column="contoCorrente" name="contoCorrente" xsdType="xs:string"/>
+         <element column="annoRiferimento" name="annoRiferimento" xsdType="xs:integer"/>
+         <element column="importoDocumento" name="importoDocumento" xsdType="xs:double"/>
+         <element column="numeroDocumento" name="numeroDocumento" xsdType="xs:string"/>
+      </result>
+      <param name="id" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_osap_permanente_posizioni_query" useConfig="default">
+      <sql>SELECT id, indirizzoUtenza, superficie, zonaUtenza, descrizioneTariffa, importoDaPagare, mesi, idVisura FROM visura_osap_permanente_posizioni WHERE idVisura=?</sql>
+      <result element="posizioniVisuraOsapPermanente" rowName="posizioneVisuraOsapPermanente">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="indirizzoUtenza" name="indirizzoUtenza" xsdType="xs:string"/>
+         <element column="superficie" name="superficie" xsdType="xs:double"/>
+         <element column="zonaUtenza" name="zonaUtenza" xsdType="xs:string"/>
+         <element column="descrizioneTariffa" name="descrizioneTariffa" xsdType="xs:string"/>
+         <element column="importoDaPagare" name="importoDaPagare" xsdType="xs:double"/>
+         <element column="mesi" name="mesi" xsdType="xs:integer"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="idVisura" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_osap_permanente_rate_query" useConfig="default">
+      <sql>SELECT id, importoRata, scadenzaRata, numeroRata, identificativoRata, importoPagato, dataPagamento, idVisura FROM visura_osap_permanente_rate WHERE idVisura=?</sql>
+      <result element="rateVisuraOsapPermanente" rowName="rataVisuraOsapPermanente">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="importoRata" name="importoRata" xsdType="xs:double"/>
+         <element column="scadenzaRata" name="scadenzaRata" xsdType="xs:date"/>
+         <element column="numeroRata" name="numeroRata" xsdType="xs:integer"/>
+         <element column="identificativoRata" name="identificativoRata" xsdType="xs:string"/>
+         <element column="importoPagato" name="importoPagato" xsdType="xs:double"/>
+         <element column="dataPagamento" name="dataPagamento" xsdType="xs:date"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="idVisura" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_identificativoRata_visura_osap_permanente_rate_query" useConfig="default">
+      <sql>SELECT id, importoRata, scadenzaRata, numeroRata, identificativoRata, importoPagato, dataPagamento, idVisura FROM visura_osap_permanente_rate WHERE identificativoRata=?</sql>
+      <result element="rateVisuraOsapPermanente" rowName="rataVisuraOsapPermanente">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="importoRata" name="importoRata" xsdType="xs:double"/>
+         <element column="scadenzaRata" name="scadenzaRata" xsdType="xs:date"/>
+         <element column="numeroRata" name="numeroRata" xsdType="xs:integer"/>
+         <element column="identificativoRata" name="identificativoRata" xsdType="xs:string"/>
+         <element column="importoPagato" name="importoPagato" xsdType="xs:double"/>
+         <element column="dataPagamento" name="dataPagamento" xsdType="xs:date"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="identificativoRata" sqlType="STRING"/>
+   </query>
+   <operation name="getVisureOsapPermanente">
+      <call-query href="select_with_key_visura_osap_permanente_query">
+         <with-param name="codiceFiscale" query-param="codiceFiscale"/>
+         <with-param name="annoDa" query-param="annoDa"/>
+         <with-param name="annoA" query-param="annoA"/>
+      </call-query>
+   </operation>
+   <operation name="getVisuraOsapPermanente">
+      <call-query href="select_with_key_id_visura_osap_permanente_query">
+         <with-param name="id" query-param="id"/>
+      </call-query>
+   </operation>
+   <operation name="getPosizioniVisuraOsapPermanente">
+      <call-query href="select_with_key_visura_osap_permanente_posizioni_query">
+         <with-param name="idVisura" query-param="idVisura"/>
+      </call-query>
+   </operation>
+   <operation name="getRateVisuraOsapPermanente">
+      <call-query href="select_with_key_visura_osap_permanente_rate_query">
+         <with-param name="idVisura" query-param="idVisura"/>
+      </call-query>
+   </operation>
+   <operation name="getRataVisuraOsapPermanente">
+      <call-query href="select_with_key_identificativoRata_visura_osap_permanente_rate_query">
+         <with-param name="identificativoRata" query-param="identificativoRata"/>
+      </call-query>
+   </operation>
+</data>

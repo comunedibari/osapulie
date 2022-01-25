@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="autocertificazione" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.9487171000000019"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="292"/>
+	<parameter name="dichiarazione" class="java.lang.String"/>
+	<parameter name="tipologia" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<field name="cognomeRichiedente" class="java.lang.String">
+		<fieldDescription><![CDATA[cognomeRichiedente]]></fieldDescription>
+	</field>
+	<field name="nomeRichiedente" class="java.lang.String">
+		<fieldDescription><![CDATA[nomeRichiedente]]></fieldDescription>
+	</field>
+	<field name="comuneNascitaRichiedente" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneNascitaRichiedente]]></fieldDescription>
+	</field>
+	<field name="dataNascitaRichiedente" class="java.lang.String">
+		<fieldDescription><![CDATA[dataNascitaRichiedente]]></fieldDescription>
+	</field>
+	<field name="provinciaNascitaRichiedente" class="java.lang.String">
+		<fieldDescription><![CDATA[provinciaNascitaRichiedente]]></fieldDescription>
+	</field>
+	<field name="comuneResidenzaRichiedente" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneResidenzaRichiedente]]></fieldDescription>
+	</field>
+	<field name="provinciaResidenzaRichiedente" class="java.lang.String">
+		<fieldDescription><![CDATA[provinciaResidenzaRichiedente]]></fieldDescription>
+	</field>
+	<field name="viaResidenzaRichiedente" class="java.lang.String">
+		<fieldDescription><![CDATA[viaResidenzaRichiedente]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="191" splitType="Stretch">
+			<staticText>
+				<reportElement x="134" y="79" width="286" height="27"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="16"/>
+				</textElement>
+				<text><![CDATA[DICHIARAZIONE SOSTITUTIVA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="23" y="149" width="509" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="24" y="153" width="507" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[(Art. 47 - D.P.R. 28 dicembre 2000, n. 445)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="23" y="107" width="509" height="42"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tipologia}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center">
+				<reportElement key="Logo" x="234" y="4" width="86" height="69" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="362" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="38" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[La/Il Sottoscritta/o]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="68" width="48" height="18"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[nata/o a ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="68" width="21" height="18"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[il ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="136" width="513" height="38"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[consapevole che chiunque rilascia dichiarazioni mendaci è punito ai sensi del codice penale e delle leggi speciali in materia, ai sensi e per gli effetti dell'art. 76 D.P.R. n. 445/2000]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="187" width="114" height="28"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="18"/>
+				</textElement>
+				<text><![CDATA[DICHIARA]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="17" y="238" width="513" height="45"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{dichiarazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="98" width="67" height="20"/>
+				<text><![CDATA[residente a ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="84" y="98" width="128" height="20">
+					<printWhenExpression><![CDATA[$F{comuneResidenzaRichiedente} != null]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{comuneResidenzaRichiedente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="291" y="98" width="21" height="20"/>
+				<text><![CDATA[in]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="312" y="98" width="218" height="20">
+					<printWhenExpression><![CDATA[$F{viaResidenzaRichiedente} != null]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{viaResidenzaRichiedente}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="65" y="68" width="191" height="18">
+					<printWhenExpression><![CDATA[$F{comuneNascitaRichiedente} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comuneNascitaRichiedente}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="false">
+				<reportElement x="368" y="68" width="156" height="18">
+					<printWhenExpression><![CDATA[$F{dataNascitaRichiedente} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataNascitaRichiedente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="117" y="38" width="203" height="20">
+					<printWhenExpression><![CDATA[$F{cognomeRichiedente} != null]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cognomeRichiedente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="38" width="204" height="20">
+					<printWhenExpression><![CDATA[$F{nomeRichiedente} != null]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nomeRichiedente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="256" y="98" width="32" height="20">
+					<printWhenExpression><![CDATA[$F{provinciaResidenzaRichiedente} != null]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{provinciaResidenzaRichiedente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="68" width="27" height="18">
+					<printWhenExpression><![CDATA[$F{provinciaNascitaRichiedente} != null]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{provinciaNascitaRichiedente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="256" y="68" width="43" height="18"/>
+				<text><![CDATA[Prov.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="98" width="43" height="20">
+					<printWhenExpression><![CDATA[$F{provinciaResidenzaRichiedente} != null]]></printWhenExpression>
+				</reportElement>
+				<text><![CDATA[Prov.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="56">
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="37" y="11" width="134" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="309" y="24" width="215" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="336" y="31" width="176" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Firma del dichiarante (per esteso e leggibile)]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

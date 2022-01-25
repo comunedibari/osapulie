@@ -1,0 +1,112 @@
+/* DisplayTable */
+.elencoRisultati {
+	clear: both;
+	border: 1px solid #cccccc;
+	margin-top: 5px;
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 2px;
+}
+
+.elencoRisultati TH {
+	background-color: #f6f6f6;
+	color: #196ba5;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.elencoRisultati TH.sorted {
+	padding-left: 15px;
+}
+
+.elencoRisultati TH.sorted.order1 {
+	background-image: url(../images/01_up.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 15px;
+}
+
+.elencoRisultati TH.sorted.order2 {
+	background-image: url(../images/01_down.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 15px;
+}
+
+.elencoRisultati TH.sortable a {
+	text-decoration: none;
+}
+
+.elencoRisultati TD {
+	padding: 2px 3px;
+}
+
+.elencoRisultati TR.even TD {
+	background-color: #F6F6F6;
+}
+
+.elencoRisultati TR.odd TD {
+	background-color: #ffffff;
+}
+
+.elencoRisultati TR TD.centerTd,.elencoRisultati TR TH.centerTd {
+	text-align: center;
+}
+
+.elencoRisultati TD.campoLabel {
+	vertical-align: top;
+	font-weight: bold;
+}
+
+.paginazioneRisultati {
+	background-color: #f0f0f0;
+	float: right;
+	padding: 3px 10px 3px 0px;
+}
+
+.paginazionePagine {
+	background-color: #f0f0f0;
+	padding: 3px 0px 3px 0px;
+	text-align: center;
+	color: #c0c0c0;
+}
+
+.paginazionePagine STRONG {
+	color: #c40000;
+	padding: 0px 3px;
+}
+
+.paginazionePagine A {
+	padding: 0px 3px;
+}
+
+.paginazionePagine A:link,.paginazionePagine A:visited {
+	color: #641B0A;
+}
+
+.paginazionePagine A:hover {
+	text-decoration: underline;
+	color: #000000;
+}
+
+.nessunRisultato {
+	margin: 10px;
+}
+
+/***********************/
+
+#tableParere{
+	width:99%;
+	margin-top: 10px;
+	margin-left: 5px;
+	border-collapse:separate;
+	border-spacing: 10px;
+}
+#tableParere-td{
+	background-color: #FFFFFF;
+	border: 2px solid #FE7700;
+	-moz-border-radius: 5px;
+	-webkit-border-radius:5px;
+	border-radius: 5px;
+	padding: 10px;	
+}

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="serviziRifiuti" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.2100000000000026"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#C0C0C0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dataset1"/>
+	<parameter name="nuovoIndir" class="java.lang.String"/>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Fede\\Desktop\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="aree" class="java.util.List"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="cognome" class="java.lang.String"/>
+	<field name="comuneCostituzione" class="java.lang.String"/>
+	<field name="provCostituzione" class="java.lang.String"/>
+	<field name="indirizzo" class="java.lang.String"/>
+	<field name="ruolo" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="organizzazione" class="java.lang.String"/>
+	<field name="cfAssociazione" class="java.lang.String"/>
+	<field name="dataCostituzione" class="java.lang.String"/>
+	<field name="artDemocraticita" class="java.lang.String"/>
+	<field name="artNoFiniLucro" class="java.lang.String"/>
+	<field name="artCriteriAmmissione" class="java.lang.String"/>
+	<field name="artDirittiEObblighi" class="java.lang.String"/>
+	<field name="artFormazione" class="java.lang.String"/>
+	<field name="artDevoluzione" class="java.lang.String"/>
+	<field name="artSedeLegale" class="java.lang.String"/>
+	<field name="artUtilSociale" class="java.lang.String"/>
+	<field name="artRappLegale" class="java.lang.String"/>
+	<field name="artReinvAvanzi" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="187">
+			<line>
+				<reportElement x="10" y="159" width="513" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="10" y="114" width="513" height="45"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Domanda di iscrizione al Registro Regionale delle Associazioni di Promozione Sociale ai sensi della Legge regionale 18.12.2007 n. 39.]]></text>
+			</staticText>
+			<image>
+				<reportElement key="Logo" x="232" y="10" width="69" height="69" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="91" y="79" width="350" height="35"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Comune di "+$P{comune}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="164" width="241" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Al Sindaco del Comune di "+$P{comune}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="369">
+			<rectangle>
+				<reportElement x="61" y="276" width="13" height="13"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="14" y="0" width="185" height="20"/>
+				<textFieldExpression><![CDATA["Il sottoscritto: "+$F{cognome}+" "+$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="199" y="0" width="345" height="20"/>
+				<textFieldExpression><![CDATA[$F{ruolo} +" dell'organizzazione di volontariato denominata "+$F{organizzazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="227" y="60" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHIEDE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="80" width="445" height="20"/>
+				<text><![CDATA[l'iscrizione al Registro Generale Regionale del Volontariato dell'organizzazione sopra indicata.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="100" width="445" height="20"/>
+				<text><![CDATA[A tale scopo dichiare che:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="151" width="375" height="20"/>
+				<text><![CDATA[- l'organizzazione è dotata di regolare Statuto;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="171" width="490" height="40"/>
+				<text><![CDATA[- l’organizzazione opera solo sul territorio regionale attraverso lo svolgimento continuato di attività di promozione sociale prevalentemente nei seguenti ambiti:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="211" width="289" height="20"/>
+				<text><![CDATA[Sviluppo della personalità umana]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="231" width="289" height="20"/>
+				<text><![CDATA[Promozione e sostegno dei diritti civili e sociali]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="271" width="289" height="20"/>
+				<text><![CDATA[Tutela e valorizzazione del patrimonio culturale/naturale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="251" width="421" height="20"/>
+				<text><![CDATA[Affermazione e attuazione principi della pace e solidarietà tra i popoli]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="311" width="289" height="20"/>
+				<text><![CDATA[Partecipazione delle famiglie alla vita culturale/sociale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="291" width="289" height="20"/>
+				<text><![CDATA[Diffusione della pratica sportiva]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="61" y="214" width="13" height="13"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="61" y="214" width="13" height="13">
+					<printWhenExpression><![CDATA[$P{aree}.contains( "Sviluppo della personalità umana" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="61" y="234" width="13" height="13"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="61" y="234" width="13" height="13">
+					<printWhenExpression><![CDATA[$P{aree}.contains( "Promozione e sostegno dei diritti civili e sociali" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="276" width="13" height="13">
+					<printWhenExpression><![CDATA[$P{aree}.contains( "Tutela e valorizzazione del patrimonio culturale/naturale" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="61" y="256" width="13" height="13"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="61" y="256" width="13" height="13">
+					<printWhenExpression><![CDATA[$P{aree}.contains( "Affermazione e attuazione principi della pace e solidarietà tra i popoli" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="61" y="313" width="13" height="13"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="61" y="294" width="13" height="13"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="61" y="294" width="13" height="13">
+					<printWhenExpression><![CDATA[$P{aree}.contains( "Diffusione della pratica sportiva" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="313" width="13" height="13">
+					<printWhenExpression><![CDATA[$P{aree}.contains( "Partecipazione delle famiglie alla vita culturale/sociale" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="333" width="289" height="20"/>
+				<text><![CDATA[Conseguimento di altri scopi di promozione sociale]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="61" y="335" width="13" height="13"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="61" y="335" width="13" height="13">
+					<printWhenExpression><![CDATA[$P{aree}.contains( "Conseguimento di altri scopi di promozione sociale" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="120" width="504" height="31"/>
+				<textFieldExpression><![CDATA["- l'organizzazione è stata costituita in data "+$F{dataCostituzione}+" nel comune di "+$F{comuneCostituzione}+" , in provincia di "+$F{provCostituzione}+";"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="40" width="530" height="20"/>
+				<textFieldExpression><![CDATA[" cod.Fisc "+$F{cfAssociazione}+", ai sensi e per gli effetti della Legge Regionale 16 Marzo '94 n°11, "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="20" width="530" height="20"/>
+				<textFieldExpression><![CDATA[", con sede legale nel Comune di "+$P{comune}+" , in "+$F{indirizzo}+" , tel. "+$F{telefono}+"," ]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="291">
+			<textField>
+				<reportElement x="32" y="210" width="490" height="20"/>
+				<textFieldExpression><![CDATA["- art. "+ ($F{artFormazione}!=null ? $F{artFormazione} : " ")+" : Redazione rendiconti economico-finanziari e modalità approvazione"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="148" width="490" height="20"/>
+				<textFieldExpression><![CDATA["- art. "+($F{artDemocraticita}!=null ? $F{artDemocraticita}:" " )+" :  Democraticità ordinamento"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="250" width="490" height="20"/>
+				<textFieldExpression><![CDATA["- art. "+($F{artUtilSociale}!=null ? $F{artUtilSociale} : " ")+" : Devoluzione patrimonio residuo a fini di utilità sociale"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="129" width="490" height="20"/>
+				<textFieldExpression><![CDATA["- art. "+($F{artReinvAvanzi}!=null ? $F{artReinvAvanzi} : " ")+" : Obbligo di reinvestire l'avanzo di gestione nelle attività istituzionali"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="170" width="490" height="20"/>
+				<textFieldExpression><![CDATA["- art. "+($F{artDirittiEObblighi}!=null ? $F{artDirittiEObblighi} : " ")+" : Diritti/doveri associati"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="230" width="490" height="20"/>
+				<textFieldExpression><![CDATA["- art. "+($F{artDevoluzione}!=null ? $F{artDevoluzione}: " ")+" : Modalità scioglimento associazione"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="109" width="490" height="20"/>
+				<textFieldExpression><![CDATA["- art. "+($F{artNoFiniLucro}!=null?$F{artNoFiniLucro}:" ")+" : Assenza fini di lucro (divieto di ripartire i proventi fra gli associati)"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="32" y="10" width="490" height="40"/>
+				<text><![CDATA[Nello Statuto dell’organizzazione emergono i sottoelencati elementi previsti dall’art. 4, lett. b) della legge n. 39/2007:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="32" y="190" width="490" height="20"/>
+				<textFieldExpression><![CDATA["- art. "+($F{artCriteriAmmissione}!=null ? $F{artCriteriAmmissione}:" ")+" : Criteri per ammissione/esclusione associati"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="89" width="490" height="20"/>
+				<textFieldExpression><![CDATA["- art. "+($F{artRappLegale}!=null ?  $F{artRappLegale}: " ")+" : Attribuzione rappresentanza legale"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="69" width="490" height="20"/>
+				<textFieldExpression><![CDATA["- art. "+($F{artSedeLegale}!=null ? $F{artSedeLegale} : " ")+" : Sede legale"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="425">
+			<textField>
+				<reportElement x="32" y="333" width="225" height="20"/>
+				<textFieldExpression><![CDATA[$P{comune}+", "+new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="385" y="330" width="114" height="23"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="335" y="375" width="215" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="32" y="15" width="491" height="186"/>
+				<text><![CDATA[Allega, ai sensi dell’art. 4, della L.R. n. 39/2007, la seguente documentazione:
+1. Atto Costitutivo in originale ovvero copia conforme all’originale ai sensi dell’art. 47 del DPR 445/2000;
+2. Statuto in originale ovvero copia conforme all’originale ai sensi dell’art. 47 del DPR 445/2000;
+3. Relazione sulle attività prevalenti dell’associazione a firma autografa del Presidente/legale rappresentante;
+4. Eventuale ultimo rendiconto consuntivo approvato a firma autografa del Presidente/legale rappresentante e verbale dell’assemblea di approvazione rendiconto;
+5. Elenco nominativo dei soggetti che ricoprono le cariche associative con l’indicazione dell’indirizzo presso cui è depositato l’elenco nominativo degli associati e del numero di codice fiscale dell’associazione (a firma autografa del Presidente/ legale rappresentante);
+6. Eventuale provvedimento di iscrizione nel Registro Nazionale delle associazioni di promozione sociale (L.383/2000).
+7. Polizze R.C.T. ed Infortuni.
+]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

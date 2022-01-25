@@ -1,0 +1,40 @@
+<data name="visuraTassaRifiutiBisService" serviceNamespace="http://servizi.osapulie.it">
+   <config id="default">
+      <property name="carbon_datasource_name">OSAPULIE_SERVIZI_DS</property>
+   </config>
+   <query id="select_all_posizioni_by_cf" useConfig="default">
+      <sql>SELECT id,  codiceImmobile,    indirizzoImmobile,    foglio,    numero,    particella,    destinazione,    tipo,    aliquota,    agevolazione,    dataInizio,    dataFine,    superficie,    tariffa,    detrazione,    tassa,    addizionaleComunale,    addizionaleProvinciale,    maggiorazioneStato,    descrizioneTassa, annoRiferimento FROM osapulie_servizi.visura_tassa_rifiuti WHERE codiceFiscale = ? AND annoRiferimento = ?;</sql>
+      <result element="posizioni" rowName="posizione">
+         <element column="id" name="id" xsdType="integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="string"/>
+         <element column="codiceImmobile" name="codiceImmobile" xsdType="integer"/>
+         <element column="indirizzoImmobile" name="indirizzoImmobile" xsdType="string"/>
+         <element column="foglio" name="foglio" xsdType="integer"/>
+         <element column="numero" name="numero" xsdType="integer"/>
+         <element column="particella" name="particella" xsdType="integer"/>
+         <element column="destinazione" name="destinazione" xsdType="string"/>
+         <element column="tipo" name="tipo" xsdType="string"/>
+         <element column="aliquota" name="aliquota" xsdType="string"/>
+         <element column="agevolazione" name="agevolazione" xsdType="string"/>
+         <element column="dataInizio" name="dataInizio" xsdType="date"/>
+         <element column="dataFine" name="dataFine" xsdType="date"/>
+         <element column="superficie" name="superficie" xsdType="integer"/>
+         <element column="tariffa" name="tariffa" xsdType="double"/>
+         <element column="detrazione" name="detrazione" xsdType="double"/>
+         <element column="tassa" name="tassa" xsdType="double"/>
+         <element column="addizionaleComunale" name="addizionaleComunale" xsdType="double"/>
+         <element column="addizionaleProvinciale" name="addizionaleProvinciale" xsdType="double"/>
+         <element column="maggiorazioneStato" name="maggiorazioneStato" xsdType="double"/>
+         <element column="descrizioneTassa" name="descrizioneTassa" xsdType="string"/>
+         <element column="annoRiferimento" name="annoRiferimento" xsdType="integer"/>
+      </result>
+      <param name="codiceFiscale" sqlType="STRING"/>
+      <param name="annoRiferimento" sqlType="INTEGER"/>
+   </query>
+   <operation name="getPosizioni">
+      <call-query href="select_all_posizioni_by_cf">
+         <with-param name="codiceFiscale" query-param="codiceFiscale"/>
+         <with-param name="annoRiferimento" query-param="annoRiferimento"/>
+      </call-query>
+   </operation>
+</data>

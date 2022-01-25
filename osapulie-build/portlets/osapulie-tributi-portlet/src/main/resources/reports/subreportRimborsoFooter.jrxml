@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rimborsoFooter" pageWidth="570" pageHeight="842" columnWidth="565" leftMargin="5" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.331000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="96"/>
+	<field name="motivo" class="java.lang.String"/>
+	<field name="rimborso" class="java.lang.Double"/>
+	<field name="mandato" class="java.lang.Boolean"/>
+	<field name="accredito" class="java.lang.Boolean"/>
+	<field name="assegno" class="java.lang.Boolean"/>
+	<field name="banca" class="java.lang.String"/>
+	<field name="filiale" class="java.lang.String"/>
+	<field name="iban" class="java.lang.String"/>
+	<field name="intestatario" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="131" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="72" width="550" height="50" isPrintInFirstWholeBand="true"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="18" width="550" height="28"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONSIDERATO]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="5" y="72" width="535" height="50"/>
+				<textElement textAlignment="Justified">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{motivo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="45" width="550" height="28"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[che tali versamenti sono risultati superiori al dovuto in quanto:]]></text>
+			</staticText>
+		</band>
+		<band height="393">
+			<rectangle>
+				<reportElement x="5" y="312" width="545" height="55" isPrintInFirstWholeBand="true"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="3" width="545" height="28"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHIEDE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="320" width="519" height="42"/>
+				<textElement textAlignment="Justified">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[A tal fine allega:
+     • copia bollettini di versamento;
+     • altri documenti utili.
+]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="26" y="79" width="17" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="26" y="106" width="17" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="26" y="254" width="17" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="27" y="79" width="16" height="20">
+					<printWhenExpression><![CDATA[$F{mandato} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="106" width="16" height="20">
+					<printWhenExpression><![CDATA[$F{accredito} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="254" width="16" height="20">
+					<printWhenExpression><![CDATA[$F{assegno} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="53" y="82" width="428" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[mandato da incassare presso lo sportello della Tesoreria Comunale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="53" y="109" width="428" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[accredito sul c/c bancario/postale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="53" y="256" width="428" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[assegno postale localizzato con spese a carico del beneficiario.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="26" y="133" width="494" height="109" isPrintInFirstWholeBand="true"/>
+			</rectangle>
+			<textField>
+				<reportElement x="105" y="140" width="402" height="20" isPrintInFirstWholeBand="true">
+					<printWhenExpression><![CDATA[$F{accredito} == true]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{banca}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="140" width="70" height="20" isPrintInFirstWholeBand="true"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Banca]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="105" y="165" width="402" height="20" isPrintInFirstWholeBand="true">
+					<printWhenExpression><![CDATA[$F{accredito} == true]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{filiale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="165" width="71" height="20" isPrintInFirstWholeBand="true"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Filiale di]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="105" y="193" width="402" height="20" isPrintInFirstWholeBand="true">
+					<printWhenExpression><![CDATA[$F{accredito} == true]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{iban}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="193" width="71" height="20" isPrintInFirstWholeBand="true"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codice IBAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="219" width="71" height="20" isPrintInFirstWholeBand="true"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Intestato a]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="105" y="219" width="402" height="20" isPrintInFirstWholeBand="true">
+					<printWhenExpression><![CDATA[$F{accredito} == true]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{intestatario}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="333" y="39" width="77" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rimborso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="39" width="150" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[, da effettuarsi tramite:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="39" width="328" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[che venga disposto il rimborso di quanto versato, ammontante a  ]]></text>
+			</staticText>
+		</band>
+		<band height="101" splitType="Prevent">
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="5" y="17" width="134" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="291" y="61" width="237" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="292" y="17" width="236" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Firma del dichiarante (per esteso e leggibile)]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

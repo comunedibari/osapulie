@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.web.protocollo.osapulie.it" targetNamespace="http://ws.web.protocollo.osapulie.it"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="DocumentoType.xsd" />
+	<xs:include schemaLocation="PersonaFisicaType.xsd" />
+	<xs:include schemaLocation="FascicoloType.xsd" />
+	<xs:complexType name="segnatura">
+		<xs:sequence>
+			<xs:element name="InOut" type="xs:string" />
+			<xs:element ref="tns:Intestazione" />
+			<xs:element ref="tns:Riferimenti" minOccurs="0" />
+			<xs:element ref="tns:Descrizione" />
+			<xs:element minOccurs="0" name="TipoOperazione" type="xs:string" />
+			<xs:element minOccurs="0" name="UtenteOperazione" type="xs:string" />
+			<xs:element minOccurs="0" name="DataModifica" type="xs:string" />
+			<xs:element minOccurs="0" name="ProvvedimentoModifica" type="xs:string" />
+			<xs:element minOccurs="0" name="DataArrivo" type="xs:string" />
+			<xs:element minOccurs="0" name="RiferimentoArrivo" type="xs:string" />
+		</xs:sequence>
+		<xs:attribute name="versione" type="xs:NMTOKEN" />
+		<xs:attribute name="lang" type="xs:anySimpleType" />
+	</xs:complexType>
+	<xs:element name="Intestazione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:Identificatore" />
+				<xs:element ref="tns:PrimaRegistrazione" minOccurs="0" />
+				<xs:element ref="tns:Origine" />
+				<xs:element ref="tns:Destinazione" maxOccurs="unbounded" />
+				<xs:element ref="tns:PerConoscenza" minOccurs="0" />
+				<xs:element name="Oggetto" type="xs:string" />
+				<xs:element ref="tns:Classifica" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element form="qualified" name="Note" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Riferimenti">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice maxOccurs="unbounded" minOccurs="0">
+					<xs:element ref="tns:Messaggio" />
+					<xs:element ref="tns:Procedimento" />
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Descrizione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Documento" type="tns:Documento" minOccurs="0" />
+				<xs:element ref="tns:Allegati" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element form="qualified" name="Note" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Identificatore">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CodiceAmministrazione" type="xs:string" />
+				<xs:element name="CodiceAOO" type="xs:string" />
+				<xs:element name="NumeroRegistrazione" type="xs:string" />
+				<xs:element name="DataRegistrazione" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PrimaRegistrazione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:Identificatore" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Origine">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Persona" type="tns:PersonaFisica" minOccurs="0" />
+				<xs:element ref="tns:Amministrazione" minOccurs="0" />
+				<xs:element ref="tns:AOO" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Destinazione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:Amministrazione" minOccurs="0" />
+				<xs:element ref="tns:AOO" />
+				<xs:element name="Persona"	type="tns:PersonaFisica" maxOccurs="unbounded" minOccurs="0" />
+				<xs:element name="IndirizzoTelematico" type="xs:string" minOccurs="0" />
+				<xs:element name="Telefono" type="xs:string" maxOccurs="unbounded" minOccurs="0" />
+				<xs:element name="Fax"	type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+				<xs:element name="IndirizzoPostale" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PerConoscenza">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="IndirizzoTelematico" type="xs:string" />
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:Destinazione" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Classifica">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CodiceAmministrazione" type="xs:string" minOccurs="0" />
+				<xs:element name="CodiceAOO" type="xs:string" minOccurs="0" />
+				<xs:element name="Denominazione" type="xs:string" minOccurs="0" />
+				<xs:element ref="tns:Livello" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Messaggio">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:Identificatore" minOccurs="0" />
+				<xs:element name="DescrizioneMessaggio" type="xs:string" minOccurs="0" />
+				<xs:element ref="tns:PrimaRegistrazione" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Procedimento">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CodiceAmministrazione" type="xs:string" />
+				<xs:element name="CodiceAOO" type="xs:string" />
+				<xs:element form="qualified" name="Identificativo"	type="xs:string" />
+				<xs:element name="TipoProcedimento" type="xs:string" minOccurs="0" />
+				<xs:element form="qualified" name="Oggetto" type="xs:string" minOccurs="0" />
+				<xs:element ref="tns:Classifica" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="tns:Responsabile" minOccurs="0" />
+				<xs:element name="DataAvvio" type="xs:string" minOccurs="0" />
+				<xs:element name="DataTermine" type="xs:string" minOccurs="0" />
+				<xs:element form="qualified" name="Note" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" />
+			<xs:attribute name="rife" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Allegati">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Documento" type="tns:Documento" minOccurs="0" />
+				<xs:element name="Fascicolo" type="tns:Fascicolo" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Amministrazione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Denominazione" type="xs:string" />
+				<xs:element name="CodiceAmministrazione" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AOO">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Denominazione" type="xs:string" />
+				<xs:element name="CodiceAOO" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Responsabile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Persona" type="tns:PersonaFisica" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

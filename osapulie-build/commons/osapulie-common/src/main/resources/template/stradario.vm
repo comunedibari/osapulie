@@ -1,0 +1,271 @@
+<div class="${portletNamespace}stradarioSearch" id="${portletNamespace}stradarioSearch_${id}">
+	#if ($stradarioEnable)
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var ${portletNamespace}vieJson_${id};
+		var ${portletNamespace}civiciJson_${id};
+		$("#${portletNamespace}stradarioSearch_${id} input[type='button']").on("click", function (event) {
+			var thisButton = $(event.target);
+			var searchValue = $(thisButton).parent().prev().find("#${portletNamespace}indirizzoInput_${id}").val();
+			if (searchValue.length < ${numCaratteriMin}) {
+				alert("Inserire almeno ${numCaratteriMin} caratteri.");
+				return;
+			}
+			#if ($loadingImageSrc)
+			$(thisButton).hide();
+			$(thisButton).next("#${portletNamespace}loadingButtonDiv_${id}").show();
+			#end
+			
+			var url = "${resourceURL}";
+			var selectVie = $(thisButton).parent().next().next().find("#${portletNamespace}viaSelect_${id}")[0];
+			var selectCivici = $(thisButton).parent().next().next().next().find("#${portletNamespace}civicoSelect_${id}")[0];
+			var civicoText = $(thisButton).parent().next().next().next().find("#${portletNamespace}civicoText_${id}")[0];
+			var esponenteDiv = $(thisButton).parent().next().next().next().find("#${portletNamespace}esponenteDiv_${id}")[0];
+			var erroreDiv = $(thisButton).parent().parent().find("#${portletNamespace}erroreDiv_${id}")[0];
+			
+			$(erroreDiv).find("span").remove();
+			$(erroreDiv).hide();
+			$(selectVie).find("option").remove();
+			$(selectVie).css("color", "");
+			$(selectCivici).find("option").remove();
+			$(selectCivici).css("color", "");
+			$(selectCivici).attr("name", "${civicoName}");
+			$(selectCivici).show();
+			$(civicoText).hide();
+			$(civicoText).val("");
+			$(esponenteDiv).hide();
+			$(esponenteDiv).val("");
+			
+			#[[ 
+		  	var dataTosend = {"indirizzo": searchValue};
+		  	
+			$.ajax({
+				url: url,
+				cache: false,
+				dataType: 'json',
+				data: dataTosend,
+				async: true,
+				success: function(data) {
+					if (data.errore) {
+						$(erroreDiv).append($("<span></span>").css("color", "red").text(data.errore.messaggio));
+						$(erroreDiv).show();
+					}
+					else {
+						]]#
+						${portletNamespace}vieJson_${id} = data.vie;
+						$(selectVie).append($("<option></option>").attr("value", "").text("${selezionaLabel}")); 
+						$(selectCivici).append($("<option></option>").attr("value", "0").text("${selezionaLabel}")); 
+						$(selectCivici).append($("<option></option>").attr("value", "-1").text("-- Inserimento manuale --")); 
+						#[[
+						$.each(data.vie, function(i, via) {
+							var denominazioneVia = via.denominazione;
+							if (via.localita) {
+								denominazioneVia += " - " + via.localita;
+							}
+							$(selectVie).append($("<option></option>").attr("value", via.identificativo + "-" + via.localita).text(denominazioneVia)); 
+						});
+						]]#
+					}
+				},
+				error: function (jqXHR, exception) {
+					console.log("ERRORE: " + exception);
+					$(erroreDiv).append($("<span></span>").css("color", "red").text("Errore di comunicazione, riprovare. Se il problema persiste contattare l'amministratore di sistema."));
+					$(erroreDiv).show();
+				}
+			}).always(function() {
+				#if ($loadingImageSrc)
+				$(thisButton).next("#${portletNamespace}loadingButtonDiv_${id}").hide();
+				$(thisButton).show();
+				#end
+			});
+		});
+		$("#${portletNamespace}viaSelect_${id}").on("change", function (event) {
+			if (${portletNamespace}vieJson_${id}) {
+			    var optionSelected = $("option:selected", this);
+			    var valueSelected = this.value;
+			    var textSelected = $(optionSelected).text();
+			    if (valueSelected != null) {
+				    var selectCivici = $(event.target).parent().next("div").find("#${portletNamespace}civicoSelect_${id}")
+		    		$(selectCivici).attr("name", "${civicoName}");
+				    $(selectCivici).show();
+		    		$(selectCivici).next("#${portletNamespace}civicoText_${id}").attr("name", "");
+		    		$(selectCivici).next("#${portletNamespace}civicoText_${id}").hide();
+		    		#if ($esponenteName)
+				    	$(selectCivici).parent().find("#${portletNamespace}esponenteDiv_${id}").hide();
+				    	$(selectCivici).parent().find("#${portletNamespace}esponenteText_${id}").val("");
+				    	$(selectCivici).parent().find("#${portletNamespace}esponenteText_${id}").attr("type", "hidden");
+			    	#end
+				    
+				    $(selectCivici).find("option").remove();
+				    $(selectCivici).append($("<option></option>").attr("value", "0").text("${selezionaLabel}"));
+				    $(selectCivici).append($("<option></option>").attr("value", "-1").text("-- Inserimento manuale --")); 
+				    $.each(${portletNamespace}vieJson_${id}, function(i, via) {
+				    	if ((via.identificativo + "-" + via.localita) == valueSelected) {
+				    		$(event.target).parent().find("#${portletNamespace}viaTextHidden_${id}").attr("value", via.denominazione);
+				    		$(event.target).parent().find("#${portletNamespace}localitaHidden_${id}").attr("value", via.localita);
+				    		$(event.target).parent().find("#${portletNamespace}codiceViaHidden_${id}").attr("value", via.identificativo);
+				    		
+				    		${portletNamespace}civiciJson_${id} = via.civici;
+		#[[
+				    		var civici = via.civici;
+				    		$.each(civici, function(j, civico) {
+				    			var descrizioneCivico = civico.numero;
+				    			if (civico.esponente){
+				    				descrizioneCivico += "/" + civico.esponente;
+				    			}
+				    			$(selectCivici).append($("<option></option>").attr("value", civico.identificativo).text(descrizioneCivico)); 
+				    		});
+				    	}
+				    });
+			    }
+			}
+		});
+		]]#
+		$("#${portletNamespace}civicoSelect_${id}").on("change", function (event) {
+			var optionSelected = $("option:selected", this);
+		    var valueSelected = $(optionSelected).val();
+		    /* Inserimento manuale */
+		    if (valueSelected == "-1") {
+		    	$(event.target).parent().find("#${portletNamespace}civicoSelect_${id}").hide();
+		    	$(event.target).parent().find("#${portletNamespace}civicoSelect_${id}").attr("name", "");
+		    	$(event.target).next("#${portletNamespace}civicoText_${id}").show();
+		    	$(event.target).next("#${portletNamespace}civicoText_${id}").attr("name", "${civicoName}");
+		    	#if ($esponenteName)
+		    	$(event.target).parent().find("#${portletNamespace}esponenteDiv_${id}").show();
+		    	$(event.target).parent().find("#${portletNamespace}esponenteText_${id}").val("");
+		    	$(event.target).parent().find("#${portletNamespace}esponenteText_${id}").attr("type", "text");
+		    	#end
+		    	#if ($capName)
+		    	$(event.target).parent().find("#${portletNamespace}capDiv_${id}").show();
+		    	$(event.target).parent().find("#${portletNamespace}capText_${id}").val("");
+		    	$(event.target).parent().find("#${portletNamespace}capText_${id}").attr("type", "text");
+		    	#end
+		    }
+		    else {
+		    	var numeroCivicoValue;
+		    	var esponenteValue;
+		    	var capValue;
+		    	$.each(${portletNamespace}civiciJson_${id}, function(j, civico) {
+		    		if (civico.identificativo == valueSelected) {
+		    			numeroCivicoValue = civico.numero;
+		    			esponenteValue = civico.esponente;
+		    			capValue = civico.cap;
+		    		}
+	    		});
+		    	$(event.target).parent().find("#${portletNamespace}civicoSelect_${id}").show();
+		    	$(event.target).parent().find("#${portletNamespace}civicoSelect_${id}").attr("name", "${civicoName}");
+		    	$(event.target).next("#${portletNamespace}civicoText_${id}").hide();
+		    	$(event.target).next("#${portletNamespace}civicoText_${id}").attr("name", "");
+		    	$(event.target).parent().find("#${portletNamespace}civicoTextHidden_${id}").attr("value", numeroCivicoValue);
+		    	#if ($esponenteName)
+		    	$(event.target).parent().find("#${portletNamespace}esponenteDiv_${id}").hide();
+		    	$(event.target).parent().find("#${portletNamespace}esponenteText_${id}").attr("type", "hidden");
+		    	$(event.target).parent().find("#${portletNamespace}esponenteText_${id}").val(esponenteValue);
+		    	#end
+		    	#if ($capName)
+		    	$(event.target).parent().find("#${portletNamespace}capDiv_${id}").hide();
+		    	$(event.target).parent().find("#${portletNamespace}capText_${id}").attr("type", "hidden");
+		    	$(event.target).parent().find("#${portletNamespace}capText_${id}").val(capValue);
+		    	#end
+			}
+		});
+		$("#${portletNamespace}civicoText_${id}").on("change paste keyup", function(event) {
+		   this.value = this.value.replace(/[^0-9]/g, '');
+		   $(event.target).next("#${portletNamespace}civicoTextHidden_${id}").val($(this).val());
+		});
+		#if ($capName)
+		$("#${portletNamespace}capText_${id}").on("change paste keyup", function(event) {
+		   this.value = this.value.replace(/[^0-9]/g, '');
+		   $(event.target).next("#${portletNamespace}capTextHidden_${id}").val($(this).val());
+		});
+		#end
+	});
+	</script>
+	<div style="float: left; width: 76%;margin-right:5%;" id="${portletNamespace}indirizzoInputDiv_${id}">
+		#if ($viaOptionText)
+		<input type="text" class="${portletNamespace}indirizzoInputText" id="${portletNamespace}indirizzoInput_${id}" value="${viaOptionText}" style="width: 100%;padding:5px 2px !important;">
+		#else
+		<input type="text" class="${portletNamespace}indirizzoInputText" id="${portletNamespace}indirizzoInput_${id}" style="width: 100%;padding:5px 2px !important;">
+		#end
+	</div>
+	<div style="float: left; width: 19%;" id="${portletNamespace}indirizzoSearchButtonDiv_${id}">	
+		<input type="button" class="${portletNamespace}indirizzoSearchButton" id="${portletNamespace}indirizzoSearchButton_${id}" value="${cercaLabel}" style="width: 100%;">
+		#if ($loadingImageSrc)
+		<div class="${portletNamespace}loadingButtonDiv" id="${portletNamespace}loadingButtonDiv_${id}" style="display:none;">
+		    <img src="${loadingImageSrc}" id="${portletNamespace}loadingButton_${id}" alt="Caricamento..." style="width: 25px;"/>
+		</div>
+		#end
+	</div>
+	<div style="clear:both;overflow:hidden;height:0px;font-size:0px;"></div>
+	<div style="float: left; width: 70%;">
+		<div>${viaLabel}:</div>
+		<select name="${viaName}" id="${portletNamespace}viaSelect_${id}" class="${portletNamespace}${viaClass}" style="width: 100%;">
+			<option value="${viaOptionValue}">
+			#if ($viaOptionText)
+				${viaOptionText}
+			#end
+			</option>
+		</select>
+		<input type="hidden" name="${viaTextHiddenName}" id="${portletNamespace}viaTextHidden_${id}" value="${viaOptionText}">
+		<input type="hidden" name="${localitaHiddenName}" id="${portletNamespace}localitaHidden_${id}" value="${localitaValue}">
+		<input type="hidden" name="${codiceViaHiddenName}" id="${portletNamespace}codiceViaHidden_${id}" value="${codiceViaValue}">
+	</div>
+	<div style="float: left; width: 29%; margin-left: 1%;">
+		<div>${civicoLabel}:</div>
+		<select name="${civicoName}" id="${portletNamespace}civicoSelect_${id}" class="${portletNamespace}${civicoClass}" style="width: 100%;">
+			#if ($civicoOptionText)
+			<option value="-1">-- Inserimento manuale --</option>
+			<option value="${civicoOptionValue}" selected="selected">
+				${civicoOptionText}#if($esponenteValue && !$esponenteValue.empty)/${esponenteValue}#end#if($capValue && !$capValue.empty)&nbsp;-&nbsp;${capValue}#end
+			</option>
+			#end
+		</select>
+		<input type="text" id="${portletNamespace}civicoText_${id}" value="${civicoOptionText}" style="width: 100%; display:none;">
+		<input type="hidden" name="${civicoTextHiddenName}" id="${portletNamespace}civicoTextHidden_${id}" value="${civicoOptionText}" style="width: 100%;">
+		#if ($esponenteName)
+		<div id="${portletNamespace}esponenteDiv_${id}" style="display:none;">
+			<span>${esponenteLabel}:</span>
+			<input type="hidden" name="${esponenteName}" id="${portletNamespace}esponenteText_${id}" value="${esponenteValue}" style="width: 100%;">
+		</div>
+		#end
+		#if ($capName)
+		<div id="${portletNamespace}capDiv_${id}" style="display:none;">
+			<span>${capLabel}:</span>
+			<input type="hidden" name="${capName}" id="${portletNamespace}capText_${id}" value="${capValue}" style="width: 100%;">
+		</div>
+		#end
+	</div>
+	<div style="clear:both;overflow:hidden;height:0px;font-size:0px;"></div>
+	<div id="${portletNamespace}erroreDiv_${id}" style="display:none;width: 100%;">
+	</div>
+	#else
+	<div style="float: left; width: 70%;">
+		<div>${viaLabel}:</div>
+		#if ($viaOptionValue)
+		<input type="text" name="${viaName}" class="${portletNamespace}viaInputText" id="${portletNamespace}viaInput_${id}" value="${viaOptionValue}" style="width: 100%;">
+		#else
+		<input type="text" name="${viaName}" class="${portletNamespace}viaInputText" id="${portletNamespace}viaInput_${id}" style="width: 100%;">
+		#end
+	</div>
+	<div style="float: left; width: 29%; margin-left: 1%;">
+		<div>${civicoLabel}:</div>
+		#if ($civicoOptionValue)
+		<input type="text" name="${civicoName}" class="${portletNamespace}civicoInputText" id="${portletNamespace}civicoInput_${id}" value="${civicoOptionValue}" style="width: 100%;">
+		#else
+		<input type="text" name="${civicoName}" class="${portletNamespace}civicoInputText" id="${portletNamespace}civicoInput_${id}" style="width: 100%;">
+		#end
+		#if ($esponenteName)
+		<div id="${portletNamespace}esponenteDiv_${id}" style="width: 100%;">
+			<span>${esponenteLabel}:</span>
+			<input type="text" name="${esponenteName}" id="${portletNamespace}esponenteText_${id}" value="${esponenteValue}" style="width: 100%;">
+		</div>
+		#end
+		#if ($capName)
+		<div id="${portletNamespace}capDiv_${id}" style="width: 100%;">
+			<span>${capLabel}:</span>
+			<input type="text" name="${capName}" id="${portletNamespace}capText_${id}" value="${capValue}" style="width: 100%;">
+		</div>
+		#end
+	</div>
+	#end
+</div>

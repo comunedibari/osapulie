@@ -1,0 +1,130 @@
+<data enableBatchRequests="false" enableBoxcarring="false" name="visuraServiziCimiterialiService" serviceNamespace="http://servizi.osapulie.it" serviceStatus="active">
+   <config id="default">
+      <property name="carbon_datasource_name">OSAPULIE_SERVIZI_DS</property>
+   </config>
+   <query id="select_with_key_visura_servizi_cimiteriali_query" useConfig="default">
+      <sql>SELECT id, codiceFiscale, dataAggiornamento, contoCorrente, importoDocumento, numeroDocumento, annoRiferimento FROM visura_servizi_cimiteriali WHERE codiceFiscale = ? AND annoRiferimento >= ? AND annoRiferimento &lt;= ?</sql>
+      <result element="visureServiziCimiteriali" rowName="visuraServiziCimiteriali">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="dataAggiornamento" name="dataAggiornamento" xsdType="xs:date"/>
+         <element column="contoCorrente" name="contoCorrente" xsdType="xs:string"/>
+         <element column="importoDocumento" name="importoDocumento" xsdType="xs:double"/>
+         <element column="numeroDocumento" name="numeroDocumento" xsdType="xs:string"/>
+         <element column="annoRiferimento" name="annoRiferimento" xsdType="xs:integer"/>
+      </result>
+      <param name="codiceFiscale" sqlType="STRING"/>
+      <param name="annoDa" sqlType="INTEGER"/>
+      <param name="annoA" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_id_visura_servizi_cimiteriali_query" useConfig="default">
+      <sql>SELECT id, codiceFiscale, dataAggiornamento, contoCorrente, importoDocumento, numeroDocumento, annoRiferimento FROM visura_servizi_cimiteriali WHERE id = ?</sql>
+      <result element="visureServiziCimiteriali" rowName="visuraServiziCimiteriali">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="dataAggiornamento" name="dataAggiornamento" xsdType="xs:date"/>
+         <element column="contoCorrente" name="contoCorrente" xsdType="xs:string"/>
+         <element column="importoDocumento" name="importoDocumento" xsdType="xs:double"/>
+         <element column="numeroDocumento" name="numeroDocumento" xsdType="xs:string"/>
+         <element column="annoRiferimento" name="annoRiferimento" xsdType="xs:integer"/>
+      </result>
+      <param name="id" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_servizi_cimiteriali_posizioni_query" useConfig="default">
+      <sql>SELECT id, nomecimitero, posizione, idVisura FROM visura_servizi_cimiteriali_posizioni WHERE idVisura=?</sql>
+      <result element="posizioniVisuraServiziCimiteriali" rowName="posizioneVisuraServiziCimiteriali">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="nomecimitero" name="nomecimitero" xsdType="xs:string"/>
+         <element column="posizione" name="posizione" xsdType="xs:string"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="idVisura" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_servizi_cimiteriali_lampadevotive_query" useConfig="default">
+      <sql>SELECT id, mesi, tariffa, importoLampada, idPosizione FROM visura_servizi_cimiteriali_lampadevotive WHERE idPosizione=?</sql>
+      <result element="lampadeVotivePosizioneVisuraServiziCimiteriali" rowName="lampadaVotivaPosizioneVisuraServiziCimiteriali">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="mesi" name="mesi" xsdType="xs:integer"/>
+         <element column="tariffa" name="tariffa" xsdType="xs:string"/>
+         <element column="importoLampada" name="importoLampada" xsdType="xs:double"/>
+         <element column="idPosizione" name="idPosizione" xsdType="xs:integer"/>
+      </result>
+      <param name="idPosizione" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_servizi_cimiteriali_defunti_query" useConfig="default">
+      <sql>SELECT id, nomeDefunto, dataNascita, dataMorte, idPosizione FROM visura_servizi_cimiteriali_defunti WHERE idPosizione=?</sql>
+      <result element="defuntiPosizioneVisuraServiziCimiteriali" rowName="defuntoPosizioneVisuraServiziCimiteriali">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="nomeDefunto" name="nomeDefunto" xsdType="xs:string"/>
+         <element column="dataNascita" name="dataNascita" xsdType="xs:date"/>
+         <element column="dataMorte" name="dataMorte" xsdType="xs:date"/>
+         <element column="idPosizione" name="idPosizione" xsdType="xs:integer"/>
+      </result>
+      <param name="idPosizione" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_servizi_cimiteriali_rate_query" useConfig="default">
+      <sql>SELECT id, importoRata, scadenzaRata, numeroRata, identificativoRata, importoPagato, dataPagamento, idVisura FROM visura_servizi_cimiteriali_rate WHERE idVisura=?</sql>
+      <result element="rateVisuraServiziCimiteriali" rowName="rataVisuraServiziCimiteriali">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="importoRata" name="importoRata" xsdType="xs:double"/>
+         <element column="scadenzaRata" name="scadenzaRata" xsdType="xs:date"/>
+         <element column="numeroRata" name="numeroRata" xsdType="xs:integer"/>
+         <element column="identificativoRata" name="identificativoRata" xsdType="xs:string"/>
+         <element column="importoPagato" name="importoPagato" xsdType="xs:double"/>
+         <element column="dataPagamento" name="dataPagamento" xsdType="xs:date"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="idVisura" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_identificativoRata_visura_servizi_cimiteriali_rate_query" useConfig="default">
+      <sql>SELECT id, importoRata, scadenzaRata, numeroRata, identificativoRata, importoPagato, dataPagamento, idVisura FROM visura_servizi_cimiteriali_rate WHERE identificativoRata=?</sql>
+      <result element="rateVisuraServiziCimiteriali" rowName="rataVisuraServiziCimiteriali">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="importoRata" name="importoRata" xsdType="xs:double"/>
+         <element column="scadenzaRata" name="scadenzaRata" xsdType="xs:date"/>
+         <element column="numeroRata" name="numeroRata" xsdType="xs:integer"/>
+         <element column="identificativoRata" name="identificativoRata" xsdType="xs:string"/>
+         <element column="importoPagato" name="importoPagato" xsdType="xs:double"/>
+         <element column="dataPagamento" name="dataPagamento" xsdType="xs:date"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="identificativoRata" sqlType="STRING"/>
+   </query>
+   <operation name="getVisureServiziCimiteriali">
+      <call-query href="select_with_key_visura_servizi_cimiteriali_query">
+         <with-param name="codiceFiscale" query-param="codiceFiscale"/>
+         <with-param name="annoDa" query-param="annoDa"/>
+         <with-param name="annoA" query-param="annoA"/>
+      </call-query>
+   </operation>
+   <operation name="getVisuraServiziCimiteriali">
+      <call-query href="select_with_key_id_visura_servizi_cimiteriali_query">
+         <with-param name="id" query-param="id"/>
+      </call-query>
+   </operation>
+   <operation name="getPosizioniVisuraServiziCimiteriali">
+      <call-query href="select_with_key_visura_servizi_cimiteriali_posizioni_query">
+         <with-param name="idVisura" query-param="idVisura"/>
+      </call-query>
+   </operation>
+   <operation name="getLampadeVotivePosizioneVisuraServiziCimiteriali">
+      <call-query href="select_with_key_visura_servizi_cimiteriali_lampadevotive_query">
+         <with-param name="idPosizione" query-param="idVisura"/>
+      </call-query>
+   </operation>
+   <operation name="getDefuntiPosizioneVisuraServiziCimiteriali">
+      <call-query href="select_with_key_visura_servizi_cimiteriali_defunti_query">
+         <with-param name="idPosizione" query-param="idVisura"/>
+      </call-query>
+   </operation>
+   <operation name="getRateVisuraServiziCimiteriali">
+      <call-query href="select_with_key_visura_servizi_cimiteriali_rate_query">
+         <with-param name="idVisura" query-param="idVisura"/>
+      </call-query>
+   </operation>
+   <operation name="getRataVisuraServiziCimiteriali">
+      <call-query href="select_with_key_identificativoRata_visura_servizi_cimiteriali_rate_query">
+         <with-param name="identificativoRata" query-param="identificativoRata"/>
+      </call-query>
+   </operation>
+</data>

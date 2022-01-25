@@ -1,0 +1,12 @@
+ALTER TABLE tb_profilo_utente_cittadino DROP FOREIGN KEY FK_tb_profilo_utente_cittadino_fk_ind_comune
+ALTER TABLE tb_fascicolo_utente DROP FOREIGN KEY FK_tb_fascicolo_utente_fk_cittadino
+ALTER TABLE tb_richiesta_servizio DROP FOREIGN KEY FK_tb_richiesta_servizio_fk_fascicolo
+ALTER TABLE tb_richiesta_servizio DROP FOREIGN KEY FK_tb_richiesta_servizio_fk_comune
+ALTER TABLE tb_servizio_erogato DROP FOREIGN KEY FK_tb_servizio_erogato_fk_servizio
+DROP TABLE tb_comune
+DROP TABLE tb_profilo_utente_cittadino
+DROP TABLE tb_fascicolo_utente
+DROP TABLE tb_richiesta_servizio
+DROP TABLE tb_servizio
+DROP TABLE tb_servizio_erogato
+DELETE FROM SEQUENCE WHERE SEQ_NAME = 'SEQ_GEN'

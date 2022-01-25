@@ -1,0 +1,256 @@
+.mainDiv .datiAnagraficiAvanzatitable .autenticazioneTd IMG {
+	margin-top: 5px;
+	vertical-align: bottom;
+}
+
+.mainDiv .datiAnagraficiAvanzatitable .autenticazioneTd SPAN {
+	font-weight: bold;
+	margin-left: 5px;
+}
+
+.dichiarazioneImuTasiColumn {
+	padding-left: 10px;
+	padding-bottom: 6px;
+}
+
+.buttonsDiv {
+	margin: 15px;
+	text-align: center;
+	padding: 15px;
+	text-decoration: none;
+}
+
+.buttonsDiv A.button {
+	border-radius: 4px 4px 4px 4px;
+	margin: 2px 4px 2px 2px;
+	padding-bottom: 7px;
+	padding-top: 6px;
+	text-decoration: none !important;
+}
+
+.buttonsDiv A.button SPAN {
+	margin: 10px;
+}
+
+.border-bottom {
+	border-bottom: 1px solid #828282;
+}
+
+.padding-top-td>td, .padding-top-th>th {
+	padding-top: 15px !important;
+}
+
+.padding-bottom-td>td {
+	padding-bottom: 15px !important;
+}
+
+.upperCase {
+	text-transform: uppercase;
+}
+
+.errorField {
+	background: url("../images/error.png") no-repeat scroll 6px 50% #FFDDDD;
+	border: 1px solid #FF0000;
+	font-weight: bold;
+	margin: 6px 15px 15px 0;
+	padding: 3px 6px 3px 30px;
+	text-align: left;
+}
+
+.mainDiv TABLE .serviziListBox {
+	width: 300px;
+}
+
+.mainDiv TABLE.genericTable.shrinked {
+	width: 0%;
+	margin-bottom: 0px;
+}
+
+.liferayUiDate {
+	min-width: 230px;
+}
+
+.datiObbligatoriDiv {
+	text-align: right;
+	color: #5B677D;
+}
+
+.textarea {
+	width: 100%;
+}
+
+/* DisplayTable */
+.elencoRisultati {
+	clear: both;
+	border: 1px solid #cccccc;
+	margin-top: 5px;
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 2px;
+}
+
+.elencoRisultati TH {
+	background-color: #f6f6f6;
+	color: #333;
+	font-weight: bold;
+	padding: 4px;
+	vertical-align: middle;
+}
+
+.elencoRisultati TH.sorted {
+	padding-left: 15px;
+}
+
+.elencoRisultati TH.sorted.order1 {
+	background-image: url(../images/01_up.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 15px;
+}
+
+.elencoRisultati TH.sorted.order2 {
+	background-image: url(../images/01_down.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 15px;
+}
+
+.elencoRisultati TH.sortable a {
+	text-decoration: none;
+}
+
+.elencoRisultati TD {
+	padding: 2px 3px;
+}
+
+.elencoRisultati TR.even TD {
+	background-color: #F6F6F6;
+}
+
+.elencoRisultati TR.odd TD {
+	background-color: #ffffff;
+}
+
+.elencoRisultati TR TD.centerTd, .elencoRisultati TR TH.centerTd {
+	text-align: center;
+}
+
+.elencoRisultati TD.campoLabel {
+	vertical-align: top;
+	font-weight: bold;
+}
+
+.paginazioneRisultati {
+	background-color: #f0f0f0;
+	float: right;
+	padding: 3px 10px 3px 0px;
+}
+
+.paginazionePagine {
+	background-color: #f0f0f0;
+	padding: 3px 0px 3px 0px;
+	text-align: center;
+	color: #c0c0c0;
+}
+
+.paginazionePagine STRONG {
+	color: #c40000;
+	padding: 0px 3px;
+}
+
+.paginazionePagine A {
+	padding: 0px 3px;
+}
+
+.paginazionePagine A:link, .paginazionePagine A:visited {
+	color: #641B0A;
+}
+
+.paginazionePagine A:hover {
+	text-decoration: underline;
+	color: #000000;
+}
+
+.nessunRisultato {
+	margin: 10px;
+}
+
+.red {
+	color: red;
+}
+
+.backgroundRed {
+	background-color: #ee1b22 !important;
+}
+
+.genericTable.customtable th, .genericTable.customtable td {
+	border: 1px solid;
+}
+
+.genericTable.customtable td.noborder {
+	border: none;
+}
+
+.genericTable.customtable th.radiocolumn {
+	text-align: center;
+}
+
+/* Select dei comuni con loader */
+.comuneSelect select {
+	float: left;
+}
+
+.comuneSelect .loader {
+	display: none;
+	float: left;
+	margin-left: 5px;
+}
+
+.comuneSelect .loader IMG {
+	width: 25px;
+}
+
+/* select2 */
+.select2-container--classic .select2-selection--single {
+	background: #fff !important;
+	border-radius: 0 !important;
+	border: 1px solid #e5e5e5 !important;
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__arrow
+	{
+	border-radius: 0px !important;
+	width: 10px !important;
+}
+
+.select2-container--classic.select2-container--open .select2-selection--single
+	{
+	border-color: #e5e5e5 !important;
+}
+
+.select2-container--classic.select2-container--open .select2-dropdown {
+	border-color: #e5e5e5 !important;
+}
+
+#formServizio, #msgServizioLimitato, #infoNuovaIscrizione {
+	display: none;
+}
+
+#divLoading {
+	display: none;
+}
+
+#divLoading.show {
+	display: block;
+	position: fixed;
+	z-index: 999;
+	background-image: url('../images/loader.gif');
+	background-color: #666;
+	opacity: 0.4;
+	background-repeat: no-repeat;
+	background-position: center;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	top: 0;
+}

@@ -1,0 +1,13 @@
+L'operazione di inserimento operatore effettuata da <b>${nomeUtenteCorrente} ${cognomeUtenteCorrente}</b> &eacute; andata a buon fine.
+Di seguito i dettagli dell'operazione: </br>
+
+<br>Azienda di riferimento: <b>${ragSociale}</b></br>
+<ul>
+Nominativo/i operatore/i : </br>
+	  #foreach( ${app} in ${cognomenome} )
+    		<li><b>${app.cognome} ${app.nome}</b></li>
+  	  #end
+</ul>
+
+
+Cordiali saluti.

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
+
+	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter"
+		p:databasePlatform="org.eclipse.persistence.platform.database.MySQLPlatform" 
+		p:showSql="true"/>
+
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+		p:dataSource-ref="dataSource">
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
+		<property name="persistenceXmlLocation" value="classpath:META-INF/prod-persistence.xml" />
+		<property name="persistenceUnitName" value="osapulie" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
+			p:entityManagerFactory-ref="entityManagerFactory"/>
+<!-- 	<bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager" /> -->
+
+	<!-- JNDI Datasource -->
+	<jee:jndi-lookup id="dataSource" jndi-name="${dataSourceJndiName}" />
+	
+	<!--======================================================================
+		Create and/or publish JPA repositories.
+	 ======================================================================-->
+	<jpa:repositories base-package="it.osapulie.persistence" />
+	
+	<context:component-scan base-package="it.osapulie.persistence.impl" />
+</beans>

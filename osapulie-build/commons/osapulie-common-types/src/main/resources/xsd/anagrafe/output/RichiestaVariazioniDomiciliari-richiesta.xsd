@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="richiestaVariazioniDomiciliari">
+		<xs:annotation>
+			<xs:documentation>Richiesta variazioni domiciliari</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="codiceFiscale"> <!-- codice fiscale del cittadino -->
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="16" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<!-- viene definito un range di date fra cui cercare variazioni domiciliari -->
+				<xs:element name="dataPartenza" type="xs:date" /> <!-- criterio di selezione: limite inferiore (formato: aaaa-mm-gg) -->
+				<xs:element name="dataFine" type="xs:date" /> <!-- criterio di selezione: limite superiore (formato: aaaa-mm-gg) -->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

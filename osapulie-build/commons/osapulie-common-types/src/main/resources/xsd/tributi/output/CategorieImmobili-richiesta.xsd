@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://types.output.tributi.osapulie.it" targetNamespace="http://types.output.tributi.osapulie.it" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:element name="categorieImmobiliRichiesta">
+		<xs:annotation>
+			<xs:documentation>Dati di richiesta relativi al
+				servizio di
+				caricamento categorie di immobili
+				e relative aliquote per i
+				servizi
+				tributari previsti.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="anno" type="xs:int" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

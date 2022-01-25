@@ -1,0 +1,125 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://servizi.osapulie.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://servizi.osapulie.it">
+    <wsdl:documentation/>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://servizi.osapulie.it">
+            <xs:element name="getVisuraAnagraficaLight">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="visureAnagrafiche" type="ns0:visureAnagrafiche"/>
+            <xs:complexType name="visureAnagrafiche">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="visuraAnagrafica" type="ns0:visuraAnagrafica"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="visuraAnagrafica">
+                <xs:sequence>
+                    <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                    <xs:element name="cognome" nillable="true" type="xs:string"/>
+                    <xs:element name="nome" nillable="true" type="xs:string"/>
+                    <xs:element name="dataNascita" nillable="true" type="xs:date"/>
+                    <xs:element name="comuneNascita" nillable="true" type="xs:string"/>
+                    <xs:element name="provinciaNascita" nillable="true" type="xs:string"/>
+                    <xs:element name="indirizzo" nillable="true" type="xs:string"/>
+                    <xs:element name="cap" nillable="true" type="xs:string"/>
+                    <xs:element name="comuneResidenza" nillable="true" type="xs:string"/>
+                    <xs:element name="provinciaResidenza" nillable="true" type="xs:string"/>
+                    <xs:element name="codiceIstatResidenza" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+            <xs:element name="DataServiceFault" type="xs:string"/>
+            <xs:element name="REQUEST_STATUS" type="xs:string"/>
+            <xs:element name="DATA_SERVICE_RESPONSE">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getVisuraAnagraficaLightRequest">
+        <wsdl:part name="parameters" element="ns0:getVisuraAnagraficaLight"/>
+    </wsdl:message>
+    <wsdl:message name="getVisuraAnagraficaLightResponse">
+        <wsdl:part name="parameters" element="ns0:visureAnagrafiche"/>
+    </wsdl:message>
+    <wsdl:message name="DataServiceFault">
+        <wsdl:part name="parameters" element="ns1:DataServiceFault"/>
+    </wsdl:message>
+    <wsdl:portType name="visuraAnagraficaLightServicePortType">
+        <wsdl:operation name="getVisuraAnagraficaLight">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getVisuraAnagraficaLightRequest" wsaw:Action="urn:getVisuraAnagraficaLight"/>
+            <wsdl:output message="ns0:getVisuraAnagraficaLightResponse" wsaw:Action="urn:getVisuraAnagraficaLightResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisuraAnagraficaLightDataServiceFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="visuraAnagraficaLightServiceSOAP11Binding" type="ns0:visuraAnagraficaLightServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getVisuraAnagraficaLight">
+            <soap:operation soapAction="urn:getVisuraAnagraficaLight" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraAnagraficaLightServiceSOAP12Binding" type="ns0:visuraAnagraficaLightServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getVisuraAnagraficaLight">
+            <soap12:operation soapAction="urn:getVisuraAnagraficaLight" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraAnagraficaLightServiceHttpBinding" type="ns0:visuraAnagraficaLightServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getVisuraAnagraficaLight">
+            <http:operation location="getVisuraAnagraficaLight"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="visuraAnagraficaLightService">
+        <wsdl:port name="SOAP11Endpoint" binding="ns0:visuraAnagraficaLightServiceSOAP11Binding">
+            <soap:address location="http://10.0.5.19:9764/services/visuraAnagraficaLightService.SOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:visuraAnagraficaLightServiceSOAP11Binding">
+            <soap:address location="https://10.0.5.19:9444/services/visuraAnagraficaLightService.SecureSOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:visuraAnagraficaLightServiceSOAP12Binding">
+            <soap12:address location="https://10.0.5.19:9444/services/visuraAnagraficaLightService.SecureSOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SOAP12Endpoint" binding="ns0:visuraAnagraficaLightServiceSOAP12Binding">
+            <soap12:address location="http://10.0.5.19:9764/services/visuraAnagraficaLightService.SOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="HTTPEndpoint" binding="ns0:visuraAnagraficaLightServiceHttpBinding">
+            <http:address location="http://10.0.5.19:9764/services/visuraAnagraficaLightService.HTTPEndpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureHTTPEndpoint" binding="ns0:visuraAnagraficaLightServiceHttpBinding">
+            <http:address location="https://10.0.5.19:9444/services/visuraAnagraficaLightService.SecureHTTPEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

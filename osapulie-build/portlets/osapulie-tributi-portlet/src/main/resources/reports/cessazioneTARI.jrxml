@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cessazioneTari" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="3.1384283767210097"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="966"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="motivi" class="java.util.List"/>
+	<parameter name="allegati" class="java.util.List"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="codiceFiscale" class="java.lang.String">
+		<fieldDescription><![CDATA[codiceFiscale]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="cognome" class="java.lang.String">
+		<fieldDescription><![CDATA[cognome]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[telefono]]></fieldDescription>
+	</field>
+	<field name="fax" class="java.lang.String">
+		<fieldDescription><![CDATA[fax]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="pec" class="java.lang.String">
+		<fieldDescription><![CDATA[pec]]></fieldDescription>
+	</field>
+	<field name="comuneNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneNascita]]></fieldDescription>
+	</field>
+	<field name="provinciaNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[provinciaNascita]]></fieldDescription>
+	</field>
+	<field name="comuneResidenza" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneResidenza]]></fieldDescription>
+	</field>
+	<field name="provResidenza" class="java.lang.String">
+		<fieldDescription><![CDATA[provResidenza]]></fieldDescription>
+	</field>
+	<field name="dataNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[dataNascita]]></fieldDescription>
+	</field>
+	<field name="indirizzoResidenza" class="java.lang.String">
+		<fieldDescription><![CDATA[indirizzoResidenza]]></fieldDescription>
+	</field>
+	<field name="civicoResidenza" class="java.lang.String">
+		<fieldDescription><![CDATA[civicoResidenza]]></fieldDescription>
+	</field>
+	<field name="capResidenza" class="java.lang.String">
+		<fieldDescription><![CDATA[capResidenza]]></fieldDescription>
+	</field>
+	<field name="tipoUtenza" class="java.lang.String">
+		<fieldDescription><![CDATA[tipoUtenza]]></fieldDescription>
+	</field>
+	<field name="ruolo" class="java.lang.String">
+		<fieldDescription><![CDATA[ruolo]]></fieldDescription>
+	</field>
+	<field name="nomeSocieta" class="java.lang.String">
+		<fieldDescription><![CDATA[nomeSocieta]]></fieldDescription>
+	</field>
+	<field name="partitaIva" class="java.lang.String">
+		<fieldDescription><![CDATA[partitaIva]]></fieldDescription>
+	</field>
+	<field name="cittaSedeLegale" class="java.lang.String">
+		<fieldDescription><![CDATA[cittaSedeLegale]]></fieldDescription>
+	</field>
+	<field name="civicoSedeLegale" class="java.lang.String">
+		<fieldDescription><![CDATA[civicoSedeLegale]]></fieldDescription>
+	</field>
+	<field name="capSedeLegale" class="java.lang.String">
+		<fieldDescription><![CDATA[capSedeLegale]]></fieldDescription>
+	</field>
+	<field name="viaSedeLegale" class="java.lang.String">
+		<fieldDescription><![CDATA[viaSedeLegale]]></fieldDescription>
+	</field>
+	<field name="viaUnitaImmobiliare" class="java.lang.String">
+		<fieldDescription><![CDATA[viaUnitaImmobiliare]]></fieldDescription>
+	</field>
+	<field name="civicoUnitaImmobiliare" class="java.lang.String">
+		<fieldDescription><![CDATA[civicoUnitaImmobiliare]]></fieldDescription>
+	</field>
+	<field name="fgUnitaImmobiliare" class="java.lang.String">
+		<fieldDescription><![CDATA[fgUnitaImmobiliare]]></fieldDescription>
+	</field>
+	<field name="numUnitaImmobiliare" class="java.lang.String">
+		<fieldDescription><![CDATA[numUnitaImmobiliare]]></fieldDescription>
+	</field>
+	<field name="subUnitaImmobiliare" class="java.lang.String">
+		<fieldDescription><![CDATA[subUnitaImmobiliare]]></fieldDescription>
+	</field>
+	<field name="altriMotivi" class="java.lang.String">
+		<fieldDescription><![CDATA[altriMotivi]]></fieldDescription>
+	</field>
+	<field name="soggettoDuplicazione" class="java.lang.String">
+		<fieldDescription><![CDATA[soggettoDuplicazione]]></fieldDescription>
+	</field>
+	<field name="comuneEmigrazione" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneEmigrazione]]></fieldDescription>
+	</field>
+	<field name="provEmigrazione" class="java.lang.String">
+		<fieldDescription><![CDATA[provEmigrazione]]></fieldDescription>
+	</field>
+	<field name="viaEmigrazione" class="java.lang.String">
+		<fieldDescription><![CDATA[viaEmigrazione]]></fieldDescription>
+	</field>
+	<field name="civicoEmigrazione" class="java.lang.String">
+		<fieldDescription><![CDATA[civicoEmigrazione]]></fieldDescription>
+	</field>
+	<field name="flagDelega" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[flagDelega]]></fieldDescription>
+	</field>
+	<field name="nominativoDeceduto" class="java.lang.String">
+		<fieldDescription><![CDATA[nominativoDeceduto]]></fieldDescription>
+	</field>
+	<field name="dataDecesso" class="java.lang.String">
+		<fieldDescription><![CDATA[dataDecesso]]></fieldDescription>
+	</field>
+	<field name="attivitaCessata" class="java.lang.String">
+		<fieldDescription><![CDATA[attivitaCessata]]></fieldDescription>
+	</field>
+	<field name="altriAllegati" class="java.lang.String">
+		<fieldDescription><![CDATA[altriAllegati]]></fieldDescription>
+	</field>
+	<field name="estremiDocumento" class="java.lang.String">
+		<fieldDescription><![CDATA[estremiDocumento]]></fieldDescription>
+	</field>
+	<field name="nominativoDelegato" class="java.lang.String">
+		<fieldDescription><![CDATA[nominativoDelegato]]></fieldDescription>
+	</field>
+	<field name="dataCompilazioneRichiesta" class="java.lang.String">
+		<fieldDescription><![CDATA[dataCompilazioneRichiesta]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="153" splitType="Stretch">
+			<staticText>
+				<reportElement x="394" y="0" width="161" height="32"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[All'ufficio Ripartizione Tributi del comune di]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="151" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement x="441" y="52" width="115" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="440" y="32" width="115" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$P{comune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="111" width="555" height="40"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Richiesta di annullamento in autotutela dell'avviso di pagamento TARI anno 2015
+]]></text>
+			</staticText>
+			<image>
+				<reportElement key="Logo" x="36" y="5" width="86" height="69" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="4" y="74" width="145" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA["Comune di "+$P{comune}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="376" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="61" width="119" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[La/Il Sottoscritta/o]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="119" y="61" width="435" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cognome}+" "+$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="86" width="49" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[nata/o a ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement x="264" y="86" width="84" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataNascita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="243" y="86" width="21" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[il ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="49" y="86" width="132" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comuneNascita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="181" y="86" width="61" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["("+$F{provinciaNascita}+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="207" width="74" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[codice fiscale]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="75" y="207" width="117" height="20"/>
+				<textFieldExpression><![CDATA[$F{codiceFiscale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="109" width="74" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[residente in ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="109" width="124" height="20"/>
+				<textFieldExpression><![CDATA[$F{comuneResidenza}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="134" width="74" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[all' indirizzo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="134" width="480" height="20"/>
+				<textFieldExpression><![CDATA[$F{indirizzoResidenza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="198" y="109" width="35" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["("+$F{provResidenza}+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="372" y="207" width="51" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="231" width="35" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="220" y="231" width="117" height="20"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="423" y="207" width="129" height="20"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="4" width="140" height="13"/>
+				<text><![CDATA[TIPO DI CONTRIBUENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="158" width="74" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[in qualità di ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="214" y="158" width="41" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[della ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="207" width="56" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[partita iva]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="182" width="83" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[con sede legale in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="183" width="35" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[alla via]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="158" width="130" height="20"/>
+				<textFieldExpression><![CDATA[$F{ruolo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="183" width="100" height="20"/>
+				<textFieldExpression><![CDATA[$F{cittaSedeLegale}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="257" y="158" width="115" height="20"/>
+				<textFieldExpression><![CDATA[$F{nomeSocieta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="248" y="207" width="123" height="20"/>
+				<textFieldExpression><![CDATA[$F{partitaIva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="225" y="183" width="160" height="20"/>
+				<textFieldExpression><![CDATA[$F{viaSedeLegale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="38" width="178" height="23"/>
+				<text><![CDATA[COMPILARE IN STAMPATELLO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="19" width="115" height="14"/>
+				<text><![CDATA[Utenza non domestica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="19" width="96" height="14"/>
+				<text><![CDATA[Utenza domestica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-219" y="169" width="91" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[con sede legale in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-219" y="169" width="91" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[con sede legale in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-219" y="169" width="91" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[con sede legale in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-219" y="169" width="91" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[con sede legale in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="184" width="26" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[CAP]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="445" y="183" width="35" height="20"/>
+				<textFieldExpression><![CDATA[$F{capSedeLegale}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="184" width="17" height="20"/>
+				<textFieldExpression><![CDATA[$F{civicoSedeLegale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="390" y="184" width="5" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[n.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="19" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{tipoUtenza}.equals("non_domestica")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="19" width="10" height="14">
+					<printWhenExpression><![CDATA[$F{tipoUtenza}.equals("domestica")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="231" width="35" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[PEC]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="382" y="231" width="117" height="20"/>
+				<textFieldExpression><![CDATA[$F{pec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="51" y="231" width="129" height="20"/>
+				<textFieldExpression><![CDATA[$F{fax}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="231" width="51" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Fax]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="269" width="555" height="20"/>
+				<textFieldExpression><![CDATA["In riferimento all'avviso di pagamento indicato in oggetto relativo all'unità immobiliare sita in "+$P{comune}+" alla"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="132" y="290" width="5" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[n.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="255" y="290" width="35" height="19"/>
+				<textFieldExpression><![CDATA[$F{fgUnitaImmobiliare}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="233" y="290" width="22" height="19"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[FG]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="290" width="130" height="20"/>
+				<textFieldExpression><![CDATA[$F{viaUnitaImmobiliare}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="137" y="290" width="17" height="20"/>
+				<textFieldExpression><![CDATA[$F{civicoUnitaImmobiliare}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="157" y="290" width="72" height="19"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[dati catastali: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="290" width="26" height="19"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[NUM]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="316" y="290" width="35" height="19"/>
+				<textFieldExpression><![CDATA[$F{numUnitaImmobiliare}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="377" y="290" width="35" height="19"/>
+				<textFieldExpression><![CDATA[$F{subUnitaImmobiliare}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="351" y="290" width="26" height="19"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[SUB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="312" width="555" height="30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHIEDE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="343" width="555" height="30"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ai sensi delle vigenti norme in materia di autotutela l'annullamento dell'avviso di pagamento di che trattasi , per i seguenti motivi: ]]></text>
+			</staticText>
+		</band>
+		<band height="23">
+			<printWhenExpression><![CDATA[$F{tipoUtenza}.equals( "non_domestica" )]]></printWhenExpression>
+			<staticText>
+				<reportElement x="14" y="3" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "cessazione" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="3" width="111" height="17"/>
+				<textFieldExpression><![CDATA["Cessazione attività del "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="155" y="3" width="203" height="17"/>
+				<textFieldExpression><![CDATA[$F{attivitaCessata}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="21">
+			<printWhenExpression><![CDATA[$F{tipoUtenza}.equals( "domestica" )]]></printWhenExpression>
+			<staticText>
+				<reportElement x="-386" y="-34" width="141" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[COGNOME]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="2" width="96" height="17"/>
+				<textFieldExpression><![CDATA["Decesso del Sig. "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="2" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "decesso" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="139" y="2" width="122" height="17"/>
+				<textFieldExpression><![CDATA[$F{nominativoDeceduto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="261" y="2" width="71" height="17"/>
+				<textFieldExpression><![CDATA[" avvenuto il "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="2" width="124" height="17"/>
+				<textFieldExpression><![CDATA[$F{dataDecesso}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="340">
+			<staticText>
+				<reportElement x="41" y="206" width="168" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Copia avviso di pagamento Tari 2015]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="206" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{allegati}.contains( "avviso_pagamento" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="1" width="124" height="17"/>
+				<textFieldExpression><![CDATA["Duplicazione tributo con "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="1" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "duplicazione" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="23" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "trasferimento" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="23" width="142" height="17"/>
+				<textFieldExpression><![CDATA["Trasferimento nel Comune di "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="1" width="124" height="17"/>
+				<textFieldExpression><![CDATA[$F{soggettoDuplicazione}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="23" width="53" height="17"/>
+				<textFieldExpression><![CDATA[$F{provEmigrazione}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="23" width="119" height="17"/>
+				<textFieldExpression><![CDATA[$F{comuneEmigrazione}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="307" y="23" width="30" height="17"/>
+				<textFieldExpression><![CDATA["prov."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="391" y="23" width="32" height="17"/>
+				<textFieldExpression><![CDATA["in via"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="423" y="23" width="129" height="17"/>
+				<textFieldExpression><![CDATA[$F{viaEmigrazione}+" "+$F{civicoEmigrazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="43" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "concessione" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="43" width="229" height="20"/>
+				<text><![CDATA[Immobile di proprietà concesso in locazione]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="43" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "restituito" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="43" width="252" height="20"/>
+				<text><![CDATA[Immobile restituito al proprietario per fine locazione]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="65" width="252" height="20"/>
+				<text><![CDATA[Immobile venduto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="65" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "vuoto" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="65" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "venduto" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="65" width="229" height="41"/>
+				<text><![CDATA[Immobile di proprietà vuoto da cose e persone prive di contratti attivi e di fornitura dei servizi pubblici a rete]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="118" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{motivi}.contains( "altro" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="88" y="118" width="447" height="45"/>
+				<textFieldExpression><![CDATA[$F{altriMotivi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="44" y="118" width="44" height="20"/>
+				<text><![CDATA[Altro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="206" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{allegati}.contains( "documento_identita" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="206" width="168" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Copia documento d'identità]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="88" y="235" width="447" height="45"/>
+				<textFieldExpression><![CDATA[$F{altriMotivi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="44" y="235" width="44" height="20"/>
+				<text><![CDATA[Altro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="235" width="10" height="14">
+					<printWhenExpression><![CDATA[$P{allegati}.contains( "altro" )]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="183" width="199" height="13"/>
+				<textElement>
+					<font size="9" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Allega la seguente documentazione:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="149" y="306" width="104" height="13"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[ESTREMI DEL DOCUM.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="306" width="78" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="440" y="318" width="100" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="253" y="306" width="94" height="13"/>
+				<textFieldExpression><![CDATA[$F{estremiDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="306" width="116" height="13"/>
+				<textFieldExpression><![CDATA[$P{comune}+", "+$F{dataCompilazioneRichiesta}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="106">
+			<staticText>
+				<reportElement x="4" y="4" width="390" height="15"/>
+				<text><![CDATA[IL SOTTOSCRITTO/A DELEGA ALLA PRESENTAZIONE DELL'ISTANZA IL/LA SIG.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="19" width="383" height="14"/>
+				<text><![CDATA[(si allegano copie del documento di riconoscimento del del delelgante e del delegato)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="43" width="236" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA DEL DELEGATO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="6" y="83" width="237" height="1"/>
+			</line>
+			<line>
+				<reportElement x="292" y="83" width="237" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="293" y="43" width="236" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA DEL DELEGANTE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="398" y="4" width="154" height="15"/>
+				<textFieldExpression><![CDATA[$F{nominativoDelegato}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="0" y="4" width="555" height="94"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+		</band>
+		<band height="50">
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="51" y="18" width="147" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{comune}+", "+new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="298" y="40" width="237" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="299" y="0" width="236" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA IMPIEGATO RICEVENTE]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

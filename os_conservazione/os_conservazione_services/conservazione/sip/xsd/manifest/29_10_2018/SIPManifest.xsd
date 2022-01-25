@@ -1,0 +1,1702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 3 (x64) (http://www.altova.com) by Valentina Martinucci (Engineering) -->
+<!-- SIPManifest ver 1.0: edited by Valentina Martinucci (Engineering II Spa) -->
+<xs:schema xmlns:SIP="urn:IRIS:SIPManifest.xsd" xmlns="urn:IRIS:SIPManifest.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:IRIS:SIPManifest.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" id="SIP">
+	<xs:annotation>
+		<xs:documentation xml:lang="it">Definizione degli attributes</xs:documentation>
+	</xs:annotation>
+	<xs:attribute name="SIPver" type="xs:NMTOKEN" fixed="1.0">
+		<xs:annotation>
+			<xs:documentation>Versione di xml schema utilizzato per il SIP</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+	<xs:attribute name="SIPurl" type="xs:anyURI" fixed="http:/eng.it/IRIS/">
+		<xs:annotation>
+			<xs:documentation>URL a cui è reperibile lo schema utilizzato per il SIP</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+	<xs:attribute name="lang" type="xs:language" default="it">
+		<xs:annotation>
+			<xs:documentation>Lingua in cui è espresso un contenuto</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+	<xs:annotation>
+		<xs:documentation xml:lang="it">Definizione dei tipi semplici</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="UUID">
+		<xs:annotation>
+			<xs:documentation>Universal Unique Identifier</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TipoRifCronologico">
+		<xs:annotation>
+			<xs:documentation>Tipo di riferimento cronologico</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="registrazione_protocollo_generale"/>
+			<xs:enumeration value="registrazione_protocollo_emergenza"/>
+			<xs:enumeration value="registrazione_protocollo">
+				<xs:annotation>
+					<xs:documentation>Protocollo, anche interno o particolare</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="registrazione_repertorio"/>
+			<xs:enumeration value="ricezione_pec"/>
+			<xs:enumeration value="invio_pec"/>
+			<xs:enumeration value="stesura"/>
+			<xs:enumeration value="raccomandata"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TimeRef">
+		<xs:annotation>
+			<xs:documentation>Riferimento temporale con data e ora</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:simpleType name="DateRef">
+		<xs:annotation>
+			<xs:documentation>Riferimento temporale con data (senza ora)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="YearRef">
+		<xs:annotation>
+			<xs:documentation>Riferimento temporale espresso come anno</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:gYear"/>
+	</xs:simpleType>
+	<xs:simpleType name="CategoriaRegistrazione">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="protocollo_generale"/>
+			<xs:enumeration value="protocollo_particolare"/>
+			<xs:enumeration value="protocollo_interno"/>
+			<xs:enumeration value="repertorio"/>
+			<xs:enumeration value="protocollo_emergenza"/>
+			<xs:enumeration value="altro"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SiglaRegistro">
+		<xs:annotation>
+			<xs:documentation>Sigla di un registro di numerazione (repertorio, registro di emergenza ecc)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NroRegistrazione">
+		<xs:annotation>
+			<xs:documentation>N.ro di registrazione a protocollo Generale o altro registro che segue analoghe regole (numerazione progressiva a 7 cifre)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:positiveInteger">
+			<xs:maxInclusive value="9999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HashFunc">
+		<xs:annotation>
+			<xs:documentation>Funzione di calcolo del hash -i.e. impronta - di un file</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SHA-1"/>
+			<xs:enumeration value="SHA-256"/>
+			<xs:enumeration value="MD5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NomeSchema">
+		<xs:annotation>
+			<xs:documentation>Nome identificativo di uno schema XML - xsd - registrato nel sistema di conservazione</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="3"/>
+			<xs:maxLength value="250"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ProvId">
+		<xs:annotation>
+			<xs:documentation>Identificativo assegnato al SIP o a un suo contenuto dal sistema che invia in conservazione il SIP</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="150"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GruppoDigDoc">
+		<xs:annotation>
+			<xs:documentation>Specifica un gruppo di documenti digitali che devono possibilmente essere conservati sostitutivamente in uno stesso volume di conservazione</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="150"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Nome">
+		<xs:annotation>
+			<xs:documentation>Nome di un soggetto fisico o giuridico o di un'applicazione che versa documentazione</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:normalizedString">
+			<xs:maxLength value="250"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodiceDizionario">
+		<xs:annotation>
+			<xs:documentation>Codice corrispondente ad un valore del dizionario di sistema</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="50"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ValoreDizionario">
+		<xs:annotation>
+			<xs:documentation>Valore di un record del dizionario di sistema</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:normalizedString">
+			<xs:maxLength value="250"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NomeEntitaContesto">
+		<xs:annotation>
+			<xs:documentation>Nome di un entità del contesto archivistico o procedurale (una tipologia documentale, una voce del piano di classificazione, un procedimento amministrativo)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:normalizedString">
+			<xs:maxLength value="250"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FormaGiuridica">
+		<xs:annotation>
+			<xs:documentation>Forma giuridica del produttore: Ente pubblico o sua AOO o altro</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PA">
+				<xs:annotation>
+					<xs:documentation>Ente pubblico</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AOO">
+				<xs:annotation>
+					<xs:documentation>Area Organizzativa Omogenea di un Ente pubblico</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="altro">
+				<xs:annotation>
+					<xs:documentation>altro tipo di suggetto giuridico</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodiceAmministrazione">
+		<xs:annotation>
+			<xs:documentation>Codice di un Amministrazione ex Indice PA</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z0-9\-_]{1,16}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodiceAOO">
+		<xs:annotation>
+			<xs:documentation>Codice di un Area Organizzativa Omogenea (AOO) ex Indice PA</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z0-9\-_]{1,16}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodiceFiscale">
+		<xs:annotation>
+			<xs:documentation>Codice fiscale di un soggetto fisico o giuridico</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{11}"/>
+			<xs:pattern value="[A-Z]{6}[0-9]{2}[ABCDEHLMPRST][0-9]{2}[A-Z][0-9]{3}[A-Z]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PartitaIVA">
+		<xs:annotation>
+			<xs:documentation>Partita IVA</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Label">
+		<xs:annotation>
+			<xs:documentation>Codice / etichetta parlante di un oggetto</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:normalizedString">
+			<xs:maxLength value="150"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SezioneArchivio">
+		<xs:annotation>
+			<xs:documentation>Indica una delle tre partizioni logiche dell'dell'archivio: corrente, deposito e storico</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="C">
+				<xs:annotation>
+					<xs:documentation>Corrente</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="D">
+				<xs:annotation>
+					<xs:documentation>Deposito</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="S">
+				<xs:annotation>
+					<xs:documentation>Storico</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Path">
+		<xs:annotation>
+			<xs:documentation>Percorso relativo a cui reperire un file del SIP (è il percorso e nome del file all'interno del file archivio che costituisce il SIP)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI"/>
+	</xs:simpleType>
+	<xs:simpleType name="ItemType">
+		<xs:annotation>
+			<xs:documentation>Tipo di un "item" contenuto nel SIP</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="UA">
+				<xs:annotation>
+					<xs:documentation>Unità di aggregazione</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SD">
+				<xs:annotation>
+					<xs:documentation>Scheda documento</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UC">
+				<xs:annotation>
+					<xs:documentation>Unità di conservazione</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SIPItemOper">
+		<xs:annotation>
+			<xs:documentation>Tipo di operazione da effettuare su un unità di descrizione o documento digitale presente nel SIP</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="I">
+				<xs:annotation>
+					<xs:documentation>Invio in conservazione di unità di descrizione o documento digitale non inviato in precedenza</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="U">
+				<xs:annotation>
+					<xs:documentation>Aggiornamento di dati e/o file di un'unità di descrizione o documento digitale (per questo con possibilità di "versionamento") già inviato in conservazione</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="D">
+				<xs:annotation>
+					<xs:documentation>Eliminazione di un'unità di descrizione o singolo documento digitale già inviato in conservazione</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CategoriaUA">
+		<xs:annotation>
+			<xs:documentation>Indica il macro-tipo di un'unità di aggregazione di documenti, ovvero se si tratta di: fondo, aggregato intermedio (serie, sotto-serie ecc), unità archivistica (fascicolo, registro ecc)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FO">
+				<xs:annotation>
+					<xs:documentation>Fondo</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AI">
+				<xs:annotation>
+					<xs:documentation>Aggregato intermedio che sta al di sotto del fondo ma non è un'unità archivistica: ad esempio una serie, una sotto-serie, una partizione, un sub-fondo ecc</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UAR">
+				<xs:annotation>
+					<xs:documentation>Unità archivistica, ovvero un aggregato "foglia" della struttura gerarchica dell'archivio (può essere un fascicolo o un sotto-fascicolo o un registro ecc)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RelVsSD">
+		<xs:annotation>
+			<xs:documentation>Indica che cosa un documento digitale rappresenta rispetto alla scheda documento cui appartiene: il documento principale (ed eventualmente unico), un allegato, la Segnatura.xml della e-mail interoperabile con cui è stato acquisito, l'email con cui è stato acquisito o inviato ai destinatari, una ricevuta PEC di avvenuta consegna ad un destinatario ecc</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="P">
+				<xs:annotation>
+					<xs:documentation>Documento principale o unico descritto dalla scheda documento (per scheda documento ce ne può essere solo 1)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ALL">
+				<xs:annotation>
+					<xs:documentation>Allegato</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="EML">
+				<xs:annotation>
+					<xs:documentation>E-mail con cui il/i documenti descritti dalla scheda documento sono stato acquisiti o inviati</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RIC_PEC">
+				<xs:annotation>
+					<xs:documentation>E-mail di ricevuta PEC relativa alla e-mail PEC con cui il/i documenti della scheda sono stati inviati ad uno o più destinatari</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SPI">
+				<xs:annotation>
+					<xs:documentation>Segnatura.xml di una e-mail di Protocollo Interoperabile</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NroAllegato">
+		<xs:annotation>
+			<xs:documentation>N.ro di allegato che un documento rappresenta in una scheda documento</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:positiveInteger"/>
+	</xs:simpleType>
+	<xs:simpleType name="RuoloDocCollegata">
+		<xs:annotation>
+			<xs:documentation>Indica il ruolo di una scheda documento o unità di aggregazione rispetto ad un altra</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="precedente"/>
+			<xs:enumeration value="successivo"/>
+			<xs:enumeration value="altro"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CategoriaRelDoc">
+		<xs:annotation>
+			<xs:documentation>Indica la categoria delle possibili relazione tra documenti e aggregati di documenti</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="appartenenza"/>
+			<xs:enumeration value="causale">
+				<xs:annotation>
+					<xs:documentation>Indica che la relazione è di causa-effetto</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="argomento">
+				<xs:annotation>
+					<xs:documentation>Indica che la relazione è per affinità di materia/argomento trattata</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="altro"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TermineConservazione">
+		<xs:annotation>
+			<xs:documentation>Indica il termine fino a cui si deve conservare la documentazione</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="DigestEncoding">
+		<xs:annotation>
+			<xs:documentation>Indica l'encoding con cui è calcolato il digest di un file</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="base64"/>
+			<xs:enumeration value="hex"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FlagOn">
+		<xs:annotation>
+			<xs:documentation>Flag con un unico valore 1</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:positiveInteger">
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:annotation>
+		<xs:documentation xml:lang="it">Definizione dei tipi complessi</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Description">
+		<xs:annotation>
+			<xs:documentation>Descrizione di un oggetto</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="lang"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ShortDescription">
+		<xs:annotation>
+			<xs:documentation>Descrizione breve di un oggetto</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="SIP:Description">
+				<xs:maxLength value="500"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LongDescription">
+		<xs:annotation>
+			<xs:documentation>Descrizione estesa di un oggetto</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="SIP:Description">
+				<xs:maxLength value="2000"/>
+			</xs:restriction>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="XMLSchema">
+		<xs:annotation>
+			<xs:documentation>Estremi con cui uno schema XML - xsd - è identificato all'interno del sistema di conservazione</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="nome" type="NomeSchema" use="required"/>
+		<xs:attribute name="majorVer" type="xs:positiveInteger" use="required"/>
+		<xs:attribute name="minorVer" type="xs:nonNegativeInteger" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="EmbeddedMetadata">
+		<xs:annotation>
+			<xs:documentation>Metadati espressi secondo un qualsiasi XML schema</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xs:anyType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Hash">
+		<xs:annotation>
+			<xs:documentation>Impronta di un file: valore e funzione con cui è stato calcolato il valore</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="encoding" type="SIP:DigestEncoding" use="required"/>
+				<xs:attribute name="func" type="HashFunc" use="required">
+					<xs:annotation>
+						<xs:documentation>Funzione con cui è stato calcolato l'hash</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="File">
+		<xs:annotation>
+			<xs:documentation>Percorso e impronta di un file che fa parte del SIP</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Path" type="SIP:Path">
+				<xs:annotation>
+					<xs:documentation>Percorso relativo e nome del file all'interno dello zip</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Hash">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="Hash"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CustomInfo">
+		<xs:annotation>
+			<xs:documentation>Metadati espressi secondo un tracciato "custom" corrispondente ad uno schema XML registrato nel sistema di conservazione</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="XMLSchema" type="XMLSchema" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Estremi che identificano lo schema XML e la sua versione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="EmbeddedMetadata" type="EmbeddedMetadata">
+					<xs:annotation>
+						<xs:documentation>Parte valorzzata se i metadati conformi al tracciato custom sono embedded all'interno del Manifest.xm del SIP</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ExternalMetadata" type="File">
+					<xs:annotation>
+						<xs:documentation>Estremi - hash e percorso - del file xml incluso nel SIP che contiene i metadati conformi al tracciato custom</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProduttoreSIP">
+		<xs:annotation>
+			<xs:documentation>Indica chi è il produttore - come persona giuridica - della documentazione contenuta nel SIP</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Tipo" type="FormaGiuridica" default="altro">
+				<xs:annotation>
+					<xs:documentation>Indica se il produttore è un'Ente pubblico, una sua AOO registrata all'Indice PA o un'altro tipo di soggetto giuridico</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Intestazione" type="Nome">
+				<xs:annotation>
+					<xs:documentation>Intestazione "formale" con cui il produttore è noto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CodFiscale" type="CodiceFiscale" minOccurs="0"/>
+			<xs:element name="PartitaIVA" type="PartitaIVA" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="CodiceAmministrazione" type="CodiceAmministrazione">
+			<xs:annotation>
+				<xs:documentation>Codice Amministrazione registrato all'Indice PA se il produttore è un Ente pubblico registrato all'IPA</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="CodiceAOO" type="CodiceAOO">
+			<xs:annotation>
+				<xs:documentation>Codice AOO registrato all'Indice PA se il produttore è un'Area Organizzativa Omognea di un Ente pubblico</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ProduttoreDoc">
+		<xs:annotation>
+			<xs:documentation>Indica chi è il/un produttore - come persona giuridica - di un documento o agggregato di documenti inviato in conservazione</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Tipo" type="FormaGiuridica" default="PA">
+				<xs:annotation>
+					<xs:documentation>Indica se il produttore è un'Ente pubblico, una sua AOO registrata all'Indice PA o un'altro tipo di soggetto giuridico</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Intestazione" type="Nome">
+				<xs:annotation>
+					<xs:documentation>Intestazione "formale" con cui il produttore è noto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CodFiscale" type="CodiceFiscale" minOccurs="0"/>
+			<xs:element name="PartitaIVA" type="PartitaIVA" minOccurs="0"/>
+			<xs:element name="Dal" type="SIP:EstremoCronologico" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indica da quando è produttore della documentazione specificata</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Al" type="SIP:EstremoCronologico" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indica fino a quando è stato produttore della documentazione specificata</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ArticolazioniProduttore" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Serve a specificare quali aricolazioni - Unità Organizzative o altro - del produttore hanno prodotto la documentazione</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="UO" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Specifica una singola Unità Organizzativa o altra articolazione che ha prodotto la documentazione con l'eventuale intervallo cronologico in cui l'ha prodotta</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="SIP:ArticolazioneProduttore">
+										<xs:sequence minOccurs="0">
+											<xs:element name="Dal" type="SIP:EstremoCronologico" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Indica da quando la UO/articolazione del produttore ha prodotto la documentazione specificata</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="Al" type="SIP:EstremoCronologico" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>Indica fino a quando la UO/articolazione del produttore ha prodotto la documentazione specificata</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
+									</xs:extension>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="CodiceAmministrazione" type="CodiceAmministrazione">
+			<xs:annotation>
+				<xs:documentation>Codice Amministrazione registrato all'Indice PA se il produttore è un Ente pubblico registrato all'IPA</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="CodiceAOO" type="CodiceAOO">
+			<xs:annotation>
+				<xs:documentation>Codice AOO registrato all'Indice PA se il produttore è un'Area Organizzativa Omognea di un Ente pubblico</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Applicazione">
+		<xs:annotation>
+			<xs:documentation>Applicazione/sistema che versa documentazione o dati o che in qualche modo interagisce con il sistema di conservazione</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="Descrizione" type="Description" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="nome" type="Nome" use="required">
+			<xs:annotation>
+				<xs:documentation>Nome con cui l'applicazione / sistema è noto</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="ver" type="xs:NMTOKEN">
+			<xs:annotation>
+				<xs:documentation>Versione dell'applicazione / sistema</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="UAStdInfo">
+		<xs:annotation>
+			<xs:documentation>Dati di descrizione di un'unità di aggregazione espressi secondo tracciato standard</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Tipo">
+				<xs:annotation>
+					<xs:documentation>Tipo di unità di aggregazione: serve ad indicare se si tratta di un fondo, un'aggregato intermedio dell'archivio (quale una serie) o un aggregato foglia dell'archivio, ovvero un'unità archivistica (i.e. un fascicolo, sottofascicolo, registro); consente eventualmente di dettagliare il tipo di aggregato (serie, sotto-serie, fascicolo derivante da procedimento, cartella clinica, fascicolo personale ecc) che deve essere uno di quelli censiti nel sistema di conservazione e associati al soggetto che invia in conservazione</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="SIP:RifEntitaContesto">
+							<xs:attribute name="Cat" type="SIP:CategoriaUA" use="required">
+								<xs:annotation>
+									<xs:documentation>Categoria, ovvero macro-tipo dell'unità di aggregazione</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TipoContenuti" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tipologia della documentazione contenuta nell'unità di aggregazione. Deve essere censito nel sistema di conservazione tra le tipologie documentali possibili per un'UA</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="SIP:RifEntitaContesto">
+							<xs:attribute name="Cat" type="SIP:CategoriaUA" use="required">
+								<xs:annotation>
+									<xs:documentation>Categoria, ovvero macro-tipo dell'unità di aggregazione</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Intitolazione" type="SIP:ShortDescription">
+				<xs:annotation>
+					<xs:documentation>Intitolazione originale o attribuita dell’unità di aggregazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Identificativo">
+				<xs:annotation>
+					<xs:documentation>Identificativo/codice "parlante" dell'unità di aggregazione assegnatogli dal produttore prima dell'invio in conservazione. Può essere una segnatura archivistica  (che per esempio identifica la posizione logica dell'unità di aggregazione all'interno dell'archivio) come pure un identificativo assegnato all'interno dell'applicazione in cui l'unità è stata lavorata (eventualmente preceduto da un prefisso che rappresenta il codice dell'applicazione stessa). Può coincidere con l'attribute Id dell'unità di aggregazione (se questo è un codice "parlante").</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="FormaNativa" type="SIP:Label">
+							<xs:annotation>
+								<xs:documentation>E' la segnatura originale riportata nella forma nativa (quella che verrà visualizzata nelle GUI di accesso alla documentazione conservata)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ConvertitaXOrdinamento" type="SIP:Label" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Parte e/o conversione della segnatura originale da far utilizzare al sistema di conservazione per ordinare l'unità di aggregazione in mezzo agli altri contenuti dell'aggregato superiore di appartenenza, qualora quest'ultimo preveda un ordinamento interno per segnatura originale (si noti che in tal caso è un ordinamento di stringhe)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AltroIdentificativo" type="SIP:Label" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Eventuali altri identificativi adottati dal soggetto produttore prima dell'invio in conservazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SezioneArchivio" type="SIP:SezioneArchivio" default="C" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indica la sezione d'archivio  - corrente (=C), deposito (=D), storico (=S) - cui appartiene l'unità di aggregazione prima dell'invio in conservazione. Se non specificata si assume che l'unità di aggregazione provenga dal corrente</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EstremiCronologici">
+				<xs:annotation>
+					<xs:documentation>Estremi cronologici dell'unità di aggregazione: indicano l'intervallo temporale di produzione della documentazione contenuta</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Inizio" type="SIP:EstremoCronologico" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Data/anno di produzione della documentazione più antica contenuta nell'aggregato, ovvero di apertura dell'aggregato (ad esempio se è un fascicolo)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Fine" type="SIP:EstremoCronologico">
+							<xs:annotation>
+								<xs:documentation>Data/anno di produzione della documentazione più recente contenuta  nell'aggregato, ovvero di chiusura dell'aggregato (ad esempio se è un fascicolo)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Procedimento" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Dati dell'eventuale procedimento amministrativo che ha dato luogo all'unità di aggregazione (questo tag può essere presente se si tratta di un fascicolo o sotto-fascicolo)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TipoProc" type="SIP:RifEntitaContesto" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Tipo di procedimento amministrativo che ha dato luogo al fascicolo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Responsabilita" type="SIP:LongDescription" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Estremi del responsabile del procedimento ed indicazione di eventuali cambi di responsabilità che hanno avuto luogo durante l'iter del procedimento</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Iter" type="SIP:LongDescription" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Informazioni sulle fasi e gli eventi che hanno scandito l'iter del procedimento</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DataAvvio" type="SIP:DateRef" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Data di avvio del procedimento </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DataConclusione" type="SIP:DateRef" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Data di conclusione del procedimento</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Esito" type="SIP:RifEntitaContesto" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Esito del procedimento. Può essere o meno codificato e/o registrato nel dizionario del sistema di conservazione (nel primo caso nell'attribute Id si può specificare il codice assegnatogli dal sistema producer, nel secondo l'attribute RegId consente di specificare l'identificativo con cui l'esito è registrato nel dizionario del sistema di conservazione)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ProduttoreOrig" type="SIP:ProduttoreDoc" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Esprime il/un soggetto produttore originale della documentazione contenuta nell'unità di aggregazione: deve essere una persona giuridica o fisica censita nell'anagrafe dei soggetti produttori del sistema di conservazione e agganciata al produttore del SIP. In genere coincide con il produttore del SIP, e in tal caso può anche non essere specificato, ma può anche essere un soggetto da cui il produttore del SIP ha ereditato la documentazione che invia in conservazione attraverso il SIP. Consente inoltre di specificare quale/i articolazioni del produttore - unità organizzative ecc -  hanno prodotto la documentazione contenuta nell'unità di aggregazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Classifica" type="SIP:VocePianoClassificazione" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Voce/i del piano di classificazione a cui l'unità di aggregazione afferisce. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DescrizioneContenuto" type="SIP:LongDescription" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Descrizione del contenuto dell'unità di  aggrgegazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UACorrelate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unità di aggregazione di appartenenza o in altro modo correlate: devono essere UA presenti nel SIP o trasmesse ad IRIS in SIP precedentemente inviati</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="UA" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Id" type="SIP:ProvId"/>
+									<xs:element name="CategoriaRel" type="SIP:CategoriaRelDoc"/>
+									<xs:element name="RuoloUACorrelata" type="SIP:RuoloDocCollegata" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Indica il ruolo dell'unità di aggregazione correlata rispetto a quella che si sta descrivendo</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UCAppartenenza" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unità di conservazione in cui si trova la parte cartacea/analogica della documentazione dell'unità di aggregazione: : devono essere UC presenti nel SIP o trasmesse ad IRIS in SIP precedentemente inviati</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="UCId" type="SIP:ProvId" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Specifica una singola unità di conservazione (faldone, scatola ecc) in cui si trova la parte analogica della documentazione dell'unità di aggregazione. Deve essere una UC presente nel SIP o in SIP precedentemente inviati ad IRIS e va indicata con l'Id con cui è/è stata identificata in questo o altro SIP</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Conservazione" type="SIP:DatiConservazione"/>
+			<xs:element name="NormativaCollegata" type="SIP:Label" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Specifica la/e normative in qualche modo collegate all'unità di aggregazione. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Annotazioni" type="SIP:LongDescription" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Serve a specificare eventuali annotazioni sulll'unità archivistica</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AttributoCustom" type="SIP:ValoriAttributo" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Valore/i di un attributo del'unità di aggregazione che non è tra quelli pre-definiti (tutti quelli riportati nei tag precedenti) ma è invece un attributo "custom" aggiuntivo che si è scelto e definito di voler gestire per le unità di aggregazione della data tipologia (indicata nei tag Tipo e Procedimento.TipoProc) o contenenti documentazione della data tipologia (tag TipoContenuti)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SDStdInfo">
+		<xs:annotation>
+			<xs:documentation>Dati di descrizione di una scheda documento espressi secondo tracciato standard</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Tipo" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tipo di scheda documento (protocollata, registrata a repertorio, ecc)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="SIP:RifEntitaContesto"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Identificativo" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Segnatura/codice "parlante" della scheda documento assegnatogli dal produttore prima dell'invio in conservazione. Può essere una segnatura di protocollo, gli estremi di repertorio o un identificativo "parlante" assegnato all'interno dell'applicazione in cui la scheda documento è stata acquisita o prodotta (eventualmente preceduto da un prefisso che rappresenta il codice dell'applicazione stessa).  Può coincidere con l'attribute Id della scheda documento (se questo è un codice "parlante").</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="FormaNativa" type="SIP:Label">
+							<xs:annotation>
+								<xs:documentation>E' la segnatura originale riportata nella forma nativa (quella che verrà visualizzata nelle GUI di accesso alla documentazione conservata)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ConvertitaXOrdinamento" type="SIP:Label" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Parte e/o conversione della segnatura originale da far utilizzare al sistema di conservazione per ordinare l'unità di aggregazione in mezzo agli altri contenuti dell'aggregato superiore di appartenenza, qualora quest'ultimo preveda un ordinamento interno per segnatura originale (si noti che in tal caso è un ordinamento di stringhe)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RegistrazioniNumerazioni" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Estremi di registrazioni a protocollo generale o ad altro registro</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Registrazione" type="SIP:RegistrazioneNumerazione" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RifCronologici" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Riferimenti cronologici della scheda documento</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="DataRif" type="SIP:DateRefTipizzato" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DesOgg" type="SIP:LongDescription">
+				<xs:annotation>
+					<xs:documentation>Oggetto/descrizione della scheda documento</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DigDocs" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Documenti digitali che fanno parte della scheda documento</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="SIP:DocStdInfo">
+							<xs:sequence minOccurs="0">
+								<xs:element name="ComponentiDigitali" type="SIP:ComponentiDigitaliDoc" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Dati dei componenti digitali del documento. Può non essere specificato se l'Operazione (Op) sul documento digitale è U o D o V e se prima ancora l'operazione sulla scheda documento di appartenenza è U o V. Se non specificato significa che i componenti digitali RESTANO INVARIATI rispetto all'ultimo invio</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="GruppoDocInVolume" type="SIP:GruppoDigDoc" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>Indica il gruppo di documenti digitali che devono essere conservati nello stesso volume del documento corrente. Se non specificato il gruppo è l'UA di appartenenza della SD se specificata e se una sola, e altrimenti è l'SD stessa</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AnalogDocs" type="SIP:DocStdInfo" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Documenti analogici (tipicamente cartacei o su altro supporto NON digitale) che fanno parte della scheda documento</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SezioneArchivio" type="SIP:SezioneArchivio" default="C" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indica la sezione d'archivio  - corrente (=C), deposito (=D), storico (=S) - cui appartiene la scheda documento prima dell'invio in conservazione. Se non specificata si assume che la scheda documento provenga dal corrente</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProduttoreOrig" type="SIP:ProduttoreDoc" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Esprime il soggetto produttore originale della scheda documento: deve essere una persona giuridica o fisica censita nell'anagrafe dei soggetti produttori del sistema di conservazione e agganciata al produttore del SIP. In genere coincide con il produttore del SIP, e in tal caso può anche non essere specificato, ma può anche essere un soggetto da cui il produttore del SIP ha ereditato la documentazione che invia in conservazione attraverso il SIP. Consente inoltre di specificare quale/i articolazioni del produttore - unità organizzative ecc -  hanno prodotto la scheda documento</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Classifica" type="SIP:VocePianoClassificazione" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Voce/i del piano di classificazione a cui la scheda documento afferisce. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UACorrelate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unità di aggregazione di appartenenza o in altro modo correlate alla scheda documento: devono essere UA presenti nel SIP o trasmesse ad IRIS in SIP precedentemente inviati</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="UA" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Id" type="SIP:ProvId"/>
+									<xs:element name="CategoriaRel" type="SIP:CategoriaRelDoc"/>
+									<xs:element name="RuoloUACorrelata" type="SIP:RuoloDocCollegata" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Indica il ruolo dell'unità di aggregazione rispetto alla scheda documento</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UCAppartenenza" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unità di conservazione in cui si trova la parte cartacea/analogica della scheda documento: devono essere UC presenti nel SIP o trasmesse ad IRIS in SIP precedentemente inviati</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="UCId" type="SIP:ProvId" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Specifica una singola unità di conservazione (faldone, scatola ecc) in cui si trova la parte analogica della scheda documento. Deve essere una UC presente nel SIP o in SIP precedentemente inviati ad IRIS e va indicata con l'Id con cui è/è stata identificata in questo o altro SIP</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SDCorrelate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Schede documento correlate alla scheda documento: devono essere SD presenti nel SIP o trasmesse ad IRIS in SIP precedentemente inviati</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SD" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Id" type="SIP:ProvId"/>
+									<xs:element name="CategoriaRel" type="SIP:CategoriaRelDoc"/>
+									<xs:element name="RuoloSDCorrelata" type="SIP:RuoloDocCollegata" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Indica il ruolo della scheda documento correlata rispetto a quella che si sta descrivendo</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Conservazione" type="SIP:DatiConservazione"/>
+			<xs:element name="Annotazioni" type="SIP:LongDescription" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Serve a specificare eventuali annotazioni sulla scheda documento</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AttributoCustom" type="SIP:ValoriAttributo" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Valore/i di un attributo della scheda documento che non è tra quelli pre-definiti (tutti quelli riportati nei tag precedenti) ma è invece un attributo "custom" aggiuntivo che si è scelto e definito di voler gestire per le schede documento della data tipologia (tag Tipo) o che appartengono ad UA contenenti documentazione del dato tipo (tag TipoContenuti dell'UA)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UCStdInfo">
+		<xs:annotation>
+			<xs:documentation>Dati di descrizione di un'unità di conservazione espressi secondo tracciato standard</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Tipo">
+				<xs:annotation>
+					<xs:documentation>Tipo di unità di conservazione</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="SIP:RifEntitaContesto">
+							<xs:attribute name="Cat" type="SIP:CategoriaUA" use="required">
+								<xs:annotation>
+									<xs:documentation>Categoria, ovvero macro-tipo dell'unità di conservazione (faldone, scatola ecc)</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DesContenuto" type="SIP:LongDescription">
+				<xs:annotation>
+					<xs:documentation>Descrizione del contenuto del l'unità di conservazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Dimensioni" type="SIP:Dimensioni" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Dimensioni dell'unità di conservazione espresse in mm.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Annotazioni" type="SIP:LongDescription" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Serve a specificare eventuali annotazioni sulll'unità di conservazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AttributoCustom" type="SIP:ValoriAttributo" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Valore/i di un attributo del'unità di conservazione che non è tra quelli pre-definiti (tutti quelli riportati nei tag precedenti) ma è invece un attributo "custom" aggiuntivo che si è scelto e definito di voler gestire per le unità di conservazione della data tipologia</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DocStdInfo">
+		<xs:annotation>
+			<xs:documentation>Dati comuni sia ad un documento analogico (cartaceo o su altro supporto analogico) che digitale espressi secondo tracciato standard</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SupportoFisico" type="SIP:RifDizionario">
+				<xs:annotation>
+					<xs:documentation>Indica il supporto fisico del documento da selezionaretra i valori della sezione di dizionario "SUPPORTI_FISICI"</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Tipo" type="SIP:RifEntitaContesto" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indica la tipologia del documento</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DesOgg" type="SIP:LongDescription" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Oggetto/descrizione del documento</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AttributoCustom" type="SIP:ValoriAttributo" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Valore/i di un attributo del documento che non è tra quelli pre-definiti (tutti quelli riportati nei tag precedenti) ma è invece un attributo "custom" aggiuntivo che si è scelto e definito di voler gestire per i documenti della data tipologia (ricavabile dal tag Tipo del documento o, in sua assenza, dal tag TipoContenuti della/e UA di appartenenza)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="RelVsSD" type="RelVsSD" use="required">
+			<xs:annotation>
+				<xs:documentation>Indica che cosa il documento rappresenta rispetto alla scheda documento cui appartiene: il documento principale (ed eventualmente unico), un allegato, la Segnatura.xml della e-mail interoperabile con cui è stato acquisito ecc.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Id" type="SIP:ProvId" use="required">
+			<xs:annotation>
+				<xs:documentation>Identificativo univoco assegnato al documento dal sistema producer che invia il SIP (deve essere univoco tra quelli di tutti i documenti - digitali e analogici - inviati in questo o altri SIP) </xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Op" type="SIP:SIPItemOper" default="I">
+			<xs:annotation>
+				<xs:documentation>Qualora l'item SD di appartenenza abbia Op=U (aggiornamento) serve ad indicare se si tratta di un documento già inviato  in conservazione e da aggiornare o versionare o eliminare dal processo di conservazione</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="NroAllegato" type="SIP:NroAllegato">
+			<xs:annotation>
+				<xs:documentation>Indica il n.ro di allegato che il documento rappresenta nella scheda documento (valori da 1 in su). Da valorizzare solo se RelVsSD = ALL (allegato)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="IdDocVersPrec" type="SIP:ProvId">
+			<xs:annotation>
+				<xs:documentation>Può essere specificato solo nel caso di attribute Op=U: serve ad indicare l'identificativo assegnato dal sistema producer che invia il SIP al documento già inviato in conservazione e di cui il documento corrente costituisce una nuova versione.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="EstremoCronologico">
+		<xs:annotation>
+			<xs:documentation>Riferimento cronologico di documentazione dell'archivio</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="Data" type="SIP:DateRef"/>
+			<xs:element name="Anno" type="SIP:YearRef"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ArticolazioneProduttore">
+		<xs:annotation>
+			<xs:documentation>Indica una qualsiasi articolazione - in particolare ad esempio un'Unità Organizzativa - di un soggetto produttore della documentazione conservata</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UO" type="SIP:RifEntitaContesto">
+				<xs:annotation>
+					<xs:documentation>Denominazione e codici identificativi della specifica articolazione del soggetto produttore che ha prodotto la documentazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Codice">
+				<xs:annotation>
+					<xs:documentation>Specifica la codifica - n-upla- che esprime la collocazione della UO nella gerarchia dell'organigramma </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Organigramma" type="SIP:RifEntitaContesto" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Organigramma in cui la UO assume la data codifica. Può servire specificarlo se nel tempo l'organigramma è cambiato e la UO ha assunto codifiche diverse nei diversi organigrammi</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Parte" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>E' la parte del codice relativa al livello della gerarchia espresso dall'attributo Livello</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="Livello" type="xs:positiveInteger" use="required">
+											<xs:annotation>
+												<xs:documentation>Livello gerarchico cui è associata la parte (dove 1 è il livello apicale)</xs:documentation>
+											</xs:annotation>
+										</xs:attribute>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VocePianoClassificazione">
+		<xs:annotation>
+			<xs:documentation>Estremi di una voce di un piano di classificazione</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Piano" type="SIP:RifEntitaContesto" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Piano di classificazione cui si riferisce la voce. Può servire specificarlo se la documentazione inviata dal produttore del SIP è catalogata attraverso più piani di classificazione (adottati in momenti diversi o anche contemporaneamente da soggetti diversi)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Voce" type="SIP:RifEntitaContesto"/>
+			<xs:element name="Indice">
+				<xs:annotation>
+					<xs:documentation>Specifica la"voce di indice" che corrisponde alla data classifica e che ne esprime la collocazione nella struttura gerarchica del piano </xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Parte" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>E' la parte della voce di indice relativa al livello della gerarchia espresso dall'attributo Livello</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="Livello" type="xs:positiveInteger" use="required">
+											<xs:annotation>
+												<xs:documentation>Livello gerarchico cui è associata la parte (dove 1 è il livello apicale, in genere denominato titolo o categoria, 2 indica indica quella che in genere è chiamata classe, 3 la sottoclasse ecc)</xs:documentation>
+											</xs:annotation>
+										</xs:attribute>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RifDizionario">
+		<xs:annotation>
+			<xs:documentation>Estremi necessari ad individuare un record nel dizionario di sistema</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="RegId" type="SIP:UUID">
+				<xs:annotation>
+					<xs:documentation>Identificativo univoco con cui il record è censito nel dizionario del sistema di conservazione (UUID)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Codice" type="SIP:CodiceDizionario">
+				<xs:annotation>
+					<xs:documentation>Codice che identifica </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Valore" type="SIP:ValoreDizionario">
+				<xs:annotation>
+					<xs:documentation>Valore a dizionario</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="RifEntitaContesto">
+		<xs:annotation>
+			<xs:documentation>Estremi di un'entità (tipologia documentale, tipo di unità di aggregazione, tipo di procedimento amministrativo ecc) del contesto archivistico o procedurale</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="RegId" type="SIP:UUID">
+				<xs:annotation>
+					<xs:documentation>Identificativo univoco con cui l'entità è  registrata nel sistema di conservazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Id" type="SIP:ProvId">
+				<xs:annotation>
+					<xs:documentation>Identificativo con cui il sistema/applicativo producer riconosce l'entità</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Intestazione" type="SIP:NomeEntitaContesto">
+				<xs:annotation>
+					<xs:documentation>Nome/intestazione dell'entità</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="DatiConservazione">
+		<xs:annotation>
+			<xs:documentation>Termine e note sulla conservazione della documentazione</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice minOccurs="0">
+				<xs:element name="ConservazioneFinoAl" type="SIP:TermineConservazione">
+					<xs:annotation>
+						<xs:documentation>Termine fino a cui deve essere conservata la documentazione</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ConservazionePerAnni">
+					<xs:annotation>
+						<xs:documentation>N.ro di anni per cui deve essere conservata la documentazione (gli anni decorrono dall'estremo cronologico superiore nel caso di unità di aggregazione)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:positiveInteger">
+							<xs:maxInclusive value="999"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="ConservazioneIllimitata" type="SIP:FlagOn">
+					<xs:annotation>
+						<xs:documentation>Indice che la documentazione deve essere conservata per tempo illimitato</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="NoteConservazione" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Si possono qui esplicitare le motivazioni, la normativa di riferimento e altre informazioni relative al tempo di conservazione indicato</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ComponentiDigitaliDetached">
+		<xs:annotation>
+			<xs:documentation>Rappresenta i file che costituiscono le firme e le marche temporali detached del file con il contenuto informativo o un Indice di Conservazione (fatto da sistema di conservazione diverso dal SCN) in cui esso è referenziato</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ComponenteDigitaleDetached" type="SIP:ComponenteDigitaleDetached" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Rappresenta un file  che è una firma o una marca temporale detached o un Indice di Conservazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ComponenteDigitaleDetached">
+		<xs:annotation>
+			<xs:documentation>Rappresenta un componente digitale (i.e. file)  che è una firme o una marca temporale detached o un Indice di Conservazione (fatto da sistema di conservazione diverso dal SCN)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="File" type="SIP:File"/>
+			<xs:element name="ComponentiDigitaliDetached" type="SIP:ComponentiDigitaliDetached" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Rappresenta i file che costituiscono le firme e le marche detached del componente digitale descritto o che servono a supportare la verifica delle firme contenute nel componente digitale stesso</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CRL" type="SIP:File" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Lista di revoche e sospensioni di certificati (CRL) che serve per verificare lo stato di revoca o sospensione del/i certificati della/e firme contenute nel componente digitale descritto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="type" use="required">
+			<xs:annotation>
+				<xs:documentation>Indica cosa l'oggetto digitale - file - descritto rappresenta rispetto all'oggetto digitale con cui si relaziona (quello rappresentato dal tag ComponenteDigitaleDetached padre).</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="F">
+						<xs:annotation>
+							<xs:documentation>Firma detached</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="M">
+						<xs:annotation>
+							<xs:documentation>Marca temporale detached</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="IdC">
+						<xs:annotation>
+							<xs:documentation>Indice di Conservazione - conforme allo standard UNI SInCRO ma NON formato dal SCN - attraverso cui il documento è stato conservato sostitutivamente a norma (ex Del. CNIPA 11/2004) prima dell'invio in conservazione in IRIS</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ComponenteDigitaleCorredo">
+		<xs:annotation>
+			<xs:documentation>Rappresenta un file a corredo del documento digitale (che non è una firma nè una marca temporale detached nè un IdC)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="File" type="SIP:File"/>
+		</xs:sequence>
+		<xs:attribute name="type" use="required">
+			<xs:annotation>
+				<xs:documentation>Indica cosa l'oggetto digitale descritto rappresenta rispetto all'oggetto digitale referenziato.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="CIR">
+						<xs:annotation>
+							<xs:documentation>File con il Contenuto Informativo Riversato in un formato più idoneo alla conservazione a lungo termine rispetto al formato originale</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="SPI">
+						<xs:annotation>
+							<xs:documentation>File Segnatura.xml associato alla mail di Protocollo Interoperabile con cui il documento è stato acquisito o inviato</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="PEC">
+						<xs:annotation>
+							<xs:documentation>Mail di PEC con cui il documento è arrivato al produttore</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="RPEC_A">
+						<xs:annotation>
+							<xs:documentation>Ricevuta PEC di accettazione della mail di PEC con cui il documento è stato inviato dal produttore al/ai destinatari</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="RPEC_C">
+						<xs:annotation>
+							<xs:documentation>Ricevuta PEC di avvenuta consegna della mail di PEC con cui il documento è stato inviato dal produttore ad uno dei destinatari</xs:documentation>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ComponentiDigitaliDoc">
+		<xs:annotation>
+			<xs:documentation> Contiente puntamenti e impronte di tutti i componenti digitali di un documento digitale nonchè le reciproche relazioni</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FilePrincipale" type="SIP:File"/>
+			<xs:element name="TimeRef" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Riferimento temporale (diverso dal timestamp di una marca temporale) associato alla/e eventuali firme apposte sul documento (può essere una data e ora di protocollo o una data e ora di una mail/ricecuta PEC che attesta l'arrivo/invio del documento tramite PEC). Questo riferimento temporale assume lo stesso valore giuridico di eventuali marche temporali apposte sulle firme, purchè il file XML che contiene questo tag e il tag Digest sia firmato digitalmente</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="SIP:TimeRef">
+							<xs:attribute name="Type" use="required">
+								<xs:annotation>
+									<xs:documentation>Indica il tipo di riferimento temporale </xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="PG">
+											<xs:annotation>
+												<xs:documentation>Data e ora di registrazione a protocollo generale</xs:documentation>
+											</xs:annotation>
+										</xs:enumeration>
+										<xs:enumeration value="PP">
+											<xs:annotation>
+												<xs:documentation>Data e ora di registrazione a protocollo particolare</xs:documentation>
+											</xs:annotation>
+										</xs:enumeration>
+										<xs:enumeration value="REP">
+											<xs:annotation>
+												<xs:documentation>Data e ora di registrazione a repertorio</xs:documentation>
+											</xs:annotation>
+										</xs:enumeration>
+										<xs:enumeration value="PEC">
+											<xs:annotation>
+												<xs:documentation>Data e ora della mail di PEC con cui è arrivato il documento</xs:documentation>
+											</xs:annotation>
+										</xs:enumeration>
+										<xs:enumeration value="RPEC">
+											<xs:annotation>
+												<xs:documentation>Data e ora della ricevuta di PEC attestante la spedizione via PEC del documento</xs:documentation>
+											</xs:annotation>
+										</xs:enumeration>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ComponentiDigitaliDetached" type="SIP:ComponentiDigitaliDetached" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Rappresenta i file che costituiscono le firme e le marche detached del file con il contenuto informativo o  che servono a supportare la verifica delle firme contenute nel file stesso</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ComponentiDigitaliCorredo" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Rappresenta ulteriori file a corredo del documento digitale</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ComponenteDigitaleCorredo" type="SIP:ComponenteDigitaleCorredo" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Rappresenta un file - non una firma detached nè una marca temporale - a corredo del documento digitale</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Dimensioni">
+		<xs:annotation>
+			<xs:documentation>Dimensioni (altezza, lunghezza e larghezza) di un contenitore (espresse in mm)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="X" type="xs:positiveInteger" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Larghezza/spessore (espressa in mm)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Y" type="xs:positiveInteger" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Lunghezza/profondita' (espressa in mm)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Z" type="xs:positiveInteger" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Altezza (espressa in mm)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DateRefTipizzato">
+		<xs:annotation>
+			<xs:documentation>Riferimento temporale con indicazione di che tipo di riferimento si tratta</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Data" type="SIP:DateRef"/>
+		</xs:sequence>
+		<xs:attribute name="TipoRif"/>
+	</xs:complexType>
+	<xs:complexType name="RegistrazioneNumerazione">
+		<xs:annotation>
+			<xs:documentation>Estremi di una registrazione (es. a Protocollo Generale) o numerazione di un documento</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CategoriaReg" type="SIP:CategoriaRegistrazione"/>
+			<xs:element name="SiglaRegistro" type="SIP:SiglaRegistro" minOccurs="0"/>
+			<xs:choice>
+				<xs:element name="AnnoReg" type="SIP:YearRef"/>
+				<xs:element name="DataOraReg" type="SIP:DateRef"/>
+			</xs:choice>
+			<xs:element name="NroReg">
+				<xs:simpleType>
+					<xs:restriction base="SIP:NroRegistrazione"/>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ValoriAttributo">
+		<xs:annotation>
+			<xs:documentation>Valore/i da assegnare ad un dato attributo</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="MatriceValori">
+				<xs:annotation>
+					<xs:documentation>Valore/i dell'attributo (come  lista di record) se multivalore o strutturato. E' una matrice fatta di una o più righe (più di una se è un attributo multi-valore) e da una o più colonne (più di una se è un attributo strutturato formato da più sotto-attributi)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Rec" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Rappresenta un record-valore dell'attributo</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Cols">
+										<xs:annotation>
+											<xs:documentation>Colonne che formano il record-valore</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Col" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>Valore di una colonna del record. Nel caso di attributo non strutturato, ovvero non composto a sua volta da sotto-attributi, ci può essere una sola colonna; nel caso di attributo di tipo strutturato sono al massimo tante colonne quante i sotto-attributi che compongono l'attributo. Se è il valore di un attributo data è formattato come xs:date, se data e ora come xs:dateTime, se è un anno come xs:gYear e se è un altro tipo numerico come xs:float; se è un check come xs:boolean</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:string">
+																<xs:attribute name="NomeSottoAttributo" type="xs:token">
+																	<xs:annotation>
+																		<xs:documentation>Nome che identifica il sotto-attributo i cui valori sono riportati nella colonna. Va specificato ed è obbligatorio solo nel caso di attributo strutturato - i.e. formato da più sotto-attributi - altrimenti va omesso</xs:documentation>
+																	</xs:annotation>
+																</xs:attribute>
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ValoreSemplice" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Valore dell'attributo se monovalore e di tipo non strutturato (cioè non composto a sua volta da sotto-attributi). Se è un attributo data è formattato come xs:date, se data e ora come xs:dateTime, se è un anno come xs:integer e se è un altro tipo numerico come xs:decimal; se è un check come xs:boolean</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+		<xs:attribute name="NomeAttributo" type="xs:token" use="required">
+			<xs:annotation>
+				<xs:documentation>E' il nome che identifica l'attributo</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation xml:lang="it">Definizione del root element</xs:documentation>
+	</xs:annotation>
+	<xs:element name="SIP">
+		<xs:annotation>
+			<xs:documentation>Descrive il Submission Information Package da inviare in conservazione. Contiene sia le descrizioni della documentazione - digitale ma anche cartacea/analogica - che i puntatori e le impronte dei file che compongono la documentazione digitale da inviare in conservazione. In caso di documentazione già inviata in conservazione e di cui si devono solo aggiornare dati e/o file, per le unità di descrizione - schede documento, unità di aggregazione di documenti ecc - e i documenti digitali da aggiornare basta specificare i tag relativi ai dati e/o file da aggiornare (questo non vale per i tag all'interno delle CustomInfo che vanno sempre a sostituire le CustomInfo già specificate per lo stesso item)</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SelfDescription" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Elementi di identificazione e descrizione del SIP</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Produttore" type="ProduttoreSIP">
+								<xs:annotation>
+									<xs:documentation>Soggetto che ha prodotto o che ha ereditato la custodia della documentazione inviata in conservazione nel SIP. Deve essere un soggetto censito come "soggetto versatore" nel sistema di conservazione</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="CreatoDaApplicazione" type="Applicazione">
+								<xs:annotation>
+									<xs:documentation>Applicazione o sistema che invia in conservazione il SIP</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="TsGenerazione" type="TimeRef">
+								<xs:annotation>
+									<xs:documentation>Data e ora in cui il SIP è stato predisposto</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Label" type="Label">
+								<xs:annotation>
+									<xs:documentation>Etichetta attraverso cui il produttore identifica il SIP</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Descrizione" type="SIP:ShortDescription" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Descrizione del contenuto del SIP</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MoreInfo" type="CustomInfo" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Serve ad indicare ulteriori informazioni del SIP che non siano tra quelle dei tag precedenti della SelfDescription del SIP stesso: sono espresse secondo un tracciato custom - schema XML - che è  stato precedentemente registrato nel sistema di conservazione e che necessariamente deve essere qui indicato</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="Id" type="ProvId">
+							<xs:annotation>
+								<xs:documentation>Identificativo univoco assegnato al SIP dal sistema producer che lo invia</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Contenuti">
+					<xs:annotation>
+						<xs:documentation>Lista delle unità di descrizione  - i.e. unità di aggregazione, schede documento e unità di conservazione - e dei documenti digitali da inviare in conservazione o da aggiornare/eliminare, se già inviati</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="CustomInfoSchemas" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Schemi XML utilizzati per le CustomInfo dei contenuti del SIP, salvo dove diversamente specificato</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="UA" type="XMLSchema" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Schema XML utilizzato per le CustomInfo delle Unità di Aggregazione - tag Item.UA - del SIP, salvo  per quelle per cui è diversamente specificato</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="SD" type="XMLSchema" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Schema XML utilizzato per le CustomInfo delle Schede Documento - tag Item.SD - del SIP, salvo  per quelle per cui è diversamente specificato</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="DigDoc" type="XMLSchema" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Schema XML utilizzato per le CustomInfo dei documenti digitali - tag Item.DigDoc-  del SIP, salvo  per quelli per cui è diversamente specificato</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="UC" type="XMLSchema" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Schema XML utilizzato per le CustomInfo delle Unità di Conservazione - tag Item.UC - del SIP, salvo  per quelle per cui è diversamente specificato</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Item" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Rappresenta un'unità di descrizione (unità di aggregazione, scheda documento o unità di conservazione) o un documento digitale che forma il SIP</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence minOccurs="0">
+										<xs:choice minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Contiene i dati dell'item che sono espressi secondo un tracciato standard, diverso a seconda che l'item sia un'unità di aggregazione (UA), una scheda documento (SD), un documento digitale (DigDoc) o un'unità di conservazione</xs:documentation>
+											</xs:annotation>
+											<xs:element name="UAStdInfo" type="UAStdInfo">
+												<xs:annotation>
+													<xs:documentation>Descrizione di un'Unità di Aggregazione di documenti: può essere un fascicolo, un sotto-fascicolo, un registro, una serie o qualsiasi altro aggregato LOGICO di documenti. Descrive solo l'aggregato e non i suoi contenuti</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="SDStdInfo" type="SDStdInfo">
+												<xs:annotation>
+													<xs:documentation>Scheda Documento, ovvero la descrizione di un documento semplice o complesso (es: registrazione a protocollo fatta da un documento primario ed allegati)</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="UCStdInfo" type="UCStdInfo">
+												<xs:annotation>
+													<xs:documentation>Descrizione di un'Unità di Conservazione, ovvero un aggregato fisico - ad esempio un faldone - con cui la documentazione analogica viene consegnata al deposito in cui deve essere conservata</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:choice>
+										<xs:element name="CustomInfo" type="CustomInfo" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Serve ad indicare dati dell'item che sono espressi secondo un tracciato custom - schema XML - che è deve essere stato registrato nel sistema di conservazione. Lo schema può non essere indicato sull'item se coincide con quello indicato nel tag CustomInfoSchemas per gli item del dato tipo.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="Id" type="ProvId" use="required">
+										<xs:annotation>
+											<xs:documentation>Identificativo univoco assegnato all'item dal sistema producer che invia il SIP (deve essere univoco tra quelli degli item dello stesso tipo) </xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="type" type="ItemType" use="required">
+										<xs:annotation>
+											<xs:documentation>Indica il tipo di item: unità di aggregazione (UA), scheda documento (SD), unità di conservazione (UC)</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="Op" type="SIPItemOper" default="I">
+										<xs:annotation>
+											<xs:documentation>Serve ad indicare se si tratta di un item già inviato  in conservazione e da aggiornare o eliminare dal processo di conservazione</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute ref="SIPver"/>
+			<xs:attribute ref="SIPurl"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

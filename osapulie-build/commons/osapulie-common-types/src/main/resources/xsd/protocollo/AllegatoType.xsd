@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.web.protocollo.osapulie.it" targetNamespace="http://ws.web.protocollo.osapulie.it"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="DocumentoType.xsd"/>
+	<xs:complexType name="Allegato">
+		<xs:sequence>
+			<xs:element name="documento" type="tns:Documento" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

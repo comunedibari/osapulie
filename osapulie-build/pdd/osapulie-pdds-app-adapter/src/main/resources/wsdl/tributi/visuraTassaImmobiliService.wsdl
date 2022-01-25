@@ -1,0 +1,399 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:ns0="http://servizi.osapulie.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	targetNamespace="http://servizi.osapulie.it">
+	<wsdl:documentation />
+	<wsdl:types>
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://servizi.osapulie.it">
+			<xs:element name="getRateVisuraTassaImmobili">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="idVisura" nillable="true" type="xs:int" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="rateVisuraTassaImmobili" type="ns0:rateVisuraTassaImmobili" />
+			<xs:complexType name="rateVisuraTassaImmobili">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="rataVisuraTassaImmobili" type="ns0:rataVisuraTassaImmobili" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="rataVisuraTassaImmobili">
+				<xs:sequence>
+					<xs:element name="id" nillable="true" type="xs:integer" />
+					<xs:element name="importoAbitazionePrincipale" nillable="true" type="xs:double" />
+					<xs:element name="importoAreaFabbricabile" nillable="true" type="xs:double" />
+					<xs:element name="importoTerreniAgricoli" nillable="true" type="xs:double" />
+					<xs:element name="importoAltriFabbricati" nillable="true" type="xs:double" />
+					<xs:element name="numeroFabbricati" nillable="true" type="xs:integer" />
+					<xs:element name="importoDaPagare" nillable="true" type="xs:double" />
+					<xs:element name="identificativoRata" nillable="true" type="xs:string" />
+					<xs:element name="tipoRata" nillable="true" type="xs:string" />
+					<xs:element name="importoPagato" nillable="true" type="xs:double" />
+					<xs:element name="dataPagamento" nillable="true" type="xs:date" />
+					<xs:element name="idVisura" nillable="true" type="xs:integer" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="getVisuraTassaImmobili">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="id" nillable="true" type="xs:int" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="visureTassaImmobili" type="ns0:visureTassaImmobili" />
+			<xs:complexType name="visureTassaImmobili">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="visuraTassaImmobili" type="ns0:visuraTassaImmobili" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="visuraTassaImmobili">
+				<xs:sequence>
+					<xs:element name="id" nillable="true" type="xs:integer" />
+					<xs:element name="codiceFiscale" nillable="true" type="xs:string" />
+					<xs:element name="dataAggiornamento" nillable="true" type="xs:date" />
+					<xs:element name="contoCorrente" nillable="true" type="xs:string" />
+					<xs:element name="annoRiferimento" nillable="true" type="xs:integer" />
+					<xs:element name="importoDocumento" nillable="true" type="xs:double" />
+					<xs:element name="descrizioneTassa" nillable="true" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="getRataVisuraTassaImmobili">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="identificativoRata" nillable="true" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getVisureTassaImmobili">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="codiceFiscale" nillable="true" type="xs:string" />
+						<xs:element name="annoDa" nillable="true" type="xs:int" />
+						<xs:element name="annoA" nillable="true" type="xs:int" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getPosizioniVisuraTassaImmobili">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="idVisura" nillable="true" type="xs:int" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="posizioniVisuraTassaImmobili" type="ns0:posizioniVisuraTassaImmobili" />
+			<xs:complexType name="posizioniVisuraTassaImmobili">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="posizioneVisuraTassaImmobili" type="ns0:posizioneVisuraTassaImmobili" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="posizioneVisuraTassaImmobili">
+				<xs:sequence>
+					<xs:element name="id" nillable="true" type="xs:integer" />
+					<xs:element name="identificativoUtenza" nillable="true" type="xs:string" />
+					<xs:element name="codiceVia" nillable="true" type="xs:string" />
+					<xs:element name="codiceCivico" nillable="true" type="xs:string" />
+					<xs:element name="via" nillable="true" type="xs:string" />
+					<xs:element name="civico" nillable="true" type="xs:integer" />
+					<xs:element name="esponente" nillable="true" type="xs:string" />
+					<xs:element name="localita" nillable="true" type="xs:string" />
+					<xs:element name="cap" nillable="true" type="xs:string" />
+					<xs:element name="piano" nillable="true" type="xs:string" />
+					<xs:element name="interno" nillable="true" type="xs:string" />
+					<xs:element name="scala" nillable="true" type="xs:string" />
+					<xs:element name="suffisso" nillable="true" type="xs:string" />
+					<xs:element name="superficie" nillable="true" type="xs:double" />
+					<xs:element name="caratteristicaImmobile" nillable="true" type="xs:string" />
+					<xs:element name="numero" nillable="true" type="xs:integer" />
+					<xs:element name="sezione" nillable="true" type="xs:string" />
+					<xs:element name="foglio" nillable="true" type="xs:integer" />
+					<xs:element name="particella" nillable="true" type="xs:integer" />
+					<xs:element name="subalterno" nillable="true" type="xs:integer" />
+					<xs:element name="valoreImmobile" nillable="true" type="xs:double" />
+					<xs:element name="destinazione" nillable="true" type="xs:string" />
+					<xs:element name="tipo" nillable="true" type="xs:string" />
+					<xs:element name="categoriaImmobile" nillable="true" type="xs:string" />
+					<xs:element name="aliquota" nillable="true" type="xs:double" />
+					<xs:element name="importoDovuto" nillable="true" type="xs:double" />
+					<xs:element name="importoDetrazioneAbPrincipale" nillable="true" type="xs:double" />
+					<xs:element name="mesiDetrazione" nillable="true" type="xs:integer" />
+					<xs:element name="percentualePossesso" nillable="true" type="xs:double" />
+					<xs:element name="mesiPossesso" nillable="true" type="xs:integer" />
+					<xs:element name="posseduto3112" nillable="true" type="xs:boolean" />
+					<xs:element name="riduzione" nillable="true" type="xs:boolean" />
+					<xs:element name="abitazionePrincipale" nillable="true" type="xs:boolean" />
+					<xs:element name="idVisura" nillable="true" type="xs:integer" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+			<xs:element name="DataServiceFault" type="xs:string" />
+			<xs:element name="REQUEST_STATUS" type="xs:string" />
+			<xs:element name="DATA_SERVICE_RESPONSE">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:any minOccurs="0" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="getVisureTassaImmobiliRequest">
+		<wsdl:part name="parameters" element="ns0:getVisureTassaImmobili" />
+	</wsdl:message>
+	<wsdl:message name="getVisureTassaImmobiliResponse">
+		<wsdl:part name="parameters" element="ns0:visureTassaImmobili" />
+	</wsdl:message>
+	<wsdl:message name="DataServiceFault">
+		<wsdl:part name="parameters" element="ns1:DataServiceFault" />
+	</wsdl:message>
+	<wsdl:message name="getPosizioniVisuraTassaImmobiliRequest">
+		<wsdl:part name="parameters" element="ns0:getPosizioniVisuraTassaImmobili" />
+	</wsdl:message>
+	<wsdl:message name="getPosizioniVisuraTassaImmobiliResponse">
+		<wsdl:part name="parameters" element="ns0:posizioniVisuraTassaImmobili" />
+	</wsdl:message>
+	<wsdl:message name="getRateVisuraTassaImmobiliRequest">
+		<wsdl:part name="parameters" element="ns0:getRateVisuraTassaImmobili" />
+	</wsdl:message>
+	<wsdl:message name="getRateVisuraTassaImmobiliResponse">
+		<wsdl:part name="parameters" element="ns0:rateVisuraTassaImmobili" />
+	</wsdl:message>
+	<wsdl:message name="getVisuraTassaImmobiliRequest">
+		<wsdl:part name="parameters" element="ns0:getVisuraTassaImmobili" />
+	</wsdl:message>
+	<wsdl:message name="getVisuraTassaImmobiliResponse">
+		<wsdl:part name="parameters" element="ns0:visureTassaImmobili" />
+	</wsdl:message>
+	<wsdl:message name="getRataVisuraTassaImmobiliRequest">
+		<wsdl:part name="parameters" element="ns0:getRataVisuraTassaImmobili" />
+	</wsdl:message>
+	<wsdl:message name="getRataVisuraTassaImmobiliResponse">
+		<wsdl:part name="parameters" element="ns0:rateVisuraTassaImmobili" />
+	</wsdl:message>
+	<wsdl:portType name="visuraTassaImmobiliServicePortType">
+		<wsdl:operation name="getVisureTassaImmobili">
+			<wsdl:documentation />
+			<wsdl:input message="ns0:getVisureTassaImmobiliRequest" wsaw:Action="urn:getVisureTassaImmobili" />
+			<wsdl:output message="ns0:getVisureTassaImmobiliResponse" wsaw:Action="urn:getVisureTassaImmobiliResponse" />
+			<soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisureTassaImmobiliDataServiceFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getPosizioniVisuraTassaImmobili">
+			<wsdl:documentation />
+			<wsdl:input message="ns0:getPosizioniVisuraTassaImmobiliRequest" wsaw:Action="urn:getPosizioniVisuraTassaImmobili" />
+			<wsdl:output message="ns0:getPosizioniVisuraTassaImmobiliResponse" wsaw:Action="urn:getPosizioniVisuraTassaImmobiliResponse" />
+			<soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getPosizioniVisuraTassaImmobiliDataServiceFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getRateVisuraTassaImmobili">
+			<wsdl:documentation />
+			<wsdl:input message="ns0:getRateVisuraTassaImmobiliRequest" wsaw:Action="urn:getRateVisuraTassaImmobili" />
+			<wsdl:output message="ns0:getRateVisuraTassaImmobiliResponse" wsaw:Action="urn:getRateVisuraTassaImmobiliResponse" />
+			<soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getRateVisuraTassaImmobiliDataServiceFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getVisuraTassaImmobili">
+			<wsdl:documentation />
+			<wsdl:input message="ns0:getVisuraTassaImmobiliRequest" wsaw:Action="urn:getVisuraTassaImmobili" />
+			<wsdl:output message="ns0:getVisuraTassaImmobiliResponse" wsaw:Action="urn:getVisuraTassaImmobiliResponse" />
+			<soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisuraTassaImmobiliDataServiceFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getRataVisuraTassaImmobili">
+			<wsdl:documentation />
+			<wsdl:input message="ns0:getRataVisuraTassaImmobiliRequest" wsaw:Action="urn:getRataVisuraTassaImmobili" />
+			<wsdl:output message="ns0:getRataVisuraTassaImmobiliResponse" wsaw:Action="urn:getRataVisuraTassaImmobiliResponse" />
+			<soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getRataVisuraTassaImmobiliDataServiceFault" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="visuraTassaImmobiliServiceSOAP11Binding" type="ns0:visuraTassaImmobiliServicePortType">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+		<wsdl:operation name="getVisureTassaImmobili">
+			<soap:operation soapAction="urn:getVisureTassaImmobili" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<soap:fault name="DataServiceFault">
+				<soap:fault use="literal" name="DataServiceFault" />
+			</soap:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getPosizioniVisuraTassaImmobili">
+			<soap:operation soapAction="urn:getPosizioniVisuraTassaImmobili" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<soap:fault name="DataServiceFault">
+				<soap:fault use="literal" name="DataServiceFault" />
+			</soap:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getRateVisuraTassaImmobili">
+			<soap:operation soapAction="urn:getRateVisuraTassaImmobili" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<soap:fault name="DataServiceFault">
+				<soap:fault use="literal" name="DataServiceFault" />
+			</soap:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getVisuraTassaImmobili">
+			<soap:operation soapAction="urn:getVisuraTassaImmobili" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<soap:fault name="DataServiceFault">
+				<soap:fault use="literal" name="DataServiceFault" />
+			</soap:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getRataVisuraTassaImmobili">
+			<soap:operation soapAction="urn:getRataVisuraTassaImmobili" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<soap:fault name="DataServiceFault">
+				<soap:fault use="literal" name="DataServiceFault" />
+			</soap:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="visuraTassaImmobiliServiceSOAP12Binding" type="ns0:visuraTassaImmobiliServicePortType">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+		<wsdl:operation name="getVisureTassaImmobili">
+			<soap12:operation soapAction="urn:getVisureTassaImmobili" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<soap:fault name="DataServiceFault">
+				<soap12:fault use="literal" name="DataServiceFault" />
+			</soap:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getPosizioniVisuraTassaImmobili">
+			<soap12:operation soapAction="urn:getPosizioniVisuraTassaImmobili" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<soap:fault name="DataServiceFault">
+				<soap12:fault use="literal" name="DataServiceFault" />
+			</soap:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getRateVisuraTassaImmobili">
+			<soap12:operation soapAction="urn:getRateVisuraTassaImmobili" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<soap:fault name="DataServiceFault">
+				<soap12:fault use="literal" name="DataServiceFault" />
+			</soap:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getVisuraTassaImmobili">
+			<soap12:operation soapAction="urn:getVisuraTassaImmobili" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<soap:fault name="DataServiceFault">
+				<soap12:fault use="literal" name="DataServiceFault" />
+			</soap:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getRataVisuraTassaImmobili">
+			<soap12:operation soapAction="urn:getRataVisuraTassaImmobili" style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<soap:fault name="DataServiceFault">
+				<soap12:fault use="literal" name="DataServiceFault" />
+			</soap:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="visuraTassaImmobiliServiceHttpBinding" type="ns0:visuraTassaImmobiliServicePortType">
+		<http:binding verb="POST" />
+		<wsdl:operation name="getVisureTassaImmobili">
+			<http:operation location="getVisureTassaImmobili" />
+			<wsdl:input>
+				<mime:content type="text/xml" part="parameters" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:content type="text/xml" part="parameters" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getPosizioniVisuraTassaImmobili">
+			<http:operation location="getPosizioniVisuraTassaImmobili" />
+			<wsdl:input>
+				<mime:content type="text/xml" part="parameters" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:content type="text/xml" part="parameters" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getRateVisuraTassaImmobili">
+			<http:operation location="getRateVisuraTassaImmobili" />
+			<wsdl:input>
+				<mime:content type="text/xml" part="parameters" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:content type="text/xml" part="parameters" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getVisuraTassaImmobili">
+			<http:operation location="getVisuraTassaImmobili" />
+			<wsdl:input>
+				<mime:content type="text/xml" part="parameters" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:content type="text/xml" part="parameters" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getRataVisuraTassaImmobili">
+			<http:operation location="getRataVisuraTassaImmobili" />
+			<wsdl:input>
+				<mime:content type="text/xml" part="parameters" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:content type="text/xml" part="parameters" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="visuraTassaImmobiliService">
+		<wsdl:port name="SOAP11Endpoint" binding="ns0:visuraTassaImmobiliServiceSOAP11Binding">
+			<soap:address location="http://10.0.5.19:9764/services/visuraTassaImmobiliService.SOAP11Endpoint/" />
+		</wsdl:port>
+		<wsdl:port name="SecureSOAP11Endpoint" binding="ns0:visuraTassaImmobiliServiceSOAP11Binding">
+			<soap:address location="https://10.0.5.19:9444/services/visuraTassaImmobiliService.SecureSOAP11Endpoint/" />
+		</wsdl:port>
+		<wsdl:port name="SecureSOAP12Endpoint" binding="ns0:visuraTassaImmobiliServiceSOAP12Binding">
+			<soap12:address location="https://10.0.5.19:9444/services/visuraTassaImmobiliService.SecureSOAP12Endpoint/" />
+		</wsdl:port>
+		<wsdl:port name="SOAP12Endpoint" binding="ns0:visuraTassaImmobiliServiceSOAP12Binding">
+			<soap12:address location="http://10.0.5.19:9764/services/visuraTassaImmobiliService.SOAP12Endpoint/" />
+		</wsdl:port>
+		<wsdl:port name="HTTPEndpoint" binding="ns0:visuraTassaImmobiliServiceHttpBinding">
+			<http:address location="http://10.0.5.19:9764/services/visuraTassaImmobiliService.HTTPEndpoint/" />
+		</wsdl:port>
+		<wsdl:port name="SecureHTTPEndpoint" binding="ns0:visuraTassaImmobiliServiceHttpBinding">
+			<http:address location="https://10.0.5.19:9444/services/visuraTassaImmobiliService.SecureHTTPEndpoint/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

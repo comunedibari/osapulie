@@ -1,0 +1,128 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://servizi.osapulie.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://servizi.osapulie.it">
+    <wsdl:documentation/>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://servizi.osapulie.it">
+            <xs:element name="getVisureVariazioniDomicilio">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                        <xs:element name="dataInizio" nillable="true" type="xs:date"/>
+                        <xs:element name="dataFine" nillable="true" type="xs:date"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="visureVariazioniDomicilio" type="ns0:visureVariazioniDomicilio"/>
+            <xs:complexType name="visureVariazioniDomicilio">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="visuraVariazioneDomicilio" type="ns0:visuraVariazioneDomicilio"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="visuraVariazioneDomicilio">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                    <xs:element name="dataInizioDomicilio" nillable="true" type="xs:date"/>
+                    <xs:element name="comune" nillable="true" type="xs:string"/>
+                    <xs:element name="dataIscrizioneComune" nillable="true" type="xs:date"/>
+                    <xs:element name="toponimoIndirizzo" nillable="true" type="xs:string"/>
+                    <xs:element name="indirizzo" nillable="true" type="xs:string"/>
+                    <xs:element name="numeroCivico" nillable="true" type="xs:string"/>
+                    <xs:element name="esponente" nillable="true" type="xs:string"/>
+                    <xs:element name="piano" nillable="true" type="xs:integer"/>
+                    <xs:element name="scala" nillable="true" type="xs:string"/>
+                    <xs:element name="interno" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+            <xs:element name="DataServiceFault" type="xs:string"/>
+            <xs:element name="REQUEST_STATUS" type="xs:string"/>
+            <xs:element name="DATA_SERVICE_RESPONSE">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getVisureVariazioniDomicilioRequest">
+        <wsdl:part name="parameters" element="ns0:getVisureVariazioniDomicilio"/>
+    </wsdl:message>
+    <wsdl:message name="getVisureVariazioniDomicilioResponse">
+        <wsdl:part name="parameters" element="ns0:visureVariazioniDomicilio"/>
+    </wsdl:message>
+    <wsdl:message name="DataServiceFault">
+        <wsdl:part name="parameters" element="ns1:DataServiceFault"/>
+    </wsdl:message>
+    <wsdl:portType name="visuraVariazioniDomicilioServicePortType">
+        <wsdl:operation name="getVisureVariazioniDomicilio">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getVisureVariazioniDomicilioRequest" wsaw:Action="urn:getVisureVariazioniDomicilio"/>
+            <wsdl:output message="ns0:getVisureVariazioniDomicilioResponse" wsaw:Action="urn:getVisureVariazioniDomicilioResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisureVariazioniDomicilioDataServiceFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="visuraVariazioniDomicilioServiceSOAP11Binding" type="ns0:visuraVariazioniDomicilioServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getVisureVariazioniDomicilio">
+            <soap:operation soapAction="urn:getVisureVariazioniDomicilio" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraVariazioniDomicilioServiceSOAP12Binding" type="ns0:visuraVariazioniDomicilioServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getVisureVariazioniDomicilio">
+            <soap12:operation soapAction="urn:getVisureVariazioniDomicilio" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraVariazioniDomicilioServiceHttpBinding" type="ns0:visuraVariazioniDomicilioServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getVisureVariazioniDomicilio">
+            <http:operation location="getVisureVariazioniDomicilio"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="visuraVariazioniDomicilioService">
+        <wsdl:port name="SOAP11Endpoint" binding="ns0:visuraVariazioniDomicilioServiceSOAP11Binding">
+            <soap:address location="http://10.0.5.19:9764/services/visuraVariazioniDomicilioService.SOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:visuraVariazioniDomicilioServiceSOAP11Binding">
+            <soap:address location="https://10.0.5.19:9444/services/visuraVariazioniDomicilioService.SecureSOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:visuraVariazioniDomicilioServiceSOAP12Binding">
+            <soap12:address location="https://10.0.5.19:9444/services/visuraVariazioniDomicilioService.SecureSOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SOAP12Endpoint" binding="ns0:visuraVariazioniDomicilioServiceSOAP12Binding">
+            <soap12:address location="http://10.0.5.19:9764/services/visuraVariazioniDomicilioService.SOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="HTTPEndpoint" binding="ns0:visuraVariazioniDomicilioServiceHttpBinding">
+            <http:address location="http://10.0.5.19:9764/services/visuraVariazioniDomicilioService.HTTPEndpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureHTTPEndpoint" binding="ns0:visuraVariazioniDomicilioServiceHttpBinding">
+            <http:address location="https://10.0.5.19:9444/services/visuraVariazioniDomicilioService.SecureHTTPEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

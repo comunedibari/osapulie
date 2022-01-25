@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="richiestaCertificatoNascita" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0245201830476063"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="uso" class="java.lang.String"/>
+	<parameter name="cognome" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Maldarelli"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nome" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Giuseppe"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sindaco" class="java.lang.String"/>
+	<parameter name="comuneNascita" class="java.lang.String"/>
+	<parameter name="giornoNascita" class="java.lang.String"/>
+	<parameter name="meseNascita" class="java.lang.String"/>
+	<parameter name="annoNascita" class="java.lang.String"/>
+	<parameter name="attoN" class="java.lang.String"/>
+	<parameter name="parteN" class="java.lang.String"/>
+	<parameter name="serieN" class="java.lang.String"/>
+	<parameter name="annoAttoN" class="java.lang.String"/>
+	<parameter name="provinciaNascita" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="117" splitType="Stretch">
+			<textField pattern="">
+				<reportElement mode="Transparent" x="143" y="31" width="286" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["COMUNE DI " + $P{comune}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="143" y="51" width="286" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Città Metropolitana di Bari]]></text>
+			</staticText>
+			<image>
+				<reportElement x="48" y="12" width="73" height="94"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="420" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="10" y="56" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["visto il registro degli atti di nascita dell'anno " + $P{annoAttoN}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="30" y="253" width="385" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{comune} + ", " + new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="363" y="300" width="156" height="28"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IL SINDACO]]></text>
+			</staticText>
+			<textField pattern="">
+				<reportElement x="30" y="117" width="385" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cognome} + " " + $P{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="16" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICATO DI NASCITA
+
+]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="30" y="196" width="474" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["come risulta dall'atto anagrafico n. " + $P{attoN} + " parte " + $P{parteN} + " serie " + $P{serieN}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="30" y="137" width="385" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["è nato a " + $P{comuneNascita}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="30" y="157" width="385" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["il giorno " + $P{giornoNascita} + " del mese di " + $P{meseNascita}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="30" y="176" width="385" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["dell'anno " + $P{annoNascita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="36" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[IL SINDACO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="76" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[CERTIFICA CHE]]></text>
+			</staticText>
+			<image>
+				<reportElement x="363" y="328" width="158" height="52"/>
+				<imageExpression><![CDATA[$P{sindaco}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="18" y="-4" width="521" height="1"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="88">
+			<staticText>
+				<reportElement x="28" y="4" width="491" height="84"/>
+				<textElement textAlignment="Justified">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Il presente certificato non può essere prodotto agli organi della pubblica amministrazione o ai privati gestori di pubblici servizi. (l'articolo 15, comma 1, della legge 12 novembre 2011, n. 183)
+All'indirizzo https://egov.ba.it/timbro-digitale è possibile verificare gratuitamente il timbro digitale sottostante, ed accertare l'autenticità del presente documento.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

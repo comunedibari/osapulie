@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://ws.web.pratiche.osapulie.it"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified"
+	targetNamespace="http://ws.web.pratiche.osapulie.it" version="1.0">
+
+	<xs:include schemaLocation="ErroreType.xsd" />
+
+	<xs:element name="savePraticaResponse">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="return" type="tns:savePraticaWebResponse"/>
+		</xs:sequence>
+	</xs:complexType>
+<!-- 
+			<xs:choice>
+				<xs:element name="errore" type="tns:Errore" minOccurs="0" />
+			</xs:choice>
+		</xs:complexType>
+		 -->
+	</xs:element>
+	<xs:complexType name="savePraticaWebResponse">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="error" type="tns:Errore" />
+			<xs:element name="salvato" type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="save" type="tns:savePraticaWebResponse"/>
+
+</xs:schema>

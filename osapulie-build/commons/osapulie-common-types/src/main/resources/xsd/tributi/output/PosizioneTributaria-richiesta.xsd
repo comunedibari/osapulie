@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://types.output.tributi.osapulie.it" targetNamespace="http://types.output.tributi.osapulie.it" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:include schemaLocation="ContribuenteType.xsd" />
+	<xs:element name="visuraPosizioneTributariaRichiesta">
+		<xs:annotation>
+			<xs:documentation>Dati di richiesta al comune relativi al servizio Visualizzazione Posizione Tributaria.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:IdContribuente">
+					<xs:sequence>
+						<xs:element name="tipoTributo">
+							<xs:complexType>
+								<xs:choice>
+									<xs:element name="ALL" />
+									<xs:element name="tributo">
+										<xs:complexType>
+											<xs:choice>
+												<xs:element name="OSAP" minOccurs="0" />
+												<xs:element name="IMU" minOccurs="0" />
+												<xs:element name="TARI" minOccurs="0" />
+												<xs:element name="ICP" minOccurs="0" />
+												<xs:element name="AFFISSIONI" minOccurs="0" />
+												<xs:element name="CIMITERIALI" minOccurs="0" />
+											</xs:choice>
+										</xs:complexType>
+									</xs:element>
+								</xs:choice>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="arcoTemporale">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="annoInizio" minOccurs="0" type="xs:int" />
+									<xs:element name="annoFine" minOccurs="0" type="xs:int" />
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

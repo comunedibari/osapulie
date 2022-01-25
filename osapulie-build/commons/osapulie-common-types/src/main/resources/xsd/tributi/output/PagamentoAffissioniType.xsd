@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2012 (http://www.altova.com) by Clòorinda Mastrobuono (HALLEY SUD-EST) -->
+<!-- XML Schema dei dati di risposta del servizio  Pagamento Afissioni.. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="PagamentiAffissioniType">
+		<xs:sequence>
+			<xs:element name="posizioniAffissione" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="numeroFogli" type="xs:int"/>
+						<xs:element name="numeroManifesti" type="xs:int"/>
+						<xs:element name="giorniAffissione" type="xs:int"/>
+						<xs:element name="tariffa" type="xs:double"/>
+						<xs:element name="dimensioneManifesti" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>le dimesione inserirle nel formato aaa x bbb ad esempio : 70 x 100 o  100 x 140 </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="rate" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="importoRata" type="xs:double">
+							<xs:annotation>
+								<xs:documentation>espresso in centesimi di euro</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="scadenzaRata" type="xs:date" minOccurs="0"/>
+						<xs:element name="numeroRata" type="xs:int"/>
+						<xs:element name="identificativoRata" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Inserirlo nel caso si voglia richiedere il file dei pagamenti al portale per ricaricarli nell'applicativo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="importoPagato" type="xs:double">
+							<xs:annotation>
+								<xs:documentation>espresso in centesimi di euro</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="dataPagamento" type="xs:date" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="dataAggiornamento" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="contoCorrente" type="xs:string" use="optional"/>
+		<xs:attribute name="importoDocumento" type="xs:double" use="optional">
+			<xs:annotation>
+				<xs:documentation>espresso in centesimi di euro</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="numeroDocumento" type="xs:string" use="optional"/>
+		<xs:attribute name="annoRiferimento" type="xs:int" use="required"/>
+	</xs:complexType>
+</xs:schema>

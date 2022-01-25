@@ -1,0 +1,14 @@
+<div>
+    <p>Il sottoscritto ${cognome} ${nome},<br/>
+	in relazione al servizio <b>${servizio}</b> segnala che i seguenti valori sono errati/mancanti e chiede di sostituirli con i seguenti: 
+    </p>
+    
+    <div>
+    	${segnalazione}
+    </div>
+    
+    <div>
+    	<p>Note: </p>
+    	${note}
+    </div>
+</div>	

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by ACME4 (INSIEL S.P.A.) -->
+<xsd:schema xmlns:types="http://progettoicar.it/AP3interprotoQry/types" xmlns:tns="http://progettoicar.it/AP3interprotoQry/types" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://progettoicar.it/AP3interprotoQry/types" elementFormDefault="qualified">
+	<xsd:include schemaLocation="AP3InterrogaFascRequest.xsd"/>
+	<xsd:include schemaLocation="AP3InterrogaFascResponse.xsd"/>
+	<xsd:complexType name="richiesta_RichiestaRispostaSincrona_InterrogaFasc_Type">
+		<xsd:sequence>
+			<xsd:element name="AP3InterrogaFascRequest" type="tns:AP3InterrogaFascRequest">
+				<xsd:annotation>
+					<xsd:appinfo>http://progettoicar.it/AP3interprotoQry/types/AP3InterrogaFascRequest.xsd</xsd:appinfo>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="richiesta_RichiestaRispostaSincrona_InterrogaFasc" type="types:richiesta_RichiestaRispostaSincrona_InterrogaFasc_Type"/>
+	<xsd:complexType name="risposta_RichiestaRispostaSincrona_InterrogaFasc_Type">
+		<xsd:sequence>
+			<xsd:element name="AP3InterrogaFascResponse" type="tns:AP3InterrogaFascResponse">
+				<xsd:annotation>
+					<xsd:appinfo>http://progettoicar.it/AP3interprotoQry/types/AP3InterrogaFascResponse.xsd</xsd:appinfo>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="risposta_RichiestaRispostaSincrona_InterrogaFasc" type="types:risposta_RichiestaRispostaSincrona_InterrogaFasc_Type"/>
+</xsd:schema>

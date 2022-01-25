@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.6.5
+Created-By: Apache Maven
+Built-By: jasigch
+Package: org.jasig.cas
+Build-Jdk: 1.4.2_03
+Extension-Name: cas-server-ldap
+Specification-Title: CAS is enterprise Single Sign On for the web.
+Specification-Vendor: Java Architectures Special Interest Group
+Implementation-Title: org.jasig.cas
+Implementation-Vendor: Java Architectures Special Interest Group
+Implementation-Version: 3.0.5
+

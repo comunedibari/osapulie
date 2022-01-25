@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="CommonTypes.xsd" />
+	
+	<xs:element name="disabiliParcheggioRichiesta">
+		<xs:annotation>
+			<xs:documentation>Disabili: contrassegno europeo (Interoperabilità) </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="richiedente" type="Soggetto" />
+				<xs:element name="ruoloRichiedente" type="xs:string" />
+			    <xs:element name="disabile" type="Soggetto" />
+				<xs:element name="delegato" type="Soggetto" />
+				<xs:element name="richiesta" type="xs:string" />
+				<xs:element name="numeroPass" type="xs:string" nillable="true"/>
+				<xs:element name="scadenzaPass" type="xs:string" nillable="true"/>
+				<xs:element name="trattDatiPersonali" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

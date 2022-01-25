@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	Global application context (bootstrapped when the web application starts up).
+ -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:application.properties" />	
+	<bean id="applicationProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath:application.properties</value>
+            </list>
+        </property>
+    </bean>
+	
+	<import resource="classpath*:/META-INF/spring/persistence-layer-context.xml" />
+	<import resource="classpath*:/META-INF/spring/infrastructure-layer-context.xml" />
+	<import resource="classpath*:/META-INF/spring/service-layer-context.xml" />
+	<import resource="classpath*:/META-INF/spring/web-layer-context.xml" />
+ 	<import resource="classpath*:/META-INF/spring/security-context.xml" />
+
+	<import resource="classpath*:/META-INF/cxf/webservices-client-context.xml" />
+</beans>

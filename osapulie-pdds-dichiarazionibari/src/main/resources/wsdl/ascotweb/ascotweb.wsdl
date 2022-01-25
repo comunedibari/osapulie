@@ -1,0 +1,621 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.registrazionepratiche.services.egov.insielmercato.it/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="RegistrazionePraticheImplService" targetNamespace="http://ws.registrazionepratiche.services.egov.insielmercato.it/">
+<wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.registrazionepratiche.services.egov.insielmercato.it/" elementFormDefault="unqualified" targetNamespace="http://ws.registrazionepratiche.services.egov.insielmercato.it/" version="1.0">
+
+<xs:element name="checkCodiceFiscalePerCambioResidenza" type="tns:checkCodiceFiscalePerCambioResidenza"/>
+
+<xs:element name="checkCodiceFiscalePerCambioResidenzaRequest" type="tns:checkCodiceFiscalePerCambioResidenzaRequest"/>
+
+<xs:element name="checkCodiceFiscalePerCambioResidenzaResponse" type="tns:checkCodiceFiscalePerCambioResidenzaResponse"/>
+
+<xs:element name="checkCodiceFiscaleResponse" type="tns:checkCodiceFiscaleResponse"/>
+
+<xs:element name="checkForRegistrationAlreadyOpen" type="tns:checkForRegistrationAlreadyOpen"/>
+
+<xs:element name="checkForRegistrationAlreadyOpenResponse" type="tns:checkForRegistrationAlreadyOpenResponse"/>
+
+<xs:element name="checkRegistrationAlreadyOpenRequest" type="tns:checkRegistrationAlreadyOpenRequest"/>
+
+<xs:element name="checkRegistrationAlreadyOpenResponse" type="tns:checkRegistrationAlreadyOpenResponse"/>
+
+
+<xs:element name="closePractice" type="tns:closePractice"/>
+
+<xs:element name="closePracticeResponse" type="tns:closePracticeResponse"/>
+
+<xs:element name="closurePracticeRequest" type="tns:closurePracticeRequest"/>
+
+<xs:element name="closurePracticeResponse" type="tns:closurePracticeResponse"/>
+
+<xs:element name="deleteExistingOpenedRegistration" type="tns:deleteExistingOpenedRegistration"/>
+
+<xs:element name="deleteExistingOpenedRegistrationResponse" type="tns:deleteExistingOpenedRegistrationResponse"/>
+
+<xs:element name="deletePraticaRequest" type="tns:deletePraticaRequest"/>
+
+<xs:element name="deletePraticaResponse" type="tns:deletePraticaResponse"/>
+
+<xs:element name="registraCambioAbitazione" type="tns:registraCambioAbitazione"/>
+
+<xs:element name="registraCambioAbitazioneRequest" type="tns:registraCambioAbitazioneRequest"/>
+
+<xs:element name="registraCambioAbitazioneResponse" type="tns:registraCambioAbitazioneResponse"/>
+
+<xs:element name="registraCambioResidenza" type="tns:registraCambioResidenza"/>
+
+<xs:element name="registraCambioResidenzaRequest" type="tns:registraCambioResidenzaRequest"/>
+
+<xs:element name="registraCambioResidenzaResponse" type="tns:registraCambioResidenzaResponse"/>
+
+<xs:element name="registrazionePraticaResponse" type="tns:registrazionePraticaResponse"/>
+
+<xs:element name="verificaCodiceFiscale" type="tns:verificaCodiceFiscale"/>
+
+<xs:element name="verificaCodiceFiscaleResponse" type="tns:verificaCodiceFiscaleResponse"/>
+
+<xs:element name="verificaCodiceFiscaleValidoRequest" type="tns:verificaCodiceFiscaleValidoRequest"/>
+
+<xs:element name="verificaCodiceFiscaleValidoResponse" type="tns:verificaCodiceFiscaleValidoResponse"/>
+
+<xs:complexType name="deleteExistingOpenedRegistration">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:deletePraticaRequest"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deletePraticaRequest">
+
+
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="numeroPratica" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteExistingOpenedRegistrationResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:deletePraticaResponse"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deletePraticaResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="rimozioniPratiche" nillable="true" type="tns:praticaRimossa"/>
+<xs:element name="queryResult" type="tns:serviceResult"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="praticaRimossa">
+<xs:sequence>
+<xs:element minOccurs="0" name="message" type="xs:string"/>
+<xs:element minOccurs="0" name="praticaId" type="xs:string"/>
+<xs:element name="praticaRimossa" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="serviceResult">
+<xs:sequence>
+<xs:element minOccurs="0" name="errorCode" type="xs:string"/>
+<xs:element minOccurs="0" name="errorMessage" type="xs:string"/>
+<xs:element name="success" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="closePractice">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:closurePracticeRequest"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="closurePracticeRequest">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="numeroPratica" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="closePracticeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:closurePracticeResponse"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="closurePracticeResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="chiusuraPratiche" nillable="true" type="tns:praticaChiusa"/>
+
+
+<xs:element name="queryResult" type="tns:serviceResult"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="praticaChiusa">
+<xs:sequence>
+<xs:element minOccurs="0" name="message" type="xs:string"/>
+<xs:element name="praticaChiusa" type="xs:boolean"/>
+<xs:element minOccurs="0" name="praticaId" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registraCambioAbitazione">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:registraCambioAbitazioneRequest"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registraCambioAbitazioneRequest">
+<xs:sequence>
+<xs:element name="richiedente" type="tns:richiedente"/>
+<xs:element name="infoVia" type="tns:infoIndirizzo"/>
+<xs:element name="tipoRegistrazioneFamiglia" type="tns:tipoRegistrazioneFamiglia"/>
+<xs:element maxOccurs="unbounded" name="famiglia" type="tns:componente"/>
+<xs:element minOccurs="0" name="motivoDelloSpostamento" type="tns:motivoDelloSpostamento"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="richiedente">
+<xs:sequence>
+<xs:element minOccurs="0" name="cellulare" type="xs:string"/>
+<xs:element minOccurs="0" name="codiceFiscale" type="xs:string"/>
+<xs:element minOccurs="0" name="fax" type="xs:string"/>
+<xs:element minOccurs="0" name="idFamiglia" type="xs:string"/>
+<xs:element minOccurs="0" name="mail" type="xs:string"/>
+<xs:element minOccurs="0" name="pec" type="xs:string"/>
+<xs:element minOccurs="0" name="telefono" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="infoIndirizzo">
+<xs:sequence>
+<xs:element minOccurs="0" name="codiceFrazioneVia" type="xs:string"/>
+<xs:element minOccurs="0" name="corte" type="xs:string"/>
+<xs:element minOccurs="0" name="identificativoCivico" type="xs:string"/>
+<xs:element minOccurs="0" name="interno" type="xs:string"/>
+<xs:element minOccurs="0" name="numeroCivico" type="xs:string"/>
+<xs:element minOccurs="0" name="numeroCivicoBarrato" type="xs:string"/>
+<xs:element minOccurs="0" name="piano" type="xs:string"/>
+<xs:element minOccurs="0" name="scala" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="componente">
+<xs:sequence>
+
+
+<xs:element minOccurs="0" name="cell" type="xs:string"/>
+<xs:element minOccurs="0" name="codiceFiscale" type="xs:string"/>
+<xs:element name="codiceRelazioneParentela" type="xs:long"/>
+<xs:element minOccurs="0" name="datiPatente" type="tns:patente"/>
+<xs:element minOccurs="0" name="mail" type="xs:string"/>
+<xs:element minOccurs="0" name="numeroIdentificativoPersona" type="xs:string"/>
+<xs:element minOccurs="0" name="pec" type="xs:string"/>
+<xs:element minOccurs="0" name="sesso" type="xs:string"/>
+<xs:element minOccurs="0" name="tel" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="veicoli" nillable="true" type="tns:veicolo"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="patente">
+<xs:sequence>
+<xs:element minOccurs="0" name="carattereControllo" type="xs:string"/>
+<xs:element minOccurs="0" name="categoria" type="xs:string"/>
+<xs:element minOccurs="0" name="codiceEnteRilasciante" type="xs:string"/>
+<xs:element minOccurs="0" name="dataRegistrazione" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="numero" type="xs:string"/>
+<xs:element minOccurs="0" name="sigla" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="veicolo">
+<xs:sequence>
+<xs:element minOccurs="0" name="codiceTipoVeicolo" type="xs:string"/>
+<xs:element minOccurs="0" name="targa" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="motivoDelloSpostamento">
+<xs:sequence>
+<xs:element minOccurs="0" name="catastoFoglio" type="xs:string"/>
+<xs:element minOccurs="0" name="catastoMappale" type="xs:string"/>
+<xs:element minOccurs="0" name="catastoSezione" type="xs:string"/>
+<xs:element minOccurs="0" name="catastoSubalterno" type="xs:string"/>
+<xs:element minOccurs="0" name="datiPerVerificaUfficioAnagrafe" type="xs:string"/>
+<xs:element minOccurs="0" name="registrazioneContrattoData" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="registrazioneContrattoNumero" type="xs:string"/>
+<xs:element minOccurs="0" name="registrazioneContrattoSedeAgenziaEntrate" type="xs:string"/>
+<xs:element minOccurs="0" name="titoloOccupazioneImmobile" type="tns:tipologieOccupazioneImmobile"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registraCambioAbitazioneResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:registrazionePraticaResponse"/>
+</xs:sequence>
+</xs:complexType>
+
+
+
+<xs:complexType name="registrazionePraticaResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="idPratica" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="dataInserimento" nillable="true" type="xs:dateTime"/>
+<xs:element name="queryResult" type="tns:serviceResult"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="verificaCodiceFiscale">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:verificaCodiceFiscaleValidoRequest"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="verificaCodiceFiscaleValidoRequest">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="componentiDaVerificare" type="tns:componenteCambioResidenza"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="componenteCambioResidenza">
+<xs:complexContent>
+<xs:extension base="tns:componente">
+<xs:sequence>
+<xs:element minOccurs="0" name="cellulare" type="xs:string"/>
+<xs:element minOccurs="0" name="codiceCittadinanza" type="xs:int"/>
+<xs:element minOccurs="0" name="codiceComuneNascita" type="xs:string"/>
+<xs:element minOccurs="0" name="codicePosizioneProfessionale" type="xs:int"/>
+<xs:element minOccurs="0" name="codiceProfessione" type="xs:int"/>
+<xs:element minOccurs="0" name="codiceSettoreAttivita" type="xs:int"/>
+<xs:element minOccurs="0" name="codiceStatoCivile" type="xs:int"/>
+<xs:element minOccurs="0" name="codiceTitoloStudio" type="xs:int"/>
+<xs:element minOccurs="0" name="cognome" type="xs:string"/>
+<xs:element minOccurs="0" name="dataNascita" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="nome" type="xs:string"/>
+<xs:element minOccurs="0" name="telefono" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="verificaCodiceFiscaleResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:verificaCodiceFiscaleValidoResponse"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="verificaCodiceFiscaleValidoResponse">
+<xs:sequence>
+<xs:element name="componentiVerificati">
+
+
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="xs:string"/>
+<xs:element minOccurs="0" name="value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="queryResult" type="tns:serviceResult"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkCodiceFiscalePerCambioResidenza">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:checkCodiceFiscalePerCambioResidenzaRequest"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkCodiceFiscalePerCambioResidenzaRequest">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="codiciFiscali" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkCodiceFiscalePerCambioResidenzaResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:checkCodiceFiscaleResponse"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkCodiceFiscaleResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="disponibilitaCambioResidenza" nillable="true" type="tns:personaAbilitataAlCambioResidenza"/>
+<xs:element name="queryResult" type="tns:serviceResult"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="personaAbilitataAlCambioResidenza">
+<xs:sequence>
+<xs:element minOccurs="0" name="able" type="xs:boolean"/>
+<xs:element minOccurs="0" name="codiceFiscale" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkForRegistrationAlreadyOpen">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:checkRegistrationAlreadyOpenRequest"/>
+</xs:sequence>
+
+
+</xs:complexType>
+
+<xs:complexType name="checkRegistrationAlreadyOpenRequest">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="statiPraticheInfo" type="tns:checkStatoPraticaInfo"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkStatoPraticaInfo">
+<xs:sequence>
+<xs:element minOccurs="0" name="codiceFiscale" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoPratica" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkForRegistrationAlreadyOpenResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:checkRegistrationAlreadyOpenResponse"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkRegistrationAlreadyOpenResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="disponibilitaCambioResidenza" nillable="true" type="tns:registrationAlreadyOpen"/>
+<xs:element name="queryResult" type="tns:serviceResult"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registrationAlreadyOpen">
+<xs:sequence>
+<xs:element minOccurs="0" name="codiceFiscale" type="xs:string"/>
+<xs:element minOccurs="0" name="contactMail" type="xs:string"/>
+<xs:element minOccurs="0" name="contactPec" type="xs:string"/>
+<xs:element minOccurs="0" name="dataInserimento" type="xs:string"/>
+<xs:element minOccurs="0" name="idPratica" type="xs:string"/>
+<xs:element minOccurs="0" name="result" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registraCambioResidenza">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:registraCambioResidenzaRequest"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registraCambioResidenzaRequest">
+<xs:sequence>
+<xs:element name="infoPratica" type="tns:infoPraticaCambioResidenza"/>
+<xs:element name="infoVia" type="tns:infoIndirizzo"/>
+<xs:element maxOccurs="unbounded" name="famiglia" type="tns:componenteCambioResidenza"/>
+<xs:element minOccurs="0" name="motivoDelloSpostamento" type="tns:motivoDelloSpostamento"/>
+
+
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="infoPraticaCambioResidenza">
+<xs:sequence>
+<xs:element minOccurs="0" name="altroMotivoFamiglia" type="xs:int"/>
+<xs:element minOccurs="0" name="cellulareRichiedente" type="xs:string"/>
+<xs:element minOccurs="0" name="codiceComuneProvenienzaFamiglia" type="xs:string"/>
+<xs:element minOccurs="0" name="codiceFiscaleRichiedente" type="xs:string"/>
+<xs:element minOccurs="0" name="codiceStatoEsteroProvenienzaFamiglia" type="xs:string"/>
+<xs:element minOccurs="0" name="faxRichiedente" type="xs:string"/>
+<xs:element minOccurs="0" name="mailRichiedente" type="xs:string"/>
+<xs:element minOccurs="0" name="pecRichiedente" type="xs:string"/>
+<xs:element minOccurs="0" name="telefonoRichiedente" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registraCambioResidenzaResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:registrazionePraticaResponse"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="tipoRegistrazioneFamiglia">
+<xs:restriction base="xs:string">
+<xs:enumeration value="INTERO_NUCLEO_FAMILIARE"/>
+<xs:enumeration value="CREA_NUOVA_FAMIGLIA"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="tipologieOccupazioneImmobile">
+<xs:restriction base="xs:string">
+<xs:enumeration value="LEGGITTIMO_PROPRIETARIO"/>
+<xs:enumeration value="INTESTATARIO_CONTRATTO_LOCAZIONE_PRIVATO"/>
+<xs:enumeration value="INTESTATARIO_CONTRATTO_LOCAZIONE_PUBBLICO"/>
+<xs:enumeration value="COMODATARIO_USO_GRATUITO"/>
+<xs:enumeration value="USUFRUTTUARIO_CON_TITOLO"/>
+<xs:enumeration value="OCCUPANTE_LEGGITTIMO_CON_TITOLO"/>
+</xs:restriction>
+</xs:simpleType>
+
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="registraCambioAbitazioneResponse">
+<wsdl:part element="tns:registraCambioAbitazioneResponse" name="parameters">
+</wsdl:part>
+</wsdl:message>
+<wsdl:message name="registraCambioAbitazione">
+<wsdl:part element="tns:registraCambioAbitazione" name="parameters">
+</wsdl:part>
+</wsdl:message>
+<wsdl:message name="verificaCodiceFiscale">
+<wsdl:part element="tns:verificaCodiceFiscale" name="parameters">
+</wsdl:part>
+
+
+</wsdl:message>
+<wsdl:message name="closePracticeResponse">
+<wsdl:part element="tns:closePracticeResponse" name="parameters">
+</wsdl:part>
+</wsdl:message>
+<wsdl:message name="checkForRegistrationAlreadyOpenResponse">
+<wsdl:part element="tns:checkForRegistrationAlreadyOpenResponse" name="parameters">
+</wsdl:part>
+</wsdl:message>
+<wsdl:message name="closePractice">
+<wsdl:part element="tns:closePractice" name="parameters">
+</wsdl:part>
+</wsdl:message>
+<wsdl:message name="registraCambioResidenzaResponse">
+<wsdl:part element="tns:registraCambioResidenzaResponse" name="parameters">
+</wsdl:part>
+</wsdl:message>
+<wsdl:message name="checkCodiceFiscalePerCambioResidenzaResponse">
+<wsdl:part element="tns:checkCodiceFiscalePerCambioResidenzaResponse" name="parameters">
+</wsdl:part>
+</wsdl:message>
+<wsdl:message name="checkCodiceFiscalePerCambioResidenza">
+<wsdl:part element="tns:checkCodiceFiscalePerCambioResidenza" name="parameters">
+</wsdl:part>
+</wsdl:message>
+<wsdl:message name="checkForRegistrationAlreadyOpen">
+<wsdl:part element="tns:checkForRegistrationAlreadyOpen" name="parameters">
+</wsdl:part>
+</wsdl:message>
+<wsdl:message name="registraCambioResidenza">
+<wsdl:part element="tns:registraCambioResidenza" name="parameters">
+</wsdl:part>
+</wsdl:message>
+<wsdl:message name="verificaCodiceFiscaleResponse">
+<wsdl:part element="tns:verificaCodiceFiscaleResponse" name="parameters">
+</wsdl:part>
+</wsdl:message>
+<wsdl:message name="deleteExistingOpenedRegistrationResponse">
+<wsdl:part element="tns:deleteExistingOpenedRegistrationResponse" name="parameters">
+</wsdl:part>
+</wsdl:message>
+<wsdl:message name="deleteExistingOpenedRegistration">
+<wsdl:part element="tns:deleteExistingOpenedRegistration" name="parameters">
+</wsdl:part>
+</wsdl:message>
+<wsdl:portType name="RegistrazionePratiche">
+<wsdl:operation name="deleteExistingOpenedRegistration">
+<wsdl:input message="tns:deleteExistingOpenedRegistration" name="deleteExistingOpenedRegistration">
+</wsdl:input>
+<wsdl:output message="tns:deleteExistingOpenedRegistrationResponse" name="deleteExistingOpenedRegistrationResponse">
+</wsdl:output>
+</wsdl:operation>
+
+
+<wsdl:operation name="closePractice">
+<wsdl:input message="tns:closePractice" name="closePractice">
+</wsdl:input>
+<wsdl:output message="tns:closePracticeResponse" name="closePracticeResponse">
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="registraCambioAbitazione">
+<wsdl:input message="tns:registraCambioAbitazione" name="registraCambioAbitazione">
+</wsdl:input>
+<wsdl:output message="tns:registraCambioAbitazioneResponse" name="registraCambioAbitazioneResponse">
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="verificaCodiceFiscale">
+<wsdl:input message="tns:verificaCodiceFiscale" name="verificaCodiceFiscale">
+</wsdl:input>
+<wsdl:output message="tns:verificaCodiceFiscaleResponse" name="verificaCodiceFiscaleResponse">
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="checkCodiceFiscalePerCambioResidenza">
+<wsdl:input message="tns:checkCodiceFiscalePerCambioResidenza" name="checkCodiceFiscalePerCambioResidenza">
+</wsdl:input>
+<wsdl:output message="tns:checkCodiceFiscalePerCambioResidenzaResponse" name="checkCodiceFiscalePerCambioResidenzaResponse">
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="checkForRegistrationAlreadyOpen">
+<wsdl:input message="tns:checkForRegistrationAlreadyOpen" name="checkForRegistrationAlreadyOpen">
+</wsdl:input>
+<wsdl:output message="tns:checkForRegistrationAlreadyOpenResponse" name="checkForRegistrationAlreadyOpenResponse">
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="registraCambioResidenza">
+<wsdl:input message="tns:registraCambioResidenza" name="registraCambioResidenza">
+</wsdl:input>
+<wsdl:output message="tns:registraCambioResidenzaResponse" name="registraCambioResidenzaResponse">
+</wsdl:output>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="RegistrazionePraticheImplServiceSoapBinding" type="tns:RegistrazionePratiche">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="deleteExistingOpenedRegistration">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="deleteExistingOpenedRegistration">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="deleteExistingOpenedRegistrationResponse">
+
+
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="closePractice">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="closePractice">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="closePracticeResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="registraCambioAbitazione">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="registraCambioAbitazione">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="registraCambioAbitazioneResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="verificaCodiceFiscale">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="verificaCodiceFiscale">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="verificaCodiceFiscaleResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="checkCodiceFiscalePerCambioResidenza">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="checkCodiceFiscalePerCambioResidenza">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="checkCodiceFiscalePerCambioResidenzaResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="checkForRegistrationAlreadyOpen">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="checkForRegistrationAlreadyOpen">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="checkForRegistrationAlreadyOpenResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="registraCambioResidenza">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="registraCambioResidenza">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="registraCambioResidenzaResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+
+
+<wsdl:service name="RegistrazionePraticheImplService">
+<wsdl:port binding="tns:RegistrazionePraticheImplServiceSoapBinding" name="RegistrazionePraticheImplPort">
+<soap:address location="	"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
+
+

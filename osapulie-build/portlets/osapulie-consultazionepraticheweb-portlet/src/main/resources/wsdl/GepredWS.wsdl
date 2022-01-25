@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:ns1="http://ws.web.pratiche.osapulie.it"
+	xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://ws.web.pratiche.osapulie.it" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GestionePraticheWS"
+	targetNamespace="http://ws.web.pratiche.osapulie.it">
+	
+	<wsdl:import location="GepredTypes.xsd" namespace="http://ws.web.pratiche.osapulie.it"></wsdl:import>
+<!-- 	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://ws.web.pratiche.osapulie.it"
+				schemaLocation="GepredTypes.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+ -->
+	<wsdl:message name="downloadDocumentoResponse">
+		<wsdl:part element="ns1:downloadDocumentoResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchAllegatiTipoPratica">
+		<wsdl:part element="ns1:searchAllegatiTipoPratica" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchPraticaWebByPkResponse">
+		<wsdl:part element="ns1:searchPraticaWebByPkResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchPraticheWebByUtente">
+		<wsdl:part element="ns1:searchPraticheWebByUtente" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="savePratica">
+		<wsdl:part element="ns1:savePratica" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getTipoPraticaByPkResponse">
+		<wsdl:part element="ns1:getTipoPraticaByPkResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getTipoImmobileByPk">
+		<wsdl:part element="ns1:getTipoImmobileByPk" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchPraticaByPk">
+		<wsdl:part element="ns1:searchPraticaByPk" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="savePraticaResponse">
+		<wsdl:part element="ns1:savePraticaResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchPraticheWebByUtenteResponse">
+		<wsdl:part element="ns1:searchPraticheWebByUtenteResponse"
+			name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getReferenteByPk">
+		<wsdl:part element="ns1:getReferenteByPk" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="documentiContenuti">
+		<wsdl:part element="ns1:documentiContenuti" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchAllPraticheWeb">
+		<wsdl:part element="ns1:searchAllPraticheWeb" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchPraticheResponse">
+		<wsdl:part element="ns1:searchPraticheResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchStatoPratiche">
+		<wsdl:part element="ns1:searchStatoPratiche" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="downloadDocumento">
+		<wsdl:part element="ns1:downloadDocumento" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchTipoImmobile">
+		<wsdl:part element="ns1:searchTipoImmobile" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchPratiche">
+		<wsdl:part element="ns1:searchPratiche" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchPraticaByPkResponse">
+		<wsdl:part element="ns1:searchPraticaByPkResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchTipoImmobileResponse">
+		<wsdl:part element="ns1:searchTipoImmobileResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchAllPraticheWebResponse">
+		<wsdl:part element="ns1:searchAllPraticheWebResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="uploadFileResponse">
+		<wsdl:part element="ns1:uploadFileResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="uploadFile">
+		<wsdl:part element="ns1:uploadFile" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchPraticaWebByPk">
+		<wsdl:part element="ns1:searchPraticaWebByPk" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchStatoPraticheResponse">
+		<wsdl:part element="ns1:searchStatoPraticheResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getTipoImmobileByPkResponse">
+		<wsdl:part element="ns1:getTipoImmobileByPkResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchTipoPraticheFrontend">
+		<wsdl:part element="ns1:searchTipoPraticheFrontend" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getReferenteByPkResponse">
+		<wsdl:part element="ns1:getReferenteByPkResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchTipoPraticheFrontendResponse">
+		<wsdl:part element="ns1:searchTipoPraticheFrontendResponse"
+			name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getTipoPraticaByPk">
+		<wsdl:part element="ns1:getTipoPraticaByPk" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="documentiContenutiResponse">
+		<wsdl:part element="ns1:documentiContenutiResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="searchAllegatiTipoPraticaResponse">
+		<wsdl:part element="ns1:searchAllegatiTipoPraticaResponse"
+			name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="GestionePraticheWS">
+		<wsdl:operation name="searchPraticheWebByUtente">
+			<wsdl:input message="tns:searchPraticheWebByUtente" name="searchPraticheWebByUtente"></wsdl:input>
+			<wsdl:output message="tns:searchPraticheWebByUtenteResponse"
+				name="searchPraticheWebByUtenteResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchAllPraticheWeb">
+			<wsdl:input message="tns:searchAllPraticheWeb" name="searchAllPraticheWeb"></wsdl:input>
+			<wsdl:output message="tns:searchAllPraticheWebResponse"
+				name="searchAllPraticheWebResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchTipoImmobile">
+			<wsdl:input message="tns:searchTipoImmobile" name="searchTipoImmobile"></wsdl:input>
+			<wsdl:output message="tns:searchTipoImmobileResponse"
+				name="searchTipoImmobileResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchPraticaWebByPk">
+			<wsdl:input message="tns:searchPraticaWebByPk" name="searchPraticaWebByPk"></wsdl:input>
+			<wsdl:output message="tns:searchPraticaWebByPkResponse"
+				name="searchPraticaWebByPkResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchStatoPratiche">
+			<wsdl:input message="tns:searchStatoPratiche" name="searchStatoPratiche"></wsdl:input>
+			<wsdl:output message="tns:searchStatoPraticheResponse"
+				name="searchStatoPraticheResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="uploadFile">
+			<wsdl:input message="tns:uploadFile" name="uploadFile"></wsdl:input>
+			<wsdl:output message="tns:uploadFileResponse" name="uploadFileResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchAllegatiTipoPratica">
+			<wsdl:input message="tns:searchAllegatiTipoPratica" name="searchAllegatiTipoPratica"></wsdl:input>
+			<wsdl:output message="tns:searchAllegatiTipoPraticaResponse"
+				name="searchAllegatiTipoPraticaResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getTipoPraticaByPk">
+			<wsdl:input message="tns:getTipoPraticaByPk" name="getTipoPraticaByPk"></wsdl:input>
+			<wsdl:output message="tns:getTipoPraticaByPkResponse"
+				name="getTipoPraticaByPkResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getTipoImmobileByPk">
+			<wsdl:input message="tns:getTipoImmobileByPk" name="getTipoImmobileByPk"></wsdl:input>
+			<wsdl:output message="tns:getTipoImmobileByPkResponse"
+				name="getTipoImmobileByPkResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="savePratica">
+			<wsdl:input message="tns:savePratica" name="savePratica"></wsdl:input>
+			<wsdl:output message="tns:savePraticaResponse" name="savePraticaResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchTipoPraticheFrontend">
+			<wsdl:input message="tns:searchTipoPraticheFrontend" name="searchTipoPraticheFrontend"></wsdl:input>
+			<wsdl:output message="tns:searchTipoPraticheFrontendResponse"
+				name="searchTipoPraticheFrontendResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getReferenteByPk">
+			<wsdl:input message="tns:getReferenteByPk" name="getReferenteByPk"></wsdl:input>
+			<wsdl:output message="tns:getReferenteByPkResponse" name="getReferenteByPkResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="documentiContenuti">
+			<wsdl:input message="tns:documentiContenuti" name="documentiContenuti"></wsdl:input>
+			<wsdl:output message="tns:documentiContenutiResponse"
+				name="documentiContenutiResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchPraticaByPk">
+			<wsdl:input message="tns:searchPraticaByPk" name="searchPraticaByPk"></wsdl:input>
+			<wsdl:output message="tns:searchPraticaByPkResponse"
+				name="searchPraticaByPkResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="downloadDocumento">
+			<wsdl:input message="tns:downloadDocumento" name="downloadDocumento"></wsdl:input>
+			<wsdl:output message="tns:downloadDocumentoResponse"
+				name="downloadDocumentoResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchPratiche">
+			<wsdl:input message="tns:searchPratiche" name="searchPratiche"></wsdl:input>
+			<wsdl:output message="tns:searchPraticheResponse" name="searchPraticheResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="GestionePraticheWSSoapBinding" type="tns:GestionePraticheWS">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="searchPraticheWebByUtente">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="searchPraticheWebByUtente">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchPraticheWebByUtenteResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchAllPraticheWeb">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="searchAllPraticheWeb">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchAllPraticheWebResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchTipoImmobile">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="searchTipoImmobile">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchTipoImmobileResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchPraticaWebByPk">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="searchPraticaWebByPk">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchPraticaWebByPkResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchStatoPratiche">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="searchStatoPratiche">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchStatoPraticheResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="uploadFile">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="uploadFile">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="uploadFileResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getTipoPraticaByPk">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="getTipoPraticaByPk">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getTipoPraticaByPkResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchAllegatiTipoPratica">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="searchAllegatiTipoPratica">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchAllegatiTipoPraticaResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getTipoImmobileByPk">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="getTipoImmobileByPk">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getTipoImmobileByPkResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="savePratica">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="savePratica">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="savePraticaResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchTipoPraticheFrontend">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="searchTipoPraticheFrontend">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchTipoPraticheFrontendResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getReferenteByPk">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="getReferenteByPk">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getReferenteByPkResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="documentiContenuti">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="documentiContenuti">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="documentiContenutiResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="downloadDocumento">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="downloadDocumento">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="downloadDocumentoResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchPraticaByPk">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="searchPraticaByPk">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchPraticaByPkResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchPratiche">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="searchPratiche">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchPraticheResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="GestionePraticheWS">
+		<wsdl:port binding="tns:GestionePraticheWSSoapBinding" name="GestionePraticheWSPort">
+			<soap:address
+				location="http://192.0.0.121:8080/gestionepratiche-ws/services/gestionepratiche" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

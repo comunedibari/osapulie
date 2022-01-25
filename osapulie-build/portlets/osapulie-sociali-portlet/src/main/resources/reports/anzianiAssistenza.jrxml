@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="anzianiAssistenza" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.9487171000000068"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="336"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#C0C0C0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="nuovoIndir" class="java.lang.String"/>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Fede\\Desktop\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subreportParameter" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="aUnoBean" class="java.util.List"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="cognome" class="java.lang.String"/>
+	<field name="dataNascita" class="java.lang.String"/>
+	<field name="comuneNascita" class="java.lang.String"/>
+	<field name="provinciaNascita" class="java.lang.String"/>
+	<field name="comuneResidenza" class="java.lang.String"/>
+	<field name="provinciaResidenza" class="java.lang.String"/>
+	<field name="civicoResidenza" class="java.lang.String"/>
+	<field name="indirizzoResidenza" class="java.lang.String"/>
+	<field name="telefonoAffine" class="java.lang.String"/>
+	<field name="codTesseraSanitaria" class="java.lang.String"/>
+	<field name="cognomeAffine" class="java.lang.String"/>
+	<field name="nomeAffine" class="java.lang.String"/>
+	<field name="viaAffine" class="java.lang.String"/>
+	<field name="civicoAffine" class="java.lang.String"/>
+	<field name="parenti" class="java.util.List"/>
+	<field name="etaPensionabile" class="java.lang.Boolean"/>
+	<field name="coniugato" class="java.lang.Boolean"/>
+	<field name="serviziSimiliComune" class="java.lang.Boolean"/>
+	<field name="serviziSimiliEnte" class="java.lang.Boolean"/>
+	<field name="motiviConiugato" class="java.lang.String"/>
+	<field name="serviziComune" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="serviziEntiPubblici" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="206" splitType="Prevent">
+			<staticText>
+				<reportElement x="291" y="183" width="247" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[AL DIRETTORE DELLA CIRCOSCRIZIONE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="10" y="170" width="513" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="10" y="130" width="513" height="40"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOMANDA PER ACCEDERE AL SERVIZIO DI ASSISTENZA DOMICILIARE PER GLI  ANZIANI]]></text>
+			</staticText>
+			<image>
+				<reportElement key="Logo" x="229" y="10" width="69" height="69" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="88" y="79" width="350" height="35"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Comune di "+$P{comune}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="121" splitType="Stretch">
+			<textField>
+				<reportElement x="410" y="7" width="124" height="20"/>
+				<textFieldExpression><![CDATA["il "+$F{dataNascita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="31" width="438" height="23"/>
+				<textFieldExpression><![CDATA["residente a "+$F{comuneResidenza}+" in "+$F{indirizzoResidenza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="7" width="208" height="20"/>
+				<textFieldExpression><![CDATA["nato/a a "+$F{comuneNascita}+" ("+$F{provinciaNascita}+")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="7" width="178" height="20"/>
+				<textFieldExpression><![CDATA["Il/La sottoscritto/a  "+$F{cognome}+" "+$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="54" width="156" height="20"/>
+				<textFieldExpression><![CDATA["telefono "+$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="178" y="54" width="356" height="20"/>
+				<textFieldExpression><![CDATA["codice individuale di tessera sanitaria "+$F{codTesseraSanitaria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="74" width="164" height="20"/>
+				<textFieldExpression><![CDATA[$F{telefonoAffine}!=null ? $F{telefonoAffine}: " "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="74" width="159" height="20"/>
+				<textFieldExpression><![CDATA[$F{cognomeAffine}!=null ? ($F{cognomeAffine}+" "+$F{nomeAffine}):" "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="94" width="112" height="20"/>
+				<textFieldExpression><![CDATA[$F{viaAffine}!=null ? $F{viaAffine} : " "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="178" y="94" width="167" height="20"/>
+				<textFieldExpression><![CDATA[$F{civicoAffine}!=null ? $F{civicoAffine} : " "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="74" width="100" height="20"/>
+				<text><![CDATA[o, in mancanza tel. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="74" width="87" height="20"/>
+				<text><![CDATA[relativo al signor ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="94" width="24" height="20"/>
+				<text><![CDATA[in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="94" width="22" height="20"/>
+				<text><![CDATA[ n. ]]></text>
+			</staticText>
+		</band>
+		<band height="802">
+			<staticText>
+				<reportElement x="220" y="3" width="114" height="28"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHIEDE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="67" width="510" height="35"/>
+				<text><![CDATA[• Abbiano raggiunto l’età pensionabile, o di età inferiore che, per sopravvenuta invalidità, non esercitino e non possano proficuamente esercitare attività lavorativa;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="102" width="510" height="24"/>
+				<text><![CDATA[• Siano non completamente autosufficienti;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="126" width="510" height="35"/>
+				<text><![CDATA[• Vivano soli o anche con familiari che per comprovati impedimenti (età, salute, ecc..) non siano in grado di fornire adeguata assistenza;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="161" width="510" height="24"/>
+				<text><![CDATA[• Che abbiano figli, anche non conviventi, in grado di prestare assistenza;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="185" width="510" height="35"/>
+				<text><![CDATA[• Che abbiano un indicatore della situazione economica equivalente (ISEE) riferita al nucleo familiare di appartenenza, non superiore ai seguenti limiti:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TH" x="153" y="228" width="129" height="41"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[numero componenti nucleo familiare]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TH" x="281" y="228" width="129" height="41"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[valore riparametrizzato della situazione economica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="153" y="269" width="128" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="281" y="269" width="129" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[€ 7.876]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="153" y="289" width="128" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="153" y="309" width="128" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="153" y="349" width="128" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="153" y="329" width="128" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="153" y="369" width="128" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="153" y="389" width="128" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="153" y="409" width="128" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="281" y="329" width="129" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[€ 19.352]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="281" y="409" width="129" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[€ 30.829]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="281" y="389" width="129" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[€ 28.129]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="281" y="349" width="129" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[€ 22.503]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="281" y="289" width="129" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[€ 12.377]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="281" y="309" width="129" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[€ 15.977]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" x="281" y="369" width="129" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[€ 25.203]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="439" width="510" height="39"/>
+				<text><![CDATA[A tale fine dichiara di essere a conoscenza e di accettare le modalità organizzative e di espletamento del servizio di assistenza domiciliare agli anziani. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="478" width="510" height="140"/>
+				<text><![CDATA[Si obbliga, altresì, qualora dovuto, alla compartecipazione al costo del servizio nella misura determinata dalla Circoscrizione.
+
+Il sottoscritto si impegna, in caso di accoglimento della presente richiesta a segnalare alla Circoscrizione entro 30 giorni dal suo verificarsi, qualsiasi variazione di quanto dichiarato nella presente e nelle allegate dichiarazioni sostitutive.
+
+All’uopo si allega:
+ALL.1: Dichiarazione sostitutiva di atto di notorietà, ai sensi dell’art. 47 del D.P.R. 445/2000.
+ALL.2: Dichiarazione sostitutiva di certificazione resa ai sensi dell’art.46 del D.P.R. 445/2000
+]]></text>
+			</staticText>
+			<line>
+				<reportElement x="329" y="782" width="215" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="51" y="740" width="225" height="20"/>
+				<textFieldExpression><![CDATA[$P{comune}+", "+new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="375" y="737" width="114" height="23"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="24" y="31" width="510" height="36"/>
+				<textFieldExpression><![CDATA["Di poter usufruire del servizio di Assistenza domiciliare agli anziani erogato dal Comune di "+$P{comune}+", in appalto a ditta esterna, in favore dei residenti che:"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="794" splitType="Prevent">
+			<staticText>
+				<reportElement x="24" y="21" width="510" height="35"/>
+				<textElement>
+					<font size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Informativa ai sensi dell’art. 13 del D.lgs. 30 giugno 2003 n. 196 (Codice in materia di protezione dei dati personali)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="56" width="134" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[(aggiornato al 12/05/06)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="101" width="510" height="101"/>
+				<text><![CDATA[Gentile utente,
+
+desideriamo informarLa che il D.Lgs. 30 giugno 2003 n.196 “Codice in materia di protezione dei dati personali” prevede la tutela delle persone e di altri soggetti in relazione al trattamento dei dati personali.
+Secondo la norma suindicata, tale trattamento sarà improntato ai principi di correttezza, liceità e trasparenza e di tutela della Sua riservatezza e dei Suoi diritti.
+In applicazione dell’art. 13 del D. Lgs. n.196/2003, pertanto, Le forniamo le seguenti informazioni:
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="202" width="175" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Finalità del trattamento dei dati:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="255" width="175" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Modalità del trattamento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="328" width="175" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Conferimento dei dati:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="222" width="510" height="33"/>
+				<text><![CDATA[Il trattamento è diretto all’espletamento da parte del Comune di Bari, di funzioni istituzionali in virtù di compiti attribuiti dalla legge e dai regolamenti;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="275" width="510" height="53"/>
+				<text><![CDATA[Il trattamento sarà effettuato con modalità cartacee, e/o informatiche e/o telematiche, attraverso operazioni o complessi di operazioni concernenti la raccolta, la registrazione, l’organizzazione, la conservazione, la consultazione, l’elaborazione, la selezione, l’estrazione, il raffronto, l’utilizzo, l’interconnessione, la comunicazione e la diffusione di dati di cui all’art. 4 del D.Lgs. 196/2003;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="383" width="175" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Rifiuto di conferire i dati:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="348" width="510" height="35"/>
+				<text><![CDATA[E’ obbligatorio per i procedimenti amministrativi, come onere per l’interessato che voglia ottenere un provvedimento;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="450" width="175" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Comunicazione dei dati:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="403" width="510" height="47"/>
+				<text><![CDATA[L’eventuale rifiuto da parte dell’interessato di conferire i dati richiesti e/o contenuti nella modulistica comporta il mancato rilascio del provvedimento richiesto e l’impossibilità di evadere la pratica od ottenere l’effetto previsto dalla legge e/o da regolamento; ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="470" width="510" height="80"/>
+				<text><![CDATA[I dati acquisiti possono essere comunicati o diffusi, anche per via telematica, ad altri soggetti pubblici per lo svolgimento di funzioni istituzionali, nei casi e nei modi previsti dalla legge e/o dai regolamenti. Resta peraltro fermo quanto previsto dall’art. 59 del D. Lgs. 196/2003 sull’accesso ai documenti amministrativi contenenti dati personali come disciplinato dalla L. 241/90 e successive modifiche ed integrazioni, anche per quanto concerne i dati sensibili e giudiziari;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="550" width="196" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Diritti dell’interessato:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="570" width="513" height="42"/>
+				<text><![CDATA[All’interessato vengono riconosciuti i diritti di cui all’art. 7 del citato codice ed in particolare il diritto di accedere ai propri dati personali, di chiederne la rettifica, l’aggiornamento e la cancellazione se incompleti, erronei o raccolti in violazione di legge, nonché di opporsi al trattamento per motivi legittimi;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="612" width="225" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Titolari e Responsabili del trattamento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="632" width="513" height="33"/>
+				<text><![CDATA[Il Titolare del trattamento dei dati è il Comune di Bari. Il Responsabile del trattamento dei dati è il Direttore della Circoscrizione___________.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="665" width="372" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fonti di riferimento per il trattamento dei dati sensibili e giudiziari:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="685" width="513" height="56"/>
+				<text><![CDATA[Ai sensi degli artt. 21, c.1 e 22, c. 2 e 3 del D. Lgs. 196/2003, il Comune di Bari effettua il trattamento dei dati sensibili e giudiziari indispensabili per svolgere attività istituzionali sulla base della normativa indicata nei singoli moduli di domanda o di comunicazione.]]></text>
+			</staticText>
+		</band>
+		<band height="802" splitType="Prevent">
+			<staticText>
+				<reportElement x="24" y="11" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALLEGATO 1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="31" width="510" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Dichiarazione sostitutiva di atto di notorietà, ai sensi dell’art. 47 del D.P.R. 445/2000.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="410" y="51" width="124" height="20"/>
+				<textFieldExpression><![CDATA["il "+$F{dataNascita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="51" width="178" height="20"/>
+				<textFieldExpression><![CDATA["Il/La sottoscritto/a  "+$F{cognome}+" "+$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="51" width="208" height="20"/>
+				<textFieldExpression><![CDATA["nato/a a "+$F{comuneNascita}+" ("+$F{provinciaNascita}+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="71" width="510" height="55"/>
+				<text><![CDATA[consapevole delle conseguenze e responsabilità anche penali nel caso di dichiarazioni mendaci e che sui dati dichiarati potranno essere effettuati controlli e che la non veridicità del contenuto della dichiarazione comporta la decadenza dai benefici eventualmente conseguenti al provvedimento emanato sulla base della dichiarazione non veritiera ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="126" width="100" height="19"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[DICHIARA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="145" width="468" height="32"/>
+				<text><![CDATA[di avere raggiunto l’età pensionabile e di non essere completamente autosufficiente (allega certificato medico);]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="177" width="468" height="35"/>
+				<text><![CDATA[di non aver raggiunto l’età pensionabile, ma di non esercitare o non poter proficuamente esercitare attività lavorativa per sopravvenuta invalidità;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="212" width="468" height="26"/>
+				<text><![CDATA[di non possedere il coniuge o figli in grado di fornire assistenza;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="238" width="468" height="26"/>
+				<text><![CDATA[di possedere il coniuge o figli che non sono in grado di fornire assistenza;]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="66" y="264" width="468" height="31">
+					<printWhenExpression><![CDATA[$F{coniugato}]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["specificare le motivazioni per cui gli eventuali conviventi e/o figli non conviventi non possono prestare assistenza:   "+$F{motiviConiugato}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="66" y="295" width="468" height="26"/>
+				<text><![CDATA[⁮ di non fruire di altri servizi similari a carico del Comune;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="321" width="468" height="20"/>
+				<text><![CDATA[di fruire di altri servizi similari a carico del Comune]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="389" width="468" height="26"/>
+				<text><![CDATA[⁮ di non fruire di altri servizi similari a carico di altri Enti pubblici;]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="66" y="341" width="468" height="48">
+					<printWhenExpression><![CDATA[$F{serviziSimiliComune}]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["Specifica dei servizi:  "+$F{serviziComune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="66" y="415" width="468" height="20"/>
+				<text><![CDATA[di fruire di altri servizi similari a carico di altri Enti pubblici;]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="66" y="435" width="468" height="48">
+					<printWhenExpression><![CDATA[$F{serviziSimiliEnte}]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["Specifica dei servizi:  "+$F{serviziEntiPubblici}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="517" width="510" height="39"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Autorizzo il Comune di Bari al trattamento dei dati sensibili ai sensi dell’art. 20 Dlgs. 196/2003 esclusivamente per rispondere alle richieste di intervento che riguardano il sottoscritto.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="24" y="612" width="225" height="20"/>
+				<textFieldExpression><![CDATA[$P{comune}+", "+new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="348" y="609" width="114" height="23"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="302" y="656" width="215" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="24" y="683" width="510" height="79"/>
+				<text><![CDATA[Alla presente dichiarazione deve essere allegato:
+1. copia fotostatica del documento di identità del sottoscrittore, in corso di validità;
+2. certificato medico attestante lo stato di salute ed il grado di autosufficienza;
+3. idonea documentazione a riprova dell’invalidità in corso di validità.
+4. certificazione ISEE del proprio nucleo familiare rilasciata da un CAAF (Centro autorizzato assistenza fiscale).
+]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="44" y="154" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="46" y="156" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{etaPensionabile}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="44" y="190" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="46" y="192" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[!$F{etaPensionabile}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="44" y="217" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="46" y="219" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[!$F{coniugato}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="45" y="243" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="47" y="245" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{coniugato}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="48" y="419" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="50" y="421" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{serviziSimiliEnte}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="48" y="391" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="45" y="325" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="46" y="301" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="47" y="327" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{serviziSimiliComune}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="50" y="393" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[!$F{serviziSimiliEnte}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="48" y="303" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[!$F{serviziSimiliComune}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+		</band>
+		<band height="184" splitType="Prevent">
+			<staticText>
+				<reportElement x="21" y="15" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALLEGATO 2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="35" width="510" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Dichiarazione sostitutiva di certificazione resa ai sensi dell’art.46 del D.P.R. 445/2000]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="21" y="55" width="178" height="20"/>
+				<textFieldExpression><![CDATA["Il/La sottoscritto/a  "+$F{cognome}+" "+$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="75" width="510" height="55"/>
+				<text><![CDATA[consapevole delle conseguenze e responsabilità anche penali nel caso di dichiarazioni mendaci e che sui dati dichiarati potranno essere effettuati controlli e che la non veridicità del contenuto della dichiarazione comporta la decadenza dai benefici eventualmente conseguenti al provvedimento emanato sulla base della dichiarazione non veritiera ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="407" y="55" width="124" height="20"/>
+				<textFieldExpression><![CDATA["il "+$F{dataNascita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="224" y="130" width="100" height="19"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[DICHIARA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="199" y="55" width="208" height="20"/>
+				<textFieldExpression><![CDATA["nato/a a "+$F{comuneNascita}+" ("+$F{provinciaNascita}+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="159" width="510" height="20"/>
+				<text><![CDATA[che il proprio stato di famiglia è così composto (cognome, nome, data di nascita e legame di parentela):]]></text>
+			</staticText>
+		</band>
+		<band height="50">
+			<subreport>
+				<reportElement x="21" y="0" width="510" height="50"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{parenti})]]></dataSourceExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreportParameter}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="246">
+			<staticText>
+				<reportElement x="334" y="105" width="114" height="23"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="288" y="152" width="215" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="10" y="108" width="225" height="20"/>
+				<textFieldExpression><![CDATA[$P{comune}+", "+new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="179" width="510" height="36"/>
+				<text><![CDATA[Alla presente dichiarazione deve essere allegato:
+1. copia fotostatica del documento di identità del sottoscrittore, in corso di validità.
+]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://ws.web.pratiche.osapulie.it"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified"
+	targetNamespace="http://ws.web.pratiche.osapulie.it" version="1.0">
+
+	<xs:include schemaLocation="ProfiloUtenteDto.xsd" />
+
+	<xs:complexType name="praticaWebDto">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="allegati"
+				nillable="true" type="tns:allegatiPraticaDto" />
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="campiaggiuntivi" nillable="true" type="tns:campiAggiuntiviPraticaWebDto" />
+			<xs:element minOccurs="0" name="dataRichiesta" type="xs:dateTime" />
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="datiCatastali" nillable="true" type="tns:datiCatastaliImmobileDto" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="immobileTipo" type="tns:tipoImmobileDto" />
+			<xs:element minOccurs="0" name="immobile_areaSin" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_cap" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_comune" type="tns:comuneDto" />
+			<xs:element minOccurs="0" name="immobile_den" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_ind" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_interno" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_piano" type="xs:string" />
+			<xs:element minOccurs="0" name="impresa" type="xs:string" />
+			<xs:element minOccurs="0" name="invioPec" type="xs:string" />
+			<xs:element minOccurs="0" name="motivo_rifiuto" type="xs:string"/>
+			<xs:element minOccurs="0" name="oggettoRichiesta" type="xs:string" />
+			<xs:element minOccurs="0" name="profiloutente" type="tns:profiloUtenteDto" />
+			<xs:element minOccurs="0" name="richCap" type="xs:string" />
+			<xs:element minOccurs="0" name="richCell" type="xs:string" />
+			<xs:element minOccurs="0" name="richCf" type="xs:string" />
+			<xs:element minOccurs="0" name="richComune" type="tns:comuneDto" />
+			<xs:element minOccurs="0" name="richComuneNascita" type="tns:comuneDto" />
+			<xs:element minOccurs="0" name="richDataNascita" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="richEmail" type="xs:string" />
+			<xs:element minOccurs="0" name="richFax" type="xs:string" />
+			<xs:element minOccurs="0" name="richIndirizzo" type="xs:string" />
+			<xs:element minOccurs="0" name="richNominativo" type="xs:string" />
+			<xs:element minOccurs="0" name="richNome" type="xs:string" />
+			<xs:element minOccurs="0" name="richCognome" type="xs:string" />
+			<xs:element minOccurs="0" name="richPec" type="xs:string" />
+			<xs:element minOccurs="0" name="richPiva" type="xs:string" />
+			<xs:element minOccurs="0" name="stato" type="xs:string"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="superfici"
+				nillable="true" type="tns:superficiDto" />
+			<xs:element minOccurs="0" name="tecnico" type="xs:string" />
+			<xs:element minOccurs="0" name="tipologia" type="tns:tipoPraticaDto" />
+			<xs:element minOccurs="0" name="titolare" type="xs:string" />
+			<xs:element minOccurs="0" name="uuidContenitore" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="allegatiPraticaDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="allegati" type="tns:allegatiDto" />
+			<xs:element minOccurs="0" name="allegato" type="xs:base64Binary" />
+			<xs:element name="cancellato" type="xs:boolean" />
+			<xs:element name="caricato" type="xs:boolean" />
+			<xs:element name="completato" type="xs:boolean" />
+			<xs:element name="daIntegrare" type="xs:boolean" />
+			<xs:element minOccurs="0" name="dataProtocollo" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="nomeFile" type="xs:string" />
+			<xs:element minOccurs="0" name="numProtocollo" type="xs:string" />
+			<xs:element name="spostato" type="xs:boolean" />
+			<xs:element minOccurs="0" name="tipoProtocollo" type="xs:string" />
+			<xs:element minOccurs="0" name="urlAllegato" type="xs:string" />
+			<xs:element minOccurs="0" name="uuidFile" type="xs:string" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="allegatiDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="nomeDocumento" type="xs:string" />
+			<xs:element name="obbligatorio" type="xs:boolean" />
+			<xs:element minOccurs="0" name="posizione" type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="campiAggiuntiviPraticaWebDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="allegatoContent" type="xs:base64Binary" />
+			<xs:element minOccurs="0" name="allegatoNome" type="xs:string" />
+			<xs:element minOccurs="0" name="campiAggiuntivi" type="tns:campiAggiuntiviDto" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="nomeFile" type="xs:string" />
+			<xs:element minOccurs="0" name="uuidFile" type="xs:string" />
+			<xs:element minOccurs="0" name="valore" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="campiAggiuntiviDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="controllo" type="xs:string" />
+			<xs:element minOccurs="0" name="dimensione" type="xs:byte" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="label" type="xs:string" />
+			<xs:element minOccurs="0" name="listaValori" type="xs:string" />
+			<xs:element name="ricercabile" type="xs:boolean" />
+			<xs:element minOccurs="0" name="tipologia" type="xs:string" />
+			<xs:element minOccurs="0" name="valoreRicerca" type="xs:string" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="valori"
+				nillable="true" type="tns:campiAggiuntiviListaValoriDto" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="campiAggiuntiviListaValoriDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="valore" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="datiCatastaliImmobileDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="immobile_catNCEU" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_foglioNCEU" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_foglioNCT" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_partNCEU" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_partNCT" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_subNCEU" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_subNCT" type="xs:string" />
+			<xs:element minOccurs="0" name="num" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipoImmobileDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="descrizione" type="xs:string" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="comuneDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="altitudine" type="xs:string" />
+			<xs:element name="capoluogo" type="xs:boolean" />
+			<xs:element minOccurs="0" name="codiceComune" type="xs:int" />
+			<xs:element minOccurs="0" name="codiceIstat1" type="xs:string" />
+			<xs:element minOccurs="0" name="codiceIstat103" type="xs:string" />
+			<xs:element minOccurs="0" name="codiceIstatAN" type="xs:string" />
+			<xs:element minOccurs="0" name="codiceSistemaLocaleLavoro"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="codicestat107" type="xs:string" />
+			<xs:element name="comuneLitoraneo" type="xs:boolean" />
+			<xs:element minOccurs="0" name="comuneMontano" type="xs:string" />
+			<xs:element minOccurs="0" name="denominazione" type="xs:string" />
+			<xs:element minOccurs="0" name="denominazioneSistemaLocaleLavoro"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="popolazioneLegale" type="xs:string" />
+			<xs:element minOccurs="0" name="popolazioneResidente1"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="popolazioneResidente2"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="popolazioneResidente3"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="superficie" type="xs:string" />
+			<xs:element minOccurs="0" name="zonaAltimetrica" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="superficiDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="altezza" type="xs:string" />
+			<xs:element minOccurs="0" name="coperta" type="xs:string" />
+			<xs:element minOccurs="0" name="scoperta" type="xs:string" />
+			<xs:element minOccurs="0" name="sup_lorda" type="xs:string" />
+			<xs:element minOccurs="0" name="sup_utile" type="xs:string" />
+			<xs:element minOccurs="0" name="volume" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipoPraticaDto">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="allegati"
+				nillable="true" type="tns:allegatiDto" />
+			<xs:element minOccurs="0" name="attivita" type="tns:attivitaDto" />
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="campiAggiuntiviTipoPratica" nillable="true"
+				type="tns:campiAggiuntiviTipoPraticaDto" />
+			<xs:element minOccurs="0" name="categoria" type="tns:categoriePraticheDto" />
+			<xs:element name="configurazione" type="xs:byte" />
+			<xs:element minOccurs="0" name="descr_link" type="xs:string" />
+			<xs:element minOccurs="0" name="descr_link2" type="xs:string" />
+			<xs:element minOccurs="0" name="descr_link3" type="xs:string" />
+			<xs:element minOccurs="0" name="descrizione" type="xs:string" />
+			<xs:element name="frontend" type="xs:boolean" />
+			<xs:element minOccurs="0" name="frontendEditJspName" type="xs:string" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="link" type="xs:string" />
+			<xs:element minOccurs="0" name="link2" type="xs:string" />
+			<xs:element minOccurs="0" name="link3" type="xs:string" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="modelli"
+				nillable="true" type="tns:modelliDto" />
+			<xs:element minOccurs="0" name="prefisso" type="xs:string" />
+			<xs:element name="showLocalita" type="xs:byte" />
+			<xs:element name="showMittDest" type="xs:byte" />
+			<xs:element name="showStato" type="xs:byte" />
+			<xs:element name="showTipoInt" type="xs:byte" />
+			<xs:element minOccurs="0" name="workflow" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="attivitaDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="descrizione" type="xs:string" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="note" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="campiAggiuntiviTipoPraticaDto">
+		<xs:sequence>
+			<xs:element name="backFrontEnd" type="xs:int" />
+			<xs:element minOccurs="0" name="campiAggiuntivi" type="tns:campiAggiuntiviDto" />
+			<xs:element name="config_cagg" type="xs:byte" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element name="posizione" type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="categoriePraticheDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="descr" type="xs:string" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="modelliDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="contenuto" type="xs:base64Binary" />
+			<xs:element minOccurs="0" name="nome" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType abstract="true" name="abstractCollection">
+		<xs:sequence />
+	</xs:complexType>
+	<xs:complexType abstract="true" name="abstractList">
+		<xs:complexContent>
+			<xs:extension base="tns:abstractCollection">
+				<xs:sequence />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="arrayList">
+		<xs:complexContent>
+			<xs:extension base="tns:abstractList">
+				<xs:sequence />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="praticaDto">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="allegati"
+				nillable="true" type="tns:allegatiPraticaDto" />
+			<xs:element minOccurs="0" name="archFaldone" type="xs:string" />
+			<xs:element minOccurs="0" name="archPiano" type="xs:string" />
+			<xs:element minOccurs="0" name="archRipiano" type="xs:string" />
+			<xs:element minOccurs="0" name="archScaffale" type="xs:string" />
+			<xs:element minOccurs="0" name="archSito" type="xs:string" />
+			<xs:element minOccurs="0" name="archStanza" type="xs:string" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="assegnatari"
+				nillable="true" type="tns:profiloUtenteDto" />
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="campiaggiuntivi" nillable="true" type="tns:campiAggiuntiviPraticaDto" />
+			<xs:element name="completato" type="xs:boolean" />
+			<xs:element minOccurs="0" name="dataAssAtt" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="dataProtocollo" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="dataProtocolloRichiedente"
+				type="xs:dateTime" />
+			<xs:element minOccurs="0" name="dataRichiesta" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="dataScadenza" type="xs:dateTime" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="figure"
+				nillable="true" type="tns:figuraDto" />
+			<xs:element minOccurs="0" name="ggComplessivi" type="xs:int" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="immobile" type="tns:immobileDto" />
+			<xs:element name="letta" type="xs:boolean" />
+			<xs:element minOccurs="0" name="note" type="xs:string" />
+			<xs:element minOccurs="0" name="numero" type="xs:string" />
+			<xs:element minOccurs="0" name="numeroPratica" type="xs:string" />
+			<xs:element minOccurs="0" name="numeroProtocollo" type="xs:string" />
+			<xs:element minOccurs="0" name="numeroProtocolloRichiedente"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="oggettoRichiesta" type="xs:string" />
+			<xs:element minOccurs="0" name="prefisso" type="xs:string" />
+			<xs:element minOccurs="0" name="referente" type="tns:profiloUtenteDto" />
+			<xs:element minOccurs="0" name="richiedente" type="tns:referenteDto" />
+			<xs:element minOccurs="0" name="stato" type="tns:statoPraticaDto" />
+			<xs:element minOccurs="0" name="tipoIntervento" type="tns:tipoInterventoDto" />
+			<xs:element minOccurs="0" name="tipologia" type="tns:tipoPraticaDto" />
+			<xs:element minOccurs="0" name="uuidContenitore" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="campiAggiuntiviPraticaDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="campiAggiuntivi" type="tns:campiAggiuntiviDto" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="nomeFile" type="xs:string" />
+			<xs:element minOccurs="0" name="uuidFile" type="xs:string" />
+			<xs:element minOccurs="0" name="valore" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="figuraDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="qualifica" type="tns:qualificaDto" />
+			<xs:element minOccurs="0" name="referente" type="tns:referenteDto" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="qualificaDto">
+		<xs:sequence>
+			<xs:element name="codicequalifica" type="xs:int" />
+			<xs:element minOccurs="0" name="nome" type="xs:string" />
+			<xs:element name="visWeb" type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="immobileDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="areaSin" type="xs:string" />
+			<xs:element minOccurs="0" name="cap" type="xs:string" />
+			<xs:element minOccurs="0" name="comune" type="tns:comuneDto" />
+			<xs:element minOccurs="0" name="denominazione" type="xs:string" />
+			<xs:element minOccurs="0" name="foglio" type="xs:int" />
+			<xs:element minOccurs="0" name="indirizzo" type="xs:string" />
+			<xs:element minOccurs="0" name="latG" type="xs:int" />
+			<xs:element minOccurs="0" name="latP" type="xs:int" />
+			<xs:element minOccurs="0" name="latS" type="xs:double" />
+			<xs:element minOccurs="0" name="longG" type="xs:int" />
+			<xs:element minOccurs="0" name="longP" type="xs:int" />
+			<xs:element minOccurs="0" name="longS" type="xs:double" />
+			<xs:element minOccurs="0" name="particella" type="xs:string" />
+			<xs:element minOccurs="0" name="subalterno" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipoInterventoDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="descrizione" type="xs:string" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="statoPraticaDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="descrizione" type="xs:string" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="referenteDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="alboapp" type="xs:string" />
+			<xs:element minOccurs="0" name="cap" type="xs:string" />
+			<xs:element minOccurs="0" name="cell" type="xs:string" />
+			<xs:element minOccurs="0" name="cf" type="xs:string" />
+			<xs:element name="chkref" type="xs:boolean" />
+			<xs:element minOccurs="0" name="cognome" type="xs:string" />
+			<xs:element minOccurs="0" name="compagniaAssicurativa"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="coordinateBancarie" type="xs:string" />
+			<xs:element minOccurs="0" name="dataStipulaAssicurazione"
+				type="xs:dateTime" />
+			<xs:element minOccurs="0" name="email" type="xs:string" />
+			<xs:element minOccurs="0" name="fax" type="xs:string" />
+			<xs:element minOccurs="0" name="importoPolizza" type="xs:string" />
+			<xs:element minOccurs="0" name="indirizzo" type="xs:string" />
+			<xs:element minOccurs="0" name="massimalePolizza" type="xs:string" />
+			<xs:element minOccurs="0" name="nome" type="xs:string" />
+			<xs:element minOccurs="0" name="nominativo" type="xs:string" />
+			<xs:element minOccurs="0" name="nrPolizza" type="xs:string" />
+			<xs:element minOccurs="0" name="nregistro" type="xs:string" />
+			<xs:element minOccurs="0" name="numalbo" type="xs:string" />
+			<xs:element minOccurs="0" name="pec" type="xs:string" />
+			<xs:element minOccurs="0" name="piva" type="xs:string" />
+			<xs:element minOccurs="0" name="riferimentitelefonici"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+</xs:schema>

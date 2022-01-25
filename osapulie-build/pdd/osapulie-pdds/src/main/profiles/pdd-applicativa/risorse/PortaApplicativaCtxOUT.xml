@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- contesto uscita porta applicativa -->
+<Contesto>
+  <Parametri>
+    <!-- utilizzati per generare l'ID del messaggio -->
+    <Parametro nome="CodiceAmministrazione" desc="Codice Amministrazione" >codAmmTestPA</Parametro>
+    <Parametro nome="CodicePorta" desc="Codice Porta di Dominio" >codPaTest</Parametro>
+  </Parametri>
+  <Trattamenti>
+    <Trattamento nome="Firma" classe="it.puglia.rupar.egov.pdd.trattamenti.Firma" seq="2" bloccante="NO" sts="OFF" desc="Firma Allegato">
+      <Parametri>
+         <Parametro nome="FilePortachiavi" desc="File Portachiavi" >pddo.keystore</Parametro>
+         <Parametro nome="PasswordPortachiavi"  desc="Password portachiavi" >12345678</Parametro>
+         <Parametro nome="Alias"  desc="Alias firmatario" >demo</Parametro>
+         <Parametro nome="PasswordAlias" desc="Password firmatario" >demo</Parametro>
+      </Parametri>
+    </Trattamento>
+    <Trattamento nome="ProtocolloInUscita" classe="it.puglia.rupar.egov.pdd.trattamenti.ProtocolloUscita" seq="1" bloccante="NO" sts="OFF" desc="Protocollo informatico">
+      <Parametri>
+         <Parametro nome="CodiceAmministrazione"  desc="Codice Amministrazione" >codAmmTestPA</Parametro>
+         <Parametro nome="CodicePorta"  desc="Codice Porta di Dominio" >codPaTest</Parametro>
+         <Parametro nome="logClass"  desc="Generazione Log del Protocollo" > it.puglia.rupar.egov.pdd.trattamenti.ImplementInterfacciaLog </Parametro>
+         <Parametro nome="idClass"  desc="Generazione Tempo e Numero" > it.puglia.rupar.egov.pdd.trattamenti.ImplementInterfacciaId </Parametro>
+      </Parametri>
+    </Trattamento>
+    <Trattamento nome="Archiviazione" classe="it.puglia.rupar.egov.pdd.trattamenti.ArchiviaFS" seq="3" bloccante="NO" sts="OFF" desc="Archiviazione documento PKCS7 su FS">
+      <Parametri>
+         <Parametro nome="TipoAllegati"  desc="Tipologia di Allegati" >p7m</Parametro>
+      </Parametri>
+    </Trattamento>
+  </Trattamenti>  
+</Contesto>

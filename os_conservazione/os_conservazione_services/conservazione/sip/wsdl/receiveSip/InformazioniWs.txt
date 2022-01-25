@@ -1,0 +1,1 @@
+L'URL del WS di test è https://digidoc-cs-coll.eng.it/IrisBusiness/business/soap/WSCoreReceiveSipService?wsdl

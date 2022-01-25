@@ -1,0 +1,102 @@
+.buttonsDiv {
+	margin: 15px;
+	text-align: center;
+	padding: 15px;
+	text-decoration: none;
+}
+
+.buttonsDiv A.button {
+	border-radius: 4px 4px 4px 4px;
+	margin: 2px 4px 2px 2px;
+	padding-bottom: 7px;
+	padding-top: 6px;
+	text-decoration: none !important;
+}
+
+.buttonsDiv A.button SPAN {
+	margin: 10px;
+}
+
+.upperCase {
+	text-transform: uppercase;
+}
+
+.mainDiv DIV.comuneSelezionatoTitle {
+	margin-bottom: 15px;
+}
+
+.mainDiv TABLE {
+	width: 99%;
+}
+
+.delegaDetail TABLE TD {
+	width: 50%;
+}
+
+.mainDiv TABLE tfoot li {
+	display: inline;
+    font-size: 11px;
+    margin-right: 15px;
+}
+
+.center {
+	text-align: center;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.displayNone {
+	display: none;
+}
+
+.datiObbligatoriDiv {
+	text-align: right;
+	color: #5B677D;
+}
+
+.inputTextNewValueChecked {
+	border: 2px solid #F11F1F !important;
+}
+
+.comuniServizio table {
+	margin: 5px;
+}
+
+.comuniServizio table th {
+	background: #efefef;
+}
+
+.fa-spid-level1 {
+	background: transparent url("../images/spid-level1-link.png") scroll no-repeat center center;
+	width: 16px;
+	height: 16px;
+	vertical-align: text-bottom;
+}
+
+.mainDiv ul.elenco li a:hover .fa-spid-level1 {
+	background: transparent url("../images/spid-level1-hover.png") scroll no-repeat center center;
+}
+
+.fa-spid-level2 {
+	background: transparent url("../images/spid-level2-link.png") scroll no-repeat center center;
+	width: 16px;
+	height: 16px;
+	vertical-align: text-bottom;
+}
+
+.mainDiv ul.elenco li a:hover .fa-spid-level2 {
+	background: transparent url("../images/spid-level2-hover.png") scroll no-repeat center center;
+}
+
+.fa-spid-level3 {
+	background: transparent url("../images/spid-level3-link.png") scroll no-repeat center center;
+	width: 16px;
+	height: 16px;
+	vertical-align: text-bottom;
+}
+
+.mainDiv ul.elenco li a:hover .fa-spid-level3 {
+	background: transparent url("../images/spid-level3-hover.png") scroll no-repeat center center;
+}

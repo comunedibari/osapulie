@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<globalConfiguration>
+		<parameter name="adminPassword" value="admin" />
+		<parameter name="attachments.Directory" value="./attachments" />
+		<parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl" />
+		<parameter name="sendXsiTypes" value="true" />
+		<parameter name="sendMultiRefs" value="true" />
+		<parameter name="sendXMLDeclaration" value="false" />
+		<requestFlow>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="session" />
+			</handler>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="request" />
+				<parameter name="extension" value=".jwr" />
+			</handler>
+		</requestFlow>
+	</globalConfiguration>
+	<handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder" />
+	<handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper" />
+	<handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler" />
+	<service name="AdminService" provider="java:MSG">
+		<parameter name="allowedMethods" value="AdminService" />
+		<parameter name="enableRemoteAdmin" value="false" />
+		<parameter name="className" value="org.apache.axis.utils.Admin" />
+		<namespace>http://xml.apache.org/axis/wsdd/</namespace>
+	</service>
+	<service name="Version" provider="java:RPC">
+		<parameter name="allowedMethods" value="getVersion" />
+		<parameter name="className" value="org.apache.axis.Version" />
+	</service>
+	<!-- definizione del web service che calcola il progressivo -->
+	<service name="IdentificativoWS" provider="java:RPC" use="literal">
+		<requestFlow>
+			<handler type="java:org.apache.ws.axis.security.WSDoAllReceiver">
+				<parameter name="passwordCallbackClass" value="it.puglia.rupar.egov.pdd.serviziAusiliari.PWCallback" />
+				<parameter name="action" value="UsernameToken" />
+			</handler>
+		</requestFlow>
+		<parameter name="allowedMethods" value="getProgressivo" />
+		<parameter name="className" value="it.puglia.rupar.egov.pdd.serviziAusiliari.IdentificativoWS" />
+	</service>
+
+	<service name="PortaDominioApplicativa" provider="java:MSG" style="message" use="literal">
+		<parameter name="allowedMethods" value="esegui" />
+		<parameter name="className" value="it.osapulie.pdds.adapter.PortaApplicativaEnte" />
+		<parameter name="scope" value="application" />
+	</service>
+
+	<service name="InterrogaDoc" provider="java:MSG" style="message" use="literal">
+		<parameter name="allowedMethods" value="esegui" />
+		<parameter name="className" value="it.puglia.rupar.egov.pdd.gateway.GatewayPortaApplicativa" />
+		<parameter name="scope" value="application" />
+		<requestFlow>
+			<handler type="java:it.puglia.rupar.egov.pdd.gateway.ParameterPassing">
+				<parameter name="urlServizioFinale" value="http://10.0.5.62:8081/adoc/interroga_doc" />
+			</handler>
+		</requestFlow>
+	</service>
+	<service name="InterrogaFasc" provider="java:MSG" style="message" use="literal">
+		<parameter name="allowedMethods" value="esegui" />
+		<parameter name="className" value="it.puglia.rupar.egov.pdd.gateway.GatewayPortaApplicativa" />
+		<parameter name="scope" value="application" />
+		<requestFlow>
+			<handler type="java:it.puglia.rupar.egov.pdd.gateway.ParameterPassing">
+				<parameter name="urlServizioFinale" value="http://10.0.5.62:8081/adoc/interroga_fasc" />
+			</handler>
+		</requestFlow>
+	</service>
+	<service name="Ricerca" provider="java:MSG" style="message" use="literal">
+		<parameter name="allowedMethods" value="esegui" />
+		<parameter name="className" value="it.puglia.rupar.egov.pdd.gateway.GatewayPortaApplicativa" />
+		<parameter name="scope" value="application" />
+		<requestFlow>
+			<handler type="java:it.puglia.rupar.egov.pdd.gateway.ParameterPassing">
+				<parameter name="urlServizioFinale" value="http://10.0.5.62:8081/adoc/ricerca_doc" />
+			</handler>
+		</requestFlow>
+	</service>
+
+	<transport name="http">
+		<requestFlow>
+			<handler type="URLMapper" />
+			<handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler" />
+		</requestFlow>
+		<parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler" />
+		<parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler" />
+		<parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler" />
+	</transport>
+	<transport name="local">
+		<responseFlow>
+			<handler type="LocalResponder" />
+		</responseFlow>
+	</transport>
+</deployment>

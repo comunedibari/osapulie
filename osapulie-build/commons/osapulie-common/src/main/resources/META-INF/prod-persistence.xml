@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence 
+	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	    <persistence-unit name="osapulie" transaction-type="JTA">
+		<provider>org.eclipse.persistence.platform.database.MySQLPlatform</provider>
+		<jta-data-source>java:jdbc/OSApuliePool</jta-data-source>
+		
+		<!-- Application domain -->
+		<class>it.osapulie.domain.AreaAggregata</class>
+		<class>it.osapulie.domain.ComuneISA</class>
+		<class>it.osapulie.domain.ComuneISAServizio</class>
+		<class>it.osapulie.domain.Indirizzo</class>
+		<class>it.osapulie.domain.ProfiloUtenteCittadino</class>
+		<class>it.osapulie.domain.Azienda</class>
+		<class>it.osapulie.domain.fascicoloutente.FascicoloUtente</class>
+		<class>it.osapulie.domain.fascicoloutente.RichiestaServizio</class>
+		<class>it.osapulie.domain.servizi.Servizio</class>
+		<class>it.osapulie.domain.servizi.ServizioErogato</class>
+		<class>it.osapulie.domain.servizi.Tipologia</class>
+		<class>it.osapulie.domain.servizi.AreaTematica</class>
+		<class>it.osapulie.domain.Comune</class>
+		<class>it.osapulie.domain.Provincia</class>
+		<class>it.osapulie.domain.Delega</class>
+		<class>it.osapulie.domain.BozzaDocumenti</class>
+		<class>it.osapulie.domain.Pin</class>
+		<class>it.osapulie.domain.categoriaimmobile.CategoriaImmobile</class>
+		<class>it.osapulie.domain.categoriaimmobile.CategoriaImmobileTributo</class>
+		<class>it.osapulie.domain.categoriaimmobile.TipologiaCategoriaImmobile</class>
+		<class>it.osapulie.domain.categoriaimmobile.Agevolazione</class>
+		<class>it.osapulie.domain.categoriaimmobile.Detrazione</class>
+		<class>it.osapulie.domain.categoriaimmobile.Esenzione</class>
+		<class>it.osapulie.domain.categoriaimmobile.BaseDiCalcolo</class>
+		<class>it.osapulie.domain.categoriaimmobile.Tributo</class>
+		<class>it.osapulie.domain.categoriaimmobile.TipologiaDetrazione</class>
+		<class>it.osapulie.domain.RegistroAudit</class>
+        <class>it.osapulie.domain.Audit</class>
+
+        <properties>
+            <property name="eclipselink.weaving" value="static" />
+        	<!--
+        		See http://wiki.eclipse.org/Using_EclipseLink_JPA_Extensions_%28ELUG%29 
+        	 -->
+            <property name="eclipselink.logging.level" value="WARNING" />
+            <property name="eclipselink.logging.thread" value="false" />
+            <property name="eclipselink.logging.session" value="false" />
+            <property name="eclipselink.logging.exceptions" value="true" />
+            <property name="eclipselink.logging.timestamp" value="false"/>     
+            
+            <property name="eclipselink.cache.shared.default" value="false"/>
+			<property name="eclipselink.cache.size.default" value="0"/>
+			<property name="eclipselink.cache.type.default" value="None"/>
+			
+        </properties>
+    </persistence-unit>
+</persistence>

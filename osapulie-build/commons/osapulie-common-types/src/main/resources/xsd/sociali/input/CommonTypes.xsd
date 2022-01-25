@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+elementFormDefault="qualified" attributeFormDefault="unqualified">
+	
+	<xs:complexType name="Soggetto">
+		<xs:sequence>
+			<xs:element name="codiceFiscale" minOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="16" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="nome" type="xs:string" minOccurs="1"/>
+			<xs:element name="cognome" type="xs:string" minOccurs="1"/>
+			<xs:element name="dataNascita" type="xs:string" />
+			<xs:element name="comuneNascita" type="xs:string" />
+			<xs:element name="provinciaNascita" type="xs:string" />
+			<xs:element name="comuneResidenza" type="xs:string" />
+			<xs:element name="capResidenza" type="xs:string" />
+			<xs:element name="provinciaResidenza" type="xs:string" />
+			<xs:element name="indirizzoResidenza" type="xs:string" />
+			<xs:element name="civicoResidenza" type="xs:string" />
+			<xs:element name="codTesseraSanitaria" type="xs:string" nillable="true" />
+			<xs:element name="telefono" type="xs:string" nillable="true"/>
+			<xs:element name="email" type="xs:string" nillable="true"/>
+			<xs:element name="fax" type="xs:string" nillable="true"/>
+			<xs:element name="cittadinanza" type="xs:string" nillable="true"/>
+			<xs:element name="stato" type="xs:string" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Familiare">
+		<xs:sequence>
+			<xs:element name="nome" type="xs:string" />
+			<xs:element name="cognome" type="xs:string" />
+			<xs:element name="dataNascita" type="xs:string" />
+			<xs:element name="parentela" type="xs:string" />
+			<xs:element name="reddito" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+		
+</xs:schema>

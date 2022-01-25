@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dichiarazioneCambioDomicilio" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.9487171000000048"/>
+	<property name="ireport.x" value="116"/>
+	<property name="ireport.y" value="3070"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#C0C0C0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dataset1"/>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Fede\\Desktop\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="tipoRichiesta" class="java.lang.String"/>
+	<field name="cfRichiedente" class="java.lang.String"/>
+	<field name="nomeRichiedente" class="java.lang.String"/>
+	<field name="cognomeRichiedente" class="java.lang.String"/>
+	<field name="tipoRichiedente" class="java.lang.String"/>
+	<field name="disNome" class="java.lang.String"/>
+	<field name="disCognome" class="java.lang.String"/>
+	<field name="disDataNascita" class="java.lang.String"/>
+	<field name="disComuneRes" class="java.lang.String"/>
+	<field name="disProvinciaRes" class="java.lang.String"/>
+	<field name="disComuneNasc" class="java.lang.String"/>
+	<field name="disProvinciaNasc" class="java.lang.String"/>
+	<field name="disIndirizzoRes" class="java.lang.String"/>
+	<field name="disNumCivico" class="java.lang.String"/>
+	<field name="disTelefono" class="java.lang.String"/>
+	<field name="disEmail" class="java.lang.String"/>
+	<field name="isee" class="java.lang.String"/>
+	<field name="tipoSportello" class="java.lang.String"/>
+	<field name="sportello" class="java.lang.String"/>
+	<field name="indirizzoSportello" class="java.lang.String"/>
+	<field name="sediaARotelle" class="java.lang.Boolean"/>
+	<field name="annoIsee" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="215" splitType="Stretch">
+			<staticText>
+				<reportElement x="287" y="188" width="247" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[AL DIRETTORE DELLA RIPARTIZIONE SOLIDARIETA' SOCIALE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="21" y="174" width="513" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="21" y="114" width="513" height="58"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Domanda di fruizione del servizio trasporto "a chiamata" verso qualsiasi destinazione cittadina, mediante taxi, riservato ai cittadini con disabilità per il periodo: 1 novembre 2014 - 31 ottobre 2015]]></text>
+			</staticText>
+			<image>
+				<reportElement key="Logo" x="243" y="10" width="69" height="69" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="102" y="79" width="350" height="35"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Comune di "+$P{comune}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="63" splitType="Stretch">
+			<textField>
+				<reportElement x="21" y="38" width="394" height="20"/>
+				<textFieldExpression><![CDATA["Il/La sottoscritto/a  "+$F{cognomeRichiedente}+" "+$F{nomeRichiedente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="78" y="6" width="168" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prima richiesta]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="59" y="10" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="61" y="12" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{tipoRichiesta}.equalsIgnoreCase( "Prima richiesta" )]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<staticText>
+				<reportElement x="320" y="6" width="168" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rinnovo]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="301" y="10" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="303" y="12" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{tipoRichiesta}.equalsIgnoreCase( "Rinnovo" )]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+		</band>
+		<band height="23">
+			<printWhenExpression><![CDATA[!$F{tipoRichiedente}.equalsIgnoreCase("a titolo personale")]]></printWhenExpression>
+			<textField>
+				<reportElement x="21" y="1" width="225" height="20"/>
+				<textFieldExpression><![CDATA["OVVERO " + $F{tipoRichiedente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="246" y="1" width="306" height="20"/>
+				<textFieldExpression><![CDATA["di "+ $F{disCognome} +" "+$F{disNome}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="285">
+			<textField>
+				<reportElement x="302" y="4" width="198" height="20"/>
+				<textFieldExpression><![CDATA["il "+$F{disDataNascita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="4" width="279" height="20"/>
+				<textFieldExpression><![CDATA["nato/a a "+$F{disComuneNasc}+" ( "+$F{disProvinciaNasc}+" )"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="24" width="467" height="20"/>
+				<textFieldExpression><![CDATA["residente in "+$F{disComuneRes}+"( "+$F{disProvinciaRes}+" ) in "+$F{disIndirizzoRes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="44" width="236" height="20"/>
+				<textFieldExpression><![CDATA["telefono: "+$F{disTelefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="257" y="44" width="277" height="20"/>
+				<textFieldExpression><![CDATA["email: "+$F{disEmail}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="81" width="213" height="20"/>
+				<text><![CDATA[NECESSITA DELLA SEDIA A ROTELLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="81" width="32" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[SI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="81" width="32" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="81" width="32" height="20">
+					<printWhenExpression><![CDATA[$F{sediaARotelle}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="81" width="32" height="20">
+					<printWhenExpression><![CDATA[!$F{sediaARotelle}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="206" y="114" width="114" height="28"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHIEDE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="142" width="513" height="50"/>
+				<text><![CDATA[di usufruire del trasporto riservato a cittadini non vedenti, oppure con handicap tale da impedire l'accesso e la salita sui mezzi pubblici, per un massimo di due corse giornaliere, dalla propria abitazione presso qualsiasi destinazione e se richiesto dalla destinazione prescelta alla propria abitazione.]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="257" y="81" width="32" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+			<frame>
+				<reportElement x="325" y="81" width="32" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</frame>
+			<textField>
+				<reportElement x="21" y="192" width="513" height="80"/>
+				<textFieldExpression><![CDATA["Il sottoscritto dichiara, inoltre, ai sensi dell'art.46, lett. o) del DPR 28.12.2000 n.445, consapevole delle responsabilità penali a cui andrebbe incontro ai sensi dell'art.76 del DPR 28.12.2000 n. 445, in caso di dichiarazioni mendaci, che il valore ISEE (Indicatore Situazione Economica Equivalente), relativo ai redditi percepiti dal nucleo familiare della persona disabile per cui è richiesto il servizio, nell'anno "+$F{annoIsee}+" , è pari ad Euro "+$F{isee}+" ed è stato elaborato presso il seguente sportello "+$F{tipoSportello}+" "+$F{sportello}+", in "+$F{indirizzoSportello}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="472">
+			<staticText>
+				<reportElement x="21" y="0" width="513" height="118"/>
+				<text><![CDATA[Si allega fotocopia del documento d'identità del dichiarante e altresì i seguenti documenti:
+- copia del verbale di invalidità, rilasciato dalla Commissione Invalidi Civili, attestante l'inabilità totale con diritto all'indennità di accompagnamento; oppure
+- copia del verbale di invalidità, rilasciato dalla Commissione Invalidi Civili, attestante il grado di invalidità del 100% con limitazione della capacità di deambulazione evidenziata nella diagnosi dello stesso verbale o comprovata dalla certificazione attestante la condizione di gravità (legge 104/92 art.3 comma 3 ); oppure
+- copia del verbale di invalidità, rilasciato dalla Commissione Ciechi civili, attestante la condizione di non vedente o ipovedenza grave (secondo quanto previsto dall'art.4 della legge 3/04/01 n.138 );]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="118" width="122" height="20"/>
+				<text><![CDATA[Il sottoscritto s'impegna: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="138" width="489" height="28"/>
+				<text><![CDATA[qualora pagante, a far pervenire alla Ripartizione Solidarietà Sociale la ricevuta del versamento eseguito, in relazione ai blocchetti da richiedere, sino ad un massimo di n° 10 er ogni utente;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="166" width="489" height="44"/>
+				<text><![CDATA[a comunicare alla Ripartizione Solidarietà Sociale l'eventuale spostamento del domicilio nell'ambito della Città, o il trasferimento della residenza in un altro Comune, che comporta automaticamente la perdita del diritto di avvalersi del servizio;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="210" width="489" height="33"/>
+				<text><![CDATA[a formalizzare la rinuncia, presso questa Ripartizione, nel caso in cui non avesse più interesse o non potesse usufruire del servizio;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="243" width="489" height="27"/>
+				<text><![CDATA[a rinnovare la domanda, presso, la Ripartizione Solidarietà Sociale dal 1 al 30 settembre di ogni anno, se interessato a fruire del servizio;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="270" width="489" height="26"/>
+				<text><![CDATA[a non esigere il rimborso di eventuali ticket non utilizzati.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="296" width="489" height="41"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AD ATTENERSI IN MANIERA SCRUPOLOSA ALLE REGOLE CHE DISCIPLINANO IL SERVIZIO, DICHIARANDO DI ACCETTARNE INCONDIZIONATAMENTE LE MODALITA DI FRUIZIONE STABILITE DAL COMUNE.]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="31" y="143" width="5" height="5" backcolor="#000000"/>
+			</ellipse>
+			<ellipse>
+				<reportElement x="31" y="171" width="5" height="5" backcolor="#000000"/>
+			</ellipse>
+			<ellipse>
+				<reportElement x="31" y="215" width="5" height="5" backcolor="#000000"/>
+			</ellipse>
+			<ellipse>
+				<reportElement x="31" y="248" width="5" height="5" backcolor="#000000"/>
+			</ellipse>
+			<ellipse>
+				<reportElement x="31" y="275" width="5" height="5" backcolor="#000000"/>
+			</ellipse>
+			<textField>
+				<reportElement x="45" y="417" width="225" height="20"/>
+				<textFieldExpression><![CDATA[$P{comune}+", "+new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="444" width="218" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Firma dell'interessato o del tutore]]></text>
+			</staticText>
+			<line>
+				<reportElement x="308" y="437" width="215" height="1"/>
+			</line>
+		</band>
+		<band height="802" splitType="Prevent">
+			<staticText>
+				<reportElement x="24" y="19" width="510" height="35"/>
+				<textElement>
+					<font size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Informativa ai sensi dell’art. 13 del D.lgs. 30 giugno 2003 n. 196 (Codice in materia di protezione dei dati personali)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="54" width="134" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[(aggiornato al 12/05/06)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="79" width="510" height="87"/>
+				<text><![CDATA[Gentile utente,
+desideriamo informarLa che il D.Lgs. 30 giugno 2003 n.196 “Codice in materia di protezione dei dati personali” prevede la tutela delle persone e di altri soggetti in relazione al trattamento dei dati personali.
+Secondo la norma suindicata, tale trattamento sarà improntato ai principi di correttezza, liceità e trasparenza e di tutela della Sua riservatezza e dei Suoi diritti.
+In applicazione dell’art. 13 del D. Lgs. n.196/2003, pertanto, Le forniamo le seguenti informazioni:
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="166" width="175" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Finalità del trattamento dei dati:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="219" width="175" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Modalità del trattamento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="292" width="175" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Conferimento dei dati:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="186" width="510" height="33"/>
+				<text><![CDATA[Il trattamento è diretto all’espletamento da parte del Comune di Bari, di funzioni istituzionali in virtù di compiti attribuiti dalla legge e dai regolamenti;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="239" width="510" height="53"/>
+				<text><![CDATA[Il trattamento sarà effettuato con modalità cartacee, e/o informatiche e/o telematiche, attraverso operazioni o complessi di operazioni concernenti la raccolta, la registrazione, l’organizzazione, la conservazione, la consultazione, l’elaborazione, la selezione, l’estrazione, il raffronto, l’utilizzo, l’interconnessione, la comunicazione e la diffusione di dati di cui all’art. 4 del D.Lgs. 196/2003;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="347" width="175" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Rifiuto di conferire i dati:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="312" width="510" height="35"/>
+				<text><![CDATA[E’ obbligatorio per i procedimenti amministrativi, come onere per l’interessato che voglia ottenere un provvedimento;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="414" width="175" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Comunicazione dei dati:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="367" width="510" height="47"/>
+				<text><![CDATA[L’eventuale rifiuto da parte dell’interessato di conferire i dati richiesti e/o contenuti nella modulistica comporta il mancato rilascio del provvedimento richiesto e l’impossibilità di evadere la pratica od ottenere l’effetto previsto dalla legge e/o da regolamento; ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="434" width="510" height="80"/>
+				<text><![CDATA[I dati acquisiti possono essere comunicati o diffusi, anche per via telematica, ad altri soggetti pubblici per lo svolgimento di funzioni istituzionali, nei casi e nei modi previsti dalla legge e/o dai regolamenti. Resta peraltro fermo quanto previsto dall’art. 59 del D. Lgs. 196/2003 sull’accesso ai documenti amministrativi contenenti dati personali come disciplinato dalla L. 241/90 e successive modifiche ed integrazioni, anche per quanto concerne i dati sensibili e giudiziari;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="514" width="196" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Diritti dell’interessato:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="534" width="513" height="42"/>
+				<text><![CDATA[All’interessato vengono riconosciuti i diritti di cui all’art. 7 del citato codice ed in particolare il diritto di accedere ai propri dati personali, di chiederne la rettifica, l’aggiornamento e la cancellazione se incompleti, erronei o raccolti in violazione di legge, nonché di opporsi al trattamento per motivi legittimi;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="576" width="225" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Titolari e Responsabili del trattamento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="596" width="513" height="33"/>
+				<text><![CDATA[Il Titolare del trattamento dei dati è il Comune di Bari. Il Responsabile del trattamento dei dati è il Direttore Ripartizione Solidarietà Sociale;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="629" width="372" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fonti di riferimento per il trattamento dei dati sensibili e giudiziari:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="649" width="513" height="56"/>
+				<text><![CDATA[Ai sensi degli artt. 21, c.1 e 22, c. 2 e 3 del D. Lgs. 196/2003, il Comune di Bari effettua il trattamento dei dati sensibili e giudiziari indispensabili per svolgere attività istituzionali sulla base della normativa indicata nei singoli moduli di domanda o di comunicazione.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="705" width="513" height="42"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Il richiedente preventivamente informato in merito al trattamento dei propri dati personali ai sensi dell'art.11 D. Lgs 196/2006, autorizza il Comune di Bari a raccogliere e trattare i propri dati personali esclusivamente per rispondere alle richieste di intervento che lo riguardano.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="306" y="767" width="215" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="36" y="767" width="225" height="20"/>
+				<textFieldExpression><![CDATA[$P{comune}+", "+new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="308" y="774" width="218" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Firma dell'interessato o del tutore]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

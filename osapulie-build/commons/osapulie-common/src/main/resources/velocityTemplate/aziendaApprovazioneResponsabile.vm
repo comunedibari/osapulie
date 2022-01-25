@@ -1,0 +1,5 @@
+<div>
+    <p>Gentile ${cognome} ${nome},</p>
+    la sua richiesta di iscrizione della/del ${tipoAzienda} ${ragioneSociale} al portale <i>${osapulieHost}</i> &egrave; stata <b>${statoApprovazione}</b>.
+    <p>Cordiali saluti.</br>	
+</div>	

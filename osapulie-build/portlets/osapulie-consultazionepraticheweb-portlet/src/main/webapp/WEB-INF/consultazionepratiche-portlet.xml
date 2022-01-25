@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!--
+	=========================================================================== 
+	Infrastructure
+	===========================================================================
+	-->
+	<!-- <security:global-method-security  secured-annotations="enabled" pre-post-annotations="enabled" />
+	<security:http use-expressions="true" entry-point-ref="preAuthenticatedEntryPoint" />
+	<bean id="preAuthenticatedEntryPoint" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
+	 -->
+	<import resource="common-portlet-context.xml"/>
+	
+	<mvc:annotation-driven />
+
+	<!--
+		i18n strings are shared for Spring beans and Portlet definition. 
+	 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages.consultazionepratiche</value>
+				<value>messages.etichettevarie</value>
+				<value>messages.errori</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="portletModeHandlerMapping" parent="portletModeHandlerMappingTemplate">
+        <property name="portletModeMap">
+            <map>
+                <entry key="view" value-ref="consultazionePratichePortletController"/>
+            </map>
+        </property>
+    </bean>
+
+	<!--
+	=========================================================================== 
+	Components
+	===========================================================================
+	-->
+	<context:component-scan base-package="it.osapulie.pratiche.web.portlet.consultazionepratiche" />
+</beans>

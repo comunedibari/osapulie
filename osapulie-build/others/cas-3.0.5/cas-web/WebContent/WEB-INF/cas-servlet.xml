@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false" default-autowire="no" default-dependency-check="none">
+	<!-- Theme Resolver -->
+	<bean id="themeResolver" class="org.jasig.cas.services.web.ServiceThemeResolver" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="defaultThemeName" value="default"></property>
+	</bean>
+	<!-- View Resolver -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="basename" value="default_views"></property>
+		<property name="order" value="0"></property>
+	</bean>
+	<!-- Locale Resolver -->
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" lazy-init="default" autowire="default" dependency-check="default"></bean>
+	<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" lazy-init="default" autowire="default" dependency-check="default"></bean>
+	<bean id="urlBasedViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="viewClass" value="org.springframework.web.servlet.view.AbstractUrlBasedView"></property>
+	</bean>
+	<bean id="errorHandlerResolver" class="org.jasig.cas.web.NoSuchFlowExecutionExceptionResolver" lazy-init="default" autowire="default" dependency-check="default"></bean>
+	<!-- Handler Mapping -->
+	<bean id="handlerMappingA" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="mappings">
+			<props>
+				<prop key="/login">loginController</prop>
+			</props>
+		</property>
+		<property name="interceptors">
+			<list>
+				<ref bean="localeChangeInterceptor"></ref>
+			</list>
+		</property>
+	</bean>
+	<bean id="handlerMappingB" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="mappings">
+			<props>
+				<prop key="/logout">logoutController</prop>
+				<prop key="/serviceValidate">serviceValidateController</prop>
+				<prop key="/validate">legacyValidateController</prop>
+				<prop key="/proxy">proxyController</prop>
+				<prop key="/proxyValidate">proxyValidateController</prop>
+				<!--
+				uncomment this to enable remote access to web service
+				<prop
+					key="/CentralAuthenticationService">
+					xFireCentralAuthenticationService
+				</prop>
+				 -->
+			</props>
+		</property>
+		<!--
+		uncomment this to enable sending PageRequest events.
+		<property
+			name="interceptors">
+			<list>
+				<ref bean="pageRequestHandlerInterceptorAdapter" />
+			</list>
+		</property>
+		 -->
+	</bean>
+	<bean id="loginController" class="org.springframework.webflow.executor.mvc.FlowController" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="flowLocator" ref="flowRegistry"></property>
+		<property name="defaultFlowId" value="login-webflow"></property>
+		<property name="argumentExtractor">
+			<bean class="org.springframework.webflow.executor.support.FlowExecutorArgumentExtractor" lazy-init="default" autowire="default" dependency-check="default">
+				<property name="flowExecutionKeyParameterName" value="lt"></property>
+				<property name="defaultFlowId" value="login-webflow"></property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="flowRegistry" class="org.springframework.webflow.registry.XmlFlowRegistryFactoryBean" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="flowLocations" value="/WEB-INF/login-webflow.xml"></property>
+	</bean>
+	<bean id="proxyValidateController" class="org.jasig.cas.web.ServiceValidateController" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="centralAuthenticationService" ref="centralAuthenticationService"></property>
+		<property name="proxyHandler" ref="proxy20Handler"></property>
+	</bean>
+	<bean id="serviceValidateController" class="org.jasig.cas.web.ServiceValidateController" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="validationSpecificationClass" value="org.jasig.cas.validation.Cas20WithoutProxyingValidationSpecification"></property>
+		<property name="centralAuthenticationService" ref="centralAuthenticationService"></property>
+		<property name="proxyHandler" ref="proxy20Handler"></property>
+	</bean>
+	<bean id="legacyValidateController" class="org.jasig.cas.web.ServiceValidateController" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="proxyHandler" ref="proxy10Handler"></property>
+		<property name="successView" value="cas1ServiceSuccessView"></property>
+		<property name="failureView" value="cas1ServiceFailureView"></property>
+		<property name="validationSpecificationClass" value="org.jasig.cas.validation.Cas10ProtocolValidationSpecification"></property>
+		<property name="centralAuthenticationService" ref="centralAuthenticationService"></property>
+	</bean>
+	<bean id="proxyController" class="org.jasig.cas.web.ProxyController" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="centralAuthenticationService" ref="centralAuthenticationService"></property>
+	</bean>
+	<bean id="logoutController" class="org.jasig.cas.web.LogoutController" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="centralAuthenticationService" ref="centralAuthenticationService"></property>
+		<property name="logoutView" value="casLogoutView"></property>
+		<property name="warnCookieGenerator" ref="warnCookieGenerator"></property>
+		<property name="ticketGrantingTicketCookieGenerator" ref="ticketGrantingTicketCookieGenerator"></property>
+	</bean>
+	<!--
+uncomment this to allow access to web service
+	<bean
+		id="xFireCentralAuthenticationService"
+		class="org.codehaus.xfire.spring.remoting.XFireExporter">
+		<property
+			name="serviceBean"
+			ref="remoteCentralAuthenticationService" />
+		<property
+			name="serviceInterface"
+			value="org.jasig.cas.CentralAuthenticationService" />
+		<property
+			name="serviceFactory"
+			ref="xfire.serviceFactory" />
+		<property
+			name="xfire"
+			ref="xfire" />
+	</bean>
+
+	<bean
+		id="remoteCentralAuthenticationService"
+		class="org.jasig.cas.remoting.server.RemoteCentralAuthenticationService">
+		<property
+			name="centralAuthenticationService"
+			ref="centralAuthenticationService" />
+		<property
+			name="validators">
+			<list>
+				<bean
+					class="org.jasig.cas.validation.UsernamePasswordCredentialsValidator" />
+			</list>
+		</property>
+	</bean>
+-->
+	<bean id="simpleMappingHandlerExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="UndeclaredThrowableException">serviceErrorView</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="abstractLoginAction" abstract="true" class="org.jasig.cas.web.flow.AbstractLoginAction" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="warnCookieGenerator" ref="warnCookieGenerator"></property>
+		<property name="ticketGrantingTicketCookieGenerator" ref="ticketGrantingTicketCookieGenerator"></property>
+	</bean>
+	<bean id="abstractCasLoginAction" abstract="true" parent="abstractLoginAction" class="org.jasig.cas.web.flow.AbstractCasLoginAction" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="centralAuthenticationService" ref="centralAuthenticationService"></property>
+	</bean>
+	<bean id="automaticCookiePathSetterAction" class="org.jasig.cas.web.flow.AutomaticCookiePathSetterAction" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="warnCookieGenerator" ref="warnCookieGenerator"></property>
+		<property name="ticketGrantingTicketCookieGenerator" ref="ticketGrantingTicketCookieGenerator"></property>
+	</bean>
+	<bean id="authenticationViaFormAction" parent="abstractCasLoginAction" class="org.jasig.cas.web.flow.AuthenticationViaFormAction" lazy-init="default" autowire="default" dependency-check="default"></bean>
+	<bean id="gatewayRequestCheckAction" parent="abstractLoginAction" class="org.jasig.cas.web.flow.GatewayRequestCheckAction" lazy-init="default" autowire="default" dependency-check="default"></bean>
+	<bean id="generateServiceTicketAction" parent="abstractCasLoginAction" class="org.jasig.cas.web.flow.GenerateServiceTicketAction" lazy-init="default" autowire="default" dependency-check="default"></bean>
+	<bean id="hasServiceCheckAction" parent="abstractLoginAction" class="org.jasig.cas.web.flow.HasServiceCheckAction" lazy-init="default" autowire="default" dependency-check="default"></bean>
+	<bean id="renewRequestCheckAction" parent="abstractLoginAction" class="org.jasig.cas.web.flow.RenewRequestCheckAction" lazy-init="default" autowire="default" dependency-check="default"></bean>
+	<bean id="sendTicketGrantingTicketAction" parent="abstractCasLoginAction" class="org.jasig.cas.web.flow.SendTicketGrantingTicketAction" lazy-init="default" autowire="default" dependency-check="default"></bean>
+	<bean id="ticketGrantingTicketExistsAction" parent="abstractLoginAction" class="org.jasig.cas.web.flow.TicketGrantingTicketExistsAction" lazy-init="default" autowire="default" dependency-check="default"></bean>
+	<bean id="warnAction" parent="abstractLoginAction" class="org.jasig.cas.web.flow.WarnAction" lazy-init="default" autowire="default" dependency-check="default"></bean>
+	<!--
+		X.509
+ 	-->	
+	<bean
+		id="x509Check"
+		parent="abstractCasLoginAction"
+		class="org.jasig.cas.adaptors.x509.web.flow.X509CertificateCredentialsNonInteractiveAction" />
+	
+	<bean id="warnCookieGenerator" class="org.springframework.web.util.CookieGenerator" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="cookieSecure" value="true"></property>
+		<property name="cookieMaxAge" value="-1"></property>
+		<property name="cookieName" value="CASPRIVACY"></property>
+		<property name="cookiePath" value="/cas"></property>
+	</bean>
+	<bean id="ticketGrantingTicketCookieGenerator" class="org.springframework.web.util.CookieGenerator" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="cookieSecure" value="true"></property>
+		<property name="cookieMaxAge" value="-1"></property>
+		<property name="cookieName" value="CASTGC"></property>
+		<property name="cookiePath" value="/cas"></property>
+	</bean>
+</beans>

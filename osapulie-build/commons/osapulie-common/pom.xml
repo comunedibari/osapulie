@@ -1,0 +1,496 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>it.osapulie.build</groupId>
+		<artifactId>commons</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<groupId>it.osapulie</groupId>
+	<artifactId>osapulie-common</artifactId>
+	<name>OSApulie :: Common Library</name>
+	<packaging>jar</packaging>
+	<description>Applicazione common per OS Apulie</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<eclipselink.version>2.2.1</eclipselink.version>
+		<hibernate.version>3.6.7.Final</hibernate.version>
+		<jasper-reports.version>4.1.2</jasper-reports.version>
+		<spring.ws.version>2.0.2.RELEASE</spring.ws.version>
+		<spring.security.version>3.0.7.RELEASE</spring.security.version>
+		<cxf.version>2.4.2</cxf.version>
+		<!-- FIXME I test sono stati rotti e richiedono manutenzione! -->
+		<skipTests>true</skipTests>
+	</properties>
+
+	<dependencies>
+		<!-- Spring Security TODO mettere in un meta-POM apposito -->
+
+		<dependency>
+			<groupId>it.osapulie</groupId>
+			<artifactId>osapulie-shared</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+			<!-- Audit -->
+		<dependency>
+			<groupId>eng.tz.audit</groupId>
+			<artifactId>common-audit</artifactId>
+			<version>0.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+		
+		<dependency>
+    		<groupId>org.codehaus.jackson</groupId>
+    		<artifactId>jackson-core-asl</artifactId>
+    		<version>1.9.13</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.codehaus.jackson</groupId>
+    		<artifactId>jackson-mapper-asl</artifactId>
+    		<version>1.9.13</version>
+		</dependency>
+
+		  <!-- Quartz framework -->
+		
+			<!-- <dependency>
+			   <groupId>org.quartz-scheduler</groupId>
+			   <artifactId>quartz</artifactId>
+			   <version>1.8.5</version>
+			  </dependency>
+			  -->
+		
+		<!-- PDF -->
+
+			<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>jempbox</artifactId>
+			<version>${org.apache.pdfbox.jempbox.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>fontbox</artifactId>
+			<version>${org.apache.pdfbox.fontbox.version}</version>
+		</dependency>		
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>${org.apache.pdfbox.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+				 
+		<!-- END PDF -->
+
+		<!-- Spring framework. -->
+		<dependency>
+			<groupId>it.osapulie.build.3rdparty</groupId>
+			<artifactId>spring-framework</artifactId>
+			<version>${spring.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-aspects</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security.extensions</groupId>
+			<artifactId>spring-security-portlet</artifactId>
+			<version>1.0.0.CI-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-web</artifactId>
+    		<version>${spring.version}</version>
+		</dependency>   
+
+		<dependency>
+			<groupId>it.osapulie.build.3rdparty</groupId>
+			<artifactId>persistence-eclipselink</artifactId>
+			<version>${eclipselink.version}</version>
+			<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<groupId>it.osapulie.build.3rdparty</groupId>
+			<artifactId>jasper-reports</artifactId>
+			<type>pom</type>
+			<version>${jasper-reports.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>bctsp-jdk14</artifactId>
+					<groupId>org.bouncycastle</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+		<!-- Web Services support -->
+		<dependency>
+			<groupId>it.osapulie.build.3rdparty</groupId>
+			<artifactId>apache-cxf</artifactId>
+			<version>${cxf.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http-jetty</artifactId>
+			<version>${cxf.version}</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>geronimo-javamail_1.4_spec</artifactId>
+					<groupId>org.apache.geronimo.specs</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>it.linksmt.tools</groupId>
+			<artifactId>signature-verification</artifactId>
+			<version>1.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Liferay Util Java -->
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>util-java</artifactId>
+			<version>6.0.6</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.portlet</groupId>
+			<artifactId>portlet-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>portal-service</artifactId>
+			<version>${liferay.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator-annotation-processor</artifactId>
+			<version>4.1.0.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>it.linksmt.pec</groupId>
+			<artifactId>pecmailclient</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>it.osapulie</groupId>
+			<artifactId>osapulie-common-types</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>displaytag</groupId>
+			<artifactId>displaytag</artifactId>
+			<version>1.2</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>jcl104-over-slf4j</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+       			<exclusion>
+            		<groupId>org.slf4j</groupId>
+            		<artifactId>slf4j-log4j12</artifactId>
+        		</exclusion>
+        		<exclusion>
+            		<groupId>log4j</groupId>
+            		<artifactId>log4j</artifactId>
+        		</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>displaytag</groupId>
+			<artifactId>displaytag-portlet</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.4</version>
+		</dependency>
+	</dependencies>
+ 
+	<profiles>
+        <profile>
+            <id>sviluppo</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>sviluppo</build.profile.id>
+            </properties>
+        </profile>
+        <profile>
+            <id>test_torre</id>
+            <properties>
+                <build.profile.id>test_torre</build.profile.id>
+            </properties>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>collaudo</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>collaudo</build.profile.id>
+            </properties>
+        </profile>
+        <profile>
+            <id>produzione</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>produzione</build.profile.id>
+            </properties>
+        </profile>
+    </profiles>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<filters>
+            <filter>../../filters/${build.profile.id}/configuration.properties</filter>
+		</filters>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<!-- Esempio a riga di comando: wsdl2java -frontend jaxws21 -client -verbose 
+				-p http://localhost:8080/pdds/services/pddsAdapter=it.osapulie.web.ws -d 
+				target/generated-sources/cxf src/main/resources/wsdl/pddsAdapter.wsdl -->
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>${cxf.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.velocity</groupId>
+						<artifactId>velocity</artifactId>
+						<version>1.6.2</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<defaultOptions>
+								<bindingFiles>
+									<bindingFile>${basedir}/src/main/resources/xsd/bindings.xml</bindingFile>
+								</bindingFiles>
+								<noAddressBinding>true</noAddressBinding>
+								<extraargs>
+									<extraarg>-p</extraarg>
+									<extraarg>http://www.w3.org/2001/XMLSchema=org.w3c.schema</extraarg>
+									<extraarg>-p</extraarg>
+									<extraarg>http://pddsAdapter.osApulie.it=it.osapulie.web.ws.adapter.types</extraarg>
+									<extraarg>-p</extraarg>
+									<extraarg>http://portaDiDominio.pdd.egov.rupar.puglia.it=it.osapulie.web.ws.adapter</extraarg>
+								</extraargs>
+							</defaultOptions>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/PDDSAdapter.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-fe</extraarg>
+										<extraarg>jaxws21</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>http://localhost:8080/pdds/services/PDDSAdapter=it.osapulie.web.ws.adapter</extraarg>
+									</extraargs>
+								</wsdlOption>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/PddsIntegrationSOAP.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-fe</extraarg>
+										<extraarg>jaxws21</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>http://192.0.0.17:8080/pdds_integration/services/PddsIntegration=it.osapulie.web.ws.pddsintegration</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>http://pddsintegration.osapulie.it=it.osapulie.web.ws.pddsintegration</extraarg>
+									</extraargs>
+								</wsdlOption>
+								<!-- WSDL TIMBRO DIGITALE -->
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/SP.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-fe</extraarg>
+										<extraarg>jaxws21</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>http://spservice.securepaperappliance.land.it=it.osapulie.web.ws.timbrodigitale</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>http://192.0.0.17:8080/pdds_integration/services/PddsIntegration=it.osapulie.web.ws.pddsintegration</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>http://pddsintegration.osapulie.it=it.osapulie.web.ws.pddsintegration</extraarg>
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.jvnet.jaxb2.maven2</groupId>
+										<artifactId>maven-jaxb2-plugin</artifactId>
+										<versionRange>[0.8.0,)</versionRange>
+										<goals>
+											<goal>generate</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute />
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>build-helper-maven-plugin</artifactId>
+										<versionRange>[1.0,)</versionRange>
+										<goals>
+											<goal>add-source</goal>
+											<goal>add-test-source</goal>
+											<goal>add-resource</goal>
+											<goal>add-test-resource</goal>
+											<goal>maven-version</goal>
+											<goal>parse-version</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute>
+											<runOnConfiguration>true</runOnConfiguration>
+											<runOnIncremental>true</runOnIncremental>
+										</execute>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.cxf
+										</groupId>
+										<artifactId>
+											cxf-codegen-plugin
+										</artifactId>
+										<versionRange>
+											[2.4.2,)
+										</versionRange>
+										<goals>
+											<goal>wsdl2java</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

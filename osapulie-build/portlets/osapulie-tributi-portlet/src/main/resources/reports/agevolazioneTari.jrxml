@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dichiarazioneTassaRifiuti" pageWidth="595" pageHeight="900" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="subreportParameter0" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreportParameter1" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreportParameter2" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreportParameter3" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreportParameter4" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreportParameters" class="java.util.List"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<field name="cognome" class="java.lang.String">
+		<fieldDescription><![CDATA[cognome]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="codiceFiscale" class="java.lang.String"/>
+	<field name="idContribuente" class="java.lang.String"/>
+	<field name="comuneNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneNascita]]></fieldDescription>
+	</field>
+	<field name="provinciaNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[provinciaNascita]]></fieldDescription>
+	</field>
+	<field name="dataNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[dataNascita]]></fieldDescription>
+	</field>
+	<field name="comuneResidenza" class="java.lang.String"/>
+	<field name="provinciaResidenza" class="java.lang.String"/>
+	<field name="indirizzoResidenza" class="java.lang.String"/>
+	<field name="civicoResidenza" class="java.lang.String"/>
+	<field name="indirizzoResidenzaTextHidden" class="java.lang.String"/>
+	<field name="civicoResidenzaTextHidden" class="java.lang.String"/>
+	<field name="esponenteResidenza" class="java.lang.String"/>
+	<field name="scalaResidenza" class="java.lang.String"/>
+	<field name="pianoResidenza" class="java.lang.String"/>
+	<field name="internoResidenza" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="immobili" class="java.util.List"/>
+	<field name="dataDecorrenza" class="java.lang.String"/>
+	<field name="codiceAgevolazione" class="java.lang.String"/>
+	<field name="presenzaFigliAttivitaGenitori" class="java.lang.Boolean"/>
+	<field name="presenzaFigliUnGenitore" class="java.lang.Boolean"/>
+	<field name="numSoggettiHandicap" class="java.lang.String"/>
+	<field name="numComponentiNucleoFamiliare" class="java.lang.String"/>
+	<field name="rc" class="java.lang.String"/>
+	<field name="pag" class="java.lang.String"/>
+	<field name="rcpag" class="java.lang.String"/>
+	<field name="rpm" class="java.lang.String"/>
+	<field name="dc" class="java.lang.String"/>
+	<field name="pmo" class="java.lang.String"/>
+	<field name="dpm" class="java.lang.String"/>
+	<field name="pim" class="java.lang.String"/>
+	<field name="dpi" class="java.lang.String"/>
+	<field name="codiceFiscaleContribuente" class="java.lang.String"/>
+	<field name="dataAttestazione" class="java.lang.String"/>
+	<field name="dataScadenza" class="java.lang.String"/>
+	<field name="valoreISE" class="java.lang.String"/>
+	<field name="scalaEquivalenza" class="java.lang.String"/>
+	<field name="valoreISEE" class="java.lang.String"/>
+	<field name="codiceFiscaleCAF" class="java.lang.String"/>
+	<field name="partitaIvaCAF" class="java.lang.String"/>
+	<field name="nominativoCAF" class="java.lang.String"/>
+	<field name="dataDomanda" class="java.lang.String"/>
+	<field name="stradarioEnabled" class="java.lang.Boolean"/>
+	<field name="statoEstero" class="java.lang.String"/>
+	<field name="comuneNascitaEstero" class="java.lang.String"/>
+	<field name="denominazioneEstero" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="340" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement key="Logo" x="17" y="2" width="521" height="69" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="17" y="71" width="521" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Comune di "+$P{comune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="281" width="521" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Tahoma" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DA PRESENTARSI <style isBold="true" pdfFontName="Helvetica-Bold" isUnderline="true">ESCLUSIVAMENTE</style> PER IL TRAMITE DI <style isBold="true" pdfFontName="Helvetica-Bold" isUnderline="true">CAF CONVENZIONATI</style> CON IL COMUNE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="241" width="521" height="40" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold" isUnderline="true">UTENZE DOMESTICHE</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="201" width="521" height="40" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">MODULO DI RICHIESTA AGEVOLAZIONI TARI</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="187" width="555" height="14" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="styled">
+					<font fontName="Tahoma" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Legge n. 147 del 27/12/2013, art. 1, comma 639 e s.s.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="160" width="555" height="27" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="SansSerif" size="18" isBold="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">TASSA SUI RIFIUTI – TARI</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="91" width="521" height="27" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="styled">
+					<font fontName="Tahoma" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">Ripartizione Tributi</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="118" width="521" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="styled">
+					<font fontName="Tahoma" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">Corso Vittorio Emanuele II, 113</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="133" width="521" height="15" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="styled">
+					<font fontName="Tahoma" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">70122 – BARI</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="311" width="141" height="20" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Tahoma" size="8" isBold="false" pdfFontName="Helvetica-BoldOblique"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" isItalic="true" pdfFontName="Helvetica-Bold">COMPILARE IN STAMPATELLO</style>]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="119">
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="3" width="568" height="111"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subreportParameters})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subreportParameter0}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="121">
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="3" width="568" height="111"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subreportParameters})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subreportParameter1}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="111">
+			<subreport isUsingCache="false">
+				<reportElement x="2" y="11" width="566" height="90"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subreportParameters})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subreportParameter2}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="102">
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="11" width="566" height="90"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subreportParameters})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subreportParameter3}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="111">
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="18" width="566" height="90"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subreportParameters})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subreportParameter4}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

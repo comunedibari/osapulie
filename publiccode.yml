@@ -1,0 +1,54 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - document-management
+description:
+  it:
+    features: 
+     - Portale di egov
+    genericName: osapulie
+    shortDescription: Osapulie – Piattaforma di egov Area Vasta Metropolitana Terra di Bari
+    longDescription:  |
+
+     La piattaforma è Osapulie, prodotto realizzato per offrire strumenti e servizi al cittadino, nel pieno rispetto delle normative vigenti e al tempo stesso usufruendo delle tecnologie più recenti ed efficienti. Il software consente la firma di documenti di delega alla produzione di certificati anagrafici tramite l'ausilio di un tablet per l'acquisizione d firme grafometriche. Per il corretto funzionamento della tavoletta wacom per l'acquisizione della firma grafometrica di dovrà installare sul pc a cui collegarla: Wacom-Signature-SDK-xxx-3.20.4.msi; Wacom-Signature-SDK-SigCaptX-1.18.1.msi; Se si presentano problemi di visualizzazione dello schermo sulla tavoletta grafica, bisogna installare sul pc i driver DisplayLink.
+     
+developmentStatus: stable
+it:
+  riuso:
+    codiceIPA: c_a662
+  conforme:
+    gdpr: false
+    lineeGuidaDesign: false
+    misureMinimeSicurezza: false
+    modelloInteroperabilita: false
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    spid: false
+legal:
+  license: EUPL-1.2
+localisation:
+  availableLanguages:
+    - it
+    - en
+  localisationReady: false
+maintenance:
+  contractors:
+    - name: Engineering Spa
+      until: '2021-12-31'
+      website: 'https://www.eng.it/'
+  type: contract
+name: osapulie
+platforms:
+  - web
+releaseDate: '2021-03-01'
+softwareType: standalone/web
+url: 'https://github.com/comunedibari/osapulie'
+usedBy:
+  - Area Vasta Bari
+
+  

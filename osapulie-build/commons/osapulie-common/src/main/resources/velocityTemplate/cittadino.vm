@@ -1,0 +1,20 @@
+Gentile ${cognome} ${nome},<br>
+l'operazione da lei effettuata &eacute; andata a buon fine.
+Di seguito i dettagli dell'operazione:
+
+<ul>
+	<li>
+		Servizio: <b>${nomeServizio}</b>
+	</li>
+	<li>
+		Data richiesta: <b>${dataRichiesta}</b>
+	</li>
+	#if(${protocollo})
+	<li>
+		Numero protocollo: <b>${protocollo}</b>
+	</li>
+	#end
+</ul>
+Per maggiori dettagli consultare il proprio fascicolo utente.<br>
+
+Cordiali saluti.

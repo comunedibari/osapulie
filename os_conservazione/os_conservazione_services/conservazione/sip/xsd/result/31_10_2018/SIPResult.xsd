@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 3 (x64) (http://www.altova.com) by Valentina Martinucci (Engineering) -->
+<!-- SIPManifest ver 1.0: edited by Valentina Martinucci (Engineering II Spa) -->
+<xs:schema xmlns:SIPResult="urn:IRIS:SIPResult.xsd" xmlns="urn:IRIS:SIPResult.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:IRIS:SIPResult.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" id="SIPResult">
+	<xs:annotation>
+		<xs:documentation xml:lang="it">Definizione degli attributes</xs:documentation>
+	</xs:annotation>
+	<xs:attribute name="SIPResultver" type="xs:NMTOKEN" fixed="1.0">
+		<xs:annotation>
+			<xs:documentation>Versione di xml schema utilizzato per il SIPResult</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+	<xs:attribute name="SIPResulturl" type="xs:anyURI" fixed="http:/eng.it/IRIS/">
+		<xs:annotation>
+			<xs:documentation>URL a cui è reperibile lo schema utilizzato per il SIPResult</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+	<xs:attribute name="lang" type="xs:language" default="it">
+		<xs:annotation>
+			<xs:documentation>Lingua in cui è espresso un contenuto</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+	<xs:annotation>
+		<xs:documentation xml:lang="it">Definizione dei tipi semplici</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="UUID">
+		<xs:annotation>
+			<xs:documentation>Universal Unique Identifier</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TimeRef">
+		<xs:annotation>
+			<xs:documentation>Riferimento temporale con data e ora</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:simpleType name="FormaGiuridica">
+		<xs:annotation>
+			<xs:documentation>Forma giuridica del produttore: Ente pubblico o sua AOO o altro</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PA">
+				<xs:annotation>
+					<xs:documentation>Ente pubblico</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AOO">
+				<xs:annotation>
+					<xs:documentation>Area Organizzativa Omogenea di un Ente pubblico</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="altro">
+				<xs:annotation>
+					<xs:documentation>altro tipo di suggetto giuridico</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodiceAmministrazione">
+		<xs:annotation>
+			<xs:documentation>Codice di un Amministrazione ex Indice PA</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z0-9\-_]{1,16}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodiceAOO">
+		<xs:annotation>
+			<xs:documentation>Codice di un Area Organizzativa Omogenea (AOO) ex Indice PA</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z0-9\-_]{1,16}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Nome">
+		<xs:annotation>
+			<xs:documentation>Nome di un soggetto fisico o giuridico o di un'applicazione che versa documentazione</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:normalizedString">
+			<xs:maxLength value="250"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodiceFiscale">
+		<xs:annotation>
+			<xs:documentation>Codice fiscale di un soggetto fisico o giuridico</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{11}"/>
+			<xs:pattern value="[A-Z]{6}[0-9]{2}[ABCDEHLMPRST][0-9]{2}[A-Z][0-9]{3}[A-Z]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PartitaIVA">
+		<xs:annotation>
+			<xs:documentation>Partita IVA</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{11}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Label">
+		<xs:annotation>
+			<xs:documentation>Codice / etichetta parlante di un oggetto</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:normalizedString">
+			<xs:maxLength value="150"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Contatore">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ItemType">
+		<xs:annotation>
+			<xs:documentation>Tipo di un "item" contenuto nel SIP</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="UA">
+				<xs:annotation>
+					<xs:documentation>Unità di aggregazione</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SD">
+				<xs:annotation>
+					<xs:documentation>Scheda documento</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UC">
+				<xs:annotation>
+					<xs:documentation>Unità di conservazione</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SIPItemOper">
+		<xs:annotation>
+			<xs:documentation>Tipo di operazione da effettuare su un unità di descrizione o documento digitale presente nel SIP</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="I">
+				<xs:annotation>
+					<xs:documentation>Invio in conservazione di unità di descrizione o documento digitale non inviato in precedenza</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="U">
+				<xs:annotation>
+					<xs:documentation>Aggiornamento di dati e/o file di un'unità di descrizione o documento digitale (per questo con possibilità di "versionamento") già inviato in conservazione</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="D">
+				<xs:annotation>
+					<xs:documentation>Eliminazione di un'unità di descrizione o singolo documento digitale già inviato in conservazione</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RelVsSD">
+		<xs:annotation>
+			<xs:documentation>Indica che cosa un documento digitale rappresenta rispetto alla scheda documento cui appartiene: il documento principale (ed eventualmente unico), un allegato, la Segnatura.xml della e-mail interoperabile con cui è stato acquisito, l'email con cui è stato acquisito o inviato ai destinatari, una ricevuta PEC di avvenuta consegna ad un destinatario ecc</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="P">
+				<xs:annotation>
+					<xs:documentation>Documento principale o unico descritto dalla scheda documento (per scheda documento ce ne può essere solo 1)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ALL">
+				<xs:annotation>
+					<xs:documentation>Allegato</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="EML">
+				<xs:annotation>
+					<xs:documentation>E-mail con cui il/i documenti descritti dalla scheda documento sono stato acquisiti o inviati</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RIC_PEC">
+				<xs:annotation>
+					<xs:documentation>E-mail di ricevuta PEC relativa alla e-mail PEC con cui il/i documenti della scheda sono stati inviati ad uno o più destinatari</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SPI">
+				<xs:annotation>
+					<xs:documentation>Segnatura.xml di una e-mail di Protocollo Interoperabile</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NroAllegato">
+		<xs:annotation>
+			<xs:documentation>N.ro di allegato che un documento rappresenta in una scheda documento</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:positiveInteger"/>
+	</xs:simpleType>
+	<xs:simpleType name="CodiceEsitoElabSIP">
+		<xs:annotation>
+			<xs:documentation>Codice dell'esito dell'elaborazione di un SIP</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OK">
+				<xs:annotation>
+					<xs:documentation>Accettato senza errori nè avvertimenti sugli item presenti nel SIP</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="KO">
+				<xs:annotation>
+					<xs:documentation>Rifiutato perchè non conforme alle regole stabilite (SIP non formato correttamente, SIPManifest non conforme al tracciato ecc)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ERR">
+				<xs:annotation>
+					<xs:documentation>Accettato ma ci sono errori su alcuni o tutti gli item presenti nel SIP</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WARN">
+				<xs:annotation>
+					<xs:documentation>Accettato ma ci sono avvertimenti (e nessun errore) su alcuni o tutti gli item presenti nel SIP</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodiceEsitoElabItemDoc">
+		<xs:annotation>
+			<xs:documentation>Codice dell'esito dell'elaborazione di un item o documento del SIP</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OK">
+				<xs:annotation>
+					<xs:documentation>Elaborato senza errori nè avvertimenti</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="KO">
+				<xs:annotation>
+					<xs:documentation>Non accettabile perchè riscontrati errori</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WARN">
+				<xs:annotation>
+					<xs:documentation>Elaborato con avvertimenti (e nessun errore)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ProvId">
+		<xs:annotation>
+			<xs:documentation>Identificativo assegnato al SIP o a un suo contenuto dal sistema che invia in conservazione il SIP</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="150"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContestoErrore">
+		<xs:annotation>
+			<xs:documentation>Stringa che esplicita il contesto in cui si è verificato un errore</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="150"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodiceErrore">
+		<xs:annotation>
+			<xs:documentation>Codice identificativo di un errore</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="30"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HashFunc">
+		<xs:annotation>
+			<xs:documentation>Funzione di calcolo del hash -i.e. impronta - di un file</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SHA-1"/>
+			<xs:enumeration value="SHA-256"/>
+			<xs:enumeration value="RIPEMD-160"/>
+			<xs:enumeration value="MD5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DigestEncoding">
+		<xs:annotation>
+			<xs:documentation>Indica l'encoding con cui è calcolato il digest di un file</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="base64"/>
+			<xs:enumeration value="hex"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Path">
+		<xs:annotation>
+			<xs:documentation>Percorso relativo a cui reperire un file del SIP (è il percorso e nome del file all'interno del file archivio che costituisce il SIP)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI"/>
+	</xs:simpleType>
+	<xs:annotation>
+		<xs:documentation xml:lang="it">Definizione dei tipi complessi</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="MessaggioErrore">
+		<xs:annotation>
+			<xs:documentation>Messaggio di errore o avvertimento</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="lang"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ErroreWarning">
+		<xs:annotation>
+			<xs:documentation>Riferimenti di un errore o warning</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Messaggio" type="SIPResult:MessaggioErrore">
+				<xs:annotation>
+					<xs:documentation>Descrive l'errore/avvertimento </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="Contesto" type="SIPResult:ContestoErrore">
+			<xs:annotation>
+				<xs:documentation>Contesto in cui si è verificato l'errore/avvertimento</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Codice" type="SIPResult:CodiceErrore">
+			<xs:annotation>
+				<xs:documentation>Codice identificativo dell'errore/avvertimento</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Description">
+		<xs:annotation>
+			<xs:documentation>Descrizione di un oggetto</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="lang"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ShortDescription">
+		<xs:annotation>
+			<xs:documentation>Descrizione breve di un oggetto</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="Description"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LongDescription">
+		<xs:annotation>
+			<xs:documentation>Descrizione estesa di un oggetto</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:restriction base="Description"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="Hash">
+		<xs:annotation>
+			<xs:documentation>Impronta di un file: valore e funzione con cui è stato calcolato il valore</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="encoding" type="DigestEncoding" use="required"/>
+				<xs:attribute name="func" type="HashFunc" use="required">
+					<xs:annotation>
+						<xs:documentation>Funzione con cui è stato calcolato l'hash</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="File">
+		<xs:annotation>
+			<xs:documentation>Percorso e impronta di un file che fa parte del SIP</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Path" type="Path">
+				<xs:annotation>
+					<xs:documentation>Percorso relativo e nome del file all'interno dello zip che costituisce il SIP</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Hash">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="Hash"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProduttoreSIP">
+		<xs:annotation>
+			<xs:documentation>Indica chi è il produttore - come persona giuridica - della documentazione contenuta nel SIP</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Tipo" type="FormaGiuridica" default="altro">
+				<xs:annotation>
+					<xs:documentation>Indica se il produttore è un'Ente pubblico, una sua AOO registrata all'Indice PA o un'altro tipo di soggetto giuridico</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Intestazione" type="Nome">
+				<xs:annotation>
+					<xs:documentation>Intestazione "formale" con cui il produttore è noto</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CodFiscale" type="CodiceFiscale" minOccurs="0"/>
+			<xs:element name="PartitaIVA" type="PartitaIVA" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="CodiceAmministrazione" type="CodiceAmministrazione">
+			<xs:annotation>
+				<xs:documentation>Codice Amministrazione registrato all'Indice PA se il produttore è un Ente pubblico registrato all'IPA</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="CodiceAOO" type="CodiceAOO">
+			<xs:annotation>
+				<xs:documentation>Codice AOO registrato all'Indice PA se il produttore è un'Area Organizzativa Omognea di un Ente pubblico</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Applicazione">
+		<xs:annotation>
+			<xs:documentation>Applicazione/sistema che versa documentazione o dati o che in qualche modo interagisce con il sistema di conservazione</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="Descrizione" type="Description" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="nome" type="Nome" use="required">
+			<xs:annotation>
+				<xs:documentation>Nome con cui l'applicazione / sistema è noto</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="ver" type="xs:NMTOKEN">
+			<xs:annotation>
+				<xs:documentation>Versione dell'applicazione / sistema</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="InfoRiepilogoXTipoItem">
+		<xs:annotation>
+			<xs:documentation>Contiene i contatori relativi agli item di un dato tipo - UA, SD o UC - presenti nel SIP: n.ro totale, n.ro accettati senza e con avvertimenti, n.ro rifiutati</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="NroTotale" type="SIPResult:Contatore">
+				<xs:annotation>
+					<xs:documentation>N.ro totale di item di un dato tipo che sono stati trovati nel SIP e quindi verificati dal sistema di conservazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NroAccettati">
+				<xs:annotation>
+					<xs:documentation>N.ro totale di item di un dato tipo che sono stati trovati nel SIP e accettati dal sistema di conservazione</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="NroSenzaAvvertimenti" type="SIPResult:Contatore"/>
+						<xs:element name="NroConAvvertimenti" type="SIPResult:Contatore"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="NroRifiutati" type="SIPResult:Contatore">
+				<xs:annotation>
+					<xs:documentation>N.ro totale di item di un dato tipo che sono stati trovati nel SIP e NON sono stati accettati dal sistema di conservazione a causa degli errori riscontrati sui loro dati e/o componenti digitali</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Item">
+		<xs:annotation>
+			<xs:documentation>Contiene esito e dettagli dell'elaborazione di un item del SIP</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Esito">
+				<xs:annotation>
+					<xs:documentation>Indica l'esito dell'elaborazione dell'item, in particolare se è stato accettato o meno dal sistema di conservazione</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Errore" type="SIPResult:ErroreWarning" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Errore a seguito del quale l'item non è stato accettato dal sistema di conservazione</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Warning" type="SIPResult:ErroreWarning" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Avvertimento riscontrato nell'elaborazione dell'item (che non ne preclude l'accettazione)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="Codice" type="SIPResult:CodiceEsitoElabItemDoc" use="required">
+						<xs:annotation>
+							<xs:documentation>Codice che indica se l'item è stato accettato o rifiutato, e nel caso sia stato accettato, se presenti o meno avvertimenti</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Doc" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Ogni tag contiene estremi ed esito della verifica di un singolo documento presente nell'item (se item di tipo Scheda Documento)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Esito">
+							<xs:annotation>
+								<xs:documentation>Indica l'esito dell'elaborazione del documento</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Errore" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Errore rilevato sul documento (a seguito del quale l'item non è stato accettato dal sistema di conservazione)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:complexContent>
+												<xs:extension base="SIPResult:ErroreWarning">
+													<xs:sequence minOccurs="0">
+														<xs:element name="SuFile" type="SIPResult:File" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>Percorso e impronta del file su cui è stato riscontrato l'errore (potrebbe essere anche un file correlato e non quello con il contenuto informativo originale)</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+													</xs:sequence>
+												</xs:extension>
+											</xs:complexContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Warning" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Avvertimento riscontrato nell'elaborazione del documento (che non preclude l'accettazione della Scheda Documento di appartenenza)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:complexContent>
+												<xs:extension base="SIPResult:ErroreWarning">
+													<xs:sequence minOccurs="0">
+														<xs:element name="SuFile" type="SIPResult:File" minOccurs="0">
+															<xs:annotation>
+																<xs:documentation>Percorso e impronta del file su cui è stato riscontrato l'avvertimento</xs:documentation>
+															</xs:annotation>
+														</xs:element>
+													</xs:sequence>
+												</xs:extension>
+											</xs:complexContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="Codice" type="SIPResult:CodiceEsitoElabItemDoc" use="required">
+									<xs:annotation>
+										<xs:documentation>Codice che indica se la verifica del documento ha rilevato o meno errori (che implicano la NON accettazione dell'item nel sistema di conservazione) o avvertimenti (che NON precludono l'accettazione dell'item nel sistema di conservazione)</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="RelVsSD" type="RelVsSD" use="required">
+						<xs:annotation>
+							<xs:documentation>Indica che cosa il documento rappresenta rispetto alla scheda documento cui appartiene: il documento principale (ed eventualmente unico), un allegato, la Segnatura.xml della e-mail interoperabile con cui è stato acquisito ecc.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="Id" type="ProvId" use="required">
+						<xs:annotation>
+							<xs:documentation>Identificativo univoco assegnato al documento dal sistema producer che ha inviato il SIP </xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="Op" type="SIPItemOper" use="required">
+						<xs:annotation>
+							<xs:documentation>Indica l'operazione  sul documento: aggiunta, aggiornamento / versionamento, eliminazione</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="NroAllegato" type="NroAllegato">
+						<xs:annotation>
+							<xs:documentation>Indica il n.ro di allegato che il documento rappresenta nella scheda documento (valori da 1 in su), così come indicato nel SIPManifest</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="RegId" type="SIPResult:UUID">
+						<xs:annotation>
+							<xs:documentation>Identificativo univoco con cui il documento è stato registrato nel sistema di conservazione. E' presente solo se il documento è stato accettato in conservazione (nel SIP corrente o in SIP precedenti attraverso cui è stato già inviato al sistema di conservazione)</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="Id" type="ProvId" use="required">
+			<xs:annotation>
+				<xs:documentation>Identificativo con cui chi ha versato in conservazione ha identificato l'item nel SIPManifest</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="type" type="SIPResult:ItemType" use="required">
+			<xs:annotation>
+				<xs:documentation>Indica il tipo di item: unità di aggregazione (UA), scheda documento (SD), unità di conservazione (UC)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Op" type="SIPResult:SIPItemOper" use="required">
+			<xs:annotation>
+				<xs:documentation>Operazione richiesta sull'item nel SIPManifest </xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="RegId" type="SIPResult:UUID">
+			<xs:annotation>
+				<xs:documentation>Identificativo univoco con cui l'item è stato registrato nel sistema di conservazione. E' presente solo se l'item è stato accettato in conservazione (nel SIP corrente o in SIP precedenti attraverso cui è stato già inviato al sistema di conservazione)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation xml:lang="it">Definizione del root element</xs:documentation>
+	</xs:annotation>
+	<xs:element name="SIPResult">
+		<xs:annotation>
+			<xs:documentation>Root element del risultato dell'elaborazione di un SIP</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RifSIP">
+					<xs:annotation>
+						<xs:documentation>Elementi di identificazione e provenienza del SIP cui è relativo l'esito </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Produttore" type="ProduttoreSIP">
+								<xs:annotation>
+									<xs:documentation>Soggetto che ha prodotto o che ha ereditato la custodia della documentazione inviata in conservazione nel SIP</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="CreatoDaApplicazione" type="Applicazione">
+								<xs:annotation>
+									<xs:documentation>Applicazione o sistema che ha inviato in conservazione il SIP</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="TsGenerazione" type="TimeRef">
+								<xs:annotation>
+									<xs:documentation>Data e ora in cui il SIP è stato predisposto</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="TsVersamento" type="SIPResult:TimeRef">
+								<xs:annotation>
+									<xs:documentation>Data e ora di invio del SIP al sistema di conservazione</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Label" type="Label">
+								<xs:annotation>
+									<xs:documentation>Etichetta (codice parlante) attraverso cui il produttore identifica il SIP</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Descrizione" type="ShortDescription" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Descrizione del contenuto del SIP (così come indicata nel SIPManifest)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="Id" type="SIPResult:ProvId" use="required">
+							<xs:annotation>
+								<xs:documentation>Identificativo univoco assegnato al SIP dal sistema producer che lo ha inviato</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="RegId" type="SIPResult:UUID" use="required">
+							<xs:annotation>
+								<xs:documentation>Identificativo univoco assegnato al SIP dal sistema di conservazione</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ElaborazioneSIP">
+					<xs:annotation>
+						<xs:documentation>Dati di sintesi e di dettaglio relativi all'elaborazione del SIP da parte del sistema di conservazione</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="TsInizio" type="TimeRef">
+								<xs:annotation>
+									<xs:documentation>Data e ora di inizio elaborazione del SIP da parte del sistema di conservazione</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="TsFine" type="TimeRef">
+								<xs:annotation>
+									<xs:documentation>Data e ora di fine elaborazione del SIP da parte del sistema di conservazione</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Esito">
+								<xs:annotation>
+									<xs:documentation>Indica l'esito complessivo dell'elaborazione del SIP, in particolare se è stato rifiutato per intero o preso in carico e nel secondo caso se senza errori/avvertimenti o meno. Da notare che gli item in errore NON sono accettati in conservazione, quelli con avvertimenti sì</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Descrizione" type="SIPResult:LongDescription">
+											<xs:annotation>
+												<xs:documentation>Esito complessivo dell'elaborazione del SIP</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="Errore" type="SIPResult:ErroreWarning" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Indica l'errore a seguito del quale il SIP è stato rifiutato senza neppure processare gli item in esso descritti. Presente solo se il Codice dell'Esito è pari a KO</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="Codice" type="SIPResult:CodiceEsitoElabSIP" use="required">
+										<xs:annotation>
+											<xs:documentation>Codice che indica se il SIP è stato accettato o rifiutato, e nel caso sia stato accettato se presenti errori o avvertimenti sui suoi item (dove gli errori comportano il rifiuto dell'item in conservazione, gli avvertimenti no)</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="InfoRiepilogo" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Informazioni di riepilogo sugli item elaborati. Il tag è presente solo se l'esito ha Codice diverso da KO</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RiepilogoUA" type="SIPResult:InfoRiepilogoXTipoItem">
+											<xs:annotation>
+												<xs:documentation>Contatori relativi alle Unità di Aggregazione descritte nel SIP</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="RepilogoSD" type="SIPResult:InfoRiepilogoXTipoItem">
+											<xs:annotation>
+												<xs:documentation>Contatori relativi alle Schede Documento descritte nel SIP</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ReipilogoUC" type="SIPResult:InfoRiepilogoXTipoItem">
+											<xs:annotation>
+												<xs:documentation>Contatori relativi alle Unità di Conservazione descritte nel SIP</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="InfoDettaglio" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Informazioni di dettaglio sull'elaborazione di ciascun item presente nel SIP. Il tag è presente solo se l'esito ha Codice diverso da KO</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Item" type="SIPResult:Item" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>Contiene esito e risultati dell'elaborazione di uno specifico item presente nel SIP</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute ref="SIPResult:SIPResulturl" use="required"/>
+			<xs:attribute ref="SIPResult:SIPResultver" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

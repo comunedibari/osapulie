@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by massimiliano (EMBRACE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sinergis.it/xsd/toponomastica" targetNamespace="http://www.sinergis.it/xsd/toponomastica" elementFormDefault="unqualified">
+	<xs:include schemaLocation="common.xsd" />
+	<xs:element name="TP03_RicercaCivico_response" substitutionGroup="data_outputAbstract" type="RicercaCivicoResponseType" nillable="false"/>
+	<xs:element name="TP03_RicercaCivico_request" substitutionGroup="service_paramsAbstract" type="RicercaCivicoRequestType" nillable="false" />
+	<xs:complexType name="RicercaCivicoResponseType">
+		<xs:complexContent>
+			<xs:extension base="data_outputAbstractType">
+				<xs:choice>
+					<xs:element ref="indirizzo" />
+					<xs:element ref="elenco_indirizzi" />
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RicercaCivicoRequestType">
+		<xs:complexContent>
+			<xs:extension base="service_paramsAbstractType">
+				<xs:sequence>
+					<xs:element ref="indirizzo_ricercato" />
+					<xs:element ref="max_rows_ret" minOccurs="0" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

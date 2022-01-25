@@ -1,0 +1,32 @@
+Changes in Release 1.2.2
+=============================================
+[SDSJ-112] Use ESAPI for URLs now that OpenSAML supports it.
+
+Changes in Release 1.2.1
+=============================================
+[SDSJ-109] Remove extra escaping in the JSP.  rely entirely on ESAPI (and java.net.URLEncoder.encode where it won't work)
+[SDSJ-108] Inversion of a parameter by overkeen refactorization
+
+Changes in Release 1.2
+=============================================
+[SDSJ-107] Update dependencies
+[SDSJ-106] Metadata provision to the DS. Preventative maintenance and feature enchancement
+[SDSJ-105] wayf.jsp fails to properly escape mdui:DisplayName, causing javascript error and Suggest.js to fail to work
+[SDSJ-103] decoding of returnX query string parameter
+[SDSJ-102] Do not show non usable IdPs when in WAYF mode
+[SDSJ-101] CDS should (possibly configurably) initialize the context (and metadata load) when the CDS starts
+
+Changes in Release 1.1.3
+=============================================
+[SDSJ-99] Strip out "javascript" jsp
+[SDSJ-97] Police for duplicated metadata group names.
+[SDSJ-96] Factor MDUI parsing code out from the DS codebase.
+[SDSJ-93] Better error logging for bad selections.
+[SDSJ-91] Logging "likely to fail" DS selections due to metadata gaps.
+[SDSJ-90] Hardening the '_saml_idp' cookie in the centralized DS.
+[SDSJ-89] By default always show some possible results.
+[SDSJ-88] The IdP has to be encoded before it goes over the wire.
+[SDSJ-82] Make <Mdui> extensions available to the JSP.
+[SDSJ-61] DS looses last known good data if it is presented with bad metadata
+
+And updated to OpenSAML 2.5.1

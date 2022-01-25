@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rimborsoOsapTosap" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="subreportParameter" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreportParameter1" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreportParameter2" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreportParameter3" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreportParameters" class="java.util.List"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Gianluca\\Eclipse - Workspace\\osapulie-tributi-portlet\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subreportParameters1" class="java.util.List"/>
+	<parameter name="subreportParameters2" class="java.util.List"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<field name="cognome" class="java.lang.String">
+		<fieldDescription><![CDATA[cognome]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="comuneNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneNascita]]></fieldDescription>
+	</field>
+	<field name="dataNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[dataNascita]]></fieldDescription>
+	</field>
+	<field name="provinciaNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[provinciaNascita]]></fieldDescription>
+	</field>
+	<field name="indirizzoResidenza" class="java.lang.String"/>
+	<field name="codiceFiscale" class="java.lang.String"/>
+	<field name="comuneResidenza" class="java.lang.String"/>
+	<field name="provResidenza" class="java.lang.String"/>
+	<field name="sesso" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="capResidenza" class="java.lang.String"/>
+	<field name="cognomeRapp" class="java.lang.String">
+		<fieldDescription><![CDATA[cognomeRapp]]></fieldDescription>
+	</field>
+	<field name="nomeRapp" class="java.lang.String">
+		<fieldDescription><![CDATA[nomeRapp]]></fieldDescription>
+	</field>
+	<field name="comuneNascitaRapp" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneNascitaRapp]]></fieldDescription>
+	</field>
+	<field name="dataNascitaRapp" class="java.lang.String">
+		<fieldDescription><![CDATA[dataNascitaRapp]]></fieldDescription>
+	</field>
+	<field name="provinciaNascitaRapp" class="java.lang.String">
+		<fieldDescription><![CDATA[provinciaNascitaRapp]]></fieldDescription>
+	</field>
+	<field name="indirizzoResidenzaRapp" class="java.lang.String"/>
+	<field name="codiceFiscaleRapp" class="java.lang.String"/>
+	<field name="comuneResidenzaRapp" class="java.lang.String"/>
+	<field name="provResidenzaRapp" class="java.lang.String"/>
+	<field name="sessoRapp" class="java.lang.String"/>
+	<field name="telefonoRapp" class="java.lang.String"/>
+	<field name="capResidenzaRapp" class="java.lang.String"/>
+	<field name="naturaCarica" class="java.lang.String"/>
+	<field name="ragSociale" class="java.lang.String">
+		<fieldDescription><![CDATA[ragSociale]]></fieldDescription>
+	</field>
+	<field name="naturaGiuridica" class="java.lang.String">
+		<fieldDescription><![CDATA[naturaGiuridica]]></fieldDescription>
+	</field>
+	<field name="sedeLegale" class="java.lang.String"/>
+	<field name="comune" class="java.lang.String"/>
+	<field name="provincia" class="java.lang.String"/>
+	<field name="cap" class="java.lang.String"/>
+	<field name="telefonoGiu" class="java.lang.String"/>
+	<field name="codiceFiscaleGiu" class="java.lang.String"/>
+	<field name="pIva" class="java.lang.String"/>
+	<field name="anno" class="java.lang.String"/>
+	<field name="data" class="java.lang.String"/>
+	<field name="motivo" class="java.lang.String"/>
+	<field name="rimborso" class="java.lang.Double"/>
+	<field name="mandato" class="java.lang.Boolean"/>
+	<field name="accredito" class="java.lang.Boolean"/>
+	<field name="assegno" class="java.lang.Boolean"/>
+	<field name="banca" class="java.lang.String"/>
+	<field name="filiale" class="java.lang.String"/>
+	<field name="iban" class="java.lang.String"/>
+	<field name="intestatario" class="java.lang.String"/>
+	<field name="importoDovuto" class="java.lang.Double"/>
+	<field name="tipoOsap" class="java.lang.String"/>
+	<field name="tipoOsapString" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="131" splitType="Stretch">
+			<staticText>
+				<reportElement x="346" y="0" width="209" height="28"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[UFFICIO TRIBUTI - SERVIZI COSAP/TOSAP
+DEL COMUNE DI]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="119" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement x="437" y="47" width="115" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="440" y="27" width="115" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$P{comune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="97" width="249" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RICHIESTA RIMBORSO COSAP/TOSAP]]></text>
+			</staticText>
+			<textField isBlankWhenNull="false">
+				<reportElement x="455" y="97" width="100" height="23"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="370" y="97" width="85" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ PER L'ANNO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="249" y="97" width="121" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoOsapString}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="69" width="148" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Comune di "+$P{comune}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement key="Logo" x="234" y="0" width="86" height="69" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="127">
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="3" width="556" height="111"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subreportParameters})]]></dataSourceExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreportParameter}]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="118" width="100" height="1"/>
+			</break>
+		</band>
+		<band height="75" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="34"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PREMESSO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="33" width="555" height="29"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[che ha versato l'Imposta COSAP/TOSAP come di seguito specificato: ]]></text>
+			</staticText>
+		</band>
+		<band height="51">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="6" width="555" height="41" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true">
+					<printWhenExpression><![CDATA[$P{subreportParameters1} != null]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subreportParameters1})]]></dataSourceExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreportParameter1}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="47">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="0" width="556" height="43" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true">
+					<printWhenExpression><![CDATA[$P{subreportParameters2} != null]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subreportParameters2})]]></dataSourceExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreportParameter2}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="111">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="4" width="555" height="100" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subreportParameters})]]></dataSourceExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subreportParameter3}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

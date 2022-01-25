@@ -1,0 +1,14 @@
+<div>
+    <p>Gentile ${delegato},</br>	
+    &egrave; stato delegato da <b>${delegante}</b> per i seguenti servizi:
+    </p>
+    
+	<ul>
+		${servizi}
+	</ul>
+    </p>
+    
+    <p>Cordiali saluti.</br>	
+    ${firmaComune}
+    </p>
+</div>	

@@ -1,0 +1,3245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SUE-PdC" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.210000000000027"/>
+	<property name="ireport.x" value="16"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table" fill="Solid">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<subDataset name="Table Dataset 1"/>
+	<subDataset name="dataset1"/>
+	<subDataset name="Table Dataset 2"/>
+	<subDataset name="dataset2"/>
+	<field name="richNominativo" class="java.lang.String"/>
+	<field name="richComuneNascita.denominazione" class="java.lang.String"/>
+	<field name="richDataNascita" class="java.util.GregorianCalendar"/>
+	<field name="richComune.denominazione" class="java.lang.String"/>
+	<field name="richIndirizzo" class="java.lang.String"/>
+	<field name="richCf" class="java.lang.String"/>
+	<field name="richCell" class="java.lang.String"/>
+	<field name="richFax" class="java.lang.String"/>
+	<field name="richEmail" class="java.lang.String"/>
+	<field name="richPiva" class="java.lang.String"/>
+	<field name="titolare" class="java.lang.String">
+		<fieldDescription><![CDATA[titolare]]></fieldDescription>
+	</field>
+	<field name="tecnico" class="java.lang.String">
+		<fieldDescription><![CDATA[tecnico]]></fieldDescription>
+	</field>
+	<field name="impresa" class="java.lang.String">
+		<fieldDescription><![CDATA[impresa]]></fieldDescription>
+	</field>
+	<field name="campiaggiuntivi[0].valore" class="java.lang.Object">
+		<fieldDescription><![CDATA[campiaggiuntivi[0].valore]]></fieldDescription>
+	</field>
+	<field name="campiaggiuntivi[1].valore" class="java.lang.Object">
+		<fieldDescription><![CDATA[campiaggiuntivi[1].valore]]></fieldDescription>
+	</field>
+	<field name="campiaggiuntivi[2].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[3].valore" class="java.lang.String"/>
+	<field name="campiaggiuntivi[4].valore" class="java.lang.String"/>
+	<field name="campiaggiuntivi[5].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[6].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[7].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[8].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[9].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[10].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[11].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[12].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[13].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[14].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[15].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[16].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[17].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[18].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[19].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[20].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[21].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[22].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[23].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[24].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[25].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[26].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[27].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[28].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[29].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[30].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[31].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[32].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[33].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[34].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[35].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[36].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[37].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[38].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[39].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[40].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[41].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[42].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[43].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[44].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[45].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[46].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[47].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[48].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[49].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[50].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[51].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[52].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[53].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[54].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[55].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[56].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[57].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[58].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[59].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[60].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[61].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[62].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[63].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[64].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[65].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi[66].valore" class="java.lang.Object"/>
+	<field name="campiaggiuntivi" class="java.util.List"/>
+	<field name="immobile_ind" class="java.lang.String"/>
+	<field name="immobile_piano" class="java.lang.String"/>
+	<field name="immobile_interno" class="java.lang.String"/>
+	<field name="datiCatastali[0].num" class="java.lang.String"/>
+	<field name="datiCatastali[0].immobile_foglioNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[0].immobile_partNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[0].immobile_subNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[0].immobile_catNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[0].immobile_foglioNCT" class="java.lang.String"/>
+	<field name="datiCatastali[0].immobile_partNCT" class="java.lang.String"/>
+	<field name="datiCatastali[0].immobile_subNCT" class="java.lang.String"/>
+	<field name="datiCatastali[1].num" class="java.lang.String"/>
+	<field name="datiCatastali[1].immobile_foglioNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[1].immobile_partNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[1].immobile_subNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[1].immobile_catNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[1].immobile_foglioNCT" class="java.lang.String"/>
+	<field name="datiCatastali[1].immobile_partNCT" class="java.lang.String"/>
+	<field name="datiCatastali[1].immobile_subNCT" class="java.lang.String"/>
+	<field name="datiCatastali[2].num" class="java.lang.String"/>
+	<field name="datiCatastali[2].immobile_foglioNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[2].immobile_partNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[2].immobile_subNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[2].immobile_catNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[2].immobile_foglioNCT" class="java.lang.String"/>
+	<field name="datiCatastali[2].immobile_partNCT" class="java.lang.String"/>
+	<field name="datiCatastali[2].immobile_subNCT" class="java.lang.String"/>
+	<field name="datiCatastali[3].num" class="java.lang.String"/>
+	<field name="datiCatastali[3].immobile_foglioNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[3].immobile_partNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[3].immobile_subNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[3].immobile_catNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[3].immobile_foglioNCT" class="java.lang.String"/>
+	<field name="datiCatastali[3].immobile_partNCT" class="java.lang.String"/>
+	<field name="datiCatastali[3].immobile_subNCT" class="java.lang.String"/>
+	<field name="datiCatastali[4].num" class="java.lang.String"/>
+	<field name="datiCatastali[4].immobile_foglioNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[4].immobile_partNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[4].immobile_subNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[4].immobile_catNCEU" class="java.lang.String"/>
+	<field name="datiCatastali[4].immobile_foglioNCT" class="java.lang.String"/>
+	<field name="datiCatastali[4].immobile_partNCT" class="java.lang.String"/>
+	<field name="datiCatastali[4].immobile_subNCT" class="java.lang.String"/>
+	<field name="superfici[0].coperta" class="java.lang.String"/>
+	<field name="superfici[0].scoperta" class="java.lang.String"/>
+	<field name="superfici[0].altezza" class="java.lang.String"/>
+	<field name="superfici[0].sup_lorda" class="java.lang.String"/>
+	<field name="superfici[0].sup_utile" class="java.lang.String"/>
+	<field name="superfici[0].volume" class="java.lang.String"/>
+	<field name="superfici[1].coperta" class="java.lang.String"/>
+	<field name="superfici[1].scoperta" class="java.lang.String"/>
+	<field name="superfici[1].altezza" class="java.lang.String"/>
+	<field name="superfici[1].sup_lorda" class="java.lang.String"/>
+	<field name="superfici[1].sup_utile" class="java.lang.String"/>
+	<field name="superfici[1].volume" class="java.lang.String"/>
+	<field name="superfici[2].coperta" class="java.lang.String"/>
+	<field name="superfici[2].scoperta" class="java.lang.String"/>
+	<field name="superfici[2].altezza" class="java.lang.String"/>
+	<field name="superfici[2].sup_lorda" class="java.lang.String"/>
+	<field name="superfici[2].sup_utile" class="java.lang.String"/>
+	<field name="superfici[2].volume" class="java.lang.String"/>
+	<field name="superfici[3].coperta" class="java.lang.String"/>
+	<field name="superfici[3].scoperta" class="java.lang.String"/>
+	<field name="superfici[3].altezza" class="java.lang.String"/>
+	<field name="superfici[3].sup_lorda" class="java.lang.String"/>
+	<field name="superfici[3].sup_utile" class="java.lang.String"/>
+	<field name="superfici[3].volume" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="108" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="1" width="137" height="97"/>
+			</rectangle>
+			<image>
+				<reportElement x="41" y="2" width="51" height="95"/>
+				<imageExpression><![CDATA["/opt/liferay-portal-6.1.0-ce-ga1/tomcat-7.0.23/webapps/osapulie-consultazionepraticheweb-portlet/WEB-INF/classes/reports/stemma.jpg"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="138" y="1" width="280" height="97"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="418" y="1" width="137" height="97"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="138" y="2" width="280" height="33"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="22"/>
+				</textElement>
+				<text><![CDATA[Al Comune di]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="2" width="136" height="33"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<text><![CDATA[P.d.C. N°_______]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="65" width="136" height="32"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<text><![CDATA[Del ___________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="34" width="280" height="31"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="22" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TARANTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="66" width="280" height="31"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<text><![CDATA[Sportello Unico per l’Edilizia – SUE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="34" width="136" height="32"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<text><![CDATA[Prot. N °________]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="690" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="24" width="552" height="22"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Art.10 e seguenti del d.P.R. 6 giugno 2001 n. 380]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="553" height="24"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOMANDA DI PERMESSO DI COSTRUIRE]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="101" y="51" width="452" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titolare}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="51" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TITOLARE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="75" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TECNICO]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="101" y="75" width="452" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tecnico}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="99" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPRESA]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="101" y="99" width="452" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{impresa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="123" width="182" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Destinazione d'uso: esistente]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="184" y="123" width="370" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campiaggiuntivi[0].valore}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="10" y="171" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="31" y="168" width="522" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Ai sensi dell’art.10 e dell’art.22, comma 3 e 7, del d.P.R. 06.06.2001 n.380]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="10" y="192" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="31" y="189" width="522" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[In sanatoria ex art.36 (accertamento di conformità) del d.P.R. 06.06.2001 n.380.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="10" y="212" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="31" y="209" width="522" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[In deroga agli strumenti urbanistici ai sensi dell’art.14 del d.P.R. 06.06.2001 n.380]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="213" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[2].valore}.toString().startsWith( "In deroga agli strumenti" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="10" y="234" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="236" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[2].valore}.toString().startsWith( "In variante" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="231" width="199" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[In variante a permesso di costruire n ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="252" width="522" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Ai sensi della Legge Regionale 26.11.2007 n.33 per il recupero abitativo di sottotetti ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="10" y="254" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="255" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[2].valore}.toString().contains( "Ai sensi della Legge Regionale 26.11.2007" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="10" y="275" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="31" y="273" width="522" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Ai sensi della Legge Regionale n.14/2009 (Piano casa)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="276" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[2].valore}.toString().startsWith( "Ai sensi della Legge Regionale n.14/2009" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="194" width="10" height="11">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[2].valore}.toString().startsWith( "In sanatoria ex art.36" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="173" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[2].valore}.toString().startsWith( "Ai sensi dell'art. 10" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="417" y="-4" width="17" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="184" y="143" width="370" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campiaggiuntivi[1].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="115" y="143" width="69" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[di progetto]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="229" y="231" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campiaggiuntivi[3].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="331" y="231" width="19" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="10" y="296" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="11" y="297" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[2].valore}.toString().startsWith( "Altro" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="294" width="105" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Altro (specificare) :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="137" y="294" width="417" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campiaggiuntivi[5].valore}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="670" width="290" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="13" y="675" width="522" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<text><![CDATA[Nel caso l’intervento riguardi le attività produttive, utilizzare l’apposito modello predisposto.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="670" width="10" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement x="355" y="231" width="196" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campiaggiuntivi[4].valore}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="802">
+			<rectangle>
+				<reportElement x="11" y="330" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="11" y="314" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="11" y="298" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="459" y="-50" width="94" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="367" y="-50" width="92" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="182" y="-50" width="93" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="91" y="-50" width="91" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="459" y="-70" width="94" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="367" y="-70" width="92" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="182" y="-70" width="93" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="91" y="-70" width="91" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="275" y="-90" width="92" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="-90" width="91" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="459" y="-110" width="94" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="367" y="-110" width="92" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="275" y="-110" width="92" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="182" y="-110" width="93" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="91" y="-110" width="91" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="303" y="-202" width="70" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="373" y="-202" width="110" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="183" y="-202" width="60" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="-202" width="53" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="373" y="-222" width="110" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="243" y="-222" width="60" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="53" y="-222" width="62" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="-222" width="53" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="483" y="-242" width="70" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="183" y="-242" width="60" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="-242" width="53" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="53" y="-262" width="62" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="483" y="-262" width="70" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="243" y="-262" width="60" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="373" y="-262" width="110" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="483" y="-302" width="70" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="373" y="-302" width="110" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="1" y="-366" width="552" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATI IDENTIFICATIVI DELL’IMMOBILE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="-347" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Sito in via/località]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="100" y="-347" width="260" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{immobile_ind}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="414" y="-347" width="42" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{immobile_piano}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="367" y="-347" width="47" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Piano]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="506" y="-347" width="47" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{immobile_interno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="459" y="-347" width="47" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Interno]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="53" y="-322" width="250" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="-302" width="53" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="303" y="-322" width="250" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="53" y="-302" width="62" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="115" y="-302" width="68" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="183" y="-302" width="60" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="243" y="-302" width="60" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="57" y="-322" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Censito al NCEU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="306" y="-322" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Censito in NCT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="-300" width="34" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[N.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="-300" width="34" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[foglio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="-300" width="49" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Particella]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="-300" width="34" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Sub]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="-300" width="34" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Cat.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="303" y="-302" width="70" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="404" y="-300" width="49" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Particella]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="-300" width="34" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[foglio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="501" y="-300" width="34" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Sub]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="243" y="-282" width="60" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="53" y="-282" width="62" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="373" y="-282" width="110" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="483" y="-282" width="70" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="115" y="-282" width="68" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="183" y="-282" width="60" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="-282" width="53" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="303" y="-282" width="70" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="7" y="-278" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[0].num}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="-278" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[0].immobile_foglioNCEU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="-278" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[0].immobile_partNCEU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="-278" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[0].immobile_subNCEU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="-278" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[0].immobile_catNCEU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="498" y="-278" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[0].immobile_subNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="-278" width="60" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[0].immobile_partNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="-278" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[0].immobile_foglioNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="498" y="-259" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[1].immobile_subNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="-259" width="60" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[1].immobile_partNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="-259" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[1].immobile_foglioNCEU}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="-262" width="53" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="115" y="-262" width="68" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="128" y="-259" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[1].immobile_partNCEU}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="183" y="-262" width="60" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="7" y="-259" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[1].num}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="-259" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[1].immobile_catNCEU}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="303" y="-262" width="70" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="315" y="-259" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[1].immobile_foglioNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="-259" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[1].immobile_subNCEU}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="53" y="-242" width="62" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="115" y="-242" width="68" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="65" y="-239" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[2].immobile_foglioNCEU}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="243" y="-242" width="60" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="7" y="-239" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[2].num}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="373" y="-242" width="110" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="195" y="-239" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[2].immobile_subNCEU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="-239" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[2].immobile_partNCEU}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="303" y="-242" width="70" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="498" y="-239" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[2].immobile_subNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="-239" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[2].immobile_catNCEU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="-239" width="60" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[2].immobile_partNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="-239" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[2].immobile_foglioNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="-219" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[3].immobile_catNCEU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="-219" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[3].num}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="-219" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[3].immobile_foglioNCEU}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="483" y="-222" width="70" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="303" y="-222" width="70" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="115" y="-222" width="68" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="398" y="-219" width="60" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[3].immobile_partNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="-219" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[3].immobile_foglioNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="-219" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[3].immobile_partNCEU}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="183" y="-222" width="60" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="195" y="-219" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[3].immobile_subNCEU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="498" y="-219" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[3].immobile_subNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="-199" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[4].num}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="-199" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[4].immobile_subNCEU}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="53" y="-202" width="62" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="115" y="-202" width="68" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="398" y="-199" width="60" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[4].immobile_partNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="-199" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[4].immobile_foglioNCEU}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="243" y="-202" width="60" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="315" y="-199" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[4].immobile_foglioNCT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="-199" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[4].immobile_partNCEU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="-199" width="36" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[4].immobile_catNCEU}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="483" y="-202" width="70" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="498" y="-199" width="40" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datiCatastali[4].immobile_subNCT}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="-173" width="553" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="6" y="-173" width="161" height="20"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Superfici (reali e non catastali)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="-153" width="91" height="43"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="91" y="-153" width="91" height="43"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="182" y="-153" width="93" height="43"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="275" y="-153" width="92" height="43"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="367" y="-153" width="92" height="43"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="459" y="-153" width="94" height="43"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="296" y="-153" width="49" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[S.L.S.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="-139" width="92" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Superficie lorda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="-125" width="92" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[di solaio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="388" y="-153" width="49" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[S.U.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="367" y="-139" width="92" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Superficie utile]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="-125" width="92" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[coperta mq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="92" y="-125" width="92" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[scoperta mq.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="-125" width="92" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[altezza m.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="459" y="-125" width="92" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[volume mc]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="-110" width="91" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="1" y="-106" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[0].coperta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="-106" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[0].scoperta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="182" y="-106" width="92" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[0].altezza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="-106" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[0].sup_lorda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="-105" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[0].sup_utile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="-106" width="93" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[0].volume}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="182" y="-90" width="93" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="367" y="-90" width="92" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="459" y="-90" width="94" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="91" y="-90" width="91" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="277" y="-86" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[1].sup_lorda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="-85" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[1].sup_utile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="182" y="-86" width="92" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[1].altezza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="-86" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[1].coperta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="-86" width="93" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[1].volume}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="-86" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[1].scoperta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="-66" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[2].scoperta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="-65" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[2].sup_utile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="-66" width="93" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[2].volume}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="-70" width="91" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="275" y="-70" width="92" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="182" y="-66" width="92" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[2].altezza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="-66" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[2].coperta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="-66" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[2].sup_lorda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="-46" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[3].scoperta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="-45" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[3].sup_utile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="-46" width="93" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[3].volume}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="-50" width="91" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="275" y="-50" width="92" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="182" y="-46" width="92" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[3].altezza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="-46" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[3].coperta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="-46" width="90" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{superfici[3].sup_lorda}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="12" width="333" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Zona omogenea secondo il vigente strumento urbanistico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="31" width="273" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Descrizione sommaria dell’intervento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="340" y="12" width="215" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[6].valore}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="1" y="50" width="554" height="41"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[7].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="97" width="181" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATI DEL DICHIARANTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TH" x="1" y="116" width="234" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Il sottoscritto (Cognome e Nome)]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="table_TH" x="235" y="116" width="319" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{richNominativo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="table_TH" x="1" y="136" width="234" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Luogo e data di nascita]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="table_TH" x="235" y="136" width="224" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{richComuneNascita.denominazione}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement style="table_TH" x="459" y="136" width="95" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{richDataNascita}.getTime()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_TH" x="235" y="156" width="319" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{richComune.denominazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="table_TH" x="1" y="156" width="234" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Residente a]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TH" x="1" y="176" width="234" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Via]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="table_TH" x="235" y="176" width="319" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{richIndirizzo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="table_TH" x="235" y="196" width="319" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[!$F{richCf}.equals( "" ) ? $F{richCf} : $F{richPiva}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="table_TH" x="1" y="196" width="234" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Codice Fiscale/Partita IVA]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="table_TH" x="235" y="216" width="319" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{richCell}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="table_TH" x="1" y="216" width="234" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Recapito telefonico]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="table_TH" x="235" y="236" width="319" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{richFax}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="table_TH" x="1" y="236" width="234" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Fax]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="table_TH" x="235" y="256" width="319" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{richEmail}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="table_TH" x="1" y="256" width="234" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[E_mail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="298" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[8].valore}.toString().startsWith( "proprio" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="295" width="522" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[proprio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="276" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[per conto:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="314" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[8].valore}.toString().startsWith( "del/i soggetto/i elencato/i" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="311" width="522" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[del/i soggetto/i elencato/i nell'allegata tabella A]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="330" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[8].valore}.toString().startsWith( "della Ditta/" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="327" width="135" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[della Ditta/Società/Impresa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="346" width="60" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[P.I./C.F.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="92" y="346" width="145" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[9].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="253" y="346" width="80" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[con sede in]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="332" y="346" width="222" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[10].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="32" y="366" width="60" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[via]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="92" y="366" width="288" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[11].valore}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="366" width="140" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[12].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="380" y="366" width="34" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[n. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="391" width="549" height="30"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[avente titolo, ai sensi dell'art. 11 del d.P.R. n. 380/01, alla presentazione della DOMANDA DI PERMESSO A COSTRUIRE in quanto:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="419" width="522" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[proprietario esclusivo]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="11" y="422" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="11" y="441" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="32" y="438" width="300" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[delegato in qualità di Rappresentante Legale dalla Ditta]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="332" y="438" width="222" height="16">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[13].valore}.toString().startsWith( "delegato dalla Ditta" )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[14].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="422" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[13].valore}.toString().startsWith( "proprietario" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="441" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[13].valore}.toString().startsWith( "delegato dalla Ditta" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="615" width="553" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[il rilascio del permesso di costruire per le seguenti tipologia di intervento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table 1" x="31" y="647" width="524" height="51"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Articolo 3 c.1 lett. e) del d.P.R. n. 380/2001 e successive modifiche ed integrazioni:
+"interventi di nuova costruzione", quelli di trasformazione edilizia e urbanistica del territorio non rientranti nelle categorie definite alle lettere a), b), c), d) delll’art. 3 c.1 del d.P.R. n.380/2001. Sono comunque da considerarsi tali:
+]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement style="table 1_TH" x="2" y="647" width="29" height="142"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="11" y="654" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="11" y="656" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[15].valore}.toString().startsWith( "Articolo 3 c.1" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table 1" x="75" y="698" width="480" height="42"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[e.1) la costruzione di manufatti edilizi fuori terra o interrati, ovvero l'ampliamento di quelli esistenti all'esterno della sagoma esistente, fermo restando, per gli interventi pertinenziali, quanto previsto alla lettera e.6);
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table 1" x="75" y="740" width="480" height="21"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[e.2) gli interventi di urbanizzazione primaria e secondaria realizzati da soggetti diversi dal Comune;
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table 1" mode="Transparent" x="75" y="761" width="480" height="28"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[e.3) la realizzazione di infrastrutture e di impianti, anche per pubblici servizi, che comporti la trasformazione in via permanente di suolo inedificato;
+]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement style="table 1" x="50" y="701" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="50" y="701" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[16].valore}.toString().startsWith( "e.1)" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="41" y="789" width="10" height="0">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[13].valore}.toString().startsWith( "locatario/comodatario a tale scopo" )]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="31" y="740" width="44" height="21"/>
+			</rectangle>
+			<rectangle>
+				<reportElement style="table 1" mode="Transparent" x="31" y="761" width="44" height="28" isPrintInFirstWholeBand="true"/>
+			</rectangle>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="50" y="744" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="50" y="744" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[16].valore}.toString().startsWith( "e.2)" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="177" y="327" width="378" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[94].valore}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="790">
+			<staticText>
+				<reportElement x="32" y="-343" width="522" height="48"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[delegato in qualità di Amministratore/delegato (allegare la delibera di assemblea condominiale nel quale viene rilasciato il nulla osta dei condomini sui lavori (solo per i lavori che interessano parti condominiali) dal Condominio ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="11" y="-339" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="11" y="-289" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="11" y="-289" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[13].valore}.toString().startsWith( "comproprietario con i/il soggetti/o" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="-292" width="522" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[comproprietario con i/il soggetti/o elencati/o nell'allegata tabella A]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="11" y="-270" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="11" y="-270" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[13].valore}.toString().startsWith( "locatario/comodatario a tale scopo" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="-273" width="522" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[locatario/comodatario a tale scopo autorizzato dal/dai proprietario/proprietari nell'allegata tabella A]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="187" y="-318" width="222" height="16">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[13].valore}.toString().startsWith( "delegato dal Condominio" )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[14].valore}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="-257" width="222" height="16">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[13].valore}.toString().startsWith( "locatario/comodatario a tale scopo" )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[14].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="-211" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHIEDE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="-339" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[13].valore}.toString().startsWith( "delegato dal Condominio" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="50" y="-34" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="50" y="-33" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[16].valore}.toString().startsWith( "e.3)" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table 1" x="75" y="19" width="480" height="52"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[e.5) l’installazione di manufatti leggeri, anche prefabbricati, e di strutture di qualsiasi genere, quali roulottes, campers, case mobili, imbarcazioni, che siano utilizzati come abitazioni, ambienti di lavoro, oppure come depositi, magazzini e simili, e che non siano diretti a soddisfare esigenze meramente temporanee;
+]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="31" y="19" width="44" height="52"/>
+			</rectangle>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="50" y="26" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="50" y="27" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[16].valore}.toString().startsWith( "e.5)" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table 1" x="75" y="71" width="481" height="52"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[e.6) gli interventi pertinenziali che le norme tecniche degli strumenti urbanistici, in relazione alla zonizzazione e al pregio ambientale e paesaggistico delle aree, qualifichino come interventi di nuova costruzione, ovvero che comportino la realizzazione di un volume superiore al 20% del volume dell’edificio principale;]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="31" y="71" width="44" height="52"/>
+			</rectangle>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="50" y="77" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="50" y="78" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[16].valore}.toString().startsWith( "e.6)" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement style="table 1" x="2" y="19" width="29" height="104"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="table 1" x="31" y="123" width="525" height="52"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Articolo 3.1 lett. f) del d.P.R. n. 380/2001 e successive modifiche ed integrazioni:
+"interventi di ristrutturazione urbanistica", quelli rivolti a sostituire l'esistente tessuto urbanistico-edilizio con altro diverso, mediante un insieme sistematico di interventi edilizi, anche con la modificazione del disegno dei lotti, degli isolati e della rete stradale.
+]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="2" y="123" width="29" height="52"/>
+			</rectangle>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="11" y="130" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="11" y="131" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[15].valore}.toString().startsWith( "Articolo 3.1 lett. f)" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table 1" x="31" y="175" width="525" height="62"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Interventi assoggettati dal d.P.R. n.380/2001 a S.C.I.A., per i quali, ai sensi dell’art. 22 comma 7 è facoltà del proprietario o avente titolo richiedere il rilascio del Permesso di Costruire (specificare)
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="36" y="200" width="511" height="37">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[15].valore}.toString().startsWith( "Interventi assoggettati" )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[17].valore}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="2" y="175" width="29" height="62"/>
+			</rectangle>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="11" y="183" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="11" y="183" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[15].valore}.toString().startsWith( "Interventi assoggettati" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table 1" x="31" y="237" width="525" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Interventi di Recupero abitativo dei sottotetti esistenti ai sensi della Legge Regionale n. 33/2007]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="2" y="237" width="29" height="15"/>
+			</rectangle>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="11" y="240" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="11" y="240" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[15].valore}.toString().startsWith( "Interventi di Recupero" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table 1" x="31" y="252" width="525" height="55"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Interventi di ristrutturazione edilizia che portino ad un organismo edilizio in tutto o in parte diverso dal precedente e che comportino aumento di unità immobiliari, modifiche del volume, della sagoma, dei prospetti o delle superfici, ovvero che, limitatamente agli immobili compresi nelle zone omogenee A, comportino mutamenti della destinazione d’uso. (art. 10 lett. c) d. P.R. n.380/2001]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table 1" x="31" y="307" width="525" height="15"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Ai sensi della Legge Regionale n.14/2009 (Piano casa)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table 1" x="31" y="322" width="525" height="52"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Altro (specificare)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="36" y="337" width="511" height="37">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[15].valore}.toString().startsWith( "Altro" )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[18].valore}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="2" y="252" width="29" height="55"/>
+			</rectangle>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="2" y="307" width="29" height="15"/>
+			</rectangle>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="2" y="322" width="29" height="52"/>
+			</rectangle>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="11" y="258" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="11" y="259" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[15].valore}.toString().startsWith( "Interventi di ristrutturazione" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="11" y="326" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement style="table 1" positionType="Float" x="11" y="309" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="11" y="310" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[15].valore}.toString().startsWith( "Ai sensi" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="11" y="326" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[15].valore}.toString().startsWith( "Altro" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="490" width="555" height="16"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[	c) che le opere sopra citate riguardano un intervento di nuova costruzione su area libera;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="586" width="269" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[C.I.L./C.E.L.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="586" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="50" y="588" width="10" height="10"/>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="495" y="586" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[29].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="396" y="586" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="416" y="586" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[28].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="50" y="589" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "C.I.L." )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="50" y="744" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="50" y="745" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "Altro" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="741" width="86" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Altro (specificare)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="152" y="741" width="403" height="16">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "Altro" )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[""+$F{campiaggiuntivi[44].valore}]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="757" width="425" height="26"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[dichiara inoltre che sull’immobile sussistono interventi in parziale difformità sanzionati ai sensi dell’art.34, c.2, d.P.R. n.380/2001]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="50" y="759" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="50" y="760" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[45].valore}.toString().startsWith( "dichiara" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+		</band>
+		<band height="802">
+			<rectangle>
+				<reportElement x="51" y="98" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="51" y="70" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="75" y="172" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="50" y="157" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="50" y="45" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="50" y="-109" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="50" y="-125" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="50" y="-156" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="50" y="-171" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="50" y="-187" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="50" y="-265" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="1" y="-405" width="555" height="38"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Consapevole che le dichiarazioni mendaci e le falsità in atti comportano le sanzioni previste dall’art. 76 del d.P.R. n. 445/2000 e la decadenza dai benefici conseguiti con il provvedimento emanato sulla base della dichiarazione non veritiera;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="-361" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DICHIARA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="-341" width="555" height="16"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[	a)  che i dati personali sopra riportati sono veritieri;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="-326" width="514" height="26"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[b)  di essere legittimato, secondo le vigenti norme, alla presentazione della domanda di rilascio di permesso 	                           di costruire;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="-283" width="555" height="16"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[	d)  che le opere sopra citate riguardano un immobile realizzato/modificato in conformità a:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="50" y="-233" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="71" y="-252" width="232" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Autorizzazione Edilizia]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="50" y="-249" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="50" y="-265" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "Licenza" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="-268" width="269" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Licenza/Concessione Edilizia/ Permesso di Costruire]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="-236" width="269" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Accertamento di conformità ex art. 36 d.P.R. n.380/01 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="-233" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "Accertamento" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="-249" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "Autorizzazione Edilizia" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="-187" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "Domanda di Condono Edilizio – Legge n.47/85" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="50" y="-217" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="50" y="-217" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "D.I.A. / S.C.I.A" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="-174" width="288" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Domanda di Condono Edilizio  – Legge n.724/94 – Pratica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="-190" width="288" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Domanda di Condono Edilizio – Legge n.47/85 –    Pratica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="-220" width="269" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[D.I.A. / S.C.I.A]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="-171" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "Domanda di Condono Edilizio – Legge n.724/94" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="-156" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "Domanda di Condono Edilizio – Legge n.326/03" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="-159" width="288" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Domanda di Condono Edilizio  – Legge n.326/03 – Pratica]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="50" y="-140" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="50" y="-140" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "C.E. o P.d.C. in sanatoria Legge n. 47/85" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="-143" width="288" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[C.E.  o  P.d.C. in sanatoria  Legge n. 47/85]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="-109" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "P.d.C. in sanatoria Legge n.326/03" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="-65" width="302" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Preesistente al 1967 (Allegare planimetria catastale originale) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="-112" width="288" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[P.d.C. in sanatoria  Legge n.326/03]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="-128" width="269" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[C.E.  o  P.d.C. in sanatoria  Legge n.724/94]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="50" y="-78" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="50" y="-93" width="10" height="10"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="50" y="-62" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="50" y="-93" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "Primo accatastamento" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="-125" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "C.E. o P.d.C. in sanatoria Legge n.724/94" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="-78" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "Preesistente al 1942" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="-96" width="288" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Primo accatastamento estremi della denuncia catastale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="-61" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[19].valore}.toString().startsWith( "Preesistente al 1967" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="-81" width="302" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Preesistente al 1942 (Allegare planimetria catastale originale) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="-268" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="416" y="-268" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[20].valore}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="495" y="-268" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[21].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="475" y="-268" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="495" y="-252" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[23].valore}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="-252" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[22].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="475" y="-252" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="-252" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="495" y="-236" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[25].valore}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="-236" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[24].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="475" y="-236" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="-236" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="495" y="-220" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[27].valore}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="-220" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[26].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="475" y="-220" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="-220" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="495" y="-190" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[31].valore}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="-190" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[30].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="475" y="-190" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="-190" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="495" y="-174" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[33].valore}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="-174" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[32].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="475" y="-174" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="-174" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="495" y="-159" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[35].valore}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="-159" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[34].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="475" y="-159" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="-159" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="495" y="-143" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[37].valore}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="-143" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[36].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="475" y="-143" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="-143" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="495" y="-128" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[39].valore}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="-128" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[38].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="475" y="-128" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="-128" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="495" y="-112" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[41].valore}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="-112" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[40].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="475" y="-112" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="-112" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="495" y="-96" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[43].valore}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="-96" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[42].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="475" y="-96" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="-96" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="42" width="484" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[l’area oggetto di intervento non è stata in precedenza asservita/utilizzata ai fini edificatori per la realizzazione di altri fabbricati e/o volumi edilizi e pertanto per tutta la superficie catastale sono applicabili indici di piano;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="46" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[46].valore}.toString().startsWith( "l'area oggetto di intervento non è stata" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="141" width="11" height="20"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[e)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="246" width="506" height="293"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[di essere informato che, ai sensi dell’art. 15 d.P.R. n.380/2001:
+   -	il termine per l’inizio dei lavori in oggetto non può essere superiore ad un anno dal rilascio del titolo;
+   -	il termine entro il quale l’opera deve essere completata non può superare i tre anni dall’inizio dei lavori.
+
+di aver provveduto agli adempimenti previsti dal d.lgs. 81/2008 (vedi allegata tabella B);
+
+di aver provveduto alla verifica della documentazione prevista in merito agli adempimenti dell’impresa affidataria e delle imprese esecutrici e dei lavoratori autonomi nelle ipotesi di cui al comma 9, lettera a) e b), dell’art. 90 del d. lgs. n. 81 del 09/04/2008;
+
+di allegare, ai sensi del d.lgs. n. 81/2008, la dichiarazione dell’organico medio annuo distinto per qualifica, la dichiarazione relativa all’applicazione del contratto collettivo ai lavoratori dipendenti dell’impresa e i dati identificativi della ditta esecutrice dei lavori necessari ai fini dell’acquisizione del D.U.R.C.;
+
+di essere a conoscenza che per le opere ricomprese nell’ambito di applicazione del d.P.R. n.81/2008, ai sensi dell’art. 90, c. 9 lett. c), deve essere trasmessa, al Comune, copia della notifica preliminare precedentemente o contestualmente trasmessa alla ASL e all’Ufficio Provinciale del Lavoro competenti per territorio, ove questa è prevista, e di essere consapevole che l’inosservanza del suddetto obbligo impedisce l’inizio dei lavori;
+
+che, nei casi disciplinati dall’art. 24 del d.P.R. n. 380/01, entro quindici giorni dalla data dell’ultimazione dei lavori di finitura dell’intervento, è tenuto a presentare all’ufficio comunale competente domanda di rilascio del certificato di agibilità con le modalità di cui all’art. 25 d.P.R. n.380/01;
+
+gli eventuali soggetti cointeressati, titolari di diritti reali di godimento su beni confinanti e risultanti da registrazioni catastali ed estremi catastali dei fondi confinanti a quelli oggetto dell’intervento, sono: ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="50" y="142" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="50" y="142" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[57].valore}.toString().startsWith( "che non sono in corso" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="141" width="484" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[che non sono in corso altri progetti edilizi sull’immobile o nell’area oggetto dell’intervento;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="156" width="484" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[che sono attualmente in corso i lavori autorizzati con:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="157" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[57].valore}.toString().startsWith( "che sono attualmente" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="96" y="171" width="124" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Permesso di Costruire]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="75" y="187" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="75" y="172" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[48].valore}.toString().startsWith( "Permesso di costruire" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="96" y="186" width="124" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Provvedimento Unico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="75" y="187" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[48].valore}.toString().startsWith( "Provvedimento Unico" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="96" y="201" width="124" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[D.I.A./S.C.I.A.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="75" y="203" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="75" y="203" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[48].valore}.toString().startsWith( "D.I.A./S.C.I.A." )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="320" y="201" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[54].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="186" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="247" y="186" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[51].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="201" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="171" width="26" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="201" width="26" height="16"/>
+				<textElement/>
+				<text><![CDATA[prot]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="171" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="320" y="171" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[50].valore}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="247" y="171" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[49].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="221" y="186" width="26" height="16"/>
+				<textElement/>
+				<text><![CDATA[n°]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="247" y="201" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[53].valore}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="320" y="186" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[52].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="51" y="98" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[46].valore}.toString().startsWith( "la volumetria residua non è stata" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="71" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[46].valore}.toString().startsWith( "l'area oggetto di intervento è stata" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="69" width="484" height="25"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[l’area oggetto di intervento è stata in precedenza asservita con atto del                         ai fini edificatori per la realizzazione di altri fabbricati e/o volumi edilizi (allegare atto di asservimento)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="20" width="132" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[dichiara inoltre che:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="51" y="115" width="10" height="10"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="51" y="116" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[46].valore}.toString().startsWith( "la volumetria residua è stata" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="75" y="218" width="10" height="10"/>
+			</rectangle>
+			<textField>
+				<reportElement x="247" y="216" width="35" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[55].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="216" width="21" height="16"/>
+				<textElement/>
+				<text><![CDATA[del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="96" y="216" width="124" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[C.I.L./C.E.L.]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="320" y="216" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[56].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="75" y="219" width="10" height="10">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[48].valore}.toString().startsWith( "C.I.L./C.E.L." )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="216" width="26" height="16"/>
+				<textElement/>
+				<text><![CDATA[prot]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="404" y="68" width="60" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[43].valore}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="39" y="246" width="11" height="293"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[f)
+
+
+
+g)
+
+h)
+
+
+
+i)
+
+
+
+j)
+
+
+
+
+k)
+
+l)
+
+i)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="96" width="482" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[la volumetria residua non è stata alienata ai sensi dell'art. 2643 del c.c.,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="115" width="479" height="16"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[la volumetria residua è stata alienata parzialmente come si evince dall'atto notarile che si allega alla presente.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="65" y="551" width="222" height="16">
+					<printWhenExpression><![CDATA[$F{campiaggiuntivi[13].valore}.toString().startsWith( "locatario/comodatario a tale scopo" )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{campiaggiuntivi[14].valore}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="802">
+			<staticText>
+				<reportElement x="0" y="10" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SI IMPEGNA / SI IMPEGNANO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="555" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ricorrendone la fattispecie:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="555" height="280"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[   •  ad osservare tutte le indicazioni e prescrizioni previste nel vigente strumento urbanistico e piani attuativi;
+   •  a munirsi di tutte le autorizzazioni, nulla-osta, pareri, atti di assenso comunque denominati, previsti dalle
+       vigenti norme, prima della esecuzione dei lavori (PAI, Soprintendenza Archeologica, Soprintendenza ai Monumenti,
+       PUTT/P, ecc…);
+   •  ad avvalersi di impresa regolarmente iscritta alla Camera di Commercio, Industria ed Artigianato, in regola
+       con il DURC;
+   •  alla piena osservanza delle norme in materia di smaltimento rifiuti (smaltimento rifiuti presso discariche
+       autorizzate);
+   •  alla piena e perfetta osservanza di quanto previsto dal d. lgs. n.81/08;
+   •  alla piena osservanza delle norme in materia di impianti di cui al DM n.37/2008 e di risparmio energetico;
+   •  alla piena osservanza delle norme in materia di abbattimento barriere architettoniche;
+   •  a rispettare i diritti dei terzi;
+   •  ad installare apposita tabella di cantiere;
+   •  ad effettuare l’aggiornamento catastale nel termine di cui all’art. 34-quinquies, comma 2, lettera b), del D.L 10
+      gennaio 2006, n. 4, convertito, con modificazioni, dalla Legge 9 marzo 2006, n. 80, nei casi previsti dalle
+      vigenti disposizioni;
+   •  a richiedere la nuova agibilità nei casi previsti dalle vigenti norme;
+   •  a richiedere apposita autorizzazione nel caso di occupazione di aree pubbliche o di uso pubblico
+      (per montaggio ponteggi ecc.). ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="329" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E SOLLEVA / SOLLEVANO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="361" width="555" height="20"/>
+				<textElement/>
+				<text><![CDATA[il Comune di TARANTO da ogni responsabilità nei confronti dei terzi.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="395" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Firma del dichiarante]]></text>
+			</staticText>
+			<line>
+				<reportElement x="197" y="443" width="162" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="451" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Firma del tecnico]]></text>
+			</staticText>
+			<line>
+				<reportElement x="197" y="499" width="162" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="528" width="554" height="41"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Il/I sottoscritto/i dichiara/dichiarano di aver preso visione dell’informativa ai sensi del  d.lgs n. 196/2003 e di dare il consenso al trattamento dei dati personali.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="580" width="35" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="52" y="580" width="100" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.GregorianCalendar()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="336" y="685" width="165" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="284" y="637" width="273" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Firma del dichiarante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="637" width="273" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Firma del tecnico]]></text>
+			</staticText>
+			<line>
+				<reportElement x="53" y="685" width="165" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="701" width="273" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PER ACCETTAZIONE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="720" width="273" height="20"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[L’IMPRESA (timbro e firma)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="766" width="290" height="1"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

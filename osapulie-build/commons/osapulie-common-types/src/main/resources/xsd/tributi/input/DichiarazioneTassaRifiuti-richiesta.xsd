@@ -1,0 +1,1005 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://types.input.tributi.osapulie.it" targetNamespace="http://types.input.tributi.osapulie.it" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="1.0">
+	<xs:include schemaLocation="CommonTypes.xsd" />
+	<xs:element name="dichiarazioneTassaRifiutiInputRichiesta">
+		<xs:annotation>
+			<xs:documentation>Richiesta dichiarazione tassa rifiuti</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element name="iscrizione" type="tns:Iscrizione" />
+					<xs:element name="variazione" type="tns:Variazione" />
+					<xs:element name="cessazione" type="tns:Cessazione" />
+					<xs:element name="trasferimento" type="tns:Trasferimento" />
+					<xs:element name="agevolazione" type="tns:Agevolazione" />
+				</xs:choice>
+				<xs:element name="documento" minOccurs="0" maxOccurs="unbounded" type="tns:Documento" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Iscrizione">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per una dichiarazione d'iscrizione di una nuova utenza</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:Dichiarazione">
+				<xs:sequence>
+					<xs:element name="provenienza" type="tns:Indirizzo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Dati della precedente ubicazione del contribuente. Se il comune &amp;egrave; quello attuale specificare obbligatoriamente viaCodificata altrimenti
+								viaNonCodificata
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:choice>
+						<xs:element name="utenzeDomestiche">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Dati della/e utenza/e oggetto d'iscrizione</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="utenza" type="tns:UtenzaDomestica" maxOccurs="unbounded" />
+									<xs:element name="contribuenteResidente" type="xs:boolean">
+										<xs:annotation>
+											<xs:documentation xml:lang="it">Indica se il contribuente risiede nell'immobile o meno. E' riferito alle utenze domestiche specificate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="numComponentiNucleoFamiliare" type="xs:int">
+										<xs:annotation>
+											<xs:documentation xml:lang="it">Numero componenti del nucleo familiare. E' riferito alle utenze domestiche specificate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="occupanteImmobile" type="tns:OccupanteImmobile" minOccurs="1" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation xml:lang="it">Elenco degli occupanti dell'immobile. Se presente, e' riferito alle utenze domestiche specificate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="utenzeCommerciali">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Dati della/e utenza/e oggetto d'iscrizione</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="utenza" type="tns:UtenzaCommerciale" maxOccurs="unbounded" />
+									<xs:element name="note" type="xs:string" minOccurs="0" />
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Dichiarazione">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso di base per una dichiarazione riguardante un'utenza</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="data" type="xs:date">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Data di presentazione della dichiarazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dataDecorrenza" type="xs:date">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Data di inizio della variazione di categoria dell'utenza. Deve essere successiva alla data di inizio occupazione/detenzione
+						dell'immobile
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentoIdentita" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Descrizione degli estremi del documento d'identita' del contribuente</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="delegato" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Descrizione degli estremi anagrafici della persona delegata dal contribuente alla presentazione della dichiarazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tipoUtenza" type="tns:Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Tipologia di utenza/e oggetto della dichiarazione: C: commerciale, D: domestica</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tracciamento" type="tns:Tracciamento" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Dati necessari al tracciamento della richiesta</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dichiarante" type="tns:Dichiarante">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Dati del contribuente dichiarante</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="note" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Annotazioni</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Dichiarante">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di un contribuente ai fini della dichiarazione d'iscrizione. Se contribuente esistente allora
+				specificare
+				identificativo, altrimenti specificare nuovoContribuente
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:Contribuente">
+				<xs:sequence>
+					<xs:element name="identificativoContribuente" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Dato ientificativo del contribuente</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="domicilio" type="tns:Indirizzo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Dati della residenza anagrafica (se persona fisica) o della sede anagrafica (persona giuridica). Se il comune &amp;egrave; quello attuale specificare
+								obbligatoriamente viaCodificata altrimenti viaNonCodificata
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="rappresentante" type="tns:Rappresentante" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Dati della persona fisica rappresentante legalmente una persona giuridica. Da specificare solo in caso di contribuenti per utenze di natura
+								commerciale. E' obbligatorio specificarli in caso di nuovo contribuente di tipo persona giuridica, mentre e' possibile specificarli, se variati, in caso di esistenza del contribuente
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="recapito" type="tns:Recapito" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Dati dell'eventuale recapito (differente dalla residenza anagrafica o sede legale) del contribuente per la ricezione delle comunicazioni. Se il
+								comune
+								&amp;egrave; quello attuale specificare obbligatoriamente viaCodificata altrimenti viaNonCodificata
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="email" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Indirizzo di Posta Elettronica del dichiarante</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="pec" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Indirizzo di Posta Elettronica Certificata (P.E.C.) del dichiarante</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="telefono" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Numero di telefono di contatto del dichiarante</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="cellulare" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Numero di telefono di contatto del dichiarante</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="fax" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Numero di fax di contatto del dichiarante</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Contribuente">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di un contribuente (persona fisica o giuridica) dichiarante utenze domestiche o commerciali</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="personaFisica" type="tns:PersonaFisica" />
+				<xs:element name="personaGiuridica" type="tns:PersonaGiuridica" />
+			</xs:choice>
+			<xs:element name="provinciaREA" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Provincia di registrazione al Repertorio delle notizie Economiche e Ammninistrative (R.E.A.). Da specificare obbligatoriamente per contribuenti di tipo
+						giuridico (Societa')
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="numeroREA" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Numero di registrazione al Repertorio delle notizie Economiche e Ammninistrative (R.E.A.). Da specificare obbligatoriamente per contribuenti di tipo
+						giuridico (Societa')
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="partitaIVA" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Partita I.V.A. dell'attivita' economica. Da specificare obbligatoriamente per contribuenti di tipo giuridico (Societa' e ditte individuali)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PersonaFisica">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati anagrafici di una persona fisica</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="cognome" type="xs:string" />
+			<xs:element name="nome" type="xs:string" />
+			<xs:element name="codiceFiscale" type="xs:string" />
+			<xs:element name="partitaIVA" type="xs:string" minOccurs="0" />
+			<xs:element name="comuneNascita" type="tns:Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Comune di nascita codificato tramite il codice ISTAT</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="provinciaNascita" type="tns:Codifica" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Provincia di nascita del contribuente. Sara' presente solo se nato in Italia</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="comuneEsteroNascita" type="tns:Codifica" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Comune di nascita estero codificato</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="statoEsteroNascita" type="tns:Codifica" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Comune di stato estero di nascita codificato tramite il codice stato a 3 cifre</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dataNascita" type="xs:date" />
+			<xs:element name="sesso" type="tns:Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">M: Mascio, F: Femmina</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PersonaGiuridica">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati anagrafici di una persona giuridica</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ragioneDenominazioneSociale" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Denominazione o ragione sociale</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceFiscale" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Codice fiscale della persona giuridica</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="partitaIva" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">P. IVA della persona giuridica</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Rappresentante">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di un rappresentante legale di un'attivita' economica</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="cognome" type="xs:string" />
+			<xs:element name="nome" type="xs:string" />
+			<xs:element name="codiceFiscale" type="xs:string" />
+			<xs:element name="comuneNascita" type="tns:Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Comune di nascita codificato tramite il codice ISTAT</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="provinciaNascita" type="tns:Codifica" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Provincia di nascita del contribuente. Sara' presente solo se nato in Italia</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="comuneEsteroNascita" type="tns:Codifica" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Comune di nascita estero codificato</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="statoEsteroNascita" type="tns:Codifica" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Comune di stato estero di nascita codificato tramite il codice stato a 3 cifre</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dataNascita" type="xs:date" />
+			<xs:element name="sesso" type="tns:Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">M: Mascio, F: Femmina</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="qualifica" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Descrizione della qualifica della persona fisica rappresentante legalmente un'attivita' economica</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ragioneDenominazioneSociale" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Ragione sociale</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="email" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Indirizzo di Posta Elettronica del rappresentante</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pec" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Indirizzo di Posta Elettronica Certificata (P.E.C.) del rappresentante</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="telefono" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Numero di telefono di contatto del rappresentante</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cellulare" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Numero di telefono di contatto del rappresentante</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fax" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Numero di fax di contatto del rappresentante</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Recapito">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di recapito di un contribuente. Se il comune &amp;egrave; quello attuale specificare viaCodificata altrimenti
+				viaNonCodificata
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:Indirizzo">
+				<xs:sequence>
+					<xs:element name="presso" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Denominazione della persona (o altro) intestario dell'indirizzo di recapito</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Utenza">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati della/e utenza/e oggetto di iscrizione</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="utenzaDomestica" type="tns:UtenzaDomestica" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation xml:lang="it">Utenze domestiche da associare alla pratica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:sequence>
+				<xs:element name="utenzaCommerciale" type="tns:UtenzaCommerciale" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation xml:lang="it">Elenco delle utenze commerciali (almeno una) da associare alla pratica</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="UtenzaDomestica">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di un'utenza domestica.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:UtenzaBase">
+				<xs:sequence>
+					<xs:element name="categoriaCatastale" type="tns:Codifica" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Categoria catastale dell'immobile</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="uso" type="tns:Codifica">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Uso dell'immobile: A: abitazione, P: pertinenza</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="superficie" type="xs:decimal">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Superficie tassabile in mq</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="riduzione" type="tns:Riduzione" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Tipologia riduzione richiesta. Puo' dipendere dalle direttive dello specifico Comune</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="UtenzaDomesticaVariazione">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di variazione di un'utenza domestica </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:UtenzaDomestica">
+				<xs:sequence>
+					<xs:element name="nuovaSuperficie" type="xs:int" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Nuova superficie tassabile in mq</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+
+	<xs:complexType name="UtenzaBase">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di un'utenza</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="identificativoUtenza" type="xs:string" />
+				<xs:sequence>
+					<xs:element name="ubicazione" type="tns:Indirizzo">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Dati dell'ubicazione (indirizzo) dell'immobile</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="datiCatastali" type="tns:DatiCatastali">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Dati catastali dell'immobile/locale/area</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DatiCatastali">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati catastali di un immobile/fabbricato/area</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="sezione" type="xs:string" minOccurs="0" />
+			<xs:element name="foglio" type="xs:int" />
+			<xs:element name="particella" type="xs:int" />
+			<xs:element name="subalterno" type="xs:int" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="OccupanteImmobile">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di un occupante di un immobile</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="cognome" type="xs:string" />
+			<xs:element name="nome" type="xs:string" />
+			<xs:element name="dataNascita" type="xs:date" />
+			<xs:element name="codiceFiscale" type="xs:string" />
+			<xs:element name="dataInizioOccupazione" type="xs:date" minOccurs="0" />
+			<xs:element name="dataFineOccupazione" type="xs:date" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="UtenzaCommerciale">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di un'utenza commerciale. Specificare obbligatoriamente almeno uno tra supCoperta e supScoperta</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:UtenzaBase">
+				<xs:sequence>
+					<xs:element name="codiceAttivita" type="xs:string">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Classificazione dell'attivita' economica svolta nel locale/area secondo la codifica Ateco 2007</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="riduzione" type="tns:Riduzione" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Tipologia riduzione richiesta. Puo' dipendere dalle direttive dello specifico Comune</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="superficieTotale" type="xs:int" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Superficie coperta tassabile in mq. Da specificare almeno uno tra supCoperta e supScoperta</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="superficieCoperta" type="xs:int" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Superficie coperta tassabile in mq. Da specificare almeno uno tra supCoperta e supScoperta</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="superficieScoperta" type="xs:int" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Superficie scoperta tassabile in mq. Da specificare almeno uno tra supCoperta e supScoperta</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="superficieIntassabile" type="xs:int" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Superficie intassabile (locali inutilizzabili, impianti fissi, altro, ecc.) in mq</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="superficieRifiutiSpeciali" type="xs:int" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Altra superficie intassabile (rifiuti speciali, ecc.) in mq</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="UtenzaCommercialeVariazione">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di un'utenza commerciale</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:UtenzaCommerciale">
+				<xs:sequence>
+					<xs:element name="nuovaSuperficie" type="xs:int" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Nuova superficie tassabile in mq</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="nuovaCategoria" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Nuova categoria</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Riduzione">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati riguardanti la riduzione</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="tipo">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="revoca" type="xs:boolean" />
+						<xs:element name="applicazione" type="xs:boolean" />
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="articolo" type="tns:Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Articolo del regolamento tassa rifiuti a cui si riferisce la riduzione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="valore" type="tns:Codifica" />
+			<xs:element name="note" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Tracciamento">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati utili al tracciamento di una richiesta</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="nomeOperatore" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Denominazione dell'operatore (es. Nome e cognome persona fisica, Denominazione sociale di uno studio commercialista)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceFiscaleOperatore" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Codice fiscale dell'operatore</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="partitaIvaOperatore" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Partita IVA dell'operatore</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="emailOperatore" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Indirizzo email dell'operatore</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Trasferimento">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di una dichiarazione di trasferimento di un'utenza</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:Dichiarazione">
+				<xs:sequence>
+					<xs:element name="identificativoUtenza" type="xs:string">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Dati dell'utenza da trasferire</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:choice>
+						<xs:element name="nuovaUtenzaDomestica">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Dati della/e utenza/e oggetto d'iscrizione</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="utenza" type="tns:UtenzaDomestica" maxOccurs="unbounded" />
+									<xs:element name="riduzione" type="tns:Riduzione" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="it">Tipologia riduzione richiesta. Puo' dipendere dalle direttive dello specifico Comune</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="contribuenteResidente" type="xs:boolean">
+										<xs:annotation>
+											<xs:documentation xml:lang="it">Indica se il contribuente risiede nell'immobile o meno. E' riferito alle utenze domestiche specificate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="numComponentiNucleoFamiliare" type="xs:int">
+										<xs:annotation>
+											<xs:documentation xml:lang="it">Numero componenti del nucleo familiare. E' riferito alle utenze domestiche specificate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="occupanteImmobile" type="tns:OccupanteImmobileVariazione" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation xml:lang="it">Elenco degli occupanti dell'immobile. Se presente, e' riferito alle utenze domestiche specificate</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="nuovaUtenzaCommerciale">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Dati della/e utenza/e oggetto d'iscrizione</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="utenza" type="tns:UtenzaCommerciale" maxOccurs="unbounded" />
+									<xs:element name="note" type="xs:string" minOccurs="0" />
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="OccupanteImmobileVariazione">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di un occupante di un immobile</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:OccupanteImmobile">
+				<xs:sequence>
+					<xs:element name="tipoVariazioneOccupanti" type="tns:Codifica">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Tipologia di modifica dell'elenco degli occupanti di un immobile. Valori ammessi: A: Aggiunta nuovo occupante, R: Rimozione vecchio occupante, M:
+								Modifica dati occupante esistente
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="note" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Annotazioni</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Variazione">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di una dichiarazione di variazione di un'utenza</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:Dichiarazione">
+				<xs:sequence>
+					<xs:choice>
+						<xs:element name="utenzeDomestiche">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Dati della/e utenza/e oggetto di variazione</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="utenza" type="tns:UtenzaDomesticaVariazione" maxOccurs="unbounded" />
+									<xs:element name="numeroComponentiNucleoFamiliare" type="xs:int" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="it">Numero componenti del nucleo familiare</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="variazioneOccupanteImmobile" type="tns:VariazioneOccupanteImmobile" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation xml:lang="it">Elenco delle variazioni agli occupanti dell'immobile</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="altro" type="xs:string" minOccurs="0" />
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="utenzeCommerciali">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Dati della/e utenza/e oggetto d'iscrizione</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="utenza" type="tns:UtenzaCommercialeVariazione" maxOccurs="unbounded" />
+									<xs:element name="note" type="xs:string" minOccurs="0" />
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="VariazioneOccupanteImmobile">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di un occupante di un immobile</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:OccupanteImmobile">
+				<xs:sequence>
+					<xs:element name="tipoVariazione" type="tns:Codifica">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Tipologia di modifica dell'elenco degli occupanti di un immobile. Valori ammessi: A: Aggiunta nuovo occupante, R: Rimozione vecchio occupante, M:
+								Modifica dati occupante esistente
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="note" minOccurs="0" type="xs:string">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Annotazioni</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Cessazione">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di una dichiarazione di cessazione di un'utenza</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:Dichiarazione">
+				<xs:sequence>
+					<xs:choice>
+						<xs:element name="utenzeDomestiche">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Dati della/e utenza/e oggetto di cessazione</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="utenza" type="tns:UtenzaDomestica" maxOccurs="unbounded" />
+									<xs:choice>
+										<xs:element name="cessazionePerDecesso" type="xs:date">
+											<xs:annotation>
+												<xs:documentation xml:lang="it">Specificare la data di decesso</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="cessazionePerCoabitazione">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="codiceFiscaleCoabitante" type="xs:string">
+														<xs:annotation>
+															<xs:documentation xml:lang="it">Codice fiscale del soggetto coabitante</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="ubicazione" type="tns:Indirizzo">
+														<xs:annotation>
+															<xs:documentation xml:lang="it">Dati dell'ubicazione (indirizzo) dell'immobile</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="cessazionePerEmigrazioneAltroComune" type="tns:Indirizzo">
+											<xs:annotation>
+												<xs:documentation xml:lang="it">Specificare i dati dell'indirizzo della nuova residenza/domicilio</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="altroMotivo" type="tns:Codifica">
+											<xs:annotation>
+												<xs:documentation xml:lang="it">1: Immobile vuoto senza forniture, 2: Immobile venduto, 3: Immobile restituito per fine locazione, 4: Immobile concesso in locazione, 5: altro
+													(definire nella descrizione Codifica)
+												</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:choice>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="utenzeCommerciali">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Dati della/e utenza/e oggetto di cessazione</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="utenza" type="tns:UtenzaCommerciale" maxOccurs="unbounded" />
+									<xs:sequence>
+										<xs:element name="motivo" type="tns:Codifica">
+											<xs:annotation>
+												<xs:documentation xml:lang="it">Motivo della cessazione: 1: Cessazione attivita', 2: Duplicazione tributo (definire il valore del tributo esistente nella
+													descrizione codifica),
+													3: Cambio denominazione sociale (definire nella descrizione codifica), 4: Altro motivo (definire nella descrizione codifica)
+												</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="cessazionePerTrasferimentoAltroComune" type="tns:Indirizzo">
+											<xs:annotation>
+												<xs:documentation xml:lang="it">Specificare i dati dell'indirizzo della nuova ubicazione</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="rimborso">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Dari riguardanti la richiesta di rimborso conseguente alla cessazione di un'utenza</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="modalitaRimborso" type="tns:Codifica">
+										<xs:annotation>
+											<xs:documentation xml:lang="it">Modalita' di rimborso richiesta: M = con mandato di pagamento, A = con
+												accredito su c/c. Se modalita' scelta e' con accredito allora e' necessario
+												specificare codIbanAccredito
+											</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="codIban" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation xml:lang="it">Codice IBAN del conto corrente su cui accreditare il rimborso. Da specificare solo se modalitaRimborso e' accredito su c/c</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Agevolazione">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per una dichiarazione di agevolazione</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:Dichiarazione">
+				<xs:sequence>
+					<xs:element name="utenza" type="tns:Utenza">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Dati utenze</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="codiceAgevolazione" type="tns:Codifica" />
+					<xs:element name="caf" type="tns:CAF" minOccurs="0" />
+					<xs:element name="presaVisione" type="xs:boolean" />
+					<xs:element name="documentoIdentitaAllegato" type="xs:boolean" minOccurs="0" />
+					<xs:element name="documentoIdentitaDelegatoAllegato" type="xs:boolean" minOccurs="0" />
+					<xs:element name="attestazioneISEE" type="tns:ModelloISEE" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ModelloISEE">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di un modello ISEE</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="nucleoFamiliare" type="tns:NucleoFamiliare" />
+			<xs:element name="patrimonio">
+				<xs:complexType>
+					<xs:annotation>
+						<xs:documentation xml:lang="it">Tipo di dato complesso per i dati relativi al patrimonio mobiliare e immobiliare del nucleo familiare dichiarato nel modello ISEE</xs:documentation>
+					</xs:annotation>
+					<xs:sequence>
+						<xs:element name="RC" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Redditi complessivi ai fini IRPEF dei componenti del nucleo familiare</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="PAG" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Proventi agrari ai fini IRAP dei componenti del nucleo familiare</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="RCPAG" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Somma dei redditi della dichiarazione dei componenti il nucleo familiare (RC+PAG)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="RPM" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Rendimento del patrimonio mobiliare (RPM)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DC" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Detrazione per il canone di locazione (DC)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="PMO" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Patrimonio mobiliare dei componenti del nucleo familiare (PMO)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DPM" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Detrazione per il patrimonio mobiliare (DPM)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="PIM" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Patrimonio immobiliare dei componenti del nucleo familiare (PIM)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DPI" type="xs:decimal" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">Detrazione per il patrimonio immobiliare dei componenti del nucleo familiare (DPI)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+
+			</xs:element>
+			<xs:element name="codiceFiscaleDichiarante" type="xs:string" />
+			<xs:element name="dataAttestazione" type="xs:date" />
+			<xs:element name="dataScadenza" type="xs:date" />
+			<xs:element name="valoreISE" type="xs:decimal" />
+			<xs:element name="scalaEquivalenza" type="xs:decimal" />
+			<xs:element name="valoreISEE" type="xs:decimal" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CAF">
+		<xs:sequence>
+			<xs:element name="nominativo" type="xs:string" />
+			<xs:choice>
+				<xs:element name="codiceFiscale" type="xs:string" />
+				<xs:element name="partitaIVA" type="xs:string" />
+			</xs:choice>
+			<xs:element name="presaVisione">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="1" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="presenzaDocumentoIdentitaAllegato" type="xs:boolean" minOccurs="0" />
+			<xs:element name="presenzaDocumentoIdentitaDelegatoAllegato" type="xs:boolean" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="NucleoFamiliare">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati del nucleo familiare oggetto della dichiarazione ISEE</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="numComponentiNucleoFamiliare" type="xs:int" />
+			<xs:element name="numSoggettiHandicap" type="xs:int" />
+			<xs:element name="presenzaFigliUnGenitore" type="xs:boolean" />
+			<xs:element name="presenzaFigliAttivitaGenitori" type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

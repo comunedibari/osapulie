@@ -1,0 +1,59 @@
+input {
+	background: #FFF;
+}
+
+input[type="text"], input[type="password"], input[type="file"], input[type="submit"], input[type="button"], input[type="reset"], select, textarea, .textarea, button {
+	padding: 5px 1px;
+	background: #fff;
+	border: 1px solid #D0DCED;
+}
+input[type="text"], 
+input[type="password"]{
+	height:12px;
+}
+ /*textarea, .textarea{
+ 	width: 400px !important;
+ }*/
+select {
+	padding: 1px;
+}
+input[type="image"] {
+	background: transparent none;
+	border: none;
+	padding: 0;
+}
+input[type="submit"], input[type="button"], input[type="reset"], button , .custom_pulsante{
+	background: #71819a;
+	color: #fff;
+	cursor: pointer;
+	font-weight: bold;
+	overflow: visible;
+	padding: 5px;
+	width: auto;
+	border: none;
+	border-radius: 2px !important;
+	text-decoration: none;
+}
+input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:focus, input[type="button"]:focus, input[type="reset"]:focus, button:hover, button:focus, .custom_pulsante:hover, .custom_pulsante:focus {
+	background: #415a79;
+	color: #fff;
+}
+input[type="submit"], input[type="button"], input[type="reset"], button, .lfr-actions, .lfr-actions ul {
+	background: #71819a;
+	color: #fff;
+	font-weight: bold;
+	border: none;
+}
+.aui-button-disabled input[type], .aui-button-disabled button, .aui-button-disabled input[type]:hover, .aui-button-disabled input[type]:focus, .aui-button-disabled button:hover, .aui-button-disabled button:focus {
+	background: #D4D4D4 url(../images/portlet/header_bg.png) repeat-x 0 0;
+	color: #555;
+	opacity: 0.5;
+}
+input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover, button:hover, .lfr-actions:hover, .lfr-actions:hover ul {
+	background: #415a79;
+	color: #fff;
+}
+input[type="submit"]:focus, input[type="button"]:focus, input[type="reset"]:focus, button:focus, .lfr-actions:focus, .lfr-actions:focus ul {
+	background: #415a79;
+	color: #fff;
+}

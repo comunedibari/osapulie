@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- contesto uscita porta delegata -->
+<Contesto>
+  <Parametri>
+    <!-- tipo codifica -->
+    <Parametro nome="TipoCodifica" desc="">DEFAULT</Parametro>
+
+    <!-- identificano la porta delegata -->
+    <Parametro nome="IdParteOrig" desc="">PortaleOSApulie</Parametro>
+    <Parametro nome="IdParteOrig.tipo" desc="">SPC</Parametro>
+    <Parametro nome="IdParteOrig.indTel" />
+
+    <!-- utilizzati per generare l'ID del messaggio -->
+    <Parametro nome="CodiceAmministrazione" desc="Codice Amministrazione" >PortaleOSApulie</Parametro>
+    <Parametro nome="CodicePorta" desc="Codice Porta di Dominio" >PortaleOSApulieSPCoopIT</Parametro>
+
+    <!-- identificano l'url dell'indice -->
+    <!--Parametro nome="UrlIndice" desc="URL dell'indice">http://www.rupar.puglia.it/uddi/inquiry</Parametro-->
+    <!--Parametro nome="ClasseInterrogaIndice" desc="">it.puglia.rupar.egov.pdd.demo.InterrogaIndiceTest</Parametro-->
+
+    <!-- identificano il destinatario 
+    <Parametro nome="IdParteDest" desc="">ErogatorePDDRupar</Parametro>
+    <Parametro nome="IdParteDest.tipo" desc="">SPC</Parametro>
+    <Parametro nome="IdParteDest.indTel" desc="Url della Porta Applicativa">http://127.0.0.1:8080/pdds/services/ServizioTest</Parametro>-->
+   <!-- <Parametro nome="IdParteDest.indTel" desc="Url della Porta Applicativa">http://andromeda.sian.it/pdd/services/EchoService</Parametro> -->
+
+    <!-- Impostazione dei valori del Servizio di default -->
+    <Parametro nome="urn" desc="" >PortaApplicativaEnte</Parametro>
+    <Parametro nome="urn.tipo" desc="" >SPC</Parametro>
+
+    <!-- Impostazione dei valori del proxy -->
+    <!--
+    <Parametro nome="proxyHost" desc="Indirizzo del Proxy">proxy</Parametro>
+    <Parametro nome="proxyPort" desc="Porta del Proxy">8080</Parametro>
+    <Parametro nome="nonProxyHosts" desc="Host da contattare direttamente">*.rupar.puglia.it|localhost|127.0.0.1</Parametro>
+    -->
+  </Parametri>
+  <Trattamenti>
+    <Trattamento nome="ProtocolloInUscita" classe="it.puglia.rupar.egov.pdd.trattamenti.ProtocolloUscita" seq="3" bloccante="NO" sts="OFF" desc="Protocollo informatico">
+      <Parametri>
+         <Parametro nome="CodiceAmministrazione" desc="Codice Amministrazione" >PortaleOSApulie</Parametro>
+         <Parametro nome="CodicePorta" desc="Codice Porta di Dominio">PortaleOSApulieSPCoopIT</Parametro>
+
+         <Parametro nome="logClass" desc="Generazione Log del Protocollo">it.puglia.rupar.egov.pdd.trattamenti.ImplementInterfacciaLog</Parametro>
+         <Parametro nome="idClass" desc="Generazione Tempo e Numero"> it.puglia.rupar.egov.pdd.trattamenti.ImplementInterfacciaId </Parametro>
+      </Parametri>
+    </Trattamento>
+
+    <Trattamento nome="Firma" classe="it.puglia.rupar.egov.pdd.trattamenti.Firma" seq="2" bloccante="NO" sts="OFF" desc="Firma Allegato">
+      <Parametri>
+         <Parametro nome="FilePortachiavi" desc="File Portachiavi" >pdds.keystore</Parametro>
+         <Parametro nome="PasswordPortachiavi" desc="Password portachiavi">massimo</Parametro>
+         <Parametro nome="Alias" desc="Alias firmatario" >privkey</Parametro>
+         <Parametro nome="PasswordAlias" desc="Password firmatario">massimo</Parametro>
+      </Parametri>
+    </Trattamento>
+
+    <Trattamento nome="Archiviazione" classe="it.puglia.rupar.egov.pdd.trattamenti.ArchiviaFS" seq="4" bloccante="NO" sts="OFF" desc="Archiviazione documento PKCS7 su FS">
+      <Parametri>
+         <Parametro nome="TipoAllegati" desc="Tipologia di Allegati">p7m</Parametro>
+      </Parametri>
+    </Trattamento>
+
+    <Trattamento nome="TrattamentoTest" classe="it.puglia.rupar.egov.pdd.demo.TrattamentoTest" seq="1" bloccante="NO" sts="OFF" desc="TrattamentoTest">
+      <Parametri>
+         <Parametro nome="Parametro1" desc="ContenutoAllegato">TrattamentoTest</Parametro>
+      </Parametri>
+    </Trattamento>
+  </Trattamenti>
+</Contesto>

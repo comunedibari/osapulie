@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://types.output.documenti.osapulie.it" targetNamespace="http://types.output.documenti.osapulie.it" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:include schemaLocation="ContribuenteType.xsd" />
+	<xs:element name="visuraDocumentiRichiesta">
+		<xs:annotation>
+			<xs:documentation>Richiesta per visura documenti</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:Contribuente">
+					<xs:sequence>
+						<xs:element name="codiceServizio" type="xs:string" /> <!-- codice servizio per il quale è richiesto il documento -->
+						<xs:element name="anno" type="xs:int" minOccurs="0" /> <!-- anno a cui è riferito il documento -->
+						<xs:element name="idDocumento" type="xs:string" minOccurs="0" /> <!-- campo opzionale per ottenere in riposta l'array di byte relativo al documento -->
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,26 @@
+<ns2:searchStatoPraticheResponse xmlns:ns2="http://ws.web.pratiche.osapulie.it">
+	<return>
+		<descrizione>In lavorazione</descrizione>
+		<id>1</id>
+	</return>
+	<return>
+		<descrizione>Definita</descrizione>
+		<id>2</id>
+	</return>
+	<return>
+		<descrizione>Annullata</descrizione>
+		<id>3</id>
+	</return>
+	<return>
+		<descrizione>Rigettata</descrizione>
+		<id>4</id>
+	</return>
+	<return>
+		<descrizione>In sospensiva</descrizione>
+		<id>5</id>
+	</return>
+	<return>
+		<descrizione>Improcedibile</descrizione>
+		<id>6</id>
+	</return>
+</ns2:searchStatoPraticheResponse>

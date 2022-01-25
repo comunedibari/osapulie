@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<description>OSApulie Custom Tag</description>
+	<display-name>OSApulie Custom Tag</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>osapulie</short-name>
+	<uri>http://tags.osapulie.it</uri>
+	<tag>
+		<name>stradario</name>
+		<tag-class>it.osapulie.web.portlet.tag.StradarioTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>Attribute name per il campo "Via". Se lo stradario è abilitato è il "name" della selectbox "via", altrimenti rappresenta il name del campo di testo semplice.</description>
+			<name>viaName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Attribute name per il campo "Civico". Non viene considerato se lo stradario è disabilitato.</description>
+			<name>civicoName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Attribute name per il campo "Esponente".</description>
+			<name>esponenteName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Attribute name per il campo "CAP".</description>
+			<name>capName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Attribute name del campo hidden utile al set del testo nella select degli indirizzi in caso di validazione della form fallita. Valore di default: "viaTextHidden".</description>
+			<name>viaTextHiddenName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Attribute name del campo hidden utile al set del testo nella select dei civici in caso di validazione della form fallita. Valore di default: "civicoTextHidden".</description>
+			<name>civicoTextHiddenName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Attribute name del campo hidden per il campo "localita'"</description>
+			<name>localitaHiddenName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Attribute name del campo hidden per il campo "Codice Via"</description>
+			<name>codiceViaHiddenName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>ID componente. E' utilizzato per identificare univocamente tutti i tag interni.</description>
+			<name>id</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Label per l'opzione di default delle selectbox.</description>
+			<name>selezionaLabel</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Label per il bottone "Cerca".</description>
+			<name>cercaLabel</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Classe per la selectbox "Via".</description>
+			<name>viaClass</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Classe per la selectbox "Civico".</description>
+			<name>civicoClass</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Label per la selectbox "Via".</description>
+			<name>viaLabel</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Label per la selectbox "Civico".</description>
+			<name>civicoLabel</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Label per l'input text "Esponente".</description>
+			<name>esponenteLabel</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Label per l'input text "CAP".</description>
+			<name>capLabel</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Numero caratteri minimo per il campo di testo.</description>
+			<name>numCaratteriMin</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>URL dell'immagine di loading.</description>
+			<name>loadingImageSrc</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Value per la selectbox "Via". Se lo stradario è disabilitato valorizza il campo di testo semplice.</description>
+			<name>viaOptionValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Value per la selectbox "Civico".</description>
+			<name>civicoOptionValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Value per la input text (hidden) "Esponente".</description>
+			<name>esponenteValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Value per la input text (hidden) "CAP".</description>
+			<name>capValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Value per la input text (hidden) "Localita'".</description>
+			<name>localitaValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Value per la input text (hidden) "Codice Via".</description>
+			<name>codiceViaValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Testo per la selectbox "Via"; da settare insieme a "viaOptionValue".</description>
+			<name>viaOptionText</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Testo per la selectbox "Civico"; da settare insieme a "civicoOptionValue". Non viene considerato se lo stradario è disabilitato.</description>
+			<name>civicoOptionText</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

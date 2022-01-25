@@ -1,0 +1,32 @@
+<data enableBatchRequests="false" enableBoxcarring="false" name="visuraVariazioniDomicilioService" serviceNamespace="http://servizi.osapulie.it" serviceStatus="active">
+   <config id="default">
+      <property name="carbon_datasource_name">OSAPULIE_SERVIZI_DS</property>
+   </config>
+   <query id="select_all_variazioni_domicilio_query" useConfig="default">
+      <sql>SELECT id, codiceFiscale, dataInizioDomicilio, comune, dataIscrizioneComune, toponimoIndirizzo, indirizzo, numeroCivico, esponente, piano, scala, interno FROM visura_variazioni_domicilio WHERE codiceFiscale = ? AND (dataInizioDomicilio BETWEEN ? AND ?)</sql>
+      <result element="visureVariazioniDomicilio" rowName="visuraVariazioneDomicilio">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="dataInizioDomicilio" name="dataInizioDomicilio" xsdType="xs:date"/>
+         <element column="comune" name="comune" xsdType="xs:string"/>
+         <element column="dataIscrizioneComune" name="dataIscrizioneComune" xsdType="xs:date"/>
+         <element column="toponimoIndirizzo" name="toponimoIndirizzo" xsdType="xs:string"/>
+         <element column="indirizzo" name="indirizzo" xsdType="xs:string"/>
+         <element column="numeroCivico" name="numeroCivico" xsdType="xs:string"/>
+         <element column="esponente" name="esponente" xsdType="xs:string"/>
+         <element column="piano" name="piano" xsdType="xs:integer"/>
+         <element column="scala" name="scala" xsdType="xs:string"/>
+         <element column="interno" name="interno" xsdType="xs:string"/>
+      </result>
+      <param name="codiceFiscale" ordinal="1" paramType="SCALAR" sqlType="STRING" type="IN"/>
+      <param name="dataInizio" ordinal="2" paramType="SCALAR" sqlType="DATE" type="IN"/>
+      <param name="dataFine" ordinal="3" paramType="SCALAR" sqlType="DATE" type="IN"/>
+   </query>
+   <operation name="getVisureVariazioniDomicilio">
+      <call-query href="select_all_variazioni_domicilio_query">
+         <with-param name="codiceFiscale" query-param="codiceFiscale"/>
+         <with-param name="dataInizio" query-param="dataInizio"/>
+         <with-param name="dataFine" query-param="dataFine"/>
+      </call-query>
+   </operation>
+</data>

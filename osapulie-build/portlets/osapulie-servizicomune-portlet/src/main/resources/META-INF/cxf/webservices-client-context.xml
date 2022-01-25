@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:core="http://cxf.apache.org/core"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
+	xsi:schemaLocation="http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+		http://cxf.apache.org/transports/http/configuration	http://cxf.apache.org/schemas/configuration/http-conf.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-jaxws.xml" />
+ 
+	<oxm:jaxb2-marshaller id="marshaller" contextPath="it.osapulie.anagrafe.web.ws.output.types:it.osapulie.servizi.web.ws.types:it.osapulie.protocollo.web.ws.types:it.osapulie.tributi.web.ws.output.types"/>
+
+	<!-- Timeout connessione WS-->
+	<http-conf:conduit name="*.http-conduit">
+        <http-conf:client ConnectionTimeout="${filter.pddsAdapter.connection.timeout}" ReceiveTimeout="${filter.pddsAdapter.receive.timeout}"/>
+    </http-conf:conduit>
+    
+	<jaxws:client id="pddsAdapterClient"
+		serviceClass="it.osapulie.web.ws.pddsintegration.PddsIntegration"
+		address="${pddsAdapterUri}" />
+</beans>

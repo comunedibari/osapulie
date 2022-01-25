@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dichiarazione_tari_dom_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="codiceAgevolazione" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="204" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="74" width="616" height="127"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[       l’esenzione dal tributo per le utenze suindicate e a tal fine dichiara, ai sensi degli artt. 46, 47 e 76
+       del DPR n. 445/2000, che:
+         - il valore ISEE complessivo riferito all’anno precedente del proprio nucleo familiare non supera il
+           limite di € 4.000,00;
+         - nessuno  dei  componenti  il predetto nucleo familiare è  proprietario ovvero titolare di diritti
+           reali di godimento di alcun  immobile  su  tutto  il  territorio  nazionale;
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="46" width="295" height="28"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="11" isBold="false" isUnderline="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[ai sensi dell’art. 27 del vigente Regolamento Tari ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="12" width="514" height="34"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="20" isBold="true" isUnderline="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[CHIEDE]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="24" y="74" width="15" height="15"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="27" y="73" width="15" height="16">
+					<printWhenExpression><![CDATA[$F{codiceAgevolazione}.equalsIgnoreCase("A")]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="319" y="46" width="295" height="28"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="false" isUnderline="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[ (barrare la casella che interessa)]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

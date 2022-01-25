@@ -1,0 +1,27 @@
+<data name="visuraAnagraficaLightService" serviceNamespace="http://servizi.osapulie.it">
+   <config id="default">
+      <property name="carbon_datasource_name">OSAPULIE_SERVIZI_DS</property>
+   </config>
+   <query id="select_visura_anagrafica_light_by_cf_query" useConfig="default">
+      <sql>SELECT codiceFiscale, cognome, nome, dataNascita, comuneNascita, provinciaNascita, indirizzo, cap, comuneResidenza, provinciaResidenza, codiceIstatResidenza FROM visura_anagrafica_light WHERE codiceFiscale = ?</sql>
+      <result element="visureAnagrafiche" rowName="visuraAnagrafica">
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="cognome" name="cognome" xsdType="xs:string"/>
+         <element column="nome" name="nome" xsdType="xs:string"/>
+         <element column="dataNascita" name="dataNascita" xsdType="xs:date"/>
+         <element column="comuneNascita" name="comuneNascita" xsdType="xs:string"/>
+         <element column="provinciaNascita" name="provinciaNascita" xsdType="xs:string"/>
+         <element column="indirizzo" name="indirizzo" xsdType="xs:string"/>
+         <element column="cap" name="cap" xsdType="xs:string"/>
+         <element column="comuneResidenza" name="comuneResidenza" xsdType="xs:string"/>
+         <element column="provinciaResidenza" name="provinciaResidenza" xsdType="xs:string"/>
+         <element column="codiceIstatResidenza" name="codiceIstatResidenza" xsdType="xs:string"/>
+      </result>
+      <param name="codiceFiscale" sqlType="STRING"/>
+   </query>
+   <operation name="getVisuraAnagraficaLight">
+      <call-query href="select_visura_anagrafica_light_by_cf_query">
+         <with-param name="codiceFiscale" query-param="codiceFiscale"/>
+      </call-query>
+   </operation>
+</data>

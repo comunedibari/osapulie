@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dati Anagrafici -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="visuraAnagrafica" type="DatiAnagrafici">
+		<xs:annotation>
+			<xs:documentation>Nel caso di errore i tags obbligatori dovranno essere forniti con valore uguale a null</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="DatiAnagrafici">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="toponimoIndirizzo" type="xs:string" nillable="true" /> <!-- toponimo dell'indirizzo di residenza del cittadino -->
+				<xs:element name="descrizioneVia" type="xs:string" nillable="true" /> <!-- descrizione dell'indirizzo di residenza del cittadino -->
+				<xs:element name="cap" type="xs:string" nillable="true" /> <!-- CAP comune di residenza del cittadino -->
+				<xs:element name="numeroCivico" type="xs:string" nillable="true" /> <!-- numero civico dell'indirizzo di residenza del cittadino -->
+				<xs:element name="esponente" type="xs:string" minOccurs="0" /> <!-- esponente dell'indirizzo di residenza del cittadino -->
+				<xs:element name="piano" type="xs:string" minOccurs="0" /> <!-- numero del piano della residenza del cittadino -->
+				<xs:element name="interno" type="xs:string" minOccurs="0" /> <!-- interno della residenza del cittadino -->
+				<xs:element name="scala" type="xs:string" minOccurs="0" /> <!-- scala di residenza del cittadino -->
+				<xs:element name="componentiNucleoFamiliare" maxOccurs="unbounded" nillable="true"> <!-- lista dei componenti del nucleo familiare del cittadino -->
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="codiceFiscale" type="xs:string" /> <!-- codice fiscale del componente del nucleo familiare del cittadino -->
+							<xs:element name="identificativo" type="xs:string" minOccurs="0"/> <!-- identificativo univoco del componente del nucleo familiare del cittadino -->
+							<xs:element name="cognome" type="xs:string" /> <!-- cognome del componente del nucleo familiare del cittadino -->
+							<xs:element name="nome" type="xs:string" /> <!-- nome del componente del nucleo familiare del cittadino -->
+							<xs:element name="dataNascita" type="xs:date" /> <!-- data di nascita del componente del nucleo familiare del cittadino (formato: aaaa-mm-gg) -->
+							<xs:element name="sesso" type="xs:string" /> <!-- sesso del componente del nucleo familiare del cittadino (valori possibili: M ; F) -->
+							<xs:element name="statoCivile"> <!-- stato civile del componente del nucleo familiare del cittadino (descrizione libera proveniente dal backoffice) -->
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="celibe"></xs:enumeration>
+										<xs:enumeration value="nubile"></xs:enumeration>
+										<xs:enumeration value="coniugato"></xs:enumeration>
+										<xs:enumeration value="coniugata"></xs:enumeration>
+										<xs:enumeration value="divorziato"></xs:enumeration>
+										<xs:enumeration value="divorziata"></xs:enumeration>
+										<xs:enumeration value="vedovo"></xs:enumeration>
+										<xs:enumeration value="vedova"></xs:enumeration>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="relazioneParentela" type="xs:string" /> <!-- relazione di parentela del componente del nucleo familiare del cittadino rispetto al capo famiglia (descrizione libera proveniente dal backoffice) -->
+							<xs:element name="cognomeNomeConiuge" type="xs:string" minOccurs="0" /> <!-- cognome e nome del coniuge del cittadino -->
+							<xs:element name="cittadinanzaItaliana" type="xs:boolean" /> <!-- informazione sulla cittadinanza italiana o meno del componente del nucleo familiare del cittadino (valori possibili: TRUE ; FALSE) -->
+							<xs:element name="codiceIstatComuneNascita" type="xs:string" minOccurs="0" /> <!-- codice ISTAT del comune di nascita del componente del nucleo familiare del cittadino (se nato in Italia) -->
+							<xs:element name="descrizioneComuneEsteroNascita" type="xs:string" minOccurs="0" /> <!-- descrizione del comune estero di nascita del componente del nucleo familiare del cittadino (se nato all'estero) -->
+							<xs:element name="statoEsteroNascita" type="xs:string" minOccurs="0" /> <!-- descrizione dello Stato estero di nascita del componente del nucleo familiare del cittadino (se nato all'estero) -->
+							<xs:element name="numeroAttoNascita" type="xs:int" minOccurs="0" /> <!-- atto iscritto di nascita del componente del nucleo familiare del cittadino -->
+							<xs:element name="parteNascita" type="xs:string" minOccurs="0" /> <!-- parte iscritta di nascita del componente del nucleo familiare del cittadino -->
+							<xs:element name="serieNascita" type="xs:string" minOccurs="0" /> <!-- serie iscritta di nascita del componente del nucleo familiare del cittadino -->
+							<xs:element name="annoAttoNascita" type="xs:int" minOccurs="0" /> <!-- anno dell'atto di nascita del componente del nucleo familiare del cittadino (formato: aaaa) -->
+							<xs:element name="ufficioNascita" type="xs:string" minOccurs="0" /> <!-- ufficio iscritto di nascita del componente del nucleo familiare del cittadino -->
+							<xs:element name="numeroAttoNascitaTrascritto" type="xs:int" minOccurs="0" /> <!-- atto trascritto di nascita del componente del nucleo familiare del cittadino -->
+							<xs:element name="parteNascitaTrascritto" type="xs:string" minOccurs="0" /> <!-- parte trascritta dell'atto di nascita del componente del nucleo familiare del cittadino -->
+							<xs:element name="serieNascitaTrascritto" type="xs:string" minOccurs="0" /> <!-- serie trascritta dell'atto di nascita del componente del nucleo familiare del cittadino -->
+							<xs:element name="annoNascitaTrascritto" type="xs:int" minOccurs="0" /> <!-- anno trascritto di nascita del componente del nucleo familiare del cittadino (formato: aaaa) -->
+							<xs:element name="codiceIstatComuneNascitaTrascritto" type="xs:string" minOccurs="0" /> <!--codice ISTAT del comune trascritto di nascita del componente del nucleo familiare del cittadino -->
+							<xs:element name="numeroAttoMatrimonio" type="xs:int" minOccurs="0" /> <!-- atto iscritto di matrimonio del componente del nucleo familiare del cittadino -->
+							<xs:element name="parteMatrimonio" type="xs:string" minOccurs="0" /> <!-- parte iscritta dell'atto di matrimonio del componente del nucleo familiare del cittadino -->
+							<xs:element name="serieMatrimonio" type="xs:string" minOccurs="0" /> <!-- serie iscritta dell'atto di matrimonio del componente del nucleo familiare del cittadino -->
+							<xs:element name="annoMatrimonio" type="xs:int" minOccurs="0" /> <!-- anno iscritto di matrimonio del componente del nucleo familiare del cittadino (formato: aaaa) -->
+							<xs:element name="ufficioMatrimonio" type="xs:string" minOccurs="0" /> <!-- ufficio iscritto di matrimonio del componente del nucleo familiare del cittadino -->
+							<xs:element name="codiceIstatComuneMatrimonio" type="xs:string" minOccurs="0" /> <!-- codice ISTAT del comune in cui è avvenuta l'iscrizione di matrimonio del componente del nucleo familiare del cittadino -->
+							<xs:element name="luogoMatrimonio" type="xs:string" minOccurs="0" /> <!-- luogo del matrimonio del componente del nucleo familiare del cittadino -->
+							<xs:element name="dataMatrimonio" type="xs:date" minOccurs="0" /> <!-- data del matrimonio del componente del nucleo familiare del cittadino (formato: aaaa-mm-gg) -->
+							<xs:element name="numeroAttoMatrimonioTrascritto" type="xs:int" minOccurs="0" /> <!-- atto trascritto di matrimonio del componente del nucleo familiare del cittadino -->
+							<xs:element name="parteMatrimonioTrascritto" type="xs:string" minOccurs="0" /> <!-- parte trascritta dell'atto di matrimonio del componente del nucleo familiare del cittadino -->
+							<xs:element name="serieMatrimonioTrascritto" type="xs:string" minOccurs="0" /> <!-- serie trascritta dell'atto di matrimonio del componente del nucleo familiare del cittadino -->
+							<xs:element name="annoMatrimonioTrascritto" type="xs:int" minOccurs="0" /> <!-- anno trascritto dell'atto di matrimonio del componente del nucleo familiare del cittadino (formato: aaaa) -->
+							<xs:element name="codiceIstatComuneMatrimonioTrascritto" type="xs:string" minOccurs="0" /> <!-- codice ISTAT del comune trascritto di matrimonio del componente del nucleo familiare del cittadino -->
+							<xs:element name="dataDecorrenzaDivorzio" type="xs:date" minOccurs="0" /> <!-- data decorrenza divorzio del componente del nucleo familiare del cittadino -->
+							<xs:element name="dataSentenzaDivorzio" type="xs:date" minOccurs="0" /> <!-- data sentenza divorzio del componente del nucleo familiare del cittadino -->
+							<xs:element name="numeroSentenzaDivorzio" type="xs:string" minOccurs="0" /> <!-- numero sentenza divorzio del componente del nucleo familiare del cittadino -->
+							<xs:element name="codiceIstatComuneTribunaleDivorzio" type="xs:string" minOccurs="0" /> <!-- codice ISTAT del comune in cui risiede il tribunale nel quale è stato redatto il divorzio del componente del nucleo familiare del cittadino -->
+							<xs:element name="tipoDivorzio" minOccurs="0"> <!-- tipologia di divorzio del componente del nucleo familiare del cittadino -->
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="annullamento" />
+										<xs:enumeration value="cessazione" />
+										<xs:enumeration value="scioglimento" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="dataAttoDivorzio" type="xs:date" minOccurs="0" /> <!-- data dell'atto di divorzio del componente del nucleo familiare del cittadino -->
+							<xs:element name="numeroAttoDivorzio" type="xs:int" minOccurs="0" /> <!-- numero dell'atto di divorzio del componente del nucleo familiare del cittadino -->
+							<xs:element name="parteDivorzio" type="xs:string" minOccurs="0" /> <!-- parte dell'atto di divorzio del componente del nucleo familiare del cittadino -->
+							<xs:element name="serieDivorzio" type="xs:string" minOccurs="0" /> <!-- serie dell'atto di divorzio del componente del nucleo familiare del cittadino -->
+							<xs:element name="volumeDivorzio" type="xs:string" minOccurs="0" /> <!-- volume dell'atto di divorzio del componente del nucleo familiare del cittadino -->
+							<xs:element name="ufficioDivorzio" type="xs:string" minOccurs="0" /> <!-- ufficio dell'atto divorzio del componente del nucleo familiare del cittadino -->
+							<xs:element name="dataAttoDivorzioTrascritto" type="xs:date" minOccurs="0" /> <!-- data dell'atto di divorzio trascritto del componente del nucleo familiare del cittadino -->
+							<xs:element name="numeroAttoDivorzioTrascritto" type="xs:int" minOccurs="0" /> <!-- numero dell'atto di divorzio trascritto del componente del nucleo familiare del cittadino -->
+							<xs:element name="parteDivorzioTrascritto" type="xs:string" minOccurs="0" /> <!-- parte dell'atto di divorzio trascritto del componente del nucleo familiare del cittadino -->
+							<xs:element name="serieDivorzioTrascritto" type="xs:string" minOccurs="0" /> <!-- serie dell'atto di divorzio trascritto del componente del nucleo familiare del cittadino -->
+							<xs:element name="volumeDivorzioTrascritto" type="xs:string" minOccurs="0" /> <!-- volume dell'atto di divorzio trascritto del componente del nucleo familiare del cittadino -->
+							<xs:element name="ufficioDivorzioTrascritto" type="xs:string" minOccurs="0" /> <!-- ufficio dell'atto di divorzio trascritto del componente del nucleo familiare del cittadino -->
+							<xs:element name="codiceIstatComuneTrascrizioneDivorzio" type="xs:string" minOccurs="0" /> <!-- codice ISTAT del comune nel quale è stato redatto il divorzio trascritto del componente del nucleo familiare del cittadino -->
+							<xs:element name="dataAttoVedovanza" type="xs:date" minOccurs="0" /> <!-- data dell'atto di vedovanza del componente del nucleo familiare del cittadino -->
+							<xs:element name="numeroAttoVedovanza" type="xs:int" minOccurs="0" /> <!-- numero dell'atto di vedovanza del componente del nucleo familiare del cittadino -->
+							<xs:element name="parteVedovanza" type="xs:string" minOccurs="0" /> <!-- parte dell'atto di vedovanza del componente del nucleo familiare del cittadino -->
+							<xs:element name="serieVedovanza" type="xs:string" minOccurs="0" /> <!-- serie dell'atto di vedovanza del componente del nucleo familiare del cittadino -->
+							<xs:element name="volumeVedovanza" type="xs:string" minOccurs="0" /> <!-- volume dell'atto di vedovanza del componente del nucleo familiare del cittadino -->
+							<xs:element name="ufficioVedovanza" type="xs:string" minOccurs="0" /> <!-- ufficio dell'atto di vedovanza del componente del nucleo familiare del cittadino -->
+							<xs:element name="codiceIstatComuneMorte" type="xs:string" minOccurs="0" /> <!-- descrizione del comune di morte del cittadino -->
+							<xs:element name="dataMorte" type="xs:date" minOccurs="0" /> <!-- data di morte del cittadino (formato: aaaa-mm-gg) -->
+							<xs:element name="numeroAttoMorte" type="xs:int" minOccurs="0" /> <!-- atto di morte del cittadino -->
+							<xs:element name="parteMorte" type="xs:string" minOccurs="0" /> <!-- parte dell'atto di morte del cittadino -->
+							<xs:element name="serieMorte" type="xs:string" minOccurs="0" /> <!-- serie dell'atto di morte del cittadino -->
+							<xs:element name="ufficioMorte" type="xs:string" minOccurs="0" /> <!-- ufficio di registrazione dell'atto di morte del cittadino -->
+							<xs:element name="annoMorte" type="xs:int" minOccurs="0" /> <!-- anno di morte del cittadino (formato: aaaa) -->
+							<xs:element name="codiceIstatComuneMorteConiugeTrascritto" type="xs:string" minOccurs="0" /> <!-- codice ISTAT comune dell'atto di morte trascritto del coniuge del cittadino -->
+							<xs:element name="numeroAttoMorteConiugeTrascritto" type="xs:int" minOccurs="0" /> <!-- atto trascritto di morte del coniuge del cittadino -->
+							<xs:element name="parteMorteConiugeTrascritto" type="xs:string" minOccurs="0" /> <!-- parte trascritta dell'atto di morte del coniuge del cittadino -->
+							<xs:element name="serieMorteConiugeTrascritto" type="xs:string" minOccurs="0" /> <!-- serie trascritta dell'atto di morte del coniuge del cittadino -->
+							<xs:element name="annoMorteConiugeTrascritto" type="xs:int" minOccurs="0" /> <!-- anno di morte trascritto del coniuge del cittadino (formato: aaaa) -->
+							<xs:element name="professione" type="xs:string" minOccurs="0" /> <!-- professione del componente del nucleo familiare del cittadino (descrizione libera proveniente dal backoffice) -->
+							<xs:element name="titoloStudio" type="xs:string" minOccurs="0" /> <!-- titolo di studio del componente del nucleo familiare del cittadino (descrizione libera proveniente dal backoffice) -->
+							<xs:element name="pensioniList" maxOccurs="unbounded" nillable="true"> <!-- lista pensioni del componente del nucleo familiare del cittadino -->
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="numeroPensione" type="xs:string" minOccurs="0" /> <!-- numero della pensione del componente del nucleo familiare del cittadino -->
+										<xs:element name="codicePensione" type="xs:string" minOccurs="0" /> <!-- codice della tipologia di pensione del componente del nucleo familiare del cittadino (se disponibile) -->
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="numeroCartaIdentita" type="xs:string" minOccurs="0" /> <!-- numero della carta d'identità del componente del nucleo familiare del cittadino -->
+							<xs:element name="dataCartaIdentita" type="xs:date" minOccurs="0" /> <!-- data della carta d'identità del componente del nucleo familiare del cittadino (formato: aaaa-mm-gg) -->
+							<xs:element name="validaCartaIdentita" type="xs:boolean" minOccurs="0" /> <!-- informazione sulla validità o meno della carta d'identità del componente del nucleo familiare del cittadino -->
+							<xs:element name="identificativoNucleoFamiliare" type="xs:int" /> <!-- identificativo del nucleo familiare -->
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:element name="errore">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="codice" type="xs:int">
+								<xs:annotation>
+									<xs:documentation>
+										 Decodifica errore:
+										 1.Server non disponibile
+										 2.Codice fiscale non trovato
+										 3.Dati non disponibili          
+										 4.Errore generico
+                					</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,5 @@
+<div>
+    <p>All'attenzione di ${ragioneSociale}:</p>
+    la richiesta di iscrizione della/del ${tipoAzienda} al portale <i>${osapulieHost}</i> &egrave; stata <b>${statoApprovazione}</b>.
+    <p>Cordiali saluti.</br>	
+</div>	

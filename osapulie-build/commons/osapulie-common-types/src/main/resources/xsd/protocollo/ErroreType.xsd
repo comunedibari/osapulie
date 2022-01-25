@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="Errore">
+		<xs:sequence>
+			<xs:element name="codice" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						Decodifica errore:
+						1.Server non disponibile
+						2.Codice fiscale non trovato
+						3.Dati non disponibili
+						4.Errore generico
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrizione" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

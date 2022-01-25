@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://types.output.tributi.osapulie.it" targetNamespace="http://types.output.tributi.osapulie.it" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:include schemaLocation="CommonTypes.xsd" />
+	<xs:complexType name="DatiTassaImmobili">
+		<xs:sequence>
+			<xs:element name="posizioni" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="identificativoUtenza" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Codice identificativo dell'utenza</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="indirizzoUtenza" type="tns:Indirizzo" />
+						<xs:element name="superficie" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>Metri quadri (Mq)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tipoSuperficie" type="xs:string" />
+						<xs:element name="caratteristicaImmobile">
+							<xs:annotation>
+								<xs:documentation>1 (Terreno Agricolo) 2 (Area Fabbricabile) 3 (Fabbricato con valore determinato sulla base della rendita catastale) 4 (Fabbricato con valore determinato sulla base delle
+									scritture contabili)</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="1" />
+									<xs:enumeration value="2" />
+									<xs:enumeration value="3" />
+									<xs:enumeration value="4" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="numero" type="xs:int" />
+						<xs:element name="sezione" type="xs:string" minOccurs="0" />
+						<xs:element name="foglio" type="xs:int" />
+						<xs:element name="particella" type="xs:int" />
+						<xs:element name="subalterno" type="xs:int" minOccurs="0" />
+						<xs:element name="valoreImmobile" type="xs:double">
+							<xs:annotation>
+								<xs:documentation>espresso in centesimi di euro</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="destinazione" type="tns:Codifica">
+							<xs:annotation>
+								<xs:documentation xml:lang="it">C: commerciale, D: domestica</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tipo" type="xs:string" />
+						<xs:element name="categoriaImmobile" type="tns:Codifica" />
+						<xs:element name="aliquota" type="xs:double" />
+						<xs:element name="importoDovuto" type="xs:double" />
+						<xs:element name="importoDetrazioneAbPrincipale" type="xs:double" />
+						<xs:element name="mesiDetrazione" type="xs:int" />
+						<xs:element name="percentualePossesso" type="xs:double" />
+						<xs:element name="mesiPossesso" type="xs:int" />
+						<xs:element name="posseduto3112" type="xs:boolean" />
+						<xs:element name="riduzione" type="xs:boolean" />
+						<xs:element name="abitazionePrincipale" type="xs:boolean" />
+						<xs:element name="esclusoEsente" type="xs:boolean" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="rate" minOccurs="0" maxOccurs="2">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="importoAbitazionePrincipale" type="xs:double" minOccurs="0" />
+						<xs:element name="importoAreaFabbricabile" type="xs:double" minOccurs="0" />
+						<xs:element name="importoTerreniAgricoli" type="xs:double" minOccurs="0" />
+						<xs:element name="importoAltriFabbricati" type="xs:double" minOccurs="0" />
+						<xs:element name="numeroFabbricati" type="xs:int" />
+						<xs:element name="importoDaPagare" type="xs:double" />
+						<xs:element name="identificativoRata" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Inserirlo nel caso si voglia richiedere il file dei pagamenti al portale per ricaricarli nell'applicativo</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="tipoRata">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="acconto" />
+									<xs:enumeration value="saldo" />
+									<xs:enumeration value="unica soluzione" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="importoPagato" type="xs:double" />
+						<xs:element name="dataPagamento" type="xs:date" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="dataAggiornamento" type="xs:date" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="contoCorrente" type="xs:string" use="optional" />
+		<xs:attribute name="annoRiferimento" type="xs:int" use="required" />
+		<xs:attribute name="importoDocumento" type="xs:double" use="optional">
+			<xs:annotation>
+				<xs:documentation>espresso in centesimi di euro</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="descrizioneTassa" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Descrizione tipologia tassa: IMU, TASI, ICI</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

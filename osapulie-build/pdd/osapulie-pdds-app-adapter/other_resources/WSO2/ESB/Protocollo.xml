@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="Protocollo"
+       transports="https http"
+       startOnLoad="true"
+       trace="disable">
+   <target>
+      <endpoint>
+         <address uri="http://web38.linksmt.it:8081/adoc/protocollo"/>
+      </endpoint>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </target>
+   <publishWSDL uri="http://web38.linksmt.it:8081/adoc/protocollo?wsdl"/>
+</proxy>

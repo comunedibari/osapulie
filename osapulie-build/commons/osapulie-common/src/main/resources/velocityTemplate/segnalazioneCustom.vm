@@ -1,0 +1,19 @@
+<div>
+    <p>
+	Di seguito la segnalazione del cittadino ${cognome} ${nome} (C.F. ${codiceFiscale}):
+    </p>
+    
+    <p>
+    	Oggetto: ${oggetto}
+    </p>
+
+    <p>
+    	Motivazione: ${motivazione}
+    </p>
+    #if($note)
+    <div>
+    	<p>Note: </p>
+    	${note}
+    </div>
+    #end
+</div>	

@@ -1,0 +1,101 @@
+<data enableBatchRequests="false" enableBoxcarring="false" name="visuraImpostaInsegnePubblicitaService" serviceNamespace="http://servizi.osapulie.it" serviceStatus="active">
+   <config id="default">
+      <property name="carbon_datasource_name">OSAPULIE_SERVIZI_DS</property>
+   </config>
+   <query id="select_with_key_visura_imposta_insegne_pubblicita_query" useConfig="default">
+      <sql>SELECT id, codiceFiscale, dataAggiornamento, contoCorrente, importoDocumento, numeroDocumento, annoRiferimento FROM visura_imposta_insegne_pubblicita WHERE codiceFiscale=? AND annoRiferimento &gt;=? AND annoRiferimento &lt;= ?</sql>
+      <result element="visureImposteInsegnePubblicita" rowName="visuraImposteInsegnePubblicita">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="dataAggiornamento" name="dataAggiornamento" xsdType="xs:date"/>
+         <element column="contoCorrente" name="contoCorrente" xsdType="xs:string"/>
+         <element column="importoDocumento" name="importoDocumento" xsdType="xs:double"/>
+         <element column="numeroDocumento" name="numeroDocumento" xsdType="xs:string"/>
+         <element column="annoRiferimento" name="annoRiferimento" xsdType="xs:integer"/>
+      </result>
+      <param name="codiceFiscale" sqlType="STRING"/>
+      <param name="annoDa" sqlType="INTEGER"/>
+      <param name="annoA" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_id_visura_imposta_insegne_pubblicita_query" useConfig="default">
+      <sql>SELECT id, codiceFiscale, dataAggiornamento, contoCorrente, importoDocumento, numeroDocumento, annoRiferimento FROM visura_imposta_insegne_pubblicita WHERE id=?</sql>
+      <result element="visureImposteInsegnePubblicita" rowName="visuraImposteInsegnePubblicita">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="dataAggiornamento" name="dataAggiornamento" xsdType="xs:date"/>
+         <element column="contoCorrente" name="contoCorrente" xsdType="xs:string"/>
+         <element column="importoDocumento" name="importoDocumento" xsdType="xs:double"/>
+         <element column="numeroDocumento" name="numeroDocumento" xsdType="xs:string"/>
+         <element column="annoRiferimento" name="annoRiferimento" xsdType="xs:integer"/>
+      </result>
+      <param name="id" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_imposta_insegne_pubblicita_posizioni_query" useConfig="default">
+      <sql>SELECT id, indirizzoPubblicita, descrizionePubblicita, mq, mesi, importoPubblicita, idVisura FROM visura_imposta_insegne_pubblicita_posizioni WHERE idVisura=?</sql>
+      <result element="posizioniVisuraImposteInsegnePubblicita" rowName="posizioneVisuraImposteInsegnePubblicita">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="indirizzoPubblicita" name="indirizzoPubblicita" xsdType="xs:string"/>
+         <element column="descrizionePubblicita" name="descrizionePubblicita" xsdType="xs:string"/>
+         <element column="mq" name="mq" xsdType="xs:double"/>
+         <element column="mesi" name="mesi" xsdType="xs:integer"/>
+         <element column="importoPubblicita" name="importoPubblicita" xsdType="xs:double"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="idVisura" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_imposta_insegne_pubblicita_rate_query" useConfig="default">
+      <sql>SELECT id, importoRata, scadenzaRata, numeroRata, identificativoRata, importoPagato, dataPagamento, idVisura FROM visura_imposta_insegne_pubblicita_rate WHERE idVisura=?</sql>
+      <result element="rateVisuraImposteInsegnePubblicita" rowName="rataVisuraImposteInsegnePubblicita">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="importoRata" name="importoRata" xsdType="xs:double"/>
+         <element column="scadenzaRata" name="scadenzaRata" xsdType="xs:date"/>
+         <element column="numeroRata" name="numeroRata" xsdType="xs:integer"/>
+         <element column="identificativoRata" name="identificativoRata" xsdType="xs:string"/>
+         <element column="importoPagato" name="importoPagato" xsdType="xs:double"/>
+         <element column="dataPagamento" name="dataPagamento" xsdType="xs:date"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="idVisura" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_identificativoRata_visura_imposta_insegne_pubblicita_rate_query" useConfig="default">
+      <sql>SELECT id, importoRata, scadenzaRata, numeroRata, identificativoRata, importoPagato, dataPagamento, idVisura FROM visura_imposta_insegne_pubblicita_rate WHERE identificativoRata=?</sql>
+      <result element="rateVisuraImposteInsegnePubblicita" rowName="rataVisuraImposteInsegnePubblicita">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="importoRata" name="importoRata" xsdType="xs:double"/>
+         <element column="scadenzaRata" name="scadenzaRata" xsdType="xs:date"/>
+         <element column="numeroRata" name="numeroRata" xsdType="xs:integer"/>
+         <element column="identificativoRata" name="identificativoRata" xsdType="xs:string"/>
+         <element column="importoPagato" name="importoPagato" xsdType="xs:double"/>
+         <element column="dataPagamento" name="dataPagamento" xsdType="xs:date"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="identificativoRata" sqlType="STRING"/>
+   </query>
+   <operation name="getVisureImposteInsegnePubblicita">
+      <call-query href="select_with_key_visura_imposta_insegne_pubblicita_query">
+         <with-param name="codiceFiscale" query-param="codiceFiscale"/>
+         <with-param name="annoDa" query-param="annoDa"/>
+         <with-param name="annoA" query-param="annoA"/>
+      </call-query>
+   </operation>
+   <operation name="getVisuraImposteInsegnePubblicita">
+      <call-query href="select_with_key_id_visura_imposta_insegne_pubblicita_query">
+         <with-param name="id" query-param="id"/>
+      </call-query>
+   </operation>
+   <operation name="getPosizioniVisuraImposteInsegnePubblicita">
+      <call-query href="select_with_key_visura_imposta_insegne_pubblicita_posizioni_query">
+         <with-param name="idVisura" query-param="idVisura"/>
+      </call-query>
+   </operation>
+   <operation name="getRateVisuraImposteInsegnePubblicita">
+      <call-query href="select_with_key_visura_imposta_insegne_pubblicita_rate_query">
+         <with-param name="idVisura" query-param="idVisura"/>
+      </call-query>
+   </operation>
+   <operation name="getRataVisuraImposteInsegnePubblicita">
+      <call-query href="select_with_key_identificativoRata_visura_imposta_insegne_pubblicita_rate_query">
+         <with-param name="identificativoRata" query-param="identificativoRata"/>
+      </call-query>
+   </operation>
+</data>

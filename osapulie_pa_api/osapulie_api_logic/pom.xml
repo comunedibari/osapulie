@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>eng.tz.pa.api.osa</groupId>
+		<artifactId>osapulie_pa_api</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>osapulie_api_logic</artifactId>
+	<name>osapulie_api_web - 2.0 - Web Application</name>
+	<description>osapulie_api_web - Api</description>
+	<properties>
+		<!-- Properties comuni UTF-8 -->
+		<source.encoding>UTF-8</source.encoding>
+		<reporting.encoding>UTF-8</reporting.encoding>
+		<java.compiler.version>1.8</java.compiler.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.compiler.show.warnings>true</java.compiler.show.warnings>
+		<java.compiler.show.deprecation>true</java.compiler.show.deprecation>
+		<!-- Eseguo i test ma ignoro l'eventuale fallimento -->
+		<maven.test.skip>true</maven.test.skip>
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
+		<jackson.version>2.9.6</jackson.version><!--per java 8 -->
+	</properties>
+
+ 
+	<build>
+		<filters>
+			<filter>../filters/${build.profile.id}/configuration.properties</filter>
+		</filters>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+			</resource>
+		</resources>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<excludes>
+					<exclude>**/*.*</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
+	</build>
+	<profiles>
+		<profile>
+			<id>sviluppo</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<build.profile.id>sviluppo</build.profile.id>
+			</properties>
+		</profile>
+		<profile>
+			<id>collaudo</id>
+			<properties>
+				<build.profile.id>collaudo</build.profile.id>
+			</properties>
+		</profile>
+		<profile>
+			<id>produzione</id>
+			<properties>
+				<build.profile.id>produzione</build.profile.id>
+			</properties>
+		</profile>
+	</profiles>
+</project>

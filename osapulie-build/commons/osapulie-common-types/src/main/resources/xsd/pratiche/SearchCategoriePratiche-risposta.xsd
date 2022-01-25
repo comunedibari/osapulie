@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://ws.web.pratiche.osapulie.it"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified"
+	targetNamespace="http://ws.web.pratiche.osapulie.it" version="1.0">
+
+	<xs:include schemaLocation="Types.xsd" />
+	<xs:include schemaLocation="ErroreType.xsd" />
+
+	<xs:element name="searchCategoriePraticheResponse">
+		<xs:complexType>
+			<xs:choice>
+				<xs:element minOccurs="0" name="return"
+					type="tns:searchCategoriaPraticheResponse" />
+				<xs:element name="errore" type="tns:Errore" minOccurs="0" />
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+
+	
+	<xs:complexType name="searchCategoriaPraticheResponse">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="categorie" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="categorie" type="tns:searchCategoriaPraticheResponse"/>
+</xs:schema>

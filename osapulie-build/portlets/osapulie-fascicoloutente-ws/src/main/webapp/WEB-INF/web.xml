@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Portlet Web context. Note that we set metadata-complete="true" otherwise 
+	JBoss 5 (embedded in Liferay Portal) will attempt to scan the persistence.xml 
+	and @PersistenceContext-annotated classes (See https://issues.jboss.org/browse/JBSEAM-3587). -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	metadata-complete="true" version="2.5">
+	<context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+			classpath:META-INF/spring/application-context.xml
+		</param-value>
+ 	</context-param>
+	<listener>
+    	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  	</listener>
+	<servlet>
+		<description>Gestione Fascicoli Web Service</description>
+		<display-name>Fascicoli WebService</display-name>
+		<servlet-name>fascicoloservice</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>fascicoloservice</servlet-name>
+		<url-pattern>/fascicolo/*</url-pattern>
+	</servlet-mapping>
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+</web-app>

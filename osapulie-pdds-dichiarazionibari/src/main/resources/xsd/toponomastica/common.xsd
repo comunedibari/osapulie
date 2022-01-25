@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by massimiliano (EMBRACE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns="http://www.sinergis.it/xsd/toponomastica" targetNamespace="http://www.sinergis.it/xsd/toponomastica" elementFormDefault="unqualified" jaxb:version="1.0" jaxb:extensionBindingPrefixes="xjc">
+	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:globalBindings>
+				<xjc:simple/>
+			</jaxb:globalBindings>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:element name="arco">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ente_cod"/>
+				<xs:element ref="via_from" minOccurs="0"/>
+				<xs:element ref="via_to" minOccurs="0"/>
+				<xs:element ref="cod_arco"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cap" nillable="true">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:pattern value="[0-9][0-9][0-9][0-9][0-9]"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="cap_prec" nillable="true">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:pattern value="[0-9][0-9][0-9][0-9][0-9]"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="centro_storico" type="xs:boolean"/>
+	<xs:element name="circoscrizione" type="xs:string" nillable="true"/>
+	<xs:element name="circoscrizione_prec" type="xs:string" nillable="true"/>
+	<xs:element name="civici_edificio_per_via">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="via"/>
+				<xs:element ref="civico" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="civico">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="cap"/>
+				<xs:element ref="centro_storico" minOccurs="0"/>
+				<xs:element ref="circoscrizione"/>
+				<xs:element ref="civico_arco" minOccurs="0"/>
+				<xs:element ref="civico_codice_cessazione" minOccurs="0"/>
+				<xs:element ref="civico_codice_istituzione" minOccurs="0"/>
+				<xs:element ref="civico_descrizione_cessazione" minOccurs="0"/>
+				<xs:element ref="civico_descrizione_istituzione" minOccurs="0"/>
+				<xs:element ref="civico_prec" minOccurs="0"/>
+				<xs:element ref="cod_civico"/>
+				<xs:element ref="coordinate" minOccurs="0"/>
+				<xs:element ref="data_fine" minOccurs="0"/>
+				<xs:element ref="data_ini" minOccurs="0"/>
+				<xs:element ref="localita-frazione"/>
+				<xs:element ref="numero_civico"/>
+				<xs:element ref="principale" minOccurs="0"/>
+				<xs:element ref="provvisorio" minOccurs="0"/>
+				<xs:element ref="servito_rsu" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="civico_arco" type="xs:string" nillable="true"/>
+	<xs:element name="civico_codice_cessazione" type="xs:string" nillable="true"/>
+	<xs:element name="civico_codice_istituzione" type="xs:string" nillable="true"/>
+	<xs:element name="civico_descrizione_cessazione" type="xs:string" nillable="true"/>
+	<xs:element name="civico_descrizione_istituzione" type="xs:string" nillable="true"/>
+	<xs:element name="civico_esp" type="xs:string" nillable="true"/>
+	<xs:element name="civico_esp_prec" type="xs:string" nillable="true"/>
+	<xs:element name="civico_num" type="xs:unsignedInt"/>
+	<xs:element name="civico_num_prec" type="xs:unsignedInt"/>
+	<xs:element name="civico_prec">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="numero_civico_prec"/>
+				<xs:element ref="circoscrizione_prec"/>
+				<xs:element ref="localita-frazione_prec"/>
+				<xs:element ref="cap_prec"/>
+				<xs:element ref="cod_civico_precedente"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cod_arco" type="xs:string"/>
+	<xs:element name="cod_civico" type="xs:string"/>
+	<xs:element name="cod_civico_precedente" type="xs:string"/>
+	<xs:element name="coordinate">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="x"/>
+				<xs:element ref="y"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="data" type="dataType"/>
+	<xs:element name="data_fine" type="dataType"/>
+	<xs:element name="data_ini" type="dataType"/>
+	<xs:element name="data_outputAbstract" type="data_outputAbstractType" abstract="true"/>
+	<xs:complexType name="data_outputAbstractType" abstract="true"/>
+	<xs:complexType name="dataType">
+		<xs:attribute name="gg" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="mm" type="xs:anySimpleType" use="required"/>
+		<xs:attribute name="aaaa" type="xs:anySimpleType" use="required"/>
+	</xs:complexType>
+	<xs:element name="elenco_indirizzi">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="indirizzo" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="elenco_vie">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="via" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ente_cod" type="xs:string"/>
+	<xs:element name="err_code" type="xs:string"/>
+	<xs:element name="header" type="headerType"/>
+	<xs:complexType name="headerType">
+		<xs:sequence>
+			<xs:element ref="response_from" minOccurs="0"/>
+			<xs:element ref="is_error"/>
+			<xs:element ref="message" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indica, se possibile, un breve messaggio di descrizione dell'errore occorso</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="err_code" minOccurs="0"/>
+			<xs:element ref="rows_found">
+				<xs:annotation>
+					<xs:documentation>Indica il numero di occorrenze trovate</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="rows_ret">
+				<xs:annotation>
+					<xs:documentation>Indica il numero di occorrenze inserite nella risposta</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="id_edificio" type="xs:string"/>
+	<xs:element name="indirizzo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="via"/>
+				<xs:element ref="civico"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="indirizzo_ricercato">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ente_cod"/>
+				<xs:element ref="via_denom_cod">
+					<xs:annotation>
+						<xs:documentation>Codice via o denominazione della via (anche parziale). Nel caso si stia eseguendo una ricerca per codice l'attributo 'Tipo' dell'elemento padre indirizzo_ricercato deve avere valore 'c'. Per le ricerche per denominazione l'attributo deve assumere invece valore 'n'</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="via_tipo" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Indica il DUG della via: (Strada, Via, Vicolo, Calla, Piazza etc...)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="numero_civico" minOccurs="0"/>
+				<xs:element ref="data" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="tipo">
+				<xs:annotation>
+					<xs:documentation>'c' per ricerche per codice via, 'n' per ricerche basate sul nome della via</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="c"/>
+						<xs:enumeration value="n"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="lato">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="stesso"/>
+						<xs:enumeration value="opposto"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="is_error">
+		<xs:complexType>
+			<xs:attribute name="value" type="xs:boolean" default="false"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="localita-frazione" type="xs:string" nillable="true"/>
+	<xs:element name="localita-frazione_prec" type="xs:string" nillable="true"/>
+	<xs:element name="max_rows_ret" type="xs:unsignedInt">
+		<xs:annotation>
+			<xs:documentation>Numero massmo di occorrenze che si desiderano nella risposta. Viene preso in considerazione  solo in quei servizi che prevedono risposte con occorrenze multiple</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="message" type="xs:string"/>
+	<xs:element name="numero_civico">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="civico_num"/>
+				<xs:element ref="civico_esp" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="numero_civico_prec" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="civico_num_prec"/>
+				<xs:element ref="civico_esp_prec" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="principale" type="xs:boolean"/>
+	<xs:element name="provvisorio" type="xs:boolean" nillable="true"/>
+	<xs:element name="request" type="requestType"/>
+	<xs:element name="request_from" type="xs:string"/>
+	<xs:complexType name="requestType">
+		<xs:annotation>
+			<xs:documentation>Dati generici di richiesta Si tratta di un elemento che sarà implementato dallo specifico elemento concreto di richiesta relativo al servizio desiderato.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="request_from" minOccurs="0"/>
+			<xs:element ref="service_paramsAbstract"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="response" type="responseType"/>
+	<xs:element name="response_from" type="xs:string"/>
+	<xs:complexType name="responseType">
+		<xs:annotation>
+			<xs:documentation>Dati generici di risposta Si tratta di un elemento che sarà implemenato dallo specifico elemento concreto di risposta relativo al servizio desiderato.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="header"/>
+			<xs:element ref="data_outputAbstract" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="rows_found" type="xs:unsignedInt"/>
+	<xs:element name="rows_ret" type="xs:unsignedInt"/>
+	<xs:element name="service_paramsAbstract" type="service_paramsAbstractType" abstract="true"/>
+	<xs:complexType name="service_paramsAbstractType" abstract="true"/>
+	<xs:element name="servito_rsu" type="xs:boolean" nillable="true"/>
+	<xs:element name="via">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="data_fine" minOccurs="0"/>
+				<xs:element ref="data_ini" minOccurs="0"/>
+				<xs:element ref="ente_cod"/>
+				<xs:element ref="via_cod"/>
+				<xs:element ref="via_denom"/>
+				<xs:element ref="via_denom_ext" minOccurs="0"/>
+				<xs:element ref="via_denom_pura" minOccurs="0"/>
+				<xs:element ref="via_prec" minOccurs="0"/>
+				<xs:element ref="via_tipo" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="via_cod" type="xs:string"/>
+	<xs:element name="via_cod_prec" type="xs:string" nillable="true"/>
+	<xs:element name="via_denom" type="xs:string"/>
+	<xs:element name="via_denom_cod" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Codice via o denominazione della via (anche parziale). Nel caso si stia eseguendo una ricerca per codice l'attributo 'Tipo' dell'elemento padre indirizzo_ricercato deve avere valore 'c'. Per le ricerche per nome l'attributo deve assumere invece valore 'n'</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="via_denom_ext" type="xs:string" nillable="true"/>
+	<xs:element name="via_denom_ext_prec" type="xs:string" nillable="true"/>
+	<xs:element name="via_denom_prec" type="xs:string" nillable="true"/>
+	<xs:element name="via_denom_pura" type="xs:string" nillable="true"/>
+	<xs:element name="via_denom_pura_prec" type="xs:string" nillable="true"/>
+	<xs:element name="via_from" type="xs:string"/>
+	<xs:element name="via_prec">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="via_cod_prec" minOccurs="0"/>
+				<xs:element ref="via_denom_prec"/>
+				<xs:element ref="via_denom_ext_prec" minOccurs="0"/>
+				<xs:element ref="via_denom_pura_prec" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="via_tipo" type="xs:string" nillable="true"/>
+	<xs:element name="via_to" type="xs:string"/>
+	<xs:element name="x" type="xs:string"/>
+	<xs:element name="y" type="xs:string"/>
+	<!--xs:element name="response">
+		<xs:annotation>
+			<xs:documentation>Dati generici di risposta Si tratta di un elemento astratto che sarà sostituito dallo specifico elemento concreto di risposta relativo al servizio desiderato.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="header"/>
+				<xs:element ref="data_output" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+</xs:schema>

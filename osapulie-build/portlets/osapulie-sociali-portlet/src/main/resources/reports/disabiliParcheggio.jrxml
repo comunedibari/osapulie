@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="disabiliParcheggio" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.6105100000000017"/>
+	<property name="ireport.x" value="63"/>
+	<property name="ireport.y" value="1886"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#C0C0C0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Fede\\Desktop\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="cf" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="cognome" class="java.lang.String"/>
+	<field name="dataNascita" class="java.lang.String"/>
+	<field name="comuneNascita" class="java.lang.String"/>
+	<field name="provinciaNascita" class="java.lang.String"/>
+	<field name="cittadinanza" class="java.lang.String"/>
+	<field name="stato" class="java.lang.String"/>
+	<field name="capResidenza" class="java.lang.String"/>
+	<field name="civicoResidenza" class="java.lang.String"/>
+	<field name="provinciaResidenza" class="java.lang.String"/>
+	<field name="indirizzoResidenza" class="java.lang.String"/>
+	<field name="comuneResidenza" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="fax" class="java.lang.String"/>
+	<field name="ruolo" class="java.lang.String"/>
+	<field name="disNome" class="java.lang.String"/>
+	<field name="disCognome" class="java.lang.String"/>
+	<field name="disDataNascita" class="java.lang.String"/>
+	<field name="disComuneRes" class="java.lang.String"/>
+	<field name="disProvinciaRes" class="java.lang.String"/>
+	<field name="disComuneNasc" class="java.lang.String"/>
+	<field name="disProvinciaNasc" class="java.lang.String"/>
+	<field name="disIndirizzoRes" class="java.lang.String"/>
+	<field name="disNumCivico" class="java.lang.String"/>
+	<field name="disTelefono" class="java.lang.String"/>
+	<field name="disEmail" class="java.lang.String"/>
+	<field name="disFax" class="java.lang.String"/>
+	<field name="richiesta" class="java.lang.String"/>
+	<field name="numeroPass" class="java.lang.String"/>
+	<field name="scadenzaPass" class="java.lang.String"/>
+	<field name="delNome" class="java.lang.String"/>
+	<field name="delCognome" class="java.lang.String"/>
+	<field name="delDataNascita" class="java.lang.String"/>
+	<field name="delComuneRes" class="java.lang.String"/>
+	<field name="delProvinciaRes" class="java.lang.String"/>
+	<field name="delComuneNasc" class="java.lang.String"/>
+	<field name="delProvinciaNasc" class="java.lang.String"/>
+	<field name="delIndirizzoRes" class="java.lang.String"/>
+	<field name="delNumCivico" class="java.lang.String"/>
+	<field name="delTelefono" class="java.lang.String"/>
+	<field name="trattDatiPersonali" class="java.lang.Boolean"/>
+	<field name="disCittadinanza" class="java.lang.String"/>
+	<field name="disStato" class="java.lang.String"/>
+	<field name="disCapRes" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="234" splitType="Stretch">
+			<staticText>
+				<reportElement x="31" y="152" width="513" height="49"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOMANDA PER IL RILASCIO O RINNOVO DEL
+“CONTRASSEGNO DI PARCHEGGIO PER DISABILI”
+]]></text>
+			</staticText>
+			<image>
+				<reportElement key="Logo" x="85" y="4" width="60" height="46" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="13" y="50" width="185" height="25"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Comune di "+$P{comune}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="225" y="14" width="223" height="20"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Al Comune di "+$P{comune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="225" y="34" width="223" height="20"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Ufficio Servizi Amministrativi ex T.U.L.P.S]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="19" y="79" width="381" height="57"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="31" y="82" width="164" height="20"/>
+				<text><![CDATA[RISERVATO ALL'UFFICIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="106" width="355" height="20"/>
+				<text><![CDATA[CONTRASSEGNO N. ________________ DEL _________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="201" width="513" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[(art. 188 D.L.g.s. n. 285/92, art. 381 D.P.R. n. 384/1978 modificato dal D.P.R. N. 151/2012)]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="208" splitType="Stretch">
+			<textField>
+				<reportElement x="18" y="83" width="394" height="20"/>
+				<textFieldExpression><![CDATA[($F{cognome}!=null ? $F{cognome} : " ")+" "+($F{nome}!=null ? $F{nome} : " ")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="301" y="0" width="251" height="20">
+					<printWhenExpression><![CDATA[$F{ruolo}.equalsIgnoreCase( "tutore" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RICHIESTA DA PARTE DEL TUTORE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="297" y="0" width="255" height="20">
+					<printWhenExpression><![CDATA[$F{ruolo}.equalsIgnoreCase( "a titolo personale" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RICHIESTA DA PARTE DELL' INTERESSATO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="225" y="63" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DICHIARO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="22" width="534" height="31"/>
+				<text><![CDATA[Sotto la mia personale responsabilità e conscia/o delle sanzioni penali previste dall’art. 76 D.P.R. 445/2000 in caso di
+false dichiarazioni mendaci, ai sensi degli articoli 46 e 47 del D.P.R. 445/2000, io sottoscritto]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="18" y="103" width="176" height="20"/>
+				<textFieldExpression><![CDATA["data di nascita: "+($F{dataNascita}!=null ? $F{dataNascita} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="103" width="223" height="20"/>
+				<textFieldExpression><![CDATA["cittadinanza: "+($F{cittadinanza}!=null ? $F{cittadinanza} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="123" width="430" height="20"/>
+				<textFieldExpression><![CDATA["luogo di nascita: "+($F{comuneNascita}!=null ? $F{comuneNascita} : " ")+" ( "+($F{provinciaNascita}!=null ? $F{provinciaNascita}: " ")+" )"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="143" width="179" height="20"/>
+				<textFieldExpression><![CDATA["stato: "+($F{stato}!=null ? $F{stato} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="183" width="214" height="20">
+					<printWhenExpression><![CDATA[$F{civicoResidenza}!=null]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["n. "+($F{civicoResidenza}!=null ? $F{civicoResidenza} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="183" width="214" height="20"/>
+				<textFieldExpression><![CDATA["indirizzo: "+($F{indirizzoResidenza}!=null ? $F{indirizzoResidenza} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="163" width="307" height="20"/>
+				<textFieldExpression><![CDATA["residenza: "+($F{comuneResidenza}!=null ? $F{comuneResidenza} : " ")+" ( "+($F{provinciaResidenza}!=null ? $F{provinciaResidenza}: " ")+" )"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="163" width="179" height="20"/>
+				<textFieldExpression><![CDATA["CAP: "+($F{capResidenza}!=null ? $F{capResidenza} : " ")]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="150">
+			<printWhenExpression><![CDATA[!$F{ruolo}.equalsIgnoreCase("a titolo personale")]]></printWhenExpression>
+			<textField>
+				<reportElement x="273" y="67" width="179" height="20"/>
+				<textFieldExpression><![CDATA["Provincia  "+($F{disProvinciaNasc}!=null ? $F{disProvinciaNasc} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="67" width="255" height="20"/>
+				<textFieldExpression><![CDATA["luogo di nascita: Comune  "+($F{disComuneNasc}!=null ? $F{disComuneNasc} :" ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="27" width="394" height="20"/>
+				<textFieldExpression><![CDATA[($F{disCognome}!=null ? $F{disCognome} : " ")+" "+($F{disNome}!=null ? $F{disNome} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="47" width="223" height="20"/>
+				<textFieldExpression><![CDATA["cittadinanza: "+($F{disCittadinanza}!=null ? $F{disCittadinanza} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="47" width="176" height="20"/>
+				<textFieldExpression><![CDATA["data di nascita: "+($F{disDataNascita}!=null ? $F{disDataNascita} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="87" width="179" height="20"/>
+				<textFieldExpression><![CDATA["stato  "+($F{disStato}!=null ? $F{disStato} : " ")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="1" width="494" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[di essere il tutore a norma di legge di:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="238" y="127" width="214" height="20"/>
+				<textFieldExpression><![CDATA["n. "+($F{disNumCivico}!=null ? $F{disNumCivico} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="127" width="214" height="20"/>
+				<textFieldExpression><![CDATA["indirizzo "+($F{disIndirizzoRes}!=null ? $F{disIndirizzoRes} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="107" width="179" height="20"/>
+				<textFieldExpression><![CDATA["Comune "+($F{disComuneRes}!=null ? $F{disComuneRes} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="107" width="179" height="20"/>
+				<textFieldExpression><![CDATA["Provincia  "+($F{disProvinciaRes}!=null ? $F{disProvinciaRes} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="107" width="179" height="20"/>
+				<textFieldExpression><![CDATA["residenza: CAP "+($F{disCapRes}!=null ? $F{disCapRes} : " ")]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="694">
+			<staticText>
+				<reportElement x="206" y="140" width="114" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHIEDE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="0" width="516" height="140"/>
+				<text><![CDATA[essendo affetto da patologie che comportano una capacità di deambulazione impedita o
+sensibilmente ridotta, consapevole che:
+· l’uso del contrassegno è strettamente personale;
+· non può essere in possesso di uguale autorizzazione rilasciata da altri Comuni;
+· il contrassegno deve essere restituito in caso di scadenza, decadenza dei requisiti, trasferimento di
+residenza in altro Comune o decesso del Titolare;
+· per la consegna del permesso richiesto a termini di legge l’Ufficio ha 30 giorni di tempo per emettere
+quanto richiesto, ove consentito; il contrassegno potrà essere ritirato presso l’Ufficio preposto, sito in
+Piazza Chiurlia, 27, 2° piano, nei giorni di lunedi-mercoledi-venerdi, dalle ore 9,00 alle ore 12,00, e nei
+giorni di martedi-giovedi dalle ore 15,30 alle ore 17,30;]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="44" y="186" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<frame>
+				<reportElement x="23" y="173" width="507" height="91"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+					<topPen lineWidth="0.5" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.5" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.5" lineStyle="Dashed"/>
+				</box>
+				<staticText>
+					<reportElement x="44" y="7" width="100" height="20"/>
+					<textElement>
+						<font isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[PRIMO RILASCIO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="44" y="30" width="427" height="60"/>
+					<text><![CDATA[(Allegare Originale o Copia Conforme dell’attestazione rilasciata dalla Commissione Medica di prima Istanza della A.S.L. per
+l’Accertamento dello Stato di Invalidità Civile oppure l’appartenenza alla categoria dei non
+vedenti, ai sensi dell’art. 12 c. 3 del D.P.R. N. 503/96)]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="23" y="282" width="507" height="106"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+					<topPen lineWidth="0.5" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.5" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.5" lineStyle="Dashed"/>
+				</box>
+				<ellipse>
+					<reportElement x="23" y="13" width="9" height="9"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</ellipse>
+				<ellipse>
+					<reportElement x="25" y="15" width="5" height="5" backcolor="#000000">
+						<printWhenExpression><![CDATA[$F{richiesta}.equalsIgnoreCase( "Rinnovo" )]]></printWhenExpression>
+					</reportElement>
+				</ellipse>
+				<textField>
+					<reportElement x="164" y="9" width="100" height="20">
+						<printWhenExpression><![CDATA[$F{richiesta}.equalsIgnoreCase( "Rinnovo" )]]></printWhenExpression>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{numeroPass}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="45" y="9" width="126" height="20"/>
+					<textElement>
+						<font isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[RINNOVO DEL PASS N.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="264" y="9" width="86" height="20"/>
+					<textElement>
+						<font isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[con scadenza il ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="350" y="9" width="100" height="20">
+						<printWhenExpression><![CDATA[$F{richiesta}.equalsIgnoreCase( "Rinnovo" )]]></printWhenExpression>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{scadenzaPass}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="23" y="405" width="507" height="133"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+					<topPen lineWidth="0.5" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.5" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.5" lineStyle="Dashed"/>
+				</box>
+				<staticText>
+					<reportElement x="45" y="13" width="431" height="20"/>
+					<textElement>
+						<font isBold="true" isItalic="false" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[CONTRASSEGNO TEMPORANEO (di durata inferiore ai cinque anni)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="45" y="38" width="431" height="83"/>
+					<text><![CDATA[(Allegare Originale o Copia Conforme dell’attestazione rilasciata dalla Commissione
+Medica di prima Istanza della A.S.L. per l’Accertamento dello Stato di Invalidità Civile.
+N.B. Alla scadenza di un contrassegno temporaneo, l’eventuale rinnovo dovrà essere richiesto
+presentando nuova documentazione medica rilasciata dalla Commissione Medica sopra
+indicata)]]></text>
+				</staticText>
+				<ellipse>
+					<reportElement x="24" y="21" width="9" height="9"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</ellipse>
+				<ellipse>
+					<reportElement x="26" y="23" width="5" height="5" backcolor="#000000">
+						<printWhenExpression><![CDATA[$F{richiesta}.equalsIgnoreCase( "contrassegno" )]]></printWhenExpression>
+					</reportElement>
+				</ellipse>
+			</frame>
+			<staticText>
+				<reportElement x="67" y="315" width="427" height="60"/>
+				<text><![CDATA[(Allegare certificato del medico curante che “ confermi il persistere delle condizioni
+sanitarie che hanno dato luogo al rilascio del contrassegno in scadenza”, fotocopia del
+PASS scaduto, da restituire al ritiro del PASS rinnovato)]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="23" y="549" width="511" height="65"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+					<topPen lineWidth="0.5" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.5" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.5" lineStyle="Dashed"/>
+				</box>
+				<staticText>
+					<reportElement x="45" y="38" width="431" height="20"/>
+					<text><![CDATA[(Allegare fotocopia del PASS deteriorato o illeggibile, da restituire al ritiro del duplicato)]]></text>
+				</staticText>
+				<ellipse>
+					<reportElement x="20" y="19" width="9" height="9"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</ellipse>
+				<ellipse>
+					<reportElement x="22" y="21" width="5" height="5" backcolor="#000000">
+						<printWhenExpression><![CDATA[$F{richiesta}.equalsIgnoreCase( "duplicato" )]]></printWhenExpression>
+					</reportElement>
+				</ellipse>
+			</frame>
+			<textField>
+				<reportElement x="191" y="562" width="100" height="20">
+					<printWhenExpression><![CDATA[$F{richiesta}.equalsIgnoreCase( "duplicato" )]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{numeroPass}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="377" y="562" width="100" height="20">
+					<printWhenExpression><![CDATA[$F{richiesta}.equalsIgnoreCase( "duplicato" )]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{richiesta}.equalsIgnoreCase( "duplicato" )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="72" y="562" width="126" height="20"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DUPLICATO DEL PASS N.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="291" y="562" width="86" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[con scadenza il ]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="23" y="628" width="511" height="65"/>
+				<box>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+					<topPen lineWidth="0.5" lineStyle="Dashed"/>
+					<leftPen lineWidth="0.5" lineStyle="Dashed"/>
+					<bottomPen lineWidth="0.5" lineStyle="Dashed"/>
+					<rightPen lineWidth="0.5" lineStyle="Dashed"/>
+				</box>
+				<staticText>
+					<reportElement x="45" y="38" width="431" height="20"/>
+					<text><![CDATA[(Allegare denuncia alle forze di Polizia)]]></text>
+				</staticText>
+				<ellipse>
+					<reportElement x="20" y="19" width="9" height="9"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</ellipse>
+				<ellipse>
+					<reportElement x="22" y="21" width="5" height="5" backcolor="#000000">
+						<printWhenExpression><![CDATA[$F{richiesta}.equalsIgnoreCase( "duplicato per furto" )]]></printWhenExpression>
+					</reportElement>
+				</ellipse>
+			</frame>
+			<staticText>
+				<reportElement x="72" y="639" width="126" height="20"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DUPLICATO DEL PASS N.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="639" width="201" height="20"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[causa SMARRIMENTO O FURTO.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="193" y="639" width="100" height="20">
+					<printWhenExpression><![CDATA[$F{richiesta}.equalsIgnoreCase( "duplicato per furto" )]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{numeroPass}]]></textFieldExpression>
+			</textField>
+			<elementGroup>
+				<ellipse>
+					<reportElement x="46" y="188" width="5" height="5" backcolor="#000000">
+						<printWhenExpression><![CDATA[$F{richiesta}.equalsIgnoreCase( "primo rilascio" )]]></printWhenExpression>
+					</reportElement>
+				</ellipse>
+			</elementGroup>
+		</band>
+		<band height="360">
+			<staticText>
+				<reportElement x="220" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[E DELEGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="186" width="32" height="20">
+					<printWhenExpression><![CDATA[$F{trattDatiPersonali}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="27" y="31" width="507" height="20"/>
+				<textFieldExpression><![CDATA["Il sig./sig.ra "+($F{delCognome}!=null ? $F{delCognome} : " ")+" "+($F{delNome}!=null ? $F{delNome} : " ")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="71" width="507" height="20"/>
+				<textFieldExpression><![CDATA["e residente in "+($F{delComuneRes}!=null ? $F{delComuneRes} : " ")+" -Prov("+($F{delProvinciaRes}!=null ? $F{delProvinciaRes} : " ")+")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="91" width="507" height="20"/>
+				<textFieldExpression><![CDATA["Indirizzo: "+($F{delIndirizzoRes}!=null ? $F{delIndirizzoRes} : " ")+"         Tel."+($F{delTelefono}!=null ? $F{delTelefono} : " ")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="27" y="141" width="507" height="39"/>
+				<text><![CDATA[Il sottoscritto autorizza l’Amministrazione al trattamento dei propri dati personali, anche sensibili, da parte
+dell’Ufficio, nei limiti e con le modalità stabilite dall’art. 13 del D.Lgs. n. 196 del 30.06.2003.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="279" width="507" height="63"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Oltre, alla documentazione prevista per il tipo di richiesta, occorre allegare:
+- n. 2 (due) fototessera (dimensioni LxH 3,5x4 cm) recenti e uguali del
+richiedente;
+- copia di un documento di identità valido del richiedente e dell’eventuale
+delegato;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="186" width="32" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[SI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="291" y="186" width="32" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="216" width="218" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Il sottoscritto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="291" y="186" width="32" height="20">
+					<printWhenExpression><![CDATA[!$F{trattDatiPersonali}]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<line>
+				<reportElement x="171" y="265" width="215" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="27" y="51" width="507" height="20"/>
+				<textFieldExpression><![CDATA["nato il "+($F{delDataNascita}!=null ? $F{delDataNascita} : " ")+" a "+($F{delComuneNasc}!=null ? $F{delComuneNasc} : " ")+" Prov.("+($F{delProvinciaNasc}!=null ? $F{delProvinciaNasc} : " ")+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="27" y="111" width="507" height="20"/>
+				<text><![CDATA[a presentare la richiesta e a ritirare per mio conto il relativo contrassegno.]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

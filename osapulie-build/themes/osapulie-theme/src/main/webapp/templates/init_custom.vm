@@ -1,0 +1,47 @@
+##### verifico se la pagina corrente è homepage #####
+#if ( $validator.isNotNull($nav_items) && $nav_items.size() > 0 )
+	## per convenzione la home page e' il primo figlio del primo nodo della community
+	#if ( $nav_items.get(0).isSelected() && !$nav_items.get(0).isChildSelected() )
+		#set( $isHomePage = "true")
+		#set ($css_class = $css_class + " is-home")
+	#else
+		#set( $isHomePage = "false")
+		#set ($css_class = $css_class + " is-not-home")
+	#end
+#end
+
+##### STAMPA NOME E COGNOME #####
+#set( $nomeCognomeTitle = "$user_first_name $user_middle_name $user_last_name" )
+#set( $nomeCognome = "$user_first_name $user_last_name" )
+#set( $nomeCognome = $!nomeCognome.toLowerCase() )
+#set( $nomeCognomeDotted = "$nomeCognome" )
+#if ( $nomeCognomeDotted.length() > 40 )
+	#set( $nomeCognomeDotted = $!nomeCognomeDotted.substring(0, 40) + " .." )
+#end
+
+##### VARIABILI ######
+#if ( $is_female )
+	#set( $benvenuto = $languageUtil.get($locale, "welcome-f") )
+#else
+	#set( $benvenuto = $languageUtil.get($locale, "welcome") )
+#end
+
+##### REPERISCO RUOLI UTENTE #####
+#set ($AdministratorCommunityRole = 'Administrator')
+#set ($userHasAdministratorRole = 'false')
+#set ($communityRolesforUser = $themeDisplay.getUser().getRoles()) 
+
+#foreach ($communityRoleforUser in $communityRolesforUser)
+	#if ($communityRoleforUser.getName() == $AdministratorCommunityRole)
+		#set ($userHasAdministratorRole = 'true')
+	#end
+#end
+
+#set ($accedi = $languageUtil.get($locale, "accedi"))
+#set ($registrazione = $languageUtil.get($locale, "create-account"))
+
+#set ($create_account_url = $portletURLFactory.create($request, "58", $page.getPlid(), "ACTION_PHASE"))
+$create_account_url.setWindowState("maximized")
+$create_account_url.setPortletMode("view")
+$create_account_url.setParameter("saveLastPath", "0")
+$create_account_url.setParameter("struts_action", "/login/create_account")

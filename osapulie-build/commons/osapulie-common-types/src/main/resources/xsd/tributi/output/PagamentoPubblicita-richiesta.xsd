@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://types.output.tributi.osapulie.it" targetNamespace="http://types.output.tributi.osapulie.it" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:include schemaLocation="ContribuenteType.xsd" />
+	<xs:element name="pagamentiPubblicitaRichiesta">
+		<xs:annotation>
+			<xs:documentation>Dati di richiesta al comune relativi al servizio S026 - Pagamento Cosap</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:IdContribuente">
+					<xs:attribute name="dal" type="xs:date" />
+					<xs:attribute name="al" type="xs:date" />
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

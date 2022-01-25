@@ -1,0 +1,25 @@
+<div>
+    <p>Gentile ${cognome} ${nome},</br>	
+    la sua richiesta di delega &egrave; stata <b>${stato}</b>.
+    </p>
+    
+    <p>Dati relativi la delega:</br>
+	<u>Persona Giuridica/Societ&agrave; delegata:</u>
+    <ul>
+    	<li>
+    		Denominazione: <b>${delegatoDescrizione}</b>
+    	</li>
+    	<li>
+    		PIVA: <b>${delegatoPiva}</b> ${delegatoRagioneSociale}
+    	</li>
+    </ul>
+	<p>Servizi abilitati:</br>
+	<ul>
+		${servizi}
+	</ul>
+    </p>
+    
+    <p>Cordiali saluti.</br>	
+    ${firmaComune}
+    </p>
+</div>	

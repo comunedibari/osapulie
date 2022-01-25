@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- contesto ingresso porta delegata -->
+<Contesto>
+  <Parametri>
+    <!-- tipo codifica -->
+    <Parametro nome="TipoCodifica" desc="">DEFAULT</Parametro>
+  </Parametri>
+
+  <Trattamenti>
+    <Trattamento nome="ProtocolloInEntrata" classe="it.puglia.rupar.egov.pdd.trattamenti.ProtocolloEntrata" seq="1" bloccante="NO" sts="OFF" desc="Protocollo informatico">
+      <Parametri>
+        <Parametro nome="CodiceAmministrazione" desc="Codice Amministrazione" >PortaleOSApulie</Parametro>
+        <Parametro nome="CodicePorta" desc="Codice Porta di Dominio" >PortaleOSApulieSPCoopIT</Parametro>
+         <Parametro nome="logClass" desc="Generazione Log del Protocollo" > it.puglia.rupar.egov.pdd.trattamenti.ImplementInterfacciaLog</Parametro>
+         <Parametro nome="idClass" desc="Generazione Tempo e Numero" > it.puglia.rupar.egov.pdd.trattamenti.ImplementInterfacciaId</Parametro>
+      </Parametri>
+    </Trattamento>
+
+    <Trattamento nome="Archiviazione" classe="it.puglia.rupar.egov.pdd.trattamenti.ArchiviaFS" seq="2" bloccante="NO" sts="OFF" desc="Archiviazione documento PKCS7 su FS">
+      <Parametri>
+         <Parametro nome="TipoAllegati" desc="Tipologia di Allegati" >p7m</Parametro>
+      </Parametri>
+    </Trattamento>
+
+    <Trattamento nome="Verifica" classe="it.puglia.rupar.egov.pdd.trattamenti.Verifica" seq="3" bloccante="NO" sts="OFF" desc="Verifica Allegato">
+      <Parametri>
+         <Parametro nome="FilePortachiavi" desc="File Portachiavi" >pdds.keystore</Parametro>
+         <Parametro nome="PasswordPortachiavi" desc="Password portachiavi" >massimo</Parametro>
+         <!-- <Parametro nome="FileCRL" desc="File Certificate Revocation List">demo.crl</Parametro> -->
+      </Parametri>
+    </Trattamento>
+  </Trattamenti>
+</Contesto>

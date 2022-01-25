@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-752-. --><xs:schema xmlns:tns="http://sip.send.core.iris.eng.it" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://sip.send.core.iris.eng.it">
+
+<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="http://www.w3.org/2005/05/xmlmime" />
+<xs:element name="sendSip" type="tns:sendSip" />
+
+<xs:element name="sendSipResponse" type="tns:sendSipResponse" />
+
+<xs:element name="sipSendRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="idSip" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="sipSendResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="serviceReturn" type="tns:wsGenericServiceOutput" />
+<xs:element name="sipFile" type="tns:attachment" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:complexType name="sendSip">
+<xs:sequence>
+<xs:element name="sipSend" form="qualified" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="idSip" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendSipResponse">
+<xs:sequence>
+<xs:element ref="tns:sipSendResponse" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="wsGenericServiceOutput">
+<xs:sequence>
+<xs:element name="codEsito" type="xs:int" />
+<xs:element name="desEsito" type="xs:string" minOccurs="0" />
+<xs:element name="errCode" type="xs:int" />
+<xs:element name="errContext" type="xs:string" minOccurs="0" />
+<xs:element name="errMessage" type="xs:string" minOccurs="0" />
+<xs:element name="warnMessage" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="attachment">
+<xs:sequence>
+<xs:element name="dh" xmime:expectedContentTypes="application/octet-stream" type="xs:base64Binary" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

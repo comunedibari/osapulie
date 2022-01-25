@@ -1,0 +1,1 @@
+mysqldump -u root -p -B conservazione_sip > PATH_EXPORT/conservazione_sip.sql

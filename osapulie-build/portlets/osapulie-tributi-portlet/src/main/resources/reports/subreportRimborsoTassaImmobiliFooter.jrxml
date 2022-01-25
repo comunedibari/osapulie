@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rimborsoFooterTassaImmobili" pageWidth="570" pageHeight="842" columnWidth="565" leftMargin="5" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.331000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="comune" class="java.lang.String"/>
+	<field name="motivo" class="java.lang.String"/>
+	<field name="rimborso" class="java.lang.Double"/>
+	<field name="mandato" class="java.lang.Boolean"/>
+	<field name="accredito" class="java.lang.Boolean"/>
+	<field name="assegno" class="java.lang.Boolean"/>
+	<field name="banca" class="java.lang.String"/>
+	<field name="filiale" class="java.lang.String"/>
+	<field name="iban" class="java.lang.String"/>
+	<field name="intestatario" class="java.lang.String"/>
+	<field name="modalitaRimborso" class="java.lang.String"/>
+	<field name="impostaCompensazione" class="java.lang.String"/>
+	<field name="anno" class="java.lang.String"/>
+	<field name="annoCompensazione" class="java.lang.String"/>
+	<field name="comuneRiversamento" class="java.lang.String"/>
+	<field name="annoRiversamento" class="java.lang.String"/>
+	<field name="comune" class="java.lang.String"/>
+	<field name="allegatoUno" class="java.lang.String"/>
+	<field name="allegatoDue" class="java.lang.String"/>
+	<field name="allegatoTre" class="java.lang.String"/>
+	<field name="allegatoQuattro" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="160" splitType="Stretch">
+			<rectangle>
+				<reportElement x="7" y="90" width="550" height="50" isPrintInFirstWholeBand="true"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="10" width="550" height="28"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHIEDE]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="193" y="51" width="68" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rimborso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="19" y="50" width="174" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[il rimborso delle seguenti somme]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="70" width="150" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[motivazione:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="15" y="95" width="533" height="43"/>
+				<textElement textAlignment="Justified">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{motivo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="272" y="51" width="58" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[per anno/i]]></text>
+			</staticText>
+			<line>
+				<reportElement x="193" y="70" width="68" height="1"/>
+			</line>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement x="333" y="51" width="68" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anno}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="333" y="70" width="68" height="1"/>
+			</line>
+		</band>
+		<band height="320">
+			<rectangle>
+				<reportElement x="22" y="39" width="17" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="22" y="66" width="17" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="22" y="130" width="17" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="23" y="39" width="16" height="20">
+					<printWhenExpression><![CDATA[$F{modalitaRimborso}.equals("mandato")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="66" width="16" height="20">
+					<printWhenExpression><![CDATA[$F{modalitaRimborso}.equals("accredito")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="130" width="16" height="20">
+					<printWhenExpression><![CDATA[$F{modalitaRimborso}.equals("riversamento")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="42" width="428" height="20"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[PER CASSA PRESSO LO SPORTELLO DI TESORERIA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="304" y="69" width="246" height="20" isPrintInFirstWholeBand="true">
+					<printWhenExpression><![CDATA[$F{modalitaRimborso}.equals("accredito")]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{iban}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="22" y="99" width="17" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="23" y="99" width="16" height="20">
+					<printWhenExpression><![CDATA[$F{modalitaRimborso}.equals("compensazione")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="356" y="99" width="47" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{impostaCompensazione} != null && !$F{impostaCompensazione}.equals("") && $F{modalitaRimborso}.equals("compensazione") ? $F{impostaCompensazione} : "")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="130" width="199" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{comuneRiversamento} != null && !$F{comuneRiversamento}.equals("") ? $F{comuneRiversamento} : "")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="477" y="99" width="73" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{annoCompensazione} != null && !$F{annoCompensazione}.equals("")? $F{annoCompensazione} : "")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="424" y="99" width="53" height="20"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[per anno/i]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="477" y="130" width="73" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{annoRiversamento} != null && !$F{annoRiversamento}.equals("")? $F{annoRiversamento} : "")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="294" width="545" height="26"/>
+				<textElement textAlignment="Justified">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Il sottoscritto esprime il proprio consenso affinché i dati personali forniti con la presenta richiesta possano essere trattati nel rispetto del D. Lgs. N. 196/2003 per gli adempimenti alla stessa connessi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="0" width="150" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[modalità di rimborso:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="49" y="69" width="254" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[ACCREDITO C/C intestato al contribuente IBAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="49" y="99" width="307" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[COMPENSAZIONE con l'imposta (indicare se ICI IMU o TASI)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="49" y="130" width="153" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[RIVERSAMENTO al Comune di]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="179" width="150" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALLEGATI:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="309" y="89" width="237" height="1"/>
+			</line>
+			<line>
+				<reportElement x="202" y="151" width="199" height="1"/>
+			</line>
+			<line>
+				<reportElement x="477" y="151" width="73" height="1"/>
+			</line>
+			<line>
+				<reportElement x="477" y="119" width="71" height="1"/>
+			</line>
+			<line>
+				<reportElement x="356" y="120" width="45" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="424" y="130" width="53" height="20"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[per anno/i]]></text>
+			</staticText>
+			<line>
+				<reportElement x="330" y="266" width="215" height="1"/>
+			</line>
+			<line>
+				<reportElement x="330" y="229" width="215" height="1"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="38" y="245" width="218" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{allegatoDue}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="41" y="265" width="215" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="312" y="209" width="14" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="41" y="228" width="215" height="1"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="330" y="208" width="214" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{allegatoTre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="312" y="246" width="14" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="5" y="288" width="550" height="1"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="333" y="245" width="211" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{allegatoQuattro}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="38" y="209" width="217" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{allegatoUno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="23" y="208" width="14" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="245" width="14" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+		</band>
+		<band height="80" splitType="Prevent">
+			<line>
+				<reportElement x="303" y="53" width="237" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="304" y="17" width="236" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[In fede]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="38" y="22" width="182" height="15"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{comune}!=null ? $P{comune} : "")+", "+new SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

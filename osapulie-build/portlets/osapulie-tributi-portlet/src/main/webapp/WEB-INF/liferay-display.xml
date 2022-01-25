@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Liferay manifest file for portlet categorization.
+	At deployment time, the information from liferay-display.xml is used to register 
+	the portlet with the Liferay portal server. 
+ -->
+<display>
+	<category name="category.osapulie">		
+		<portlet id="dichiarazionetassaimmobili" />	
+		<portlet id="dichiarazionetari" />
+		<portlet id="variazioneimu" />			
+		<portlet id="variazionetasi" />			
+		<portlet id="rimborsotassaimmobili" />		
+		<portlet id="rimborsotassarifiuti" />		
+		<portlet id="rimborsoicp" />	
+		<portlet id="rimborsoaffissioni" />	
+		<portlet id="rimborsoservizicimiteriali" />		
+		<portlet id="rimborsocosaptosap" />		
+		<portlet id="calcolotasi" />	
+		<portlet id="calcoloimu" />	
+		<portlet id="visuratasi" />	
+		<portlet id="visuratassarifiuti" />	
+		<portlet id="visuracatastale" />	
+		<portlet id="cessazionetari" />	
+		<portlet id="visuraprovvedimentirimborsotasi" />	
+		<portlet id="visuraprovvedimentiautotutelaimu" />	
+		<portlet id="visuraavvisibonaritari" />	
+		<portlet id="agevolazionetari" />	
+	</category>
+</display>

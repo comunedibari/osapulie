@@ -1,0 +1,497 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://servizi.osapulie.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://servizi.osapulie.it">
+    <wsdl:documentation/>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://servizi.osapulie.it">
+            <xs:element name="getDefuntiPosizioneVisuraServiziCimiteriali">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idVisura" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="defuntiPosizioneVisuraServiziCimiteriali" type="ns0:defuntiPosizioneVisuraServiziCimiteriali"/>
+            <xs:complexType name="defuntiPosizioneVisuraServiziCimiteriali">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="defuntoPosizioneVisuraServiziCimiteriali" type="ns0:defuntoPosizioneVisuraServiziCimiteriali"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="defuntoPosizioneVisuraServiziCimiteriali">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="nomeDefunto" nillable="true" type="xs:string"/>
+                    <xs:element name="dataNascita" nillable="true" type="xs:date"/>
+                    <xs:element name="dataMorte" nillable="true" type="xs:date"/>
+                    <xs:element name="idPosizione" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getVisureServiziCimiteriali">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                        <xs:element name="annoDa" nillable="true" type="xs:int"/>
+                        <xs:element name="annoA" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="visureServiziCimiteriali" type="ns0:visureServiziCimiteriali"/>
+            <xs:complexType name="visureServiziCimiteriali">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="visuraServiziCimiteriali" type="ns0:visuraServiziCimiteriali"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="visuraServiziCimiteriali">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                    <xs:element name="dataAggiornamento" nillable="true" type="xs:date"/>
+                    <xs:element name="contoCorrente" nillable="true" type="xs:string"/>
+                    <xs:element name="importoDocumento" nillable="true" type="xs:double"/>
+                    <xs:element name="numeroDocumento" nillable="true" type="xs:string"/>
+                    <xs:element name="annoRiferimento" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getRateVisuraServiziCimiteriali">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idVisura" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="rateVisuraServiziCimiteriali" type="ns0:rateVisuraServiziCimiteriali"/>
+            <xs:complexType name="rateVisuraServiziCimiteriali">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="rataVisuraServiziCimiteriali" type="ns0:rataVisuraServiziCimiteriali"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="rataVisuraServiziCimiteriali">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="importoRata" nillable="true" type="xs:double"/>
+                    <xs:element name="scadenzaRata" nillable="true" type="xs:date"/>
+                    <xs:element name="numeroRata" nillable="true" type="xs:integer"/>
+                    <xs:element name="identificativoRata" nillable="true" type="xs:string"/>
+                    <xs:element name="importoPagato" nillable="true" type="xs:double"/>
+                    <xs:element name="dataPagamento" nillable="true" type="xs:date"/>
+                    <xs:element name="idVisura" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getRataVisuraServiziCimiteriali">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="identificativoRata" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPosizioniVisuraServiziCimiteriali">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idVisura" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="posizioniVisuraServiziCimiteriali" type="ns0:posizioniVisuraServiziCimiteriali"/>
+            <xs:complexType name="posizioniVisuraServiziCimiteriali">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="posizioneVisuraServiziCimiteriali" type="ns0:posizioneVisuraServiziCimiteriali"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="posizioneVisuraServiziCimiteriali">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="nomecimitero" nillable="true" type="xs:string"/>
+                    <xs:element name="posizione" nillable="true" type="xs:string"/>
+                    <xs:element name="idVisura" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getLampadeVotivePosizioneVisuraServiziCimiteriali">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idVisura" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="lampadeVotivePosizioneVisuraServiziCimiteriali" type="ns0:lampadeVotivePosizioneVisuraServiziCimiteriali"/>
+            <xs:complexType name="lampadeVotivePosizioneVisuraServiziCimiteriali">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="lampadaVotivaPosizioneVisuraServiziCimiteriali" type="ns0:lampadaVotivaPosizioneVisuraServiziCimiteriali"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="lampadaVotivaPosizioneVisuraServiziCimiteriali">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="mesi" nillable="true" type="xs:integer"/>
+                    <xs:element name="tariffa" nillable="true" type="xs:string"/>
+                    <xs:element name="importoLampada" nillable="true" type="xs:double"/>
+                    <xs:element name="idPosizione" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getVisuraServiziCimiteriali">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+            <xs:element name="DataServiceFault" type="xs:string"/>
+            <xs:element name="REQUEST_STATUS" type="xs:string"/>
+            <xs:element name="DATA_SERVICE_RESPONSE">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getRataVisuraServiziCimiterialiRequest">
+        <wsdl:part name="parameters" element="ns0:getRataVisuraServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:message name="getRataVisuraServiziCimiterialiResponse">
+        <wsdl:part name="parameters" element="ns0:rateVisuraServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:message name="DataServiceFault">
+        <wsdl:part name="parameters" element="ns1:DataServiceFault"/>
+    </wsdl:message>
+    <wsdl:message name="getDefuntiPosizioneVisuraServiziCimiterialiRequest">
+        <wsdl:part name="parameters" element="ns0:getDefuntiPosizioneVisuraServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:message name="getDefuntiPosizioneVisuraServiziCimiterialiResponse">
+        <wsdl:part name="parameters" element="ns0:defuntiPosizioneVisuraServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:message name="getRateVisuraServiziCimiterialiRequest">
+        <wsdl:part name="parameters" element="ns0:getRateVisuraServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:message name="getRateVisuraServiziCimiterialiResponse">
+        <wsdl:part name="parameters" element="ns0:rateVisuraServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:message name="getPosizioniVisuraServiziCimiterialiRequest">
+        <wsdl:part name="parameters" element="ns0:getPosizioniVisuraServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:message name="getPosizioniVisuraServiziCimiterialiResponse">
+        <wsdl:part name="parameters" element="ns0:posizioniVisuraServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:message name="getVisuraServiziCimiterialiRequest">
+        <wsdl:part name="parameters" element="ns0:getVisuraServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:message name="getVisuraServiziCimiterialiResponse">
+        <wsdl:part name="parameters" element="ns0:visureServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:message name="getLampadeVotivePosizioneVisuraServiziCimiterialiRequest">
+        <wsdl:part name="parameters" element="ns0:getLampadeVotivePosizioneVisuraServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:message name="getLampadeVotivePosizioneVisuraServiziCimiterialiResponse">
+        <wsdl:part name="parameters" element="ns0:lampadeVotivePosizioneVisuraServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:message name="getVisureServiziCimiterialiRequest">
+        <wsdl:part name="parameters" element="ns0:getVisureServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:message name="getVisureServiziCimiterialiResponse">
+        <wsdl:part name="parameters" element="ns0:visureServiziCimiteriali"/>
+    </wsdl:message>
+    <wsdl:portType name="visuraServiziCimiterialiServicePortType">
+        <wsdl:operation name="getRataVisuraServiziCimiteriali">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getRataVisuraServiziCimiterialiRequest" wsaw:Action="urn:getRataVisuraServiziCimiteriali"/>
+            <wsdl:output message="ns0:getRataVisuraServiziCimiterialiResponse" wsaw:Action="urn:getRataVisuraServiziCimiterialiResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getRataVisuraServiziCimiterialiDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getDefuntiPosizioneVisuraServiziCimiteriali">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getDefuntiPosizioneVisuraServiziCimiterialiRequest" wsaw:Action="urn:getDefuntiPosizioneVisuraServiziCimiteriali"/>
+            <wsdl:output message="ns0:getDefuntiPosizioneVisuraServiziCimiterialiResponse" wsaw:Action="urn:getDefuntiPosizioneVisuraServiziCimiterialiResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getDefuntiPosizioneVisuraServiziCimiterialiDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getRateVisuraServiziCimiteriali">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getRateVisuraServiziCimiterialiRequest" wsaw:Action="urn:getRateVisuraServiziCimiteriali"/>
+            <wsdl:output message="ns0:getRateVisuraServiziCimiterialiResponse" wsaw:Action="urn:getRateVisuraServiziCimiterialiResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getRateVisuraServiziCimiterialiDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraServiziCimiteriali">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getPosizioniVisuraServiziCimiterialiRequest" wsaw:Action="urn:getPosizioniVisuraServiziCimiteriali"/>
+            <wsdl:output message="ns0:getPosizioniVisuraServiziCimiterialiResponse" wsaw:Action="urn:getPosizioniVisuraServiziCimiterialiResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getPosizioniVisuraServiziCimiterialiDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraServiziCimiteriali">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getVisuraServiziCimiterialiRequest" wsaw:Action="urn:getVisuraServiziCimiteriali"/>
+            <wsdl:output message="ns0:getVisuraServiziCimiterialiResponse" wsaw:Action="urn:getVisuraServiziCimiterialiResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisuraServiziCimiterialiDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getLampadeVotivePosizioneVisuraServiziCimiteriali">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getLampadeVotivePosizioneVisuraServiziCimiterialiRequest" wsaw:Action="urn:getLampadeVotivePosizioneVisuraServiziCimiteriali"/>
+            <wsdl:output message="ns0:getLampadeVotivePosizioneVisuraServiziCimiterialiResponse" wsaw:Action="urn:getLampadeVotivePosizioneVisuraServiziCimiterialiResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getLampadeVotivePosizioneVisuraServiziCimiterialiDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureServiziCimiteriali">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getVisureServiziCimiterialiRequest" wsaw:Action="urn:getVisureServiziCimiteriali"/>
+            <wsdl:output message="ns0:getVisureServiziCimiterialiResponse" wsaw:Action="urn:getVisureServiziCimiterialiResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisureServiziCimiterialiDataServiceFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="visuraServiziCimiterialiServiceSOAP11Binding" type="ns0:visuraServiziCimiterialiServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getRataVisuraServiziCimiteriali">
+            <soap:operation soapAction="urn:getRataVisuraServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getDefuntiPosizioneVisuraServiziCimiteriali">
+            <soap:operation soapAction="urn:getDefuntiPosizioneVisuraServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRateVisuraServiziCimiteriali">
+            <soap:operation soapAction="urn:getRateVisuraServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraServiziCimiteriali">
+            <soap:operation soapAction="urn:getPosizioniVisuraServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraServiziCimiteriali">
+            <soap:operation soapAction="urn:getVisuraServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getLampadeVotivePosizioneVisuraServiziCimiteriali">
+            <soap:operation soapAction="urn:getLampadeVotivePosizioneVisuraServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureServiziCimiteriali">
+            <soap:operation soapAction="urn:getVisureServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraServiziCimiterialiServiceSOAP12Binding" type="ns0:visuraServiziCimiterialiServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getRataVisuraServiziCimiteriali">
+            <soap12:operation soapAction="urn:getRataVisuraServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getDefuntiPosizioneVisuraServiziCimiteriali">
+            <soap12:operation soapAction="urn:getDefuntiPosizioneVisuraServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRateVisuraServiziCimiteriali">
+            <soap12:operation soapAction="urn:getRateVisuraServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraServiziCimiteriali">
+            <soap12:operation soapAction="urn:getPosizioniVisuraServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraServiziCimiteriali">
+            <soap12:operation soapAction="urn:getVisuraServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getLampadeVotivePosizioneVisuraServiziCimiteriali">
+            <soap12:operation soapAction="urn:getLampadeVotivePosizioneVisuraServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureServiziCimiteriali">
+            <soap12:operation soapAction="urn:getVisureServiziCimiteriali" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraServiziCimiterialiServiceHttpBinding" type="ns0:visuraServiziCimiterialiServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getRataVisuraServiziCimiteriali">
+            <http:operation location="getRataVisuraServiziCimiteriali"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDefuntiPosizioneVisuraServiziCimiteriali">
+            <http:operation location="getDefuntiPosizioneVisuraServiziCimiteriali"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRateVisuraServiziCimiteriali">
+            <http:operation location="getRateVisuraServiziCimiteriali"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraServiziCimiteriali">
+            <http:operation location="getPosizioniVisuraServiziCimiteriali"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraServiziCimiteriali">
+            <http:operation location="getVisuraServiziCimiteriali"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLampadeVotivePosizioneVisuraServiziCimiteriali">
+            <http:operation location="getLampadeVotivePosizioneVisuraServiziCimiteriali"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureServiziCimiteriali">
+            <http:operation location="getVisureServiziCimiteriali"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="visuraServiziCimiterialiService">
+        <wsdl:port name="SOAP11Endpoint" binding="ns0:visuraServiziCimiterialiServiceSOAP11Binding">
+            <soap:address location="http://10.0.5.19:9764/services/visuraServiziCimiterialiService.SOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:visuraServiziCimiterialiServiceSOAP11Binding">
+            <soap:address location="https://10.0.5.19:9444/services/visuraServiziCimiterialiService.SecureSOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:visuraServiziCimiterialiServiceSOAP12Binding">
+            <soap12:address location="https://10.0.5.19:9444/services/visuraServiziCimiterialiService.SecureSOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SOAP12Endpoint" binding="ns0:visuraServiziCimiterialiServiceSOAP12Binding">
+            <soap12:address location="http://10.0.5.19:9764/services/visuraServiziCimiterialiService.SOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="HTTPEndpoint" binding="ns0:visuraServiziCimiterialiServiceHttpBinding">
+            <http:address location="http://10.0.5.19:9764/services/visuraServiziCimiterialiService.HTTPEndpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureHTTPEndpoint" binding="ns0:visuraServiziCimiterialiServiceHttpBinding">
+            <http:address location="https://10.0.5.19:9444/services/visuraServiziCimiterialiService.SecureHTTPEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

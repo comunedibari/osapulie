@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://types.output.tributi.osapulie.it" targetNamespace="http://types.output.tributi.osapulie.it" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:include schemaLocation="ContribuenteType.xsd" />
+	<xs:element name="visuraTassaRifiutiRichiesta">
+		<xs:annotation>
+			<xs:documentation>Dati di richiesta al comune relativi al servizio di Visura tassa rifiuti</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:IdContribuente">
+					<xs:attribute name="annoInizio" type="xs:int" />
+					<xs:attribute name="annoFine" type="xs:int" />
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,42 @@
+<data name="visuraPosizioneElettoraleService" serviceNamespace="http://servizi.osapulie.it">
+   <config id="default">
+      <property name="carbon_datasource_name">OSAPULIE_SERVIZI_DS</property>
+   </config>
+   <query id="select_all_visura_posizione_elettorale_by_cf_query" useConfig="default">
+      <sql>SELECT codiceFiscale, cognome, nome, dataNascita, toponimoIndirizzo, descrizioneVia, numeroCivico, piano, scala, interno, esponente, dataVerbaleIscrizione, numVerbaleIscrizione, annoIscrizioneElett, numeroFascicolo, numeroListaGenerale, numeroListaSezionale, descrizioneLista, tipoElettore, numeroSezione, numeroTesseraElettorale, dataRilascioTesseraElett, iscrizioneAlboPresidente, iscrizioneAlboScrutatori, numVerbIscrAlboScrut, dataVerbIscrAlboScrut FROM visura_posizione_elettorale WHERE codiceFiscale = ?</sql>
+      <result element="visurePosizioniElettorali" rowName="visuraPosizioneElettorale">
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="cognome" name="cognome" xsdType="xs:string"/>
+         <element column="nome" name="nome" xsdType="xs:string"/>
+         <element column="dataNascita" name="dataNascita" xsdType="xs:date"/>
+         <element column="toponimoIndirizzo" name="toponimoIndirizzo" xsdType="xs:string"/>
+         <element column="descrizioneVia" name="descrizioneVia" xsdType="xs:string"/>
+         <element column="numeroCivico" name="numeroCivico" xsdType="xs:string"/>
+	 <element column="piano" name="piano" xsdType="xs:string"/>
+	 <element column="scala" name="scala" xsdType="xs:string"/>
+         <element column="interno" name="interno" xsdType="xs:string"/>
+         <element column="esponente" name="esponente" xsdType="xs:string"/>
+         <element column="dataVerbaleIscrizione" name="dataVerbaleIscrizione" xsdType="xs:date"/>
+         <element column="numVerbaleIscrizione" name="numVerbaleIscrizione" xsdType="xs:string"/>
+         <element column="annoIscrizioneElett" name="annoIscrizioneElett" xsdType="xs:integer"/>
+         <element column="numeroFascicolo" name="numeroFascicolo" xsdType="xs:string"/>
+         <element column="numeroListaGenerale" name="numeroListaGenerale" xsdType="xs:string"/>
+         <element column="numeroListaSezionale" name="numeroListaSezionale" xsdType="xs:string"/>
+	 <element column="descrizioneLista" name="descrizioneLista" xsdType="xs:string"/>
+	 <element column="tipoElettore" name="tipoElettore" xsdType="xs:string"/>	
+         <element column="numeroSezione" name="numeroSezione" xsdType="xs:integer"/>
+         <element column="numeroTesseraElettorale" name="numeroTesseraElettorale" xsdType="xs:string"/>
+         <element column="dataRilascioTesseraElett" name="dataRilascioTesseraElett" xsdType="xs:date"/>
+         <element column="iscrizioneAlboPresidente" name="iscrizioneAlboPresidente" xsdType="boolean"/>
+         <element column="iscrizioneAlboScrutatori" name="iscrizioneAlboScrutatori" xsdType="boolean"/>
+         <element column="numVerbIscrAlboScrut" name="numVerbIscrAlboScrut" xsdType="xs:integer"/>
+         <element column="dataVerbIscrAlboScrut" name="dataVerbIscrAlboScrut" xsdType="xs:date"/>
+      </result>
+      <param name="codiceFiscale" ordinal="1" sqlType="STRING"/>
+   </query>
+   <operation name="getVisurePosizioniElettorali">
+      <call-query href="select_all_visura_posizione_elettorale_by_cf_query">
+         <with-param name="codiceFiscale" query-param="codiceFiscale"/>
+      </call-query>
+   </operation>
+</data>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<!--======================================================================= 
+    	Entity validation e custom property editors
+	 =======================================================================-->
+
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
+	<bean
+		class="org.springframework.web.portlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="webBindingInitializer">
+			<bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+				<!-- Definito in web-layer-context.xml -->
+				<property name="validator" ref="validator" />
+				<!-- Definito in web-layer-context.xml -->
+			</bean>
+		</property>
+	</bean>
+
+	<!--======================================================================= 
+    	Exception handlers 
+	 =======================================================================-->
+	
+	<!-- Abstract Default Exception Handler Bean -->
+    <bean id="defaultExceptionHandlerTemplate" class="org.springframework.web.portlet.handler.SimpleMappingExceptionResolver" abstract="true">
+		<property name="defaultErrorView" value="common/defError"/>
+		<property name="exceptionMappings">
+			<props>
+				<prop key="javax.portlet.PortletSecurityException">notAuthorized</prop>
+				<prop key="javax.portlet.UnavailableException">notAvailable</prop>
+			</props>
+		</property>  
+	</bean>
+
+    <bean id="defaultExceptionHandler" parent="defaultExceptionHandlerTemplate"/>
+
+	<!--======================================================================= 
+		Map view IDs to our JSPs.
+		Tutte le portlet condividono lo stesso view resolver.
+	 =======================================================================-->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.InternalResourceView" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+</beans>

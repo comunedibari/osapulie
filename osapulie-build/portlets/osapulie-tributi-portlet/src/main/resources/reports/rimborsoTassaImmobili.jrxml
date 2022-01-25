@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rimborsoTassaImmobili" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="144"/>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="subreportParameter1" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreportParameter2" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreportParameters" class="java.util.List"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="descrizioneTassa" class="java.lang.String"/>
+	<field name="cognome" class="java.lang.String">
+		<fieldDescription><![CDATA[cognome]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="comuneNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneNascita]]></fieldDescription>
+	</field>
+	<field name="dataNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[dataNascita]]></fieldDescription>
+	</field>
+	<field name="provinciaNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[provinciaNascita]]></fieldDescription>
+	</field>
+	<field name="indirizzoResidenza" class="java.lang.String"/>
+	<field name="codiceFiscale" class="java.lang.String"/>
+	<field name="comuneResidenza" class="java.lang.String"/>
+	<field name="provResidenza" class="java.lang.String"/>
+	<field name="sesso" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="capResidenza" class="java.lang.String"/>
+	<field name="cognomeRapp" class="java.lang.String">
+		<fieldDescription><![CDATA[cognomeRapp]]></fieldDescription>
+	</field>
+	<field name="nomeRapp" class="java.lang.String">
+		<fieldDescription><![CDATA[nomeRapp]]></fieldDescription>
+	</field>
+	<field name="comuneNascitaRapp" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneNascitaRapp]]></fieldDescription>
+	</field>
+	<field name="dataNascitaRapp" class="java.lang.String">
+		<fieldDescription><![CDATA[dataNascitaRapp]]></fieldDescription>
+	</field>
+	<field name="provinciaNascitaRapp" class="java.lang.String">
+		<fieldDescription><![CDATA[provinciaNascitaRapp]]></fieldDescription>
+	</field>
+	<field name="indirizzoResidenzaRapp" class="java.lang.String"/>
+	<field name="codiceFiscaleRapp" class="java.lang.String"/>
+	<field name="comuneResidenzaRapp" class="java.lang.String"/>
+	<field name="provResidenzaRapp" class="java.lang.String"/>
+	<field name="sessoRapp" class="java.lang.String"/>
+	<field name="telefonoRapp" class="java.lang.String"/>
+	<field name="capResidenzaRapp" class="java.lang.String"/>
+	<field name="naturaCarica" class="java.lang.String"/>
+	<field name="ragSociale" class="java.lang.String">
+		<fieldDescription><![CDATA[ragSociale]]></fieldDescription>
+	</field>
+	<field name="naturaGiuridica" class="java.lang.String">
+		<fieldDescription><![CDATA[naturaGiuridica]]></fieldDescription>
+	</field>
+	<field name="sedeLegale" class="java.lang.String"/>
+	<field name="comune" class="java.lang.String"/>
+	<field name="provincia" class="java.lang.String"/>
+	<field name="cap" class="java.lang.String"/>
+	<field name="telefonoGiu" class="java.lang.String"/>
+	<field name="codiceFiscaleGiu" class="java.lang.String"/>
+	<field name="pIva" class="java.lang.String"/>
+	<field name="anno" class="java.lang.String"/>
+	<field name="data" class="java.lang.String"/>
+	<field name="indirizzo1" class="java.lang.String"/>
+	<field name="foglio1" class="java.lang.String"/>
+	<field name="num1" class="java.lang.String"/>
+	<field name="quota1" class="java.lang.String"/>
+	<field name="sezione1" class="java.lang.String"/>
+	<field name="dovuto1" class="java.lang.String"/>
+	<field name="versato1" class="java.lang.String"/>
+	<field name="categoria1" class="java.lang.String"/>
+	<field name="indirizzo2" class="java.lang.String"/>
+	<field name="foglio2" class="java.lang.String"/>
+	<field name="num2" class="java.lang.String"/>
+	<field name="quota2" class="java.lang.String"/>
+	<field name="sezione2" class="java.lang.String"/>
+	<field name="categoria2" class="java.lang.String"/>
+	<field name="dovuto2" class="java.lang.String"/>
+	<field name="versato2" class="java.lang.String"/>
+	<field name="indirizzo3" class="java.lang.String"/>
+	<field name="foglio3" class="java.lang.String"/>
+	<field name="num3" class="java.lang.String"/>
+	<field name="quota3" class="java.lang.String"/>
+	<field name="sezione3" class="java.lang.String"/>
+	<field name="categoria3" class="java.lang.String"/>
+	<field name="dovuto3" class="java.lang.String"/>
+	<field name="versato3" class="java.lang.String"/>
+	<field name="indirizzo4" class="java.lang.String"/>
+	<field name="foglio4" class="java.lang.String"/>
+	<field name="num4" class="java.lang.String"/>
+	<field name="quota4" class="java.lang.String"/>
+	<field name="sezione4" class="java.lang.String"/>
+	<field name="categoria4" class="java.lang.String"/>
+	<field name="dovuto4" class="java.lang.String"/>
+	<field name="versato4" class="java.lang.String"/>
+	<field name="indirizzo5" class="java.lang.String"/>
+	<field name="foglio5" class="java.lang.String"/>
+	<field name="num5" class="java.lang.String"/>
+	<field name="quota5" class="java.lang.String"/>
+	<field name="sezione5" class="java.lang.String"/>
+	<field name="categoria5" class="java.lang.String"/>
+	<field name="dovuto5" class="java.lang.String"/>
+	<field name="versato5" class="java.lang.String"/>
+	<field name="motivo" class="java.lang.String"/>
+	<field name="rimborso" class="java.lang.Double"/>
+	<field name="mandato" class="java.lang.Boolean"/>
+	<field name="accredito" class="java.lang.Boolean"/>
+	<field name="assegno" class="java.lang.Boolean"/>
+	<field name="banca" class="java.lang.String"/>
+	<field name="filiale" class="java.lang.String"/>
+	<field name="iban" class="java.lang.String"/>
+	<field name="intestatario" class="java.lang.String"/>
+	<field name="allegatoUno" class="java.lang.String"/>
+	<field name="allegatoDue" class="java.lang.String"/>
+	<field name="allegatoTre" class="java.lang.String"/>
+	<field name="allegatoQuattro" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="260" splitType="Stretch">
+			<staticText>
+				<reportElement x="399" y="0" width="156" height="28"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[UFFICIO TRIBUTI - IMU/TASI/ICI
+DEL COMUNE DI]]></text>
+			</staticText>
+			<line>
+				<reportElement x="417" y="47" width="115" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="420" y="27" width="115" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$P{comune}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="114" width="555" height="23"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["OGGETTO: Richiesta RIMBORSO /COMPENSAZIONE/ RIVERSAMENTO"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement key="Logo" x="234" y="13" width="86" height="69" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="191" y="82" width="148" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Comune di "+$P{comune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="43" y="148" width="428" height="20"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ICI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="43" y="215" width="307" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[TASI]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="16" y="182" width="17" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="16" y="148" width="17" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="16" y="215" width="17" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="17" y="148" width="16" height="20">
+					<printWhenExpression><![CDATA[$P{descrizioneTassa}.equals("ICI")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="43" y="182" width="254" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[IMU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="215" width="16" height="20">
+					<printWhenExpression><![CDATA[$P{descrizioneTassa}.equals("TASI")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="182" width="16" height="20">
+					<printWhenExpression><![CDATA[$P{descrizioneTassa}.equals("IMU")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="220">
+			<textField>
+				<reportElement x="93" y="131" width="120" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codiceFiscaleRapp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="213" y="130" width="39" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[ nato a]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="495" y="152" width="60" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{capResidenzaRapp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="152" y="152" width="247" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comuneResidenzaRapp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="481" y="129" width="74" height="20">
+					<printWhenExpression><![CDATA[!($F{provinciaNascitaRapp}.equals( "" ))]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["("+$F{provinciaNascitaRapp}+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="131" width="85" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Codice Fiscale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="173" width="38" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[ Tel]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="251" y="131" width="230" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comuneNascitaRapp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="110" width="190" height="20"/>
+				<textElement textAlignment="Left">
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeRapp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="179" y="110" width="201" height="20"/>
+				<textElement textAlignment="Center">
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cognomeRapp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="458" y="153" width="39" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[ CAP]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="399" y="152" width="59" height="20">
+					<printWhenExpression><![CDATA[!($F{provResidenzaRapp}.equals( "" ))]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["("+$F{provResidenzaRapp}+")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="172" width="135" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefonoRapp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="33" y="173" width="347" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{indirizzoResidenzaRapp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="152" width="11" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[il]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement x="17" y="152" width="70" height="20">
+					<printWhenExpression><![CDATA[!$F{cognomeRapp}.trim().equals("")]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataNascitaRapp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="172" width="25" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Via]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="87" y="152" width="64" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[e residente a]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="110" width="171" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[e per esso/ legale rappresentante:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="179" y="130" width="376" height="1"/>
+			</line>
+			<line>
+				<reportElement x="97" y="151" width="116" height="1"/>
+			</line>
+			<line>
+				<reportElement x="252" y="150" width="303" height="1"/>
+			</line>
+			<line>
+				<reportElement x="155" y="171" width="306" height="1"/>
+			</line>
+			<line>
+				<reportElement x="497" y="170" width="58" height="1"/>
+			</line>
+			<line>
+				<reportElement x="19" y="171" width="68" height="1"/>
+			</line>
+			<line>
+				<reportElement x="36" y="192" width="344" height="1"/>
+			</line>
+			<line>
+				<reportElement x="420" y="190" width="135" height="1"/>
+			</line>
+			<line>
+				<reportElement x="72" y="110" width="309" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="381" y="90" width="39" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[ Tel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="89" width="68" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[C.F. /P.Iva]]></text>
+			</staticText>
+			<line>
+				<reportElement x="420" y="111" width="135" height="1"/>
+			</line>
+			<textField pattern="">
+				<reportElement x="75" y="89" width="305" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codiceFiscale}.toUpperCase() +""+ $F{codiceFiscaleGiu}+" "+$F{pIva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="89" width="135" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono} +""+ $F{telefonoGiu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="50" width="290" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comuneResidenza} +""+ $F{comune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="50" width="102" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[residente/sede a]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="404" y="50" width="54" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="SansSerif" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["("+$F{provResidenza}+")" +""+ "("+$F{provincia}+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="458" y="50" width="36" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[ CAP]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="495" y="50" width="60" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{capResidenza} +""+ $F{cap}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="69" width="519" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{indirizzoResidenza} +""+ $F{sedeLegale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="9" y="68" width="24" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Via ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="497" y="69" width="58" height="1"/>
+			</line>
+			<line>
+				<reportElement x="110" y="70" width="348" height="1"/>
+			</line>
+			<line>
+				<reportElement x="37" y="88" width="518" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="407" y="30" width="54" height="20">
+					<printWhenExpression><![CDATA[!($F{provinciaNascita}.equals( "" ))]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["("+$F{provinciaNascita}+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="30" width="39" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[nato a]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="47" y="30" width="360" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comuneNascita}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement x="472" y="30" width="83" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataNascita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="461" y="30" width="11" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[il]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="10" width="73" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Il sottoscritto]]></text>
+			</staticText>
+			<line>
+				<reportElement x="51" y="50" width="407" height="1"/>
+			</line>
+			<line>
+				<reportElement x="474" y="49" width="81" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="81" y="10" width="216" height="20"/>
+				<textElement textAlignment="Center">
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cognome} +""+ $F{ragSociale}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="297" y="10" width="258" height="20"/>
+				<textElement>
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome} +""+ $F{naturaGiuridica}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="82" y="30" width="473" height="1"/>
+			</line>
+		</band>
+		<band height="111">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="100" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true"/>
+				<subreportParameter name="comune">
+					<subreportParameterExpression><![CDATA[$P{comune}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subreportParameters})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subreportParameter2}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dichiarazioneICI" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="anno" class="java.lang.String"/>
+	<field name="caratteristicaImmobile" class="java.lang.String"/>
+	<field name="indirizzoUtenzaImmobile.indirizzo" class="java.lang.String"/>
+	<field name="sezione" class="java.lang.String"/>
+	<field name="foglioCatastale" class="java.math.BigInteger"/>
+	<field name="particella" class="java.math.BigInteger"/>
+	<field name="categoriaImmobile" class="java.lang.String"/>
+	<field name="valoreImmobile" class="java.lang.Double"/>
+	<field name="mesiDetrazione" class="java.math.BigInteger"/>
+	<field name="percentualePossesso" class="java.lang.Double"/>
+	<field name="mesiPossesso" class="java.math.BigInteger"/>
+	<field name="importoDetrazioneAbPrincipale" class="java.lang.Double"/>
+	<field name="posseduto3112" class="java.lang.Boolean"/>
+	<field name="riduzione" class="java.lang.Boolean"/>
+	<field name="abitazionePrincipale" class="java.lang.Boolean"/>
+	<field name="subalterno" class="java.lang.String"/>
+	<field name="classe" class="java.lang.String"/>
+	<field name="numProt" class="java.lang.String"/>
+	<field name="anno" class="java.lang.String"/>
+	<field name="immobileStorico" class="java.lang.Boolean"/>
+	<field name="mesiEsclusione" class="java.lang.Integer"/>
+	<field name="diCessione" class="java.lang.Boolean"/>
+	<field name="diAcquisto" class="java.lang.Boolean"/>
+	<field name="agenziaEntrate" class="java.lang.String"/>
+	<field name="estremiTitolo" class="java.lang.String"/>
+	<field name="escluso" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="253" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="2" width="555" height="245"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="43" y="6" width="72" height="16"/>
+				<text><![CDATA[Caratteristiche]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="130" y="7" width="230" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[INDIRIZZO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="105" width="46" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[% possesso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="105" width="70" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[mesi possesso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="105" width="146" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Mesi esclusione, esenzione o ruralità]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="40" width="161" height="14"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Dati catastali identificativi dell'immobile]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="42" y="53" width="505" height="42"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="48" y="58" width="44" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[sezione]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="58" width="77" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[categoria/qualità]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="58" width="34" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[classe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="446" y="58" width="51" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[n.°protocollo]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="48" y="72" width="44" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="243" y="72" width="159" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="407" y="72" width="34" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="446" y="72" width="63" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="2" width="31" height="245"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="10" width="31" height="27"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[N. ordine]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="141" width="88" height="22"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[detrazione per abitazione principale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="208" width="46" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[di acquisto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="141" width="113" height="14"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Situazione al 31 dicembre]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="302" y="154" width="195" height="48"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="452" y="158" width="40" height="21"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[abitazione principale]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="430" y="141" width="41" height="14"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{anno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="115" y="208" width="51" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[di cessione]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="353" y="158" width="57" height="21"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[escluso, esente o rurale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="208" width="197" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[AGENZIA DELLE ENTRATE DI]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="422" y="182" width="17" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="371" y="182" width="17" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="410" y="208" width="137" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[ESTREMI TITOLO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="320" y="182" width="17" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="464" y="182" width="17" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="306" y="165" width="44" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[posseduto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="97" y="58" width="44" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[foglio]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="97" y="72" width="43" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="145" y="58" width="44" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[particella]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="145" y="72" width="44" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="194" y="58" width="44" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[subalterno]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="194" y="72" width="44" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="514" y="72" width="29" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="514" y="58" width="29" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[anno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="105" width="79" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Immobile storico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="105" width="46" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Valore]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="141" width="110" height="22"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Mesi riduzione(inagibilità o conduzione agricola diretta)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="414" y="165" width="34" height="13"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[riduzione]]></text>
+			</staticText>
+			<line>
+				<reportElement x="182" y="241" width="201" height="1"/>
+			</line>
+			<line>
+				<reportElement x="410" y="242" width="137" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="43" y="21" width="72" height="18"/>
+				<textFieldExpression><![CDATA[$F{caratteristicaImmobile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="21" width="417" height="18"/>
+				<textFieldExpression><![CDATA[$F{indirizzoUtenzaImmobile.indirizzo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="48" y="72" width="44" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{sezione}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="97" y="73" width="43" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{foglioCatastale}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="145" y="72" width="44" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{particella}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="243" y="73" width="159" height="20"/>
+				<textFieldExpression><![CDATA[$F{categoriaImmobile}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="125" y="120" width="100" height="16"/>
+				<textFieldExpression><![CDATA[$F{valoreImmobile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="120" width="46" height="16"/>
+				<textFieldExpression><![CDATA[$F{percentualePossesso}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="317" y="120" width="51" height="16"/>
+				<textFieldExpression><![CDATA[$F{mesiPossesso}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="186" y="162" width="88" height="16">
+					<printWhenExpression><![CDATA[$F{importoDetrazioneAbPrincipale} > 0.00]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{importoDetrazioneAbPrincipale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="182" width="16" height="20">
+					<printWhenExpression><![CDATA[$F{posseduto3112} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="181" width="16" height="20">
+					<printWhenExpression><![CDATA[$F{riduzione} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="182" width="16" height="20">
+					<printWhenExpression><![CDATA[$F{abitazionePrincipale} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="38" width="31" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="48" y="162" width="110" height="16"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{mesiDetrazione}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="195" y="73" width="42" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subalterno}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="408" y="73" width="32" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{classe}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="447" y="73" width="62" height="20"/>
+				<textFieldExpression><![CDATA[$F{numProt}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="514" y="73" width="29" height="20"/>
+				<textFieldExpression><![CDATA[$F{anno}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="393" y="119" width="146" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mesiEsclusione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="372" y="182" width="16" height="20">
+					<printWhenExpression><![CDATA[$F{escluso} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="58" y="223" width="17" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="127" y="223" width="17" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="59" y="223" width="16" height="20">
+					<printWhenExpression><![CDATA[$F{diAcquisto} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="224" width="16" height="20">
+					<printWhenExpression><![CDATA[$F{diCessione} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="186" y="222" width="197" height="20"/>
+				<textFieldExpression><![CDATA[$F{agenziaEntrate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="410" y="222" width="137" height="20"/>
+				<textFieldExpression><![CDATA[$F{estremiTitolo}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="48" y="120" width="17" height="17"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="49" y="121" width="16" height="16">
+					<printWhenExpression><![CDATA[$F{immobileStorico} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

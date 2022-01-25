@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Standard portlet metadata per OS Apulie. 
+ -->
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+	
+	<!-- 
+		Portlet esposte da questa web application.
+	 -->
+
+	<portlet>
+		<portlet-name>visura-tosapcosap-perm</portlet-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.visuratosapcosapperm</resource-bundle>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>visura-tosapcosap-temp</portlet-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.visuratosapcosaptemp</resource-bundle>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>visura-servizi-cimiteriali</portlet-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.visuraservizicimiteriali</resource-bundle>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>visura-posizione-tributaria</portlet-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.visuraposizionetributaria</resource-bundle>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>pagamento-tosapcosap-perm</portlet-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.pagamentotosapcosapperm</resource-bundle>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>pagamento-tosapcosap-temp</portlet-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.pagamentotosapcosaptemp</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>pagamento-servizicimiteriali</portlet-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.pagamentoservizicimiteriali</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>pagamento-affissioni</portlet-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.pagamentoaffissioni</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>pagamento-pubblicita</portlet-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.pagamentopubblicita</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>pagamento-tarsu</portlet-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.pagamentotarsu</resource-bundle>
+	</portlet>
+
+	<!-- 
+		Mappatura degli attributi utente che vogliamo il portale passi a Spring Security:
+		dipendono dal particolare portale (?) (questi sono per Liferay).
+	 -->
+	<user-attribute>
+		<name>user.login.id</name>
+	</user-attribute>
+	<user-attribute>
+		<name>user.name</name>
+	</user-attribute>
+	<user-attribute>
+		<name>user.name.full</name>
+	</user-attribute>
+	
+	<default-namespace>http://www.linksmt.it/osapulie/params</default-namespace>
+</portlet-app>

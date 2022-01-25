@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>it.osapulie.build</groupId>
+		<artifactId>3rd-party-libraries</artifactId>
+		<version>1.0</version>
+	</parent>
+	<groupId>it.osapulie.build.3rdparty</groupId>
+	<artifactId>scatel</artifactId>
+	<packaging>pom</packaging>
+	<version>3.0.0</version>
+	<name>Libreria SCATEL (RUPAR-Puglia)</name>
+	<description>Libreria SCATEL per il supporto alla cooperazione applicativa (SPCOOP) prodotta da RUPAR-Puglia</description>
+
+	<organization>
+		<name>Links Management &amp; Technology S.p.A.</name>
+		<url>http://www.linksmt.it</url>
+	</organization>
+
+	<properties>
+		<!-- Maven Settings -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<!-- e-gov stuff -->
+		<dependency>
+			<groupId>it.puglia.rupar</groupId>
+			<artifactId>egov-busta-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>it.puglia.rupar</groupId>
+			<artifactId>egov-nica-api</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>it.puglia.rupar</groupId>
+			<artifactId>egov-pdds</artifactId>
+			<version>3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>it.puglia.rupar</groupId>
+			<artifactId>egov-pdds-kitqualificazione</artifactId>
+			<version>3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>it.puglia.rupar</groupId>
+			<artifactId>egov-pdds-qualificazioneJaxb</artifactId>
+			<version>3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>it.puglia.rupar</groupId>
+			<artifactId>gateway</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>it.puglia.rupar</groupId>
+			<artifactId>gateway-serviziTest</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>it.puglia.rupar</groupId>
+			<artifactId>egov-pdds-qualificazione</artifactId>
+			<version>3.0</version>
+		</dependency>
+	</dependencies>
+</project>

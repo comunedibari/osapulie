@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WayfConfig xmlns="urn:mace:shibboleth:wayf:config:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!-- The default behaviour of Service is controlled via the elements
+     and attributes below.  Non default behaviour is achieved by
+     specifying any or all of these in the specific
+     DiscoveryServiceHandler element.
+
+     The handleCookie, cacheDomain and cacheExpiration attributes are
+     no longer used.  Use the cookie plugin to configure the handling
+     of the SAML cookie.
+
+     The cacheExpiration attribute sets the expiration time of the
+     cookie (if the 'Remember for a week' selection is made).
+
+     The jspFile & errorJspFile attributes control the display
+
+     The provideList attribute controls whether a single list of all
+     possible IdPs is presented.  This also controls whether the
+     Quick search dialog is presented.
+     
+     The provideListOfList attribute controls whether multiple lists
+     are presented (one for each MetadataProvider). Rather than all
+     the entities as one.
+
+     The showUsableIdPs attribute controls the contents of the above
+     lists.  The single list (provideList=true) is trimmed by
+     excluding IdPs which do not share a metadata file with the SP.
+     The multiple lists (provideListOfList=true) is trimmed by
+     excluding all lists which do not specify the SP.
+     
+     The SearchIgnore element contains a list of words to be ignored while
+     performing a search.
+
+     warnOnNoSAML2 causes the DS to issue a warning when it receives a
+     DS protocol message from an SP which is declared to not support
+     SAML2 in its metadata.  The JIRA case 
+     https://issues.shibboleth.net/jira/browse/SDSJ-91 has more details.
+
+     warnOnBadBinding describes what to do iof the metadata has a badly 
+     formed <DiscoveryResponse> false (or not present) means that the bad 
+     SP is removed from the metadata and an error written to the log file.
+     True means that we just note this in the log file.
+     THIS SETTING IS SYSTEM WIDE ONLY.
+-->
+
+        <Default jspFile="wayf_spid.jsp" errorJspFile="wayferror.jsp" provideList="true" provideListOfList="false" warnOnBadBinding="false"  warnOnNoSAML2="false" showUnusableIdPs="true">
+            <SearchIgnore>
+                <IgnoreText>Institution</IgnoreText>
+                <IgnoreText>University</IgnoreText>
+                <IgnoreText>State </IgnoreText>
+                <IgnoreText>School</IgnoreText>
+            </SearchIgnore>
+        </Default>
+        
+<!-- 
+     The identifier element is used to uniquely distinguish the
+     metadata in a Federation element below
+     
+     If an HTTP URL is provided for the name, a backingFile has to be provided.
+     This is where the file will be spooled to locally.  This spooled file will
+     be used if the DS cannot get hold of the 'real' data.
+     
+     NOTE - for windows installation with an explicit DOS device ("C:\etc\discoveryservice")
+     The url below should be "file://C:\program files/metadata/sites.xml
+     
+-->
+		<MetadataProvider displayName="Area Vasta Metropoli Terra di Bari Federation" identifier="cdb" url="file:///opt/osapulie/shibboleth/discovery/resources/metadata/metadata_discovery.xml"/>
+<!-- 
+        <MetadataProvider 
+       		displayName="IDP Regione Puglia" 
+   			identifier="idp-puglia" 
+   			url="https://auth.idp.rupar.puglia.it/idp/shibboleth"
+  			backingFile="/opt/osapulie/shibboleth/discovery/resources/metadata/puglia-metadata.xml"
+			logo="idp-puglia.png"
+			group="Regione Puglia"
+			groupLogo="puglia-esteso.png"
+			groupOrder="2"
+			buttonCssClass="btn-puglia">
+				
+			<GroupDescription>
+				<![CDATA[
+					Accedi al servizio con le credenziali rilasciate dalla Regione Puglia. 
+					<b><u>Attenzione</u></b>: con l'entrata in vigore di SPID, saranno gradualmente sostituiti i sistemi di identità digitale attivati in passato da tutte le pubbliche amministrazioni italiane. 
+					<p>Tra questi, anche il sistema IDP della Regione Puglia. <p>Ti suggeriamo pertanto, anche se  già disponi di una identità IDP Puglia, di richiedere ed attivare al più presto una nuova
+					identità digitale SPID (la vecchia utenza IDP non potrà più essere utilizzata dopo il primo accesso via SPID). 
+					<p>Dal <b>3 Aprile 2017</b>, infatti, <u>non sarà più possibile accedere a questo sito senza una identità SPID</u>. 
+					<p>Non preoccuparti: il tuo fascicolo sarà automaticamente ricongiunto alla tua nuova identità
+					<p>Con la tua identità SPID, inoltre, potrai accedere a tutti i servizi della PA nazionale.
+				]]>
+			</GroupDescription>
+			<GroupLinks>
+				<Link name="Registrati">https://idp.regione.puglia.it/idpUtenti/registrazione.jsp</Link>
+				<Link name="Password dimenticata">https://idp.regione.puglia.it/idpUtenti/registrazione.jsp</Link>
+			</GroupLinks>
+		</MetadataProvider>
+ -->
+	
+        <MetadataProvider 
+       		displayName="Infocert" 
+   			identifier="infocert" 
+   			url="file:///opt/osapulie/shibboleth/discovery/resources/metadata/infocert-metadata.xml"
+   			backingFile="/opt/osapulie/shibboleth/discovery/resources/metadata/infocert-metadata.xml"
+			logo="spid-idp-infocertid.png"
+			group="SPID"
+			groupLogo="spid-logo-c-lb.png"
+			groupOrder="1"
+			buttonCssClass="btn-spid">
+			
+			<GroupDescription>
+				<![CDATA[
+					Accedi al servizio con autenticazione SPID.
+					<p>Cos'è SPID? SPID è la soluzione che ti permette di accedere a tutti i servizi online della pubblica amministrazione con un'unica Identità Digitale (Username e password) utilizzabile da computer, tablet e smartphone.
+					<p>Come ci si registra a SPID? Clicca sul bottone "Entra con SPID" e seleziona la voce "Non hai SPID?".
+				]]>
+			</GroupDescription>
+			<GroupLinks>
+				<Link name="Non hai SPID?">http://www.spid.gov.it/richiedi-spid</Link>
+				<Link name="Maggiori info">http://www.spid.gov.it</Link>
+			</GroupLinks>
+		</MetadataProvider>
+    			
+	   	<MetadataProvider 
+       		displayName="Poste" 
+   			identifier="poste" 
+   			url="file:///opt/osapulie/shibboleth/discovery/resources/metadata/poste-metadata.xml"
+			backingFile="/opt/osapulie/shibboleth/discovery/resources/metadata/poste-metadata.xml"
+   			logo="spid-idp-posteid.png"
+			group="SPID"
+			groupOrder="1">
+		</MetadataProvider>
+    			
+    	<MetadataProvider 
+       		displayName="TIM" 
+   			identifier="tim" 
+   			url="file:///opt/osapulie/shibboleth/discovery/resources/metadata/telecom-metadata.xml"
+			backingFile="/opt/osapulie/shibboleth/discovery/resources/metadata/telecom-metadata.xml"
+   			logo="spid-idp-timid.png"
+			group="SPID"
+			groupOrder="1">
+		</MetadataProvider>
+
+		<MetadataProvider 
+       		displayName="Sielte" 
+   			identifier="sielte" 
+   			url="file:///opt/osapulie/shibboleth/discovery/resources/metadata/sielte-metadata.xml"
+   			backingFile="/opt/osapulie/shibboleth/discovery/resources/metadata/sielte-metadata.xml"
+   			logo="spid-idp-sielteid.png"
+			group="SPID"
+			groupOrder="1">
+		</MetadataProvider>
+		
+		<MetadataProvider 
+       		displayName="Aruba" 
+   			identifier="aruba" 
+   			url="file:///opt/osapulie/shibboleth/discovery/resources/metadata/aruba-metadata.xml"
+   			backingFile="/opt/osapulie/shibboleth/discovery/resources/metadata/aruba-metadata.xml"
+   			logo="spid-idp-arubaid.png"
+			group="SPID"
+			groupOrder="1">
+		</MetadataProvider>
+		
+		<MetadataProvider 
+       		displayName="Namirial" 
+   			identifier="namirial" 
+   			url="file:///opt/osapulie/shibboleth/discovery/resources/metadata/namirial-metadata.xml"
+   			backingFile="/opt/osapulie/shibboleth/discovery/resources/metadata/namirial-metadata.xml"
+   			logo="spid-idp-namirialid.png"
+			group="SPID"
+			groupOrder="1">
+		</MetadataProvider>
+
+		<MetadataProvider 
+       		displayName="Register.it" 
+   			identifier="register" 
+   			url="file:///opt/osapulie/shibboleth/discovery/resources/metadata/register-metadata.xml"
+   			backingFile="/opt/osapulie/shibboleth/discovery/resources/metadata/register-metadata.xml"
+   			logo="spid-idp-spiditalia.png"
+			group="SPID"
+			groupOrder="1">
+		</MetadataProvider>
+
+<!-- If the DS is to handle data from more than one metadata source
+     then more metadataproviders can be provided, as below
+        
+       <MetadataProvider 
+                displayName="Another Name Here"
+                identifier="SecondSite"
+                backingFile="$DS_HOME$/metadata/ukfed_store.xml"
+                url="http://metadata.ukfederation.org.uk/ukfederation-metadata.xml"/>
+e
+      White and black list providers are defined as filters inside a provider:
+      
+       <MetadataProvider 
+
+                displayName="WhiteListed Metadata"
+                identifier="White"
+                type="edu.internet2.middleware.shibboleth.metadata.provider.XMLMetadata"
+                backingFile="$DS_HOME$/metadata/whitelist_store.xml"
+                maxValidityInterval = "P7D"
+                certicateFile="$DS_HOME$/metadata/federation.pem"
+                maxValidityInterval = "P7D"    
+                url="http://metadata.ukfederation.org.uk/ukfederation-test.xml">
+
+          <Filter identifier="false" 
+                type="edu.internet2.middleware.shibboleth.wayf.plugins.provider.ListFilter"
+                excludeEntries="true">
+              <EntityId>https://idp.edina.ac.uk/shibboleth</EntityId>
+              <EntityId>https://dlib-adidp.ucs.ed.ac.uk/shibboleth</EntityId>
+              <EntityId>https://idp.edina.ac.uk/shibboleth-devel</EntityId>
+              <EntityId>https://idp.edina.ac.uk/shibboleth-devel-13</EntityId>
+         </Filter>
+       </MetadataProvider>
+
+     NOTE that the resulting metadata has to include any SP which may need service from
+     this DS.   
+     
+     For a black list, set excludeEntries="true" (the listed Entities will be excluded), for 
+     a while list, set it to "false" (the listed entries will be included). 
+
+-->
+
+
+<!-- Plugins are extensible, the identifier is required, as is the
+     type, the rest is for the plugin to define -->
+
+
+     <!-- The Cookie Plugin is part of the standard distribution it interrogates and sets the _saml_idp
+          cookie.  According to parameterization it can just delete the cookie -->
+     <Plugin identifier="CookiePlugin" type="edu.internet2.middleware.shibboleth.wayf.plugins.provider.SamlCookiePlugin" alwaysFollow="FALSE" deleteCookie="FALSE" cacheExpiration="604800"/> 
+
+     <Plugin identifier="DeleteCookiePlugin" type="edu.internet2.middleware.shibboleth.wayf.plugins.provider.SamlCookiePlugin" alwaysFollow="FALSE" deleteCookie="TRUE" cacheExpiration="604800"/> 
+
+	<!-- Other plugins are declared similarly 
+     <Plugin
+                 identifier="AddressHint"
+                 type="uk.ac.sdss.IdPIPLookup"
+                 />  
+     -->
+
+
+<!-- Every handler has to be declared with a DiscoverServiceHandler
+     element.  As well as the attributes and elements described above,
+     each DiscoveryServiceHandler *MUST* have a location attribute.
+     
+     The default wayf.xml specifies that "/WAYF", "/DS" and "/*.wayf" 
+     are the possibilities for DiscoveryServices.  If a URL matches the above,
+     but does not match any location in a DiscoveryServiceHandler,
+     then the first handler for which the default attribute is set
+     true is invoked.
+     
+     The web.xml built into into the war file should not be changed
+     unless you have to change the end points that it uses.
+      -->
+
+
+    <DiscoveryServiceHandler location=".+/WAYF" default="true">
+        <PluginInstance identifier="CookiePlugin"/>
+        <!--
+            <PluginInstance identifier="AddressHint"/> -->
+    </DiscoveryServiceHandler>
+   
+ <!-- The ClearCache handler causes the cookie to be deleted.  The jsp shipped
+     with the DS refers to this handler -->
+        
+    <DiscoveryServiceHandler location=".+/ClearCache.wayf">
+        <PluginInstance identifier="DeleteCookiePlugin"/>
+    </DiscoveryServiceHandler>  
+
+<!-- Example of how to constrain a DiscoveryService to one (or more)
+     explicit metadata sources.  (The default is to use all metadata
+     sources)
+
+ <DiscoveryServiceHandler location=".+/SecondOnly.wayf" >
+
+        <Federation identifier="SecondSite"/>
+        <PluginInstance identifier="CookiePlugin"/>
+    </DiscoveryServiceHandler>  
+-->
+
+</WayfConfig>
+

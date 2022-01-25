@@ -1,0 +1,367 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://servizi.osapulie.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://servizi.osapulie.it">
+    <wsdl:documentation/>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://servizi.osapulie.it">
+            <xs:element name="getPosizioniVisuraOsapPermanente">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idVisura" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="posizioniVisuraOsapPermanente" type="ns0:posizioniVisuraOsapPermanente"/>
+            <xs:complexType name="posizioniVisuraOsapPermanente">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="posizioneVisuraOsapPermanente" type="ns0:posizioneVisuraOsapPermanente"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="posizioneVisuraOsapPermanente">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="indirizzoUtenza" nillable="true" type="xs:string"/>
+                    <xs:element name="superficie" nillable="true" type="xs:double"/>
+                    <xs:element name="zonaUtenza" nillable="true" type="xs:string"/>
+                    <xs:element name="descrizioneTariffa" nillable="true" type="xs:string"/>
+                    <xs:element name="importoDaPagare" nillable="true" type="xs:double"/>
+                    <xs:element name="mesi" nillable="true" type="xs:integer"/>
+                    <xs:element name="idVisura" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getVisureOsapPermanente">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                        <xs:element name="annoDa" nillable="true" type="xs:int"/>
+                        <xs:element name="annoA" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="visureOsapPermanente" type="ns0:visureOsapPermanente"/>
+            <xs:complexType name="visureOsapPermanente">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="visuraOsapPermanente" type="ns0:visuraOsapPermanente"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="visuraOsapPermanente">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                    <xs:element name="dataAggiornamento" nillable="true" type="xs:date"/>
+                    <xs:element name="contoCorrente" nillable="true" type="xs:string"/>
+                    <xs:element name="annoRiferimento" nillable="true" type="xs:integer"/>
+                    <xs:element name="importoDocumento" nillable="true" type="xs:double"/>
+                    <xs:element name="numeroDocumento" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getRateVisuraOsapPermanente">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idVisura" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="rateVisuraOsapPermanente" type="ns0:rateVisuraOsapPermanente"/>
+            <xs:complexType name="rateVisuraOsapPermanente">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="rataVisuraOsapPermanente" type="ns0:rataVisuraOsapPermanente"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="rataVisuraOsapPermanente">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="importoRata" nillable="true" type="xs:double"/>
+                    <xs:element name="scadenzaRata" nillable="true" type="xs:date"/>
+                    <xs:element name="numeroRata" nillable="true" type="xs:integer"/>
+                    <xs:element name="identificativoRata" nillable="true" type="xs:string"/>
+                    <xs:element name="importoPagato" nillable="true" type="xs:double"/>
+                    <xs:element name="dataPagamento" nillable="true" type="xs:date"/>
+                    <xs:element name="idVisura" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getRataVisuraOsapPermanente">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="identificativoRata" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getVisuraOsapPermanente">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+            <xs:element name="DataServiceFault" type="xs:string"/>
+            <xs:element name="REQUEST_STATUS" type="xs:string"/>
+            <xs:element name="DATA_SERVICE_RESPONSE">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getRateVisuraOsapPermanenteRequest">
+        <wsdl:part name="parameters" element="ns0:getRateVisuraOsapPermanente"/>
+    </wsdl:message>
+    <wsdl:message name="getRateVisuraOsapPermanenteResponse">
+        <wsdl:part name="parameters" element="ns0:rateVisuraOsapPermanente"/>
+    </wsdl:message>
+    <wsdl:message name="DataServiceFault">
+        <wsdl:part name="parameters" element="ns1:DataServiceFault"/>
+    </wsdl:message>
+    <wsdl:message name="getPosizioniVisuraOsapPermanenteRequest">
+        <wsdl:part name="parameters" element="ns0:getPosizioniVisuraOsapPermanente"/>
+    </wsdl:message>
+    <wsdl:message name="getPosizioniVisuraOsapPermanenteResponse">
+        <wsdl:part name="parameters" element="ns0:posizioniVisuraOsapPermanente"/>
+    </wsdl:message>
+    <wsdl:message name="getVisuraOsapPermanenteRequest">
+        <wsdl:part name="parameters" element="ns0:getVisuraOsapPermanente"/>
+    </wsdl:message>
+    <wsdl:message name="getVisuraOsapPermanenteResponse">
+        <wsdl:part name="parameters" element="ns0:visureOsapPermanente"/>
+    </wsdl:message>
+    <wsdl:message name="getRataVisuraOsapPermanenteRequest">
+        <wsdl:part name="parameters" element="ns0:getRataVisuraOsapPermanente"/>
+    </wsdl:message>
+    <wsdl:message name="getRataVisuraOsapPermanenteResponse">
+        <wsdl:part name="parameters" element="ns0:rateVisuraOsapPermanente"/>
+    </wsdl:message>
+    <wsdl:message name="getVisureOsapPermanenteRequest">
+        <wsdl:part name="parameters" element="ns0:getVisureOsapPermanente"/>
+    </wsdl:message>
+    <wsdl:message name="getVisureOsapPermanenteResponse">
+        <wsdl:part name="parameters" element="ns0:visureOsapPermanente"/>
+    </wsdl:message>
+    <wsdl:portType name="visuraOsapPermanenteServicePortType">
+        <wsdl:operation name="getRateVisuraOsapPermanente">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getRateVisuraOsapPermanenteRequest" wsaw:Action="urn:getRateVisuraOsapPermanente"/>
+            <wsdl:output message="ns0:getRateVisuraOsapPermanenteResponse" wsaw:Action="urn:getRateVisuraOsapPermanenteResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getRateVisuraOsapPermanenteDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraOsapPermanente">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getPosizioniVisuraOsapPermanenteRequest" wsaw:Action="urn:getPosizioniVisuraOsapPermanente"/>
+            <wsdl:output message="ns0:getPosizioniVisuraOsapPermanenteResponse" wsaw:Action="urn:getPosizioniVisuraOsapPermanenteResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getPosizioniVisuraOsapPermanenteDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraOsapPermanente">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getVisuraOsapPermanenteRequest" wsaw:Action="urn:getVisuraOsapPermanente"/>
+            <wsdl:output message="ns0:getVisuraOsapPermanenteResponse" wsaw:Action="urn:getVisuraOsapPermanenteResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisuraOsapPermanenteDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getRataVisuraOsapPermanente">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getRataVisuraOsapPermanenteRequest" wsaw:Action="urn:getRataVisuraOsapPermanente"/>
+            <wsdl:output message="ns0:getRataVisuraOsapPermanenteResponse" wsaw:Action="urn:getRataVisuraOsapPermanenteResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getRataVisuraOsapPermanenteDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureOsapPermanente">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getVisureOsapPermanenteRequest" wsaw:Action="urn:getVisureOsapPermanente"/>
+            <wsdl:output message="ns0:getVisureOsapPermanenteResponse" wsaw:Action="urn:getVisureOsapPermanenteResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisureOsapPermanenteDataServiceFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="visuraOsapPermanenteServiceSOAP11Binding" type="ns0:visuraOsapPermanenteServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getRateVisuraOsapPermanente">
+            <soap:operation soapAction="urn:getRateVisuraOsapPermanente" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraOsapPermanente">
+            <soap:operation soapAction="urn:getPosizioniVisuraOsapPermanente" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraOsapPermanente">
+            <soap:operation soapAction="urn:getVisuraOsapPermanente" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRataVisuraOsapPermanente">
+            <soap:operation soapAction="urn:getRataVisuraOsapPermanente" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureOsapPermanente">
+            <soap:operation soapAction="urn:getVisureOsapPermanente" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraOsapPermanenteServiceSOAP12Binding" type="ns0:visuraOsapPermanenteServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getRateVisuraOsapPermanente">
+            <soap12:operation soapAction="urn:getRateVisuraOsapPermanente" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraOsapPermanente">
+            <soap12:operation soapAction="urn:getPosizioniVisuraOsapPermanente" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraOsapPermanente">
+            <soap12:operation soapAction="urn:getVisuraOsapPermanente" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRataVisuraOsapPermanente">
+            <soap12:operation soapAction="urn:getRataVisuraOsapPermanente" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureOsapPermanente">
+            <soap12:operation soapAction="urn:getVisureOsapPermanente" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraOsapPermanenteServiceHttpBinding" type="ns0:visuraOsapPermanenteServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getRateVisuraOsapPermanente">
+            <http:operation location="getRateVisuraOsapPermanente"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraOsapPermanente">
+            <http:operation location="getPosizioniVisuraOsapPermanente"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraOsapPermanente">
+            <http:operation location="getVisuraOsapPermanente"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRataVisuraOsapPermanente">
+            <http:operation location="getRataVisuraOsapPermanente"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureOsapPermanente">
+            <http:operation location="getVisureOsapPermanente"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="visuraOsapPermanenteService">
+        <wsdl:port name="SOAP11Endpoint" binding="ns0:visuraOsapPermanenteServiceSOAP11Binding">
+            <soap:address location="http://10.0.5.19:9764/services/visuraOsapPermanenteService.SOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:visuraOsapPermanenteServiceSOAP11Binding">
+            <soap:address location="https://10.0.5.19:9444/services/visuraOsapPermanenteService.SecureSOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:visuraOsapPermanenteServiceSOAP12Binding">
+            <soap12:address location="https://10.0.5.19:9444/services/visuraOsapPermanenteService.SecureSOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SOAP12Endpoint" binding="ns0:visuraOsapPermanenteServiceSOAP12Binding">
+            <soap12:address location="http://10.0.5.19:9764/services/visuraOsapPermanenteService.SOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="HTTPEndpoint" binding="ns0:visuraOsapPermanenteServiceHttpBinding">
+            <http:address location="http://10.0.5.19:9764/services/visuraOsapPermanenteService.HTTPEndpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureHTTPEndpoint" binding="ns0:visuraOsapPermanenteServiceHttpBinding">
+            <http:address location="https://10.0.5.19:9444/services/visuraOsapPermanenteService.SecureHTTPEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://ws.web.pratiche.osapulie.it"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified"
+	targetNamespace="http://ws.web.pratiche.osapulie.it" version="1.0">
+	
+	<xs:include schemaLocation="SearchPraticheWebByUtente-richiesta.xsd"/>
+	<xs:include schemaLocation="SearchPraticheWebByUtente-risposta.xsd"/>
+	
+	<xs:include schemaLocation="SearchAllPraticheWeb-richiesta.xsd"/>
+	<xs:include schemaLocation="SearchAllPraticheWeb-risposta.xsd"/>
+	
+	<xs:include schemaLocation="DocumentiContenuti-richiesta.xsd"/>
+	<xs:include schemaLocation="DocumentiContenuti-risposta.xsd"/>
+	
+	<xs:include schemaLocation="DownloadDocumento-richiesta.xsd"/>
+	<xs:include schemaLocation="DownloadDocumento-risposta.xsd"/>
+	
+	<xs:include schemaLocation="GetReferenteByPk-richiesta.xsd"/>
+	<xs:include schemaLocation="GetReferenteByPk-risposta.xsd"/>
+	
+	<xs:include schemaLocation="GetTipoImmobileByPk-richiesta.xsd"/>
+	<xs:include schemaLocation="GetTipoImmobileByPk-risposta.xsd"/>
+	
+	<xs:include schemaLocation="GetTipoPraticaByPk-richiesta.xsd"/>
+	<xs:include schemaLocation="GetTipoPraticaByPk-risposta.xsd"/>
+	
+	<xs:include schemaLocation="SavePratica-richiesta.xsd"/>
+	<xs:include schemaLocation="SavePratica-risposta.xsd"/>
+	
+	<xs:include schemaLocation="SearchAllegatiTipoPratica-richiesta.xsd"/>
+	<xs:include schemaLocation="SearchAllegatiTipoPratica-risposta.xsd"/>
+	
+	<xs:include schemaLocation="SearchAllPraticheWeb-richiesta.xsd"/>
+	<xs:include schemaLocation="SearchAllPraticheWeb-risposta.xsd"/>
+	
+	<xs:include schemaLocation="SearchPraticaByPk-richiesta.xsd"/>
+	<xs:include schemaLocation="SearchPraticaByPk-risposta.xsd"/>
+	
+	<xs:include schemaLocation="SearchPraticaWebByPk-richiesta.xsd"/>
+	<xs:include schemaLocation="SearchPraticaWebByPk-risposta.xsd"/>
+	
+	<xs:include schemaLocation="SearchPratiche-richiesta.xsd"/>
+	<xs:include schemaLocation="SearchPratiche-risposta.xsd"/>
+	
+	<xs:include schemaLocation="SearchPraticheWebByUtente-richiesta.xsd"/>
+	<xs:include schemaLocation="SearchPraticheWebByUtente-risposta.xsd"/>
+	
+	<xs:include schemaLocation="SearchStatoPratiche-richiesta.xsd"/>
+	<xs:include schemaLocation="SearchStatoPratiche-risposta.xsd"/>
+	
+	<xs:include schemaLocation="searchTipoImmobile-richiesta.xsd"/>
+	<xs:include schemaLocation="searchTipoImmobile-risposta.xsd"/>
+	
+	<xs:include schemaLocation="searchTipoPraticheFrontend-richiesta.xsd"/>
+	<xs:include schemaLocation="searchTipoPraticheFrontend-risposta.xsd"/>
+	
+	<xs:include schemaLocation="UploadFile-richiesta.xsd"/>
+	<xs:include schemaLocation="UploadFile-risposta.xsd"/>
+	
+<!-- <xs:element name="searchPraticheWebByUtente" >
+	
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+			<xs:element minOccurs="0" name="arg1" type="tns:profiloUtenteDto" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:complexType name="userInfo">
+		<xs:sequence />
+	</xs:complexType>
+	<xs:complexType name="profiloUtenteDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="codiceFiscale" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="searchPraticheWebByUtenteResponse">
+	
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="return"
+				type="tns:praticaWebDto" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:complexType name="praticaWebDto">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="allegati"
+				nillable="true" type="tns:allegatiPraticaDto" />
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="campiaggiuntivi" nillable="true" type="tns:campiAggiuntiviPraticaWebDto" />
+			<xs:element minOccurs="0" name="dataRichiesta" type="xs:dateTime" />
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="datiCatastali" nillable="true" type="tns:datiCatastaliImmobileDto" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="immobileTipo" type="tns:tipoImmobileDto" />
+			<xs:element minOccurs="0" name="immobile_areaSin" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_cap" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_comune" type="tns:comuneDto" />
+			<xs:element minOccurs="0" name="immobile_den" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_ind" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_interno" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_piano" type="xs:string" />
+			<xs:element minOccurs="0" name="impresa" type="xs:string" />
+			<xs:element minOccurs="0" name="invioPec" type="xs:string" />
+			<xs:element minOccurs="0" name="oggettoRichiesta" type="xs:string" />
+			<xs:element minOccurs="0" name="profiloutente" type="tns:profiloUtenteDto" />
+			<xs:element minOccurs="0" name="richCap" type="xs:string" />
+			<xs:element minOccurs="0" name="richCell" type="xs:string" />
+			<xs:element minOccurs="0" name="richCf" type="xs:string" />
+			<xs:element minOccurs="0" name="richComune" type="tns:comuneDto" />
+			<xs:element minOccurs="0" name="richComuneNascita" type="tns:comuneDto" />
+			<xs:element minOccurs="0" name="richDataNascita" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="richEmail" type="xs:string" />
+			<xs:element minOccurs="0" name="richFax" type="xs:string" />
+			<xs:element minOccurs="0" name="richIndirizzo" type="xs:string" />
+			<xs:element minOccurs="0" name="richNominativo" type="xs:string" />
+			<xs:element minOccurs="0" name="richPiva" type="xs:string" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="superfici"
+				nillable="true" type="tns:superficiDto" />
+			<xs:element minOccurs="0" name="tecnico" type="xs:string" />
+			<xs:element minOccurs="0" name="tipologia" type="tns:tipoPraticaDto" />
+			<xs:element minOccurs="0" name="titolare" type="xs:string" />
+			<xs:element minOccurs="0" name="uuidContenitore" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="allegatiPraticaDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="allegati" type="tns:allegatiDto" />
+			<xs:element minOccurs="0" name="allegato" type="xs:base64Binary" />
+			<xs:element name="cancellato" type="xs:boolean" />
+			<xs:element name="caricato" type="xs:boolean" />
+			<xs:element name="completato" type="xs:boolean" />
+			<xs:element minOccurs="0" name="dataProtocollo" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="nomeFile" type="xs:string" />
+			<xs:element minOccurs="0" name="numProtocollo" type="xs:string" />
+			<xs:element name="spostato" type="xs:boolean" />
+			<xs:element minOccurs="0" name="tipoProtocollo" type="xs:string" />
+			<xs:element minOccurs="0" name="urlAllegato" type="xs:string" />
+			<xs:element minOccurs="0" name="uuidFile" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="allegatiDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="nomeDocumento" type="xs:string" />
+			<xs:element name="obbligatorio" type="xs:boolean" />
+			<xs:element minOccurs="0" name="posizione" type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="campiAggiuntiviPraticaWebDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="allegatoContent" type="xs:base64Binary" />
+			<xs:element minOccurs="0" name="allegatoNome" type="xs:string" />
+			<xs:element minOccurs="0" name="campiAggiuntivi" type="tns:campiAggiuntiviDto" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="nomeFile" type="xs:string" />
+			<xs:element minOccurs="0" name="uuidFile" type="xs:string" />
+			<xs:element minOccurs="0" name="valore" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="campiAggiuntiviDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="controllo" type="xs:string" />
+			<xs:element minOccurs="0" name="dimensione" type="xs:byte" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="label" type="xs:string" />
+			<xs:element minOccurs="0" name="listaValori" type="xs:string" />
+			<xs:element name="ricercabile" type="xs:boolean" />
+			<xs:element minOccurs="0" name="tipologia" type="xs:string" />
+			<xs:element minOccurs="0" name="valoreRicerca" type="xs:string" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="valori"
+				nillable="true" type="tns:campiAggiuntiviListaValoriDto" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="campiAggiuntiviListaValoriDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="valore" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="datiCatastaliImmobileDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="immobile_catNCEU" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_foglioNCEU" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_foglioNCT" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_partNCEU" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_partNCT" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_subNCEU" type="xs:string" />
+			<xs:element minOccurs="0" name="immobile_subNCT" type="xs:string" />
+			<xs:element minOccurs="0" name="num" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipoImmobileDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="descrizione" type="xs:string" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="comuneDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="altitudine" type="xs:string" />
+			<xs:element name="capoluogo" type="xs:boolean" />
+			<xs:element minOccurs="0" name="codiceComune" type="xs:int" />
+			<xs:element minOccurs="0" name="codiceIstat1" type="xs:string" />
+			<xs:element minOccurs="0" name="codiceIstat103" type="xs:string" />
+			<xs:element minOccurs="0" name="codiceIstatAN" type="xs:string" />
+			<xs:element minOccurs="0" name="codiceSistemaLocaleLavoro"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="codicestat107" type="xs:string" />
+			<xs:element name="comuneLitoraneo" type="xs:boolean" />
+			<xs:element minOccurs="0" name="comuneMontano" type="xs:string" />
+			<xs:element minOccurs="0" name="denominazione" type="xs:string" />
+			<xs:element minOccurs="0" name="denominazioneSistemaLocaleLavoro"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="popolazioneLegale" type="xs:string" />
+			<xs:element minOccurs="0" name="popolazioneResidente1"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="popolazioneResidente2"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="popolazioneResidente3"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="superficie" type="xs:string" />
+			<xs:element minOccurs="0" name="zonaAltimetrica" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="superficiDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="altezza" type="xs:string" />
+			<xs:element minOccurs="0" name="coperta" type="xs:string" />
+			<xs:element minOccurs="0" name="scoperta" type="xs:string" />
+			<xs:element minOccurs="0" name="sup_lorda" type="xs:string" />
+			<xs:element minOccurs="0" name="sup_utile" type="xs:string" />
+			<xs:element minOccurs="0" name="volume" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipoPraticaDto">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="allegati"
+				nillable="true" type="tns:allegatiDto" />
+			<xs:element minOccurs="0" name="attivita" type="tns:attivitaDto" />
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="campiAggiuntiviTipoPratica" nillable="true"
+				type="tns:campiAggiuntiviTipoPraticaDto" />
+			<xs:element minOccurs="0" name="categoria" type="tns:categoriePraticheDto" />
+			<xs:element name="configurazione" type="xs:byte" />
+			<xs:element minOccurs="0" name="descr_link" type="xs:string" />
+			<xs:element minOccurs="0" name="descr_link2" type="xs:string" />
+			<xs:element minOccurs="0" name="descr_link3" type="xs:string" />
+			<xs:element minOccurs="0" name="descrizione" type="xs:string" />
+			<xs:element name="frontend" type="xs:boolean" />
+			<xs:element minOccurs="0" name="frontendEditJspName" type="xs:string" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="link" type="xs:string" />
+			<xs:element minOccurs="0" name="link2" type="xs:string" />
+			<xs:element minOccurs="0" name="link3" type="xs:string" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="modelli"
+				nillable="true" type="tns:modelliDto" />
+			<xs:element minOccurs="0" name="prefisso" type="xs:string" />
+			<xs:element name="showLocalita" type="xs:byte" />
+			<xs:element name="showMittDest" type="xs:byte" />
+			<xs:element name="showStato" type="xs:byte" />
+			<xs:element name="showTipoInt" type="xs:byte" />
+			<xs:element minOccurs="0" name="workflow" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="attivitaDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="descrizione" type="xs:string" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="note" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="campiAggiuntiviTipoPraticaDto">
+		<xs:sequence>
+			<xs:element name="backFrontEnd" type="xs:int" />
+			<xs:element minOccurs="0" name="campiAggiuntivi" type="tns:campiAggiuntiviDto" />
+			<xs:element name="config_cagg" type="xs:byte" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element name="posizione" type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="categoriePraticheDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="descr" type="xs:string" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="modelliDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="contenuto" type="xs:base64Binary" />
+			<xs:element minOccurs="0" name="nome" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="searchAllPraticheWeb" >
+	
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="searchAllPraticheWebResponse" >
+	
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="return"
+				type="tns:praticaWebDto" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="searchTipoImmobile">
+	
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="searchTipoImmobileResponse" >	
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="return"
+				type="tns:searchTipoImmobileResp" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:complexType name="searchTipoImmobileResp">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="tipoImmobile"
+				nillable="true" type="tns:tipoImmobileDto" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="searchPraticaWebByPk">
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+			<xs:element name="arg1" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="searchPraticaWebByPkResponse">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="return" type="tns:praticaWebDto" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="searchStatoPratiche">
+	
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="searchStatoPraticheResponse">
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="return"
+				type="tns:statoPraticaDto" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:complexType name="statoPraticaDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="descrizione" type="xs:string" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="uploadFile">	
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+			<xs:element minOccurs="0" name="arg1" type="xs:string" />
+			<xs:element minOccurs="0" name="arg2" type="xs:string" />
+			<xs:element minOccurs="0" name="arg3" type="xs:base64Binary" />
+			<xs:element minOccurs="0" name="arg4" type="tns:profiloUtenteDto" />
+			<xs:element minOccurs="0" name="arg5" type="xs:string" />
+			<xs:element minOccurs="0" name="arg6" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="uploadFileResponse">
+	<xs:complexType>
+		<xs:sequence />
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="searchAllegatiTipoPratica">	
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+			<xs:element minOccurs="0" name="arg1" type="tns:tipoPraticaDto" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="searchAllegatiTipoPraticaResponse" >	
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="return"
+				type="tns:allegatiDto" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="getTipoPraticaByPk" >
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+			<xs:element name="arg1" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="getTipoPraticaByPkResponse" >
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element minOccurs="0" name="return" type="tns:tipoPraticaDto" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="getTipoImmobileByPk" >	
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+			<xs:element name="arg1" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="getTipoImmobileByPkResponse" >
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="return" type="tns:tipoImmobileDto" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="savePratica">
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+			<xs:element minOccurs="0" name="arg1" type="tns:praticaWebDto" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="savePraticaResponse">
+	<xs:complexType >
+		<xs:sequence />
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="searchTipoPraticheFrontend">
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="searchTipoPraticheFrontendResponse">
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="return"
+				type="tns:searchTipoPraticaResponse" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:complexType name="searchTipoPraticaResponse">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="tipoPratica"
+				nillable="true" type="tns:tipoPraticaDto" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="getReferenteByPk">
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+			<xs:element name="arg1" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="getReferenteByPkResponse">
+		<xs:complexType >
+			<xs:sequence>
+				<xs:element minOccurs="0" name="return" type="tns:referenteDto" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="referenteDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="alboapp" type="xs:string" />
+			<xs:element minOccurs="0" name="cap" type="xs:string" />
+			<xs:element minOccurs="0" name="cell" type="xs:string" />
+			<xs:element minOccurs="0" name="cf" type="xs:string" />
+			<xs:element name="chkref" type="xs:boolean" />
+			<xs:element minOccurs="0" name="cognome" type="xs:string" />
+			<xs:element minOccurs="0" name="compagniaAssicurativa"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="coordinateBancarie" type="xs:string" />
+			<xs:element minOccurs="0" name="dataStipulaAssicurazione"
+				type="xs:dateTime" />
+			<xs:element minOccurs="0" name="email" type="xs:string" />
+			<xs:element minOccurs="0" name="fax" type="xs:string" />
+			<xs:element minOccurs="0" name="importoPolizza" type="xs:string" />
+			<xs:element minOccurs="0" name="indirizzo" type="xs:string" />
+			<xs:element minOccurs="0" name="massimalePolizza" type="xs:string" />
+			<xs:element minOccurs="0" name="nome" type="xs:string" />
+			<xs:element minOccurs="0" name="nominativo" type="xs:string" />
+			<xs:element minOccurs="0" name="nrPolizza" type="xs:string" />
+			<xs:element minOccurs="0" name="nregistro" type="xs:string" />
+			<xs:element minOccurs="0" name="numalbo" type="xs:string" />
+			<xs:element minOccurs="0" name="pec" type="xs:string" />
+			<xs:element minOccurs="0" name="piva" type="xs:string" />
+			<xs:element minOccurs="0" name="riferimentitelefonici"
+				type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="documentiContenuti" >
+		<xs:complexType >
+			<xs:sequence>
+				<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+				<xs:element minOccurs="0" name="arg1" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="documentiContenutiResponse">
+		<xs:complexType >
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="return"
+				type="tns:docInfo" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:complexType name="docInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="creator" type="xs:string" />
+			<xs:element minOccurs="0" name="dataCreazione" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="dataProtocollo" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="file" type="tns:docFile" />
+			<xs:element minOccurs="0" name="note" type="xs:string" />
+			<xs:element minOccurs="0" name="numeroProtocollo" type="xs:string" />
+			<xs:element minOccurs="0" name="protocollato" type="xs:boolean" />
+			<xs:element minOccurs="0" name="tipoProtocollo" type="xs:string" />
+			<xs:element minOccurs="0" name="tipologia" type="xs:string" />
+			<xs:element minOccurs="0" name="titolo" type="xs:string" />
+			<xs:element minOccurs="0" name="uuid" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="docFile">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="content" type="xs:base64Binary" />
+			<xs:element minOccurs="0" name="dimensione" type="xs:string" />
+			<xs:element minOccurs="0" name="encoding" type="xs:string" />
+			<xs:element minOccurs="0" name="mimeType" type="xs:string" />
+			<xs:element minOccurs="0" name="nome" type="xs:string" />
+			<xs:element minOccurs="0" name="uuid" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType abstract="true" name="abstractCollection">
+		<xs:sequence />
+	</xs:complexType>
+	<xs:complexType abstract="true" name="abstractList">
+		<xs:complexContent>
+			<xs:extension base="tns:abstractCollection">
+				<xs:sequence />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="arrayList">
+		<xs:complexContent>
+			<xs:extension base="tns:abstractList">
+				<xs:sequence />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="searchPraticaByPk">
+	
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+			<xs:element name="arg1" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="searchPraticaByPkResponse" >
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="return" type="tns:praticaDto" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:complexType name="praticaDto">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="allegati"
+				nillable="true" type="tns:allegatiPraticaDto" />
+			<xs:element minOccurs="0" name="archFaldone" type="xs:string" />
+			<xs:element minOccurs="0" name="archPiano" type="xs:string" />
+			<xs:element minOccurs="0" name="archRipiano" type="xs:string" />
+			<xs:element minOccurs="0" name="archScaffale" type="xs:string" />
+			<xs:element minOccurs="0" name="archSito" type="xs:string" />
+			<xs:element minOccurs="0" name="archStanza" type="xs:string" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="assegnatari"
+				nillable="true" type="tns:profiloUtenteDto" />
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="campiaggiuntivi" nillable="true" type="tns:campiAggiuntiviPraticaDto" />
+			<xs:element name="completato" type="xs:boolean" />
+			<xs:element minOccurs="0" name="dataAssAtt" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="dataProtocollo" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="dataProtocolloRichiedente"
+				type="xs:dateTime" />
+			<xs:element minOccurs="0" name="dataRichiesta" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="dataScadenza" type="xs:dateTime" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="figure"
+				nillable="true" type="tns:figuraDto" />
+			<xs:element minOccurs="0" name="ggComplessivi" type="xs:int" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="immobile" type="tns:immobileDto" />
+			<xs:element name="letta" type="xs:boolean" />
+			<xs:element minOccurs="0" name="note" type="xs:string" />
+			<xs:element minOccurs="0" name="numero" type="xs:string" />
+			<xs:element minOccurs="0" name="numeroPratica" type="xs:string" />
+			<xs:element minOccurs="0" name="numeroProtocollo" type="xs:string" />
+			<xs:element minOccurs="0" name="numeroProtocolloRichiedente"
+				type="xs:string" />
+			<xs:element minOccurs="0" name="oggettoRichiesta" type="xs:string" />
+			<xs:element minOccurs="0" name="prefisso" type="xs:string" />
+			<xs:element minOccurs="0" name="referente" type="tns:profiloUtenteDto" />
+			<xs:element minOccurs="0" name="richiedente" type="tns:referenteDto" />
+			<xs:element minOccurs="0" name="stato" type="tns:statoPraticaDto" />
+			<xs:element minOccurs="0" name="tipoIntervento" type="tns:tipoInterventoDto" />
+			<xs:element minOccurs="0" name="tipologia" type="tns:tipoPraticaDto" />
+			<xs:element minOccurs="0" name="uuidContenitore" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="campiAggiuntiviPraticaDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="campiAggiuntivi" type="tns:campiAggiuntiviDto" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+			<xs:element minOccurs="0" name="nomeFile" type="xs:string" />
+			<xs:element minOccurs="0" name="uuidFile" type="xs:string" />
+			<xs:element minOccurs="0" name="valore" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="figuraDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="qualifica" type="tns:qualificaDto" />
+			<xs:element minOccurs="0" name="referente" type="tns:referenteDto" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="qualificaDto">
+		<xs:sequence>
+			<xs:element name="codicequalifica" type="xs:int" />
+			<xs:element minOccurs="0" name="nome" type="xs:string" />
+			<xs:element name="visWeb" type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="immobileDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="areaSin" type="xs:string" />
+			<xs:element minOccurs="0" name="cap" type="xs:string" />
+			<xs:element minOccurs="0" name="comune" type="tns:comuneDto" />
+			<xs:element minOccurs="0" name="denominazione" type="xs:string" />
+			<xs:element minOccurs="0" name="foglio" type="xs:int" />
+			<xs:element minOccurs="0" name="indirizzo" type="xs:string" />
+			<xs:element minOccurs="0" name="latG" type="xs:int" />
+			<xs:element minOccurs="0" name="latP" type="xs:int" />
+			<xs:element minOccurs="0" name="latS" type="xs:double" />
+			<xs:element minOccurs="0" name="longG" type="xs:int" />
+			<xs:element minOccurs="0" name="longP" type="xs:int" />
+			<xs:element minOccurs="0" name="longS" type="xs:double" />
+			<xs:element minOccurs="0" name="particella" type="xs:string" />
+			<xs:element minOccurs="0" name="subalterno" type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipoInterventoDto">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="descrizione" type="xs:string" />
+			<xs:element minOccurs="0" name="id" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="downloadDocumento">
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+			<xs:element minOccurs="0" name="arg1" type="xs:string" />
+			<xs:element minOccurs="0" name="arg2" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="downloadDocumentoResponse">
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="return" type="xs:base64Binary" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:element name="searchPratiche">
+	<xs:complexType >
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+			<xs:element minOccurs="0" name="arg1" type="tns:datiRicercaPraticaWeb" />
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	<xs:complexType name="datiRicercaPraticaWeb">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="numero" type="xs:string" />
+			<xs:element minOccurs="0" name="oggetto" type="xs:string" />
+			<xs:element minOccurs="0" name="statopratica" type="xs:string" />
+			<xs:element minOccurs="0" name="tipologia" type="xs:string" />
+			<xs:element minOccurs="0" name="utente" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="searchPraticheResponse">
+		<xs:complexType >
+			<xs:sequence>
+				<xs:element minOccurs="0" name="return" type="tns:searchPraticaResponse" />
+			</xs:sequence>
+		</xs:complexType>
+		</xs:element>
+	<xs:complexType name="searchPraticaResponse">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="pratiche"
+				nillable="true" type="tns:praticaDto" />
+		</xs:sequence>
+	</xs:complexType>
+	 -->
+	<!-- <xs:element name="documentiContenuti" type="tns:documentiContenuti" />
+	<xs:element name="documentiContenutiResponse" type="tns:documentiContenutiResponse" />
+	<xs:element name="downloadDocumento" type="tns:downloadDocumento" />
+	<xs:element name="downloadDocumentoResponse" type="tns:downloadDocumentoResponse" />
+	<xs:element name="searchPratiche" type="tns:searchPratiche" />
+	<xs:element name="searchPraticheResponse" type="tns:searchPraticheResponse" />
+	<xs:element name="getReferenteByPk" type="tns:getReferenteByPk" />
+	<xs:element name="getReferenteByPkResponse" type="tns:getReferenteByPkResponse" />
+	<xs:element name="searchTipoPraticheFrontend" type="tns:searchTipoPraticheFrontend" />
+	<xs:element name="searchTipoPraticheFrontendResponse" type="tns:searchTipoPraticheFrontendResponse" />
+	<xs:element name="getTipoImmobileByPk" type="tns:getTipoImmobileByPk" />
+	<xs:element name="getTipoImmobileByPkResponse" type="tns:getTipoImmobileByPkResponse" />
+	<xs:element name="getTipoPraticaByPk" type="tns:getTipoPraticaByPk" />
+	<xs:element name="getTipoPraticaByPkResponse" type="tns:getTipoPraticaByPkResponse" />
+	<xs:element name="savePratica" type="tns:savePratica" />
+	<xs:element name="savePraticaResponse" type="tns:savePraticaResponse" />
+	<xs:element name="searchAllPraticheWeb" type="tns:searchAllPraticheWeb" />
+	<xs:element name="searchAllPraticheWebResponse" type="tns:searchAllPraticheWebResponse" />
+	<xs:element name="searchAllegatiTipoPratica" type="tns:searchAllegatiTipoPratica" />
+	<xs:element name="searchAllegatiTipoPraticaResponse" type="tns:searchAllegatiTipoPraticaResponse" />
+	<xs:element name="searchPraticaByPk" type="tns:searchPraticaByPk" />
+	<xs:element name="searchPraticaByPkResponse" type="tns:searchPraticaByPkResponse" />
+	<xs:element name="searchPraticaWebByPk" type="tns:searchPraticaWebByPk" />
+	<xs:element name="searchPraticaWebByPkResponse" type="tns:searchPraticaWebByPkResponse" />
+	<xs:element name="searchPraticheWebByUtente" type="tns:searchPraticheWebByUtente" />
+	<xs:element name="searchPraticheWebByUtenteResponse" type="tns:searchPraticheWebByUtenteResponse" />
+	<xs:element name="searchStatoPratiche" type="tns:searchStatoPratiche" />
+	<xs:element name="searchStatoPraticheResponse" type="tns:searchStatoPraticheResponse" />
+	<xs:element name="searchTipoImmobile" type="tns:searchTipoImmobile" />
+	<xs:element name="searchTipoImmobileResponse" type="tns:searchTipoImmobileResponse" />
+	<xs:element name="uploadFile" type="tns:uploadFile" />
+	<xs:element name="uploadFileResponse" type="tns:uploadFileResponse" />
+	
+	-->
+
+	<!--  <xs:element name="pratica" type="tns:searchPraticaResponse" />
+	<xs:element name="tipoImmobile" type="tns:searchTipoImmobileResp" />
+	<xs:element name="tipoPratica" type="tns:searchTipoPraticaResponse" />
+	 -->
+</xs:schema>

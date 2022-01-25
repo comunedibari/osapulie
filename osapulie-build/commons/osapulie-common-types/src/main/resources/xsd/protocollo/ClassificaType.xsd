@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="Classifica">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="CodiceAmministrazione"	type="xs:string" />
+			<xs:element minOccurs="0" name="CodiceAOO" type="xs:string" />
+			<xs:element minOccurs="0" name="Denominazione" type="xs:string" />
+			<xs:element maxOccurs="unbounded" ref="Livello" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Livello">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="nome" type="xs:string" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>it.osapulie.build</groupId>
+		<artifactId>3rd-party-libraries</artifactId>
+		<version>1.0</version>
+	</parent>
+	<groupId>it.osapulie.build.3rdparty</groupId>
+	<artifactId>persistence-hibernate</artifactId>
+	<packaging>pom</packaging>
+	<version>3.6.7.Final</version>
+	<name>Hibernate Persistence Library</name>
+	<description>Hibernate Persistence Library POM</description>
+
+	<organization>
+		<name>Links Management &amp; Technology S.p.A.</name>
+		<url>http://www.linksmt.it</url>
+	</organization>
+
+	<properties>
+		<!-- Maven Settings -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Dependencies -->
+		<hibernate.version>${project.version}</hibernate.version>
+	</properties>
+
+	<dependencies>
+		<!-- Hibernate dependencies -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+			<exclusions>
+       			<exclusion>
+            		<groupId>org.slf4j</groupId>
+            		<artifactId>slf4j-log4j12</artifactId>
+        		</exclusion>
+        		<exclusion>
+            		<groupId>log4j</groupId>
+            		<artifactId>log4j</artifactId>
+        		</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.hibernate</groupId> -->
+<!-- 			<artifactId>hibernate-annotations</artifactId> -->
+<!-- 			<version>${hibernate.version}</version> -->
+<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
+		</dependency>
+	</dependencies>
+</project>

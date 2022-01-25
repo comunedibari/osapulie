@@ -1,0 +1,142 @@
+<data enableBatchRequests="false" enableBoxcarring="false" name="visuraTassaRifiutiService" serviceNamespace="http://servizi.osapulie.it" serviceStatus="active">
+   <config id="default">
+      <property name="carbon_datasource_name">OSAPULIE_SERVIZI_DS</property>
+   </config>
+   <query id="select_with_key_visura_tassa_rifiuti_t_query" useConfig="default">
+      <sql>SELECT id, codiceFiscale, dataInizio, dataFine, dataAggiornamento, contoCorrente, numeroDocumento, importoDocumento, annoRiferimento, descrizioneTassa FROM visura_tassa_rifiuti WHERE codiceFiscale=? AND annoRiferimento >= ? AND annoRiferimento &lt;= ?</sql>
+      <result element="visureTassaRifiuti" rowName="visuraTassaRifiuti">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="dataInizio" name="dataInizio" xsdType="xs:date"/>
+         <element column="dataFine" name="dataFine" xsdType="xs:date"/>
+         <element column="dataAggiornamento" name="dataAggiornamento" xsdType="xs:date"/>
+         <element column="contoCorrente" name="contoCorrente" xsdType="xs:string"/>
+         <element column="numeroDocumento" name="numeroDocumento" xsdType="xs:string"/>
+	     <element column="importoDocumento" name="importoDocumento" xsdType="xs:double"/>
+	     <element column="annoRiferimento" name="annoRiferimento" xsdType="xs:integer"/>
+         <element column="descrizioneTassa" name="descrizioneTassa" xsdType="xs:string"/>
+      </result>
+      <param name="codiceFiscale" sqlType="STRING"/>
+      <param name="annoDa" sqlType="INTEGER"/>
+      <param name="annoA" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_id_visura_tassa_rifiuti_t_query" useConfig="default">
+      <sql>SELECT id, codiceFiscale, dataInizio, dataFine, dataAggiornamento, contoCorrente, numeroDocumento, importoDocumento, annoRiferimento, descrizioneTassa FROM visura_tassa_rifiuti WHERE id=?</sql>
+      <result element="visureTassaRifiuti" rowName="visuraTassaRifiuti">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="dataInizio" name="dataInizio" xsdType="xs:date"/>
+         <element column="dataFine" name="dataFine" xsdType="xs:date"/>
+         <element column="dataAggiornamento" name="dataAggiornamento" xsdType="xs:date"/>
+         <element column="contoCorrente" name="contoCorrente" xsdType="xs:string"/>
+         <element column="numeroDocumento" name="numeroDocumento" xsdType="xs:string"/>
+	     <element column="importoDocumento" name="importoDocumento" xsdType="xs:double"/>
+	     <element column="annoRiferimento" name="annoRiferimento" xsdType="xs:integer"/>
+         <element column="descrizioneTassa" name="descrizioneTassa" xsdType="xs:string"/>
+      </result>
+      <param name="id" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_tassa_rifiuti_posizioni_query" useConfig="default">
+      <sql>SELECT id, indirizzoUtenzaImmobile, sitUtenzaImmobile, identificativoUtenza, superficie, numero, sezione, foglio, particella, subalterno, destinazione, tipo, aliquota, agevolazione, importoAgevolazione, riduzione, importoRiduzione, importoTariffa, importoDaPagare, addizionaleComunale, maggiorazioneStato, addizionaleProvinciale, dataInizioOccupazione, dataFineOccupazione, idVisura FROM visura_tassa_rifiuti_posizioni WHERE idVisura=?</sql>
+      <result element="posizioniVisuraTassaRifiuti" rowName="posizioneVisuraTassaRifiuti">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="indirizzoUtenzaImmobile" name="indirizzoUtenzaImmobile" xsdType="xs:string"/>
+	     <element column="sitUtenzaImmobile" name="sitUtenzaImmobile" xsdType="xs:integer"/>
+         <element column="identificativoUtenza" name="identificativoUtenza" xsdType="xs:integer"/>
+         <element column="superficie" name="superficie" xsdType="xs:double"/>
+         <element column="numero" name="numero" xsdType="xs:integer"/>
+         <element column="sezione" name="sezione" xsdType="xs:string"/>
+         <element column="foglio" name="foglio" xsdType="xs:integer"/>
+	     <element column="particella" name="particella" xsdType="xs:integer"/>
+	     <element column="subalterno" name="subalterno" xsdType="xs:integer"/>
+         <element column="destinazione" name="destinazione" xsdType="xs:string"/>
+         <element column="tipo" name="tipo" xsdType="xs:string"/>
+         <element column="aliquota" name="aliquota" xsdType="xs:string"/>
+         <element column="agevolazione" name="agevolazione" xsdType="xs:string"/>
+	     <element column="importoAgevolazione" name="importoAgevolazione" xsdType="xs:double"/>
+	     <element column="riduzione" name="riduzione" xsdType="xs:string"/>
+	     <element column="importoRiduzione" name="importoRiduzione" xsdType="xs:double"/>
+         <element column="importoTariffa" name="importoTariffa" xsdType="xs:double"/>
+         <element column="importoDaPagare" name="importoDaPagare" xsdType="xs:double"/>
+         <element column="addizionaleComunale" name="addizionaleComunale" xsdType="xs:double"/>
+         <element column="maggiorazioneStato" name="maggiorazioneStato" xsdType="xs:double"/>
+         <element column="addizionaleProvinciale" name="addizionaleProvinciale" xsdType="xs:double"/>
+         <element column="dataInizioOccupazione" name="dataInizioOccupazione" xsdType="xs:date"/>
+	     <element column="dataFineOccupazione" name="dataFineOccupazione" xsdType="xs:date"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="idVisura" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_tassa_rifiuti_rate_query" useConfig="default">
+      <sql>SELECT id, importoRata, scadenzaRata, numeroRata, identificativoRata, importoPagato, dataPagamento, idVisura FROM visura_tassa_rifiuti_rate WHERE idVisura=?</sql>
+      <result element="rateVisuraTassaRifiuti" rowName="rataVisuraTassaRifiuti">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="importoRata" name="importoRata" xsdType="xs:double"/>
+         <element column="scadenzaRata" name="scadenzaRata" xsdType="xs:date"/>
+         <element column="numeroRata" name="numeroRata" xsdType="xs:integer"/>
+         <element column="identificativoRata" name="identificativoRata" xsdType="xs:string"/>
+         <element column="importoPagato" name="importoPagato" xsdType="xs:double"/>
+         <element column="dataPagamento" name="dataPagamento" xsdType="xs:date"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="idVisura" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_identificativoRata_visura_tassa_rifiuti_rate_query" useConfig="default">
+      <sql>SELECT id, importoRata, scadenzaRata, numeroRata, identificativoRata, importoPagato, dataPagamento, idVisura FROM visura_tassa_rifiuti_rate WHERE identificativoRata=?</sql>
+      <result element="rateVisuraTassaRifiuti" rowName="rataVisuraTassaRifiuti">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="importoRata" name="importoRata" xsdType="xs:double"/>
+         <element column="scadenzaRata" name="scadenzaRata" xsdType="xs:date"/>
+         <element column="numeroRata" name="numeroRata" xsdType="xs:integer"/>
+         <element column="identificativoRata" name="identificativoRata" xsdType="xs:string"/>
+         <element column="importoPagato" name="importoPagato" xsdType="xs:double"/>
+         <element column="dataPagamento" name="dataPagamento" xsdType="xs:date"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="identificativoRata" sqlType="STRING"/>
+   </query>
+   <query id="select_with_key_visura_tassa_rifiuti_occupazioni_query" useConfig="default">
+      <sql>SELECT id, dataInizioOccupazione, dataFineOccupazione, numeroComponenti, importoTariffa, idPosizione FROM visura_tassa_rifiuti_occupazioni WHERE idPosizione=?</sql>
+      <result element="occupazioniPosizioneVisuraTassaRifiuti" rowName="occupazionePosizioneVisuraTassaRifiuti">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="dataInizioOccupazione" name="dataInizioOccupazione" xsdType="xs:date"/>
+   	 	 <element column="dataFineOccupazione" name="dataFineOccupazione" xsdType="xs:date"/>
+	     <element column="numeroComponenti" name="numeroComponenti" xsdType="xs:integer"/>
+	     <element column="importoTariffa" name="importoTariffa" xsdType="xs:double"/>
+         <element column="idPosizione" name="idPosizione" xsdType="xs:integer"/>
+      </result>
+      <param name="idPosizione" sqlType="INTEGER"/>
+   </query>
+   <operation name="getVisureTassaRifiuti">
+      <call-query href="select_with_key_visura_tassa_rifiuti_t_query">
+         <with-param name="codiceFiscale" query-param="codiceFiscale"/>
+         <with-param name="annoDa" query-param="annoDa"/>
+         <with-param name="annoA" query-param="annoA"/>
+      </call-query>
+   </operation>
+   <operation name="getVisuraTassaRifiuti">
+      <call-query href="select_with_key_id_visura_tassa_rifiuti_t_query">
+         <with-param name="id" query-param="id"/>
+      </call-query>
+   </operation>
+   <operation name="getPosizioniVisuraTassaRifiuti">
+      <call-query href="select_with_key_visura_tassa_rifiuti_posizioni_query">
+         <with-param name="idVisura" query-param="idVisura"/>
+      </call-query>
+   </operation>
+   <operation name="getRateVisuraTassaRifiuti">
+      <call-query href="select_with_key_visura_tassa_rifiuti_rate_query">
+         <with-param name="idVisura" query-param="idVisura"/>
+      </call-query>
+   </operation>
+   <operation name="getRataVisuraTassaRifiuti">
+      <call-query href="select_with_key_identificativoRata_visura_tassa_rifiuti_rate_query">
+         <with-param name="identificativoRata" query-param="identificativoRata"/>
+      </call-query>
+   </operation>
+   <operation name="getOccupazioniPosizioneVisuraTassaRifiuti">
+      <call-query href="select_with_key_visura_tassa_rifiuti_occupazioni_query">
+         <with-param name="idPosizione" query-param="idPosizione"/>
+      </call-query>
+   </operation>
+</data>

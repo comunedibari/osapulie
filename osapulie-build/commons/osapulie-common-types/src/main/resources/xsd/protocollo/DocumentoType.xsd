@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:tns="http://ws.web.protocollo.osapulie.it" targetNamespace="http://ws.web.protocollo.osapulie.it"
+elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="ImprontaMIMEType.xsd"/>
+	<xs:complexType name="Documento">
+		<xs:sequence>
+			<xs:element name="titolo" type="xs:string" />
+			<xs:element name="nomeFile" type="xs:string" />
+			<xs:element name="dettaglio" type="xs:string" />
+			<xs:element minOccurs="0" name="classifica" type="xs:string" />
+			<xs:element minOccurs="0" name="contenuto" type="xs:base64Binary" />
+			<xs:element minOccurs="0" name="improntaMIME" type="tns:ImprontaMIME" />
+			<xs:element minOccurs="0" name="collocazioneTelematica" type="xs:string" />
+		</xs:sequence>
+		<xs:attribute name="tipoRiferimento" type="xs:string" />
+	</xs:complexType>
+</xs:schema>

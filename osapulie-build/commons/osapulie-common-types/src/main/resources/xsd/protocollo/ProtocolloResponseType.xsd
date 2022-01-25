@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.web.protocollo.osapulie.it" targetNamespace="http://ws.web.protocollo.osapulie.it"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="MittenteType.xsd" />
+	<xs:include schemaLocation="DestinatarioType.xsd" />
+	<xs:include schemaLocation="DocumentoType.xsd" />
+	<xs:include schemaLocation="AllegatoType.xsd" />
+	<xs:complexType name="ProtocolloResponse">
+		<xs:sequence>
+			<xs:element name="numeroProtocollo" type="xs:long" minOccurs="0" />
+			<xs:element name="dataProtocollo" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="mittente" type="tns:Mittente" minOccurs="0" />
+			<xs:element name="destinatari" type="tns:Destinatario"	nillable="true" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="documento" type="tns:Documento" minOccurs="0" />
+			<xs:element name="allegati" type="tns:Allegato" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="areaOrganizzativaOmogenea" type="xs:string"	minOccurs="0" />
+			<xs:element name="amministrazione" type="xs:string" minOccurs="0" />
+			<xs:element name="oggetto" type="xs:string" minOccurs="0" />
+			<xs:element name="idUtente" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

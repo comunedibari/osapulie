@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://types.servizi.osapulie.it" targetNamespace="http://types.servizi.osapulie.it" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:element name="stradarioRisposta">
+		<xs:annotation>
+			<xs:documentation>Dati di risposta al portale per l'interrogazione dei servizi di toponomastica (stradario) esposti dal comune</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="indirizzo" maxOccurs="unbounded" type="tns:Indirizzo" /> <!-- lista degli indirizzi -->
+				<xs:element name="errore">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="codice" type="xs:int">
+								<xs:annotation>
+									<xs:documentation>
+										Decodifica errore:
+										1.Server non disponibile
+										2.Indirizzo non trovato
+										3.Dati non disponibili
+										4.Errore generico
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="descrizione" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Indirizzo">
+		<xs:sequence>
+			<xs:element name="via" type="tns:Via" />
+			<xs:element name="civico" type="tns:Civico" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Via">
+		<xs:sequence>
+			<xs:element name="identificativo" type="xs:string" />
+			<xs:element name="denominazione" type="xs:string" />
+			<xs:element name="civico" type="tns:Civico" />
+			<xs:element name="zona" type="xs:string" minOccurs="0" />
+			<xs:element name="caratteristicaBiografica" type="xs:string" minOccurs="0" />
+			<xs:element name="dataAggiornamento" type="xs:date" minOccurs="0" />
+			<xs:element name="tipo" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Civico">
+		<xs:sequence>
+			<xs:element name="identificativo" type="xs:string" />
+			<xs:element name="numero" type="xs:int" />
+			<xs:element name="esponente" type="xs:string" minOccurs="0" />
+			<xs:element name="localita" type="xs:string" minOccurs="0" />
+			<xs:element name="ubicazione" type="xs:string" minOccurs="0" />
+			<xs:element name="cap" type="xs:string" minOccurs="0" />
+			<xs:element name="latitudine" type="xs:double" minOccurs="0" />
+			<xs:element name="longitudine" type="xs:double" minOccurs="0" />
+			<xs:element name="centroStorico" type="xs:boolean" minOccurs="0" />
+			<xs:element name="principale" type="xs:boolean" minOccurs="0" />
+			<xs:element name="provvisorio" type="xs:boolean" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

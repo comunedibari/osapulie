@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://types.output.tributi.osapulie.it" targetNamespace="http://types.output.tributi.osapulie.it" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:include schemaLocation="TassaRifiutiType.xsd" />
+	<xs:include schemaLocation="PagamentoOsapPermanenteType.xsd" />
+	<xs:include schemaLocation="TassaImmobiliType.xsd" />
+	<xs:include schemaLocation="PagamentoPubblicitaType.xsd" />
+	<xs:include schemaLocation="PagamentoAffissioniType.xsd" />
+	<xs:include schemaLocation="PagamentoServiziCimiterialiType.xsd" />
+	<xs:include schemaLocation="PagamentoOsapTemporaneaType.xsd" />
+	<xs:element name="visuraPosizioneTributariaRisposta">
+		<xs:annotation>
+			<xs:documentation>Dati di risposta al comune relativi al servizio Visualizzazione Posizione Tributaria.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="elencoPagamentiTassaRifiuti" type="tns:DatiTassaRifiuti" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Dati di risposta del servizio pagamento Tarsu</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="elencoPagamentiOsapTemporanea" type="tns:DatiOsapTemporanea" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Dati di risposta del servizio - Pagamento Tosap Cosap temporanea</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="elencoPagamentiOsapPermananente" type="tns:DatiOsapPermanente" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Dati di risposta del servizio - Pagamento Tosap Cosap permanente</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="elencoPagamentiTassaImmobili" type="tns:DatiTassaImmobili" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element name="elencoPagamentiTassaPubblicita" type="tns:PagamentiPubblicitaType" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element name="elencoPagamentiTassaAffissioni" type="tns:PagamentiAffissioniType" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element name="elencoPagamentiTassaCimiteriali" type="tns:PagamentiServiziCimiterialiType" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+				<xs:element name="errore">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="codice" type="xs:int">
+								<xs:annotation>
+									<xs:documentation>
+										Decodifica errore:
+										1.Server non disponibile
+										2.Codice fiscale non trovato
+										3.Dati non disponibili
+										4.Errore generico
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="descrizione" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

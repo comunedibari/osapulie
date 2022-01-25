@@ -1,0 +1,109 @@
+.mainDiv .datiAnagraficiAvanzatitable .autenticazioneTd IMG {
+	margin-top: 5px;
+	vertical-align: bottom;
+}
+
+.mainDiv .datiAnagraficiAvanzatitable .autenticazioneTd SPAN {
+	font-weight: bold;
+	margin-left: 5px;
+}
+
+.buttonsDiv {
+	margin: 0 auto;
+	text-align: center;
+	padding: 15px 15px 30px 15px;
+	text-decoration: none;
+	width: 156px;
+}
+
+.buttonsDiv A {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid;
+	margin: 2px 4px 2px 2px;
+	padding: 5px;
+	text-decoration: none !important;
+	cursor: pointer;
+	font-weight: bold;
+	border-color: #C8D4E0 #9E9E9E #9E9E9E #C8C9CA;
+	color: #34404F;
+	background: #d4d4d4 url(/html/themes/classic/images/portlet/header_bg.png) repeat-x 0 0;
+	display: block;
+	width: 60px;
+	float: left;
+}
+.buttonsDiv A:hover {
+	background: #b9ced9 url(/html/themes/classic/images/application/state_hover_bg.png) repeat-x 0 0;
+	border-color: #627782;
+	color: #369;
+}
+
+.buttonsDiv A.button SPAN {
+	margin: 10px;
+}
+
+.upperCase {
+	text-transform: uppercase;
+}
+
+.errorField {
+	background: url("../images/error.png") no-repeat scroll 6px 50% #FFDDDD;
+	border: 1px solid #FF0000;
+	font-weight: bold;
+	margin: 6px 15px 15px 0;
+	padding: 3px 6px 3px 30px;
+	text-align: left;
+}
+
+.mainDiv TABLE .serviziListBox {
+	width: 300px;
+}
+
+table {
+	width: 100%;
+	margin:10px;
+	padding: 10px;
+}
+
+.tableDett {
+	width:99%;
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+.tableDett th{
+	font-weight: bold;
+	padding-bottom: 8px;
+	padding-right: 5px;
+}
+.liferayUiDate {
+	min-width: 230px;
+}
+
+.datiObbligatoriDiv {
+	text-align: right;
+	color: #5B677D;
+}
+
+.textarea {
+	width: 100%;
+}
+
+.buttonsDiv input[type="submit"] {
+	margin: 2px 4px 2px 2px !important;
+	padding: 5px!important;
+	display: block!important;
+	width: 72px!important;
+	height: auto!important;
+	float: right!important;
+}
+
+.buttonsDiv input[type="submit"]:hover {
+	margin: 2px 4px 2px 2px !important;
+}
+
+@import url(jquery.css);

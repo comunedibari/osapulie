@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://types.input.tributi.osapulie.it" targetNamespace="http://types.input.tributi.osapulie.it" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:include schemaLocation="CommonTypes.xsd" />
+	<xs:element name="dichiarazioneTassaImmobiliInputRichiesta">
+		<xs:annotation>
+			<xs:documentation>Dichiarazione Tassa Immobili</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="contribuente" minOccurs="1" type="tns:Soggetto" />
+				<xs:element name="residenzaContribuente" type="tns:Indirizzo" minOccurs="1" />
+				<xs:element name="dichiarante" minOccurs="1">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="tns:Soggetto">
+								<xs:attribute name="naturaCarica" type="xs:string" />
+								<xs:attribute name="codiceFiscaleSocietaEnte" type="xs:string" />
+								<xs:attribute name="numIscrizioneAlboCAF" type="xs:string" />
+								<xs:attribute name="tipoPresentazione" type="xs:string" />
+								<xs:attribute name="dataImpegnoPresentazione" type="xs:string" />
+								<xs:attribute name="impegnoPresentazioneTelematica" type="xs:boolean" />
+								<xs:attribute name="codiceFiscaleIntermediario" type="xs:string" />
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="residenzaDichiarante" type="tns:IndirizzoCompleto" minOccurs="1" />
+				<xs:element name="posizioneTotalmenteImponibile" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="tns:Immobile">
+								<xs:attribute name="annotazioni" type="xs:string" />
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="posizioneParzialmenteImponibileOEsente" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="tns:Immobile">
+								<xs:attribute name="attivitaSvolta1" type="xs:boolean" />
+								<xs:attribute name="attivitaSvolta2" type="xs:boolean" />
+								<xs:attribute name="attivitaSvolta3" type="xs:boolean" />
+								<xs:attribute name="attivitaSvolta4" type="xs:boolean" />
+								<xs:attribute name="attivitaSvolta5" type="xs:boolean" />
+								<xs:attribute name="attivitaSvolta6" type="xs:boolean" />
+								<xs:attribute name="attivitaSvolta7" type="xs:boolean" />
+								<xs:attribute name="attivitaSvolta8" type="xs:boolean" />
+								<xs:attribute name="attivitaSvolta9" type="xs:boolean" />
+								<xs:attribute name="attivitaSvolta10" type="xs:boolean" />
+
+								<!-- Attività Didattica -->
+								<xs:attribute name="cmAttivitaDidattica" type="xs:long" />
+								<xs:attribute name="cmsAttivitaDidattica" type="xs:long" />
+								<xs:attribute name="aAttivitaDidattica" type="xs:double" />
+								<xs:attribute name="a1AttivitaDidattica" type="xs:double" />
+								<xs:attribute name="bAttivitaDidattica" type="xs:double" />
+								<xs:attribute name="b1AttivitaDidattica" type="xs:double" />
+								<xs:attribute name="cAttivitaDidattica" type="xs:double" />
+								<xs:attribute name="dAttivitaDidattica" type="xs:double" />
+								<xs:attribute name="eAttivitaDidattica" type="xs:double" />
+								<xs:attribute name="fAttivitaDidattica" type="xs:double" />
+								<xs:attribute name="gAttivitaDidattica" type="xs:boolean" />
+								<xs:attribute name="hAttivitaDidattica" type="xs:boolean" />
+								<xs:attribute name="iAttivitaDidattica" type="xs:double" />
+								<xs:attribute name="jAttivitaDidattica" type="xs:double" />
+								<xs:attribute name="kAttivitaDidattica" type="xs:double" />
+
+								<!-- Altre Attività -->
+								<xs:attribute name="cencAltreAttivita" type="xs:long" />
+								<xs:attribute name="cmAltreAttivita" type="xs:long" />
+								<xs:attribute name="aAltreAttivita" type="xs:double" />
+								<xs:attribute name="a1AltreAttivita" type="xs:double" />
+								<xs:attribute name="bAltreAttivita" type="xs:double" />
+								<xs:attribute name="b1AltreAttivita" type="xs:double" />
+								<xs:attribute name="cAltreAttivita" type="xs:double" />
+								<xs:attribute name="dAltreAttivita" type="xs:double" />
+								<xs:attribute name="eAltreAttivita" type="xs:double" />
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+
+				<!-- DETERMINAZIONE DELL'IMU E DELLA TASI -->
+				<xs:element name="imuDovuta" type="xs:double" nillable="true" />
+				<xs:element name="eccedenzaImuPrecedenteDichiarazione" type="xs:double" nillable="true" />
+				<xs:element name="eccedenzaImuPrecedenteDichiarazioneCompensataF24" type="xs:double" nillable="true" />
+				<xs:element name="rateVersateImu" type="xs:double" nillable="true" />
+				<xs:element name="imuDebito" type="xs:double" nillable="true" />
+				<xs:element name="imuCredito" type="xs:double" nillable="true" />
+				<xs:element name="tasiDovuta" type="xs:double" nillable="true" />
+				<xs:element name="eccedenzaTasiPrecedenteDichiarazione" type="xs:double" nillable="true" />
+				<xs:element name="eccedenzaTasiPrecedenteDichiarazioneCompensataF24" type="xs:double" nillable="true" />
+				<xs:element name="rateVersateTasi" type="xs:double" nillable="true" />
+				<xs:element name="tasiDebito" type="xs:double" nillable="true" />
+				<xs:element name="tasiCredito" type="xs:double" nillable="true" />
+
+				<!-- COMPENSAZIONI E RIMBORSI -->
+				<xs:element name="imuCreditoPrecedenteDichiarazione" type="xs:double" nillable="true" />
+				<xs:element name="imuCreditoRimborso" type="xs:double" nillable="true" />
+				<xs:element name="imuCreditoCompensazione" type="xs:double" nillable="true" />
+				<xs:element name="tasiCreditoPrecedenteDichiarazione" type="xs:double" nillable="true" />
+				<xs:element name="tasiCreditoRimborso" type="xs:double" nillable="true" />
+				<xs:element name="tasiCreditoCompensazione" type="xs:double" nillable="true" />
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="IndirizzoCompleto">
+		<xs:complexContent>
+			<xs:extension base="tns:Indirizzo">
+				<xs:attribute name="statoEstero" type="xs:string" />
+				<xs:attribute name="localitaEstero" type="xs:string" />
+				<xs:attribute name="indirizzoStatoEstero" type="xs:string" />
+				<xs:attribute name="codiceStatoEstero" type="xs:string" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

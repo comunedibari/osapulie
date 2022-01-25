@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Standard portlet metadata per OS Apulie. 
+ -->
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+	
+	<!-- 
+		Portlet esposte da questa web application.
+	 -->
+
+	<portlet>
+		<portlet-name>osapulie-stampa</portlet-name>
+        <display-name>OSApulie Stampa Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.stampa</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-statistiche</portlet-name>
+        <display-name>OSApulie Statistiche Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.statistiche</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-testservizi</portlet-name>
+        <display-name>OSApulie Test Servizi</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.testservizi</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-redirect</portlet-name>
+        <display-name>OSApulie Redirect Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.redirect</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-stampaparametri</portlet-name>
+        <display-name>OSApulie Stampa Prametri Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.stampaparametri</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-testdichiarazioni</portlet-name>
+        <display-name>OSApulie Test Dichiarazioni</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.testdichiarazioni</resource-bundle>
+	</portlet>
+	
+	<!-- 
+		Mappatura degli attributi utente che vogliamo il portale passi a Spring Security:
+		dipendono dal particolare portale (?) (questi sono per Liferay).
+	 -->
+	<user-attribute>
+		<name>user.login.id</name>
+	</user-attribute>
+	<user-attribute>
+		<name>user.name</name>
+	</user-attribute>
+	<user-attribute>
+		<name>user.name.full</name>
+	</user-attribute>
+	
+	<default-namespace>http://www.linksmt.it/osapulie/params</default-namespace>
+</portlet-app>

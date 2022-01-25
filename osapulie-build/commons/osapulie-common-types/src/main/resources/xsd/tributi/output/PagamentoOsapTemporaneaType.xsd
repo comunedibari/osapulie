@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://types.output.tributi.osapulie.it" targetNamespace="http://types.output.tributi.osapulie.it" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:complexType name="DatiOsapTemporanea">
+		<xs:sequence>
+			<xs:element name="posizioniOsap" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="indirizzoUtenza" type="xs:string" />
+						<xs:element name="superficie" type="xs:double" />
+						<xs:element name="zona" type="xs:string" minOccurs="0" />
+						<xs:element name="descrizioneTariffa" type="xs:string" minOccurs="0" />
+						<xs:element name="durataOccupazione" type="xs:int" />
+						<xs:element name="importoDaPagare" type="xs:double">
+							<xs:annotation>
+								<xs:documentation>espresso in centesimi di euro</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="importoPagato" type="xs:double">
+							<xs:annotation>
+								<xs:documentation>espresso in centesimi di euro se la rata non è stata pagata inserire 0</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="dataPagamento" type="xs:date" minOccurs="0" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="dataAggiornamento" type="xs:date" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="contoCorrente" type="xs:string" use="optional" />
+		<xs:attribute name="importoDocumento" type="xs:double" use="optional">
+			<xs:annotation>
+				<xs:documentation>espresso in centesimi di euro</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="numeroDocumento" type="xs:string" use="optional" />
+		<xs:attribute name="annoRiferimento" type="xs:int" use="required" />
+	</xs:complexType>
+</xs:schema>

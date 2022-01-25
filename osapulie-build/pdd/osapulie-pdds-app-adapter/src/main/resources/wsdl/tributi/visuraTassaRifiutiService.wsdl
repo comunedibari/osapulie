@@ -1,0 +1,533 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://servizi.osapulie.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://servizi.osapulie.it">
+    <wsdl:documentation></wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://servizi.osapulie.it">
+            <xs:element name="getRataVisuraTassaRifiuti">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="identificativoRata" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="rateVisuraTassaRifiuti" type="ns0:rateVisuraTassaRifiuti"></xs:element>
+            <xs:complexType name="rateVisuraTassaRifiuti">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="rataVisuraTassaRifiuti" type="ns0:rataVisuraTassaRifiuti"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="rataVisuraTassaRifiuti">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="importoRata" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="scadenzaRata" nillable="true" type="xs:date"></xs:element>
+                    <xs:element name="numeroRata" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="identificativoRata" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="importoPagato" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="dataPagamento" nillable="true" type="xs:date"></xs:element>
+                    <xs:element name="idVisura" nillable="true" type="xs:integer"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getRiduzioniVisuraTassaRifiuti">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idPosizione" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="riduzioniPosizioneVisuraTassaRifiuti" type="ns0:riduzioniPosizioneVisuraTassaRifiuti"></xs:element>
+            <xs:complexType name="riduzioniPosizioneVisuraTassaRifiuti">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="riduzionePosizioneVisuraTassaRifiuti" type="ns0:riduzionePosizioneVisuraTassaRifiuti"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="riduzionePosizioneVisuraTassaRifiuti">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="codiceArticolo" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="descrizioneArticolo" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="codiceValore" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="descrizioneValore" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="note" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="idPosizione" nillable="true" type="xs:integer"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getOccupazioniPosizioneVisuraTassaRifiuti">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idPosizione" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="occupazioniPosizioneVisuraTassaRifiuti" type="ns0:occupazioniPosizioneVisuraTassaRifiuti"></xs:element>
+            <xs:complexType name="occupazioniPosizioneVisuraTassaRifiuti">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="occupazionePosizioneVisuraTassaRifiuti" type="ns0:occupazionePosizioneVisuraTassaRifiuti"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="occupazionePosizioneVisuraTassaRifiuti">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="dataInizioOccupazione" nillable="true" type="xs:date"></xs:element>
+                    <xs:element name="dataFineOccupazione" nillable="true" type="xs:date"></xs:element>
+                    <xs:element name="numeroComponenti" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="importoTariffa" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="idPosizione" nillable="true" type="xs:integer"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getPosizioniVisuraTassaRifiuti">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idVisura" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="posizioniVisuraTassaRifiuti" type="ns0:posizioniVisuraTassaRifiuti"></xs:element>
+            <xs:complexType name="posizioniVisuraTassaRifiuti">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="posizioneVisuraTassaRifiuti" type="ns0:posizioneVisuraTassaRifiuti"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="posizioneVisuraTassaRifiuti">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="identificativoUtenza" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="codiceVia" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="codiceCivico" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="via" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="civico" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="esponente" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="localita" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="cap" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="piano" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="interno" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="scala" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="suffisso" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="superficie" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="numero" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="sezione" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="foglio" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="particella" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="subalterno" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="destinazione" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="tipo" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="categoriaImmobile" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="aliquota" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="agevolazione" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="importoAgevolazione" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="importoRiduzione" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="importoTariffa" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="importoDaPagare" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="addizionaleComunale" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="maggiorazioneStato" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="addizionaleProvinciale" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="dataInizioOccupazione" nillable="true" type="xs:date"></xs:element>
+                    <xs:element name="dataFineOccupazione" nillable="true" type="xs:date"></xs:element>
+                    <xs:element name="idVisura" nillable="true" type="xs:integer"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getRateVisuraTassaRifiuti">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idVisura" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getVisureTassaRifiuti">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="codiceFiscale" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="annoDa" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="annoA" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="visureTassaRifiuti" type="ns0:visureTassaRifiuti"></xs:element>
+            <xs:complexType name="visureTassaRifiuti">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="visuraTassaRifiuti" type="ns0:visuraTassaRifiuti"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="visuraTassaRifiuti">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="codiceFiscale" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="dataInizio" nillable="true" type="xs:date"></xs:element>
+                    <xs:element name="dataFine" nillable="true" type="xs:date"></xs:element>
+                    <xs:element name="dataAggiornamento" nillable="true" type="xs:date"></xs:element>
+                    <xs:element name="contoCorrente" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="numeroDocumento" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="importoDocumento" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="annoRiferimento" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="descrizioneTassa" nillable="true" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getVisuraTassaRifiuti">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+            <xs:element name="DataServiceFault" type="xs:string"></xs:element>
+            <xs:element name="REQUEST_STATUS" type="xs:string"></xs:element>
+            <xs:element name="DATA_SERVICE_RESPONSE">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any minOccurs="0"></xs:any>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getOccupazioniPosizioneVisuraTassaRifiutiRequest">
+        <wsdl:part name="parameters" element="ns0:getOccupazioniPosizioneVisuraTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getOccupazioniPosizioneVisuraTassaRifiutiResponse">
+        <wsdl:part name="parameters" element="ns0:occupazioniPosizioneVisuraTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="DataServiceFault">
+        <wsdl:part name="parameters" element="ns1:DataServiceFault"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getRateVisuraTassaRifiutiRequest">
+        <wsdl:part name="parameters" element="ns0:getRateVisuraTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getRateVisuraTassaRifiutiResponse">
+        <wsdl:part name="parameters" element="ns0:rateVisuraTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getVisuraTassaRifiutiRequest">
+        <wsdl:part name="parameters" element="ns0:getVisuraTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getVisuraTassaRifiutiResponse">
+        <wsdl:part name="parameters" element="ns0:visureTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getRataVisuraTassaRifiutiRequest">
+        <wsdl:part name="parameters" element="ns0:getRataVisuraTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getRataVisuraTassaRifiutiResponse">
+        <wsdl:part name="parameters" element="ns0:rateVisuraTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getVisureTassaRifiutiRequest">
+        <wsdl:part name="parameters" element="ns0:getVisureTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getVisureTassaRifiutiResponse">
+        <wsdl:part name="parameters" element="ns0:visureTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getRiduzioniVisuraTassaRifiutiRequest">
+        <wsdl:part name="parameters" element="ns0:getRiduzioniVisuraTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getRiduzioniVisuraTassaRifiutiResponse">
+        <wsdl:part name="parameters" element="ns0:riduzioniPosizioneVisuraTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getPosizioniVisuraTassaRifiutiRequest">
+        <wsdl:part name="parameters" element="ns0:getPosizioniVisuraTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getPosizioniVisuraTassaRifiutiResponse">
+        <wsdl:part name="parameters" element="ns0:posizioniVisuraTassaRifiuti"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="visuraTassaRifiutiServicePortType">
+        <wsdl:operation name="getOccupazioniPosizioneVisuraTassaRifiuti">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:getOccupazioniPosizioneVisuraTassaRifiutiRequest" wsaw:Action="urn:getOccupazioniPosizioneVisuraTassaRifiuti"></wsdl:input>
+            <wsdl:output message="ns0:getOccupazioniPosizioneVisuraTassaRifiutiResponse" wsaw:Action="urn:getOccupazioniPosizioneVisuraTassaRifiutiResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getOccupazioniPosizioneVisuraTassaRifiutiDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRateVisuraTassaRifiuti">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:getRateVisuraTassaRifiutiRequest" wsaw:Action="urn:getRateVisuraTassaRifiuti"></wsdl:input>
+            <wsdl:output message="ns0:getRateVisuraTassaRifiutiResponse" wsaw:Action="urn:getRateVisuraTassaRifiutiResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getRateVisuraTassaRifiutiDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraTassaRifiuti">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:getVisuraTassaRifiutiRequest" wsaw:Action="urn:getVisuraTassaRifiuti"></wsdl:input>
+            <wsdl:output message="ns0:getVisuraTassaRifiutiResponse" wsaw:Action="urn:getVisuraTassaRifiutiResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisuraTassaRifiutiDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRataVisuraTassaRifiuti">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:getRataVisuraTassaRifiutiRequest" wsaw:Action="urn:getRataVisuraTassaRifiuti"></wsdl:input>
+            <wsdl:output message="ns0:getRataVisuraTassaRifiutiResponse" wsaw:Action="urn:getRataVisuraTassaRifiutiResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getRataVisuraTassaRifiutiDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureTassaRifiuti">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:getVisureTassaRifiutiRequest" wsaw:Action="urn:getVisureTassaRifiuti"></wsdl:input>
+            <wsdl:output message="ns0:getVisureTassaRifiutiResponse" wsaw:Action="urn:getVisureTassaRifiutiResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisureTassaRifiutiDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRiduzioniVisuraTassaRifiuti">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:getRiduzioniVisuraTassaRifiutiRequest" wsaw:Action="urn:getRiduzioniVisuraTassaRifiuti"></wsdl:input>
+            <wsdl:output message="ns0:getRiduzioniVisuraTassaRifiutiResponse" wsaw:Action="urn:getRiduzioniVisuraTassaRifiutiResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getRiduzioniVisuraTassaRifiutiDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraTassaRifiuti">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:getPosizioniVisuraTassaRifiutiRequest" wsaw:Action="urn:getPosizioniVisuraTassaRifiuti"></wsdl:input>
+            <wsdl:output message="ns0:getPosizioniVisuraTassaRifiutiResponse" wsaw:Action="urn:getPosizioniVisuraTassaRifiutiResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getPosizioniVisuraTassaRifiutiDataServiceFault"></soap:fault>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="visuraTassaRifiutiServiceSOAP11Binding" type="ns0:visuraTassaRifiutiServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+        <wsdl:operation name="getOccupazioniPosizioneVisuraTassaRifiuti">
+            <soap:operation soapAction="urn:getOccupazioniPosizioneVisuraTassaRifiuti" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRateVisuraTassaRifiuti">
+            <soap:operation soapAction="urn:getRateVisuraTassaRifiuti" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraTassaRifiuti">
+            <soap:operation soapAction="urn:getVisuraTassaRifiuti" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRataVisuraTassaRifiuti">
+            <soap:operation soapAction="urn:getRataVisuraTassaRifiuti" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureTassaRifiuti">
+            <soap:operation soapAction="urn:getVisureTassaRifiuti" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRiduzioniVisuraTassaRifiuti">
+            <soap:operation soapAction="urn:getRiduzioniVisuraTassaRifiuti" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraTassaRifiuti">
+            <soap:operation soapAction="urn:getPosizioniVisuraTassaRifiuti" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraTassaRifiutiServiceSOAP12Binding" type="ns0:visuraTassaRifiutiServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap12:binding>
+        <wsdl:operation name="getOccupazioniPosizioneVisuraTassaRifiuti">
+            <soap12:operation soapAction="urn:getOccupazioniPosizioneVisuraTassaRifiuti" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRateVisuraTassaRifiuti">
+            <soap12:operation soapAction="urn:getRateVisuraTassaRifiuti" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraTassaRifiuti">
+            <soap12:operation soapAction="urn:getVisuraTassaRifiuti" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRataVisuraTassaRifiuti">
+            <soap12:operation soapAction="urn:getRataVisuraTassaRifiuti" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureTassaRifiuti">
+            <soap12:operation soapAction="urn:getVisureTassaRifiuti" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRiduzioniVisuraTassaRifiuti">
+            <soap12:operation soapAction="urn:getRiduzioniVisuraTassaRifiuti" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraTassaRifiuti">
+            <soap12:operation soapAction="urn:getPosizioniVisuraTassaRifiuti" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraTassaRifiutiServiceHttpBinding" type="ns0:visuraTassaRifiutiServicePortType">
+        <http:binding verb="POST"></http:binding>
+        <wsdl:operation name="getOccupazioniPosizioneVisuraTassaRifiuti">
+            <http:operation location="getOccupazioniPosizioneVisuraTassaRifiuti"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRateVisuraTassaRifiuti">
+            <http:operation location="getRateVisuraTassaRifiuti"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraTassaRifiuti">
+            <http:operation location="getVisuraTassaRifiuti"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRataVisuraTassaRifiuti">
+            <http:operation location="getRataVisuraTassaRifiuti"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureTassaRifiuti">
+            <http:operation location="getVisureTassaRifiuti"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRiduzioniVisuraTassaRifiuti">
+            <http:operation location="getRiduzioniVisuraTassaRifiuti"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraTassaRifiuti">
+            <http:operation location="getPosizioniVisuraTassaRifiuti"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="visuraTassaRifiutiService">
+        <wsdl:port name="SOAP11Endpoint" binding="ns0:visuraTassaRifiutiServiceSOAP11Binding">
+            <soap:address location="http://10.0.5.19:9764/services/visuraTassaRifiutiService.SOAP11Endpoint/"></soap:address>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:visuraTassaRifiutiServiceSOAP11Binding">
+            <soap:address location="https://10.0.5.19:9444/services/visuraTassaRifiutiService.SecureSOAP11Endpoint/"></soap:address>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:visuraTassaRifiutiServiceSOAP12Binding">
+            <soap12:address location="https://10.0.5.19:9444/services/visuraTassaRifiutiService.SecureSOAP12Endpoint/"></soap12:address>
+        </wsdl:port>
+        <wsdl:port name="SOAP12Endpoint" binding="ns0:visuraTassaRifiutiServiceSOAP12Binding">
+            <soap12:address location="http://10.0.5.19:9764/services/visuraTassaRifiutiService.SOAP12Endpoint/"></soap12:address>
+        </wsdl:port>
+        <wsdl:port name="HTTPEndpoint" binding="ns0:visuraTassaRifiutiServiceHttpBinding">
+            <http:address location="http://10.0.5.19:9764/services/visuraTassaRifiutiService.HTTPEndpoint/"></http:address>
+        </wsdl:port>
+        <wsdl:port name="SecureHTTPEndpoint" binding="ns0:visuraTassaRifiutiServiceHttpBinding">
+            <http:address location="https://10.0.5.19:9444/services/visuraTassaRifiutiService.SecureHTTPEndpoint/"></http:address>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

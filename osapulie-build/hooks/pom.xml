@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>it.osapulie.build</groupId>
+		<artifactId>osapulie-build</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>hooks</artifactId>
+	<packaging>pom</packaging>
+	<name>OSApulie :: Hook base project template</name>
+	<description>Base project that includes standard template dependencies for Liferay Hooks</description>
+
+	<properties>
+		<!-- Maven Settings -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Dependencies -->
+		<liferay.version>6.0.6</liferay.version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4.3</version>
+				<configuration>
+					<includes>
+						<include>**/*Tests.java</include>
+					</includes>
+					<excludes>
+						<exclude>**/Abstract*.java</exclude>
+					</excludes>
+					<forkMode>once</forkMode>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.1.2</version>
+				<configuration>
+					<container>
+						<containerId>jboss51x</containerId>
+						<append>false</append>
+						<log>${project.build.directory}/logs/jboss51x.log</log>
+						<output>${project.build.directory}/logs/jboss51x.out</output>
+						<timeout>600000</timeout><!-- 10 minutes -->
+					</container>
+					<configuration>
+						<type>existing</type>
+						<home>${deploy.jboss5x.home}</home>
+						<properties>
+							<cargo.servlet.port>8080</cargo.servlet.port>
+							<cargo.jboss.configuration>default</cargo.jboss.configuration>
+							<cargo.rmi.port>1099</cargo.rmi.port>
+							<cargo.logging>high</cargo.logging>
+						</properties>
+					</configuration>
+				</configuration>
+<!--
+				<executions>
+					<execution>
+						<id>start-container</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>start</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>stop-container</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+					</execution>
+				</executions>
+-->
+ 			</plugin>
+
+		</plugins>
+	</build>
+
+	<modules>
+		<module>osapulie-liferay-hook</module>
+	</modules>
+</project>

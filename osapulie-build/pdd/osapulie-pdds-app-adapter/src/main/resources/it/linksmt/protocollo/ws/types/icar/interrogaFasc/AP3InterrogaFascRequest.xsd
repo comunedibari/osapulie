@@ -1,0 +1,13 @@
+<xsd:schema targetNamespace="http://progettoicar.it/AP3interprotoQry/types" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawsdl="http://www.w3.org/ns/sawsdl" xmlns:tns="http://progettoicar.it/AP3interprotoQry/types" xmlns="http://progettoicar.it/AP3interprotoQry/types">
+	<xsd:include schemaLocation="../common/AP3TipiGenerici.xsd"/>
+	<xsd:complexType name="AP3InterrogaFascRequest">
+		<xsd:sequence>
+			<xsd:element name="codiceRichiedente" type="codiceArea" nillable="false"/>
+			<xsd:element name="codiceInterrogato" type="codiceArea" nillable="false"/>
+			<xsd:choice>
+				<xsd:element name="estremiProtocolloDest" type="tns:estremiProtocollo" nillable="false"/>
+				<xsd:element name="estremiProtocolloMitt" type="tns:estremiProtocollo" nillable="false"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

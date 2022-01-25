@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd">
+
+	<context:annotation-config />
+	
+	<bean id="externalSystemPropertiesConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	    <property name="ignoreResourceNotFound" value="true" />
+	    <property name="placeholderPrefix" value="$external{" />
+	    <property name="placeholderSuffix" value="}" />
+	    <property name="locations">
+            <list>
+                <value>classpath:/visuraDocumenti.properties</value>
+                <!-- <value>file:/opt/osapulie/commons.properties</value> -->
+            </list>
+	    </property>
+    </bean>
+	
+	<!-- Documenti -->
+	<bean class="it.osapulie.pdds.services.VisuraDocumentiTributiService" >
+		<property name="xmlHelper" ref="xmlHelperDocumenti" />
+		<property name="documentiFolder" value="$external{documenti.folder}"/>
+		<property name="documentiAvvisibonariParentFolder" value="$external{documenti.avvisibonari.parent.folder}"/>
+		<property name="webservicesBaseUrl" value="$webservices{esb.ws.base.url}"/>
+	</bean>
+</beans>

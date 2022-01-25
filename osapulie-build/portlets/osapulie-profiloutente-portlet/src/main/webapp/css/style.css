@@ -1,0 +1,107 @@
+.mainDiv .datiAnagraficiAvanzatitable .autenticazioneTd IMG {
+	margin-top: 5px;
+	vertical-align: bottom;
+}
+
+.mainDiv .datiAnagraficiAvanzatitable .autenticazioneTd SPAN {
+	font-weight: bold;
+	margin-left: 5px;
+}
+
+.buttonsDiv {
+	margin: 15px;
+	text-align: center;
+	padding: 15px;
+	text-decoration: none;
+}
+
+.buttonsDiv A.button {
+	border-radius: 4px 4px 4px 4px;
+	margin: 2px 4px 2px 2px;
+	padding-bottom: 7px;
+	padding-top: 6px;
+	text-decoration: none !important;
+}
+
+.buttonsDiv A.button SPAN {
+	margin: 10px;
+}
+
+.upperCase {
+	text-transform: uppercase;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.errorField {
+	background: url("../images/error.png") no-repeat scroll 6px 50% #FFDDDD;
+	border: 1px solid #FF0000;
+	font-weight: bold;
+	margin: 6px 15px 15px 0;
+	padding: 3px 6px 3px 30px;
+	text-align: left;
+}
+
+.mainDiv TABLE .serviziListBox {
+	width: 180px;
+}
+
+.datiObbligatoriDiv {
+	text-align: right;
+	color: #5B677D;
+}
+
+.mainDiv TABLE {
+	width: 100%;
+}
+
+.mainDiv .datiAnagraficiTable TD{
+	height: 22px;
+}
+
+.protocolloDetail TABLE TD {
+	/*width: 25%;
+	border-bottom: 1px dotted gray;*/
+	vertical-align: top;	
+}
+
+.center {
+	text-align: center;
+}
+
+.selectAziendaDiv {
+	margin: 10px;
+    text-align: right;
+}
+
+.cfUtenteAssociatoDiv {
+	margin: 10px;
+}
+
+.svg-class {
+	width: 45px;
+	fill: #777;
+}
+
+.mainDiv .genericTable .canaleAutenticazioneTd IMG {
+	width: 45px;
+}
+
+.mainDiv .genericTable .canaleAutenticazioneTd IMG.regione_puglia {
+	width: 90px;
+}
+
+.mainDiv .genericTable .livelloAutenticazioneSPIDTd IMG {
+	width: 56px;
+}
+
+.downloadReportPdfDiv {
+	text-align: right;
+	margin: 5px;
+}
+
+.infoAggiuntiveMap {
+	width: 400px;
+}

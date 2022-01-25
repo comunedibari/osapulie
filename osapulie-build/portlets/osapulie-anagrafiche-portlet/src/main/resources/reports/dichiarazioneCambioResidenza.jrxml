@@ -1,0 +1,1576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dichiarazioneCambioResidenza" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.8150000000000033"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="3020"/>
+	<subDataset name="VeicoliDataset">
+		<field name="tipoHidden" class="java.lang.String"/>
+		<field name="targa" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="ComponentiDataset"/>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="subreport" class="net.sf.jasperreports.engine.JasperReport"/>
+	<field name="cognome" class="java.lang.String">
+		<fieldDescription><![CDATA[cognome]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="comuneNascitaHidden" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneNascitaHidden]]></fieldDescription>
+	</field>
+	<field name="comuneResidenzaHidden" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneResidenzaHidden]]></fieldDescription>
+	</field>
+	<field name="dataNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[dataNascita]]></fieldDescription>
+	</field>
+	<field name="provinciaNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[provinciaNascita]]></fieldDescription>
+	</field>
+	<field name="indirizzoResidenza" class="java.lang.String"/>
+	<field name="civicoResidenza" class="java.lang.String"/>
+	<field name="esponenteResidenza" class="java.lang.String"/>
+	<field name="internoResidenza" class="java.lang.String"/>
+	<field name="scalaResidenza" class="java.lang.String"/>
+	<field name="pianoResidenza" class="java.lang.String"/>
+	<field name="provinciaResidenza" class="java.lang.String"/>
+	<field name="codiceFiscale" class="java.lang.String"/>
+	<field name="cittadinanzaHidden" class="java.lang.String"/>
+	<field name="nuovaVia" class="java.lang.String"/>
+	<field name="nuovaViaTextHidden" class="java.lang.String"/>
+	<field name="nuovoNum" class="java.lang.String"/>
+	<field name="nuovoEsp" class="java.lang.String"/>
+	<field name="nuovoNumTextHidden" class="java.lang.String"/>
+	<field name="nuovoInterno" class="java.lang.String"/>
+	<field name="questura" class="java.lang.String"/>
+	<field name="dataRilascio" class="java.lang.String"/>
+	<field name="numSogg" class="java.lang.String"/>
+	<field name="nuovaScala" class="java.lang.String"/>
+	<field name="nuovaCorte" class="java.lang.String"/>
+	<field name="nuovoPiano" class="java.lang.String"/>
+	<field name="sezione" class="java.lang.String"/>
+	<field name="foglio" class="java.lang.String"/>
+	<field name="particella" class="java.lang.String"/>
+	<field name="subalterno" class="java.lang.String"/>
+	<field name="statoEsteroHidden" class="java.lang.String"/>
+	<field name="sesso" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="cellulare" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="pec" class="java.lang.String"/>
+	<field name="statoCivileHidden" class="java.lang.String"/>
+	<field name="professioneHidden" class="java.lang.String"/>
+	<field name="condNonProfessionaleHidden" class="java.lang.String"/>
+	<field name="titoloStudioHidden" class="java.lang.String"/>
+	<field name="tipoPatente" class="java.lang.String"/>
+	<field name="numPatente" class="java.lang.String"/>
+	<field name="dataRilascioPatente" class="java.lang.String"/>
+	<field name="organoRilascioPatenteHidden" class="java.lang.String"/>
+	<field name="provPatente" class="java.lang.String"/>
+	<field name="recComuneHidden" class="java.lang.String"/>
+	<field name="recProvincia" class="java.lang.String"/>
+	<field name="recVia" class="java.lang.String"/>
+	<field name="recCivico" class="java.lang.String"/>
+	<field name="recEsponente" class="java.lang.String"/>
+	<field name="recTelefono" class="java.lang.String"/>
+	<field name="recCellulare" class="java.lang.String"/>
+	<field name="recFax" class="java.lang.String"/>
+	<field name="recEmail" class="java.lang.String"/>
+	<field name="recPec" class="java.lang.String"/>
+	<field name="tipoDichiarazione" class="java.lang.String"/>
+	<field name="iscrittoCodiceFiscale" class="java.lang.String"/>
+	<field name="iscrittoNome" class="java.lang.String"/>
+	<field name="iscrittoCognome" class="java.lang.String"/>
+	<field name="iscrittoLuogoNascita" class="java.lang.String"/>
+	<field name="iscrittoDataNascita" class="java.lang.String"/>
+	<field name="iscrittoParentela" class="java.lang.Boolean"/>
+	<field name="altroMotivoDichiarazioneHidden" class="java.lang.String"/>
+	<field name="iscrittoTipoParentela" class="java.lang.String"/>
+	<field name="flagIscritto" class="java.lang.Boolean"/>
+	<field name="veicoli" class="java.util.List"/>
+	<field name="titoloAbitativo" class="java.lang.String"/>
+	<field name="titoloAbitativoAgenzia1" class="java.lang.String"/>
+	<field name="titoloAbitativoData1" class="java.lang.String"/>
+	<field name="titoloAbitativoNumero1" class="java.lang.String"/>
+	<field name="titoloAbitativoAgenzia2" class="java.lang.String"/>
+	<field name="titoloAbitativoData2" class="java.lang.String"/>
+	<field name="titoloAbitativoNumero2" class="java.lang.String"/>
+	<field name="titoloAbitativoAltro1" class="java.lang.String"/>
+	<field name="titoloAbitativoAltro2" class="java.lang.String"/>
+	<field name="tipoCambioAbitazione" class="java.lang.String"/>
+	<field name="comuneIscrizioneAIREHidden" class="java.lang.String"/>
+	<field name="comuneNascitaEsteroHidden" class="java.lang.String"/>
+	<field name="statoEsteroNascita" class="java.lang.String"/>
+	<field name="familiari" class="java.util.List"/>
+	<field name="noteGenerali" class="java.lang.String"/>
+	<field name="altroAllegato" class="java.lang.String"/>
+	<field name="iscrittoTipoParentelaHidden" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="128" splitType="Stretch">
+			<staticText>
+				<reportElement x="415" y="0" width="115" height="27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[ALL’UFFICIALE D’ANAGRAFE
+DEL COMUNE DI]]></text>
+			</staticText>
+			<line>
+				<reportElement x="415" y="40" width="115" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="415" y="26" width="115" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{comune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="84" width="513" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DICHIARAZIONE DI RESIDENZA]]></text>
+			</staticText>
+			<image>
+				<reportElement key="Logo" x="234" y="10" width="86" height="69" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="21" y="108" width="513" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Allegato alla circolare del Ministero dell'Interno n. 9 del 27/04/2012]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="211">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="210"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<line>
+					<reportElement x="0" y="40" width="554" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<rectangle>
+					<reportElement x="25" y="55" width="10" height="10"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="25" y="96" width="10" height="10"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="25" y="178" width="10" height="11"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="25" y="143" width="10" height="10"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="25" y="14" width="10" height="10"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="25" y="15" width="10" height="10">
+						<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equalsIgnoreCase( "altroComune" )]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[X]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="51" y="5" width="486" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<text><![CDATA[Dichiarazione di residenza con provenienza da altro comune. Indicare il comune di provenienza.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="51" y="46" width="486" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<text><![CDATA[Dichiarazione di residenza con provenienza dall’estero. Indicare lo Stato estero di provenienza.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="51" y="81" width="486" height="39"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<text><![CDATA[Dichiarazione di residenza di cittadini italiani iscritti all’AIRE (Anagrafe degli italiani residenti all’estero) con provenienza dall’estero. Indicare lo Stato estero di provenienza ed il comune di iscrizione AIRE.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="51" y="141" width="485" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<text><![CDATA[Dichiarazione di cambiamento di abitazione nell’ambito dello stesso comune.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="51" y="170" width="485" height="21"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<text><![CDATA[Iscrizione per altro motivo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="56" width="10" height="10">
+						<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equalsIgnoreCase( "estero" )]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[X]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="97" width="10" height="11">
+						<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equalsIgnoreCase( "aire" )]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[X]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="144" width="10" height="10">
+						<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equalsIgnoreCase( "stessoComune" )]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[X]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="179" width="10" height="10">
+						<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equalsIgnoreCase( "altro" )]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[X]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="171" y="185" width="353" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoDichiarazione}.equalsIgnoreCase( "altro" ) ? $F{altroMotivoDichiarazioneHidden} : ""]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="51" y="185" width="121" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<text><![CDATA[specificare il motivo: ]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="77" width="554" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="0" y="136" width="554" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="0" y="163" width="554" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="51" y="20" width="486" height="15"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Left">
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoDichiarazione}.equalsIgnoreCase( "altroComune" ) ? $F{comuneResidenzaHidden} + (($F{provinciaResidenza} != null && !$F{provinciaResidenza}.isEmpty()) ? " (" + $F{provinciaResidenza} + ")" : "") : ""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="51" y="58" width="486" height="15"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Left">
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoDichiarazione}.equalsIgnoreCase( "estero" ) ? $F{statoEsteroHidden} : ""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="51" y="117" width="486" height="15"/>
+					<box>
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Left">
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoDichiarazione}.equalsIgnoreCase( "aire" ) ? $F{statoEsteroHidden} +" - "+ $F{comuneIscrizioneAIREHidden} + (($F{provinciaResidenza} != null && !$F{provinciaResidenza}.isEmpty()) ? " (" + $F{provinciaResidenza} + ")" : "") : ""]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="154">
+			<staticText>
+				<reportElement x="21" y="12" width="513" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IL SOTTOSCRITTO]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="42" width="555" height="112"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="184" y="65" width="65" height="18"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[sesso:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="397" y="64" width="149" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{statoCivileHidden}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="261" y="65" width="59" height="18"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sesso}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="25" y="90" width="92" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Codice Fiscale:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="276" y="90" width="101" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Cittadinanza:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="377" y="90" width="169" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cittadinanzaHidden}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="92" y="18" width="194" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cognome}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="25" y="42" width="67" height="18"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[nata/o a:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="92" y="42" width="454" height="18"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[( $F{statoEsteroNascita}.isEmpty() ? $F{comuneNascitaHidden} : ($F{comuneNascitaEsteroHidden} != null && !$F{comuneNascitaEsteroHidden}.isEmpty() ? $F{comuneNascitaEsteroHidden} : "") )+ ($F{statoEsteroNascita}.isEmpty() ? " (" + $F{provinciaNascita} + ")" : "")]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="25" y="65" width="21" height="18"/>
+					<textElement>
+						<font fontName="SansSerif" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[il:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="117" y="90" width="128" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{codiceFiscale}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="25" y="18" width="67" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Cognome:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="321" y="65" width="71" height="18"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Stato civile:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="353" y="18" width="193" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+					<reportElement x="49" y="65" width="133" height="18"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dataNascita}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="286" y="18" width="67" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Nome:]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="115">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="115"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="25" y="5" width="235" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isBold="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Posizione nella professione se occupato: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="27" width="235" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isBold="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Condizione non professionale:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="49" width="216" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isBold="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Titolo di studio: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="320" y="90" width="63" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Provincia:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="417" y="71" width="100" height="18"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dataRilascioPatente}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="74" y="90" width="92" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Organo di rilascio:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="383" y="90" width="100" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{provPatente}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="103" y="71" width="65" height="18"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoPatente}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="228" y="71" width="87" height="18"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{numPatente}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="74" y="71" width="29" height="18"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[tipo: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="169" y="71" width="52" height="18"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Numero:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="320" y="71" width="90" height="18"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Data di  rilascio:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="168" y="90" width="152" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{organoRilascioPatenteHidden}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="260" y="5" width="281" height="20"/>
+					<textFieldExpression><![CDATA[$F{professioneHidden}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="260" y="27" width="281" height="20"/>
+					<textFieldExpression><![CDATA[$F{condNonProfessionaleHidden}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="260" y="49" width="281" height="20"/>
+					<textFieldExpression><![CDATA[$F{titoloStudioHidden}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="25" y="71" width="50" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isBold="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Patente ]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="89">
+			<frame>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="555" height="85"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="25" y="0" width="517" height="32"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Targhe veicoli immatricolati in Italia in qualità di proprietario/comproprietario, usufruttuario/Locatario:]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement key="table" x="25" y="32" width="510" height="50"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+						<datasetRun subDataset="VeicoliDataset">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{veicoli})]]></dataSourceExpression>
+						</datasetRun>
+						<jr:column width="251">
+							<jr:columnHeader height="22" rowSpan="1">
+								<box>
+									<pen lineWidth="0.0"/>
+									<topPen lineWidth="0.0"/>
+									<leftPen lineWidth="0.0"/>
+									<bottomPen lineWidth="0.0"/>
+									<rightPen lineWidth="0.0"/>
+								</box>
+								<staticText>
+									<reportElement x="0" y="0" width="251" height="22"/>
+									<textElement textAlignment="Left" verticalAlignment="Middle">
+										<font fontName="DejaVu Sans" size="10" isBold="true"/>
+									</textElement>
+									<text><![CDATA[Tipo]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="27" rowSpan="1">
+								<box>
+									<pen lineWidth="0.0"/>
+									<topPen lineWidth="0.0"/>
+									<leftPen lineWidth="0.0"/>
+									<bottomPen lineWidth="0.0"/>
+									<rightPen lineWidth="0.0"/>
+								</box>
+								<textField>
+									<reportElement x="0" y="0" width="251" height="26"/>
+									<textElement verticalAlignment="Middle">
+										<font fontName="DejaVu Sans"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{tipoHidden}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="259">
+							<jr:columnHeader height="22" rowSpan="1">
+								<box>
+									<pen lineWidth="0.0"/>
+									<topPen lineWidth="0.0"/>
+									<leftPen lineWidth="0.0"/>
+									<bottomPen lineWidth="0.0"/>
+									<rightPen lineWidth="0.0"/>
+								</box>
+								<staticText>
+									<reportElement x="0" y="0" width="259" height="22"/>
+									<textElement textAlignment="Left" verticalAlignment="Middle">
+										<font fontName="DejaVu Sans" size="10" isBold="true"/>
+									</textElement>
+									<text><![CDATA[Targa]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="27" rowSpan="1">
+								<box>
+									<pen lineWidth="0.0"/>
+									<topPen lineWidth="0.0"/>
+									<leftPen lineWidth="0.0"/>
+									<bottomPen lineWidth="0.0"/>
+									<rightPen lineWidth="0.0"/>
+								</box>
+								<textField>
+									<reportElement x="0" y="0" width="259" height="26"/>
+									<textElement verticalAlignment="Middle">
+										<font fontName="DejaVu Sans"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{targa}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+			</frame>
+		</band>
+		<band height="167">
+			<staticText>
+				<reportElement x="10" y="11" width="535" height="44"/>
+				<textElement textAlignment="Justified">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Consapevole delle responsabilità penali per le dichiarazioni mendaci ai sensi degli art. 75 e 76 DPR 445/2000 che prevedono la decadenza dai benefici e l’obbligo di denuncia all’autorità competente.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="100" width="510" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[• di aver trasferito la dimora abituale in questo Comune, al seguente indirizzo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="55" width="513" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DICHIARA]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="120" width="555" height="45"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField>
+					<reportElement x="243" y="23" width="39" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nuovaScala}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="152" y="23" width="39" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nuovoInterno}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="363" y="3" width="17" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[N. ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="8" y="3" width="84" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Via/Piazza:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="465" y="3" width="61" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nuovoEsp}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="194" y="23" width="47" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Scala:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="8" y="23" width="33" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Corte:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="92" y="3" width="268" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nuovaViaTextHidden}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="289" y="23" width="47" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Piano:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="386" y="3" width="39" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nuovoNumTextHidden}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="99" y="23" width="47" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Interno:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="42" y="23" width="43" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nuovaCorte}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="428" y="3" width="34" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[esp.]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="339" y="23" width="39" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nuovoPiano}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="25">
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="5" width="510" height="20" forecolor="#000000" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{familiari} != null && !$F{familiari}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="DejaVu Sans" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[• che nell’abitazione sita al nuovo indirizzo si sono trasferiti anche i familiari di seguito specificati :]]></text>
+			</staticText>
+		</band>
+		<band height="60" splitType="Immediate">
+			<printWhenExpression><![CDATA[$F{familiari} != null && !$F{familiari}.isEmpty()]]></printWhenExpression>
+			<frame>
+				<reportElement x="0" y="0" width="555" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<subreport runToBottom="false">
+					<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="555" height="60" isRemoveLineWhenBlank="true"/>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{familiari})]]></dataSourceExpression>
+					<subreportExpression><![CDATA[$P{subreport}]]></subreportExpression>
+				</subreport>
+			</frame>
+		</band>
+		<band height="48">
+			<printWhenExpression><![CDATA[$F{tipoDichiarazione}.equalsIgnoreCase( "stessoComune" ) && false]]></printWhenExpression>
+			<staticText>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="6" width="510" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{tipoCambioAbitazione}.equals("1")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="DejaVu Sans" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[• che il cambio di abitazione riguarda l'intero nucleo familiare]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Transparent" x="0" y="26" width="510" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF">
+					<printWhenExpression><![CDATA[$F{tipoCambioAbitazione}.equals("2")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="DejaVu Sans" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[• che il cambio di abitazione riguarda la creazione contestuale di un nuovo nucleo familiare]]></text>
+			</staticText>
+		</band>
+		<band height="179">
+			<printWhenExpression><![CDATA[$F{iscrittoCodiceFiscale} != null && !$F{iscrittoCodiceFiscale}.isEmpty()]]></printWhenExpression>
+			<frame>
+				<reportElement x="0" y="0" width="555" height="179"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textField>
+					<reportElement x="107" y="86" width="205" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{iscrittoCodiceFiscale}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="306" y="118" width="10" height="10"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="50" y="118" width="10" height="10"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="25" y="36" width="81" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Cognome:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="317" y="36" width="79" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Nome:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1" y="6" width="545" height="29"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<text><![CDATA[• che nell’abitazione sita al nuovo indirizzo sono già iscritte le seguenti persone  (è sufficiente specificare le generalità di un componente della famiglia):]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="62" width="81" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Luogo:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="317" y="62" width="79" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Data di nascita:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="107" y="36" width="205" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{iscrittoCognome}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="107" y="62" width="205" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{iscrittoLuogoNascita}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="403" y="36" width="144" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{iscrittoNome}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="403" y="62" width="144" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{iscrittoDataNascita}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="75" y="118" width="217" height="51"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<text><![CDATA[Non sussistono rapporti di coniugio, parentela, affinità, adozione, tutela o vincoli affettivi con i componenti della famiglia già residente.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="331" y="118" width="216" height="31"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<text><![CDATA[Sussiste il seguente vincolo rispetto al suindicato componente della famiglia già residente:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="50" y="119" width="10" height="10">
+						<printWhenExpression><![CDATA[$F{flagIscritto} && !$F{iscrittoParentela}]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[X]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="306" y="119" width="10" height="10">
+						<printWhenExpression><![CDATA[$F{flagIscritto} && $F{iscrittoParentela}]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[X]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="331" y="149" width="216" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{iscrittoTipoParentelaHidden}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="25" y="86" width="81" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Codice Fiscale:]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="132">
+			<staticText>
+				<reportElement x="0" y="75" width="547" height="47"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[• di occupare legittimamente l’abitazione in base al titolo di seguito descritto, consapevole che, ai sensi dell’art. 5 del D.L.28.3.2014 n.47 (convertito nella legge 23.5.2014 n.80), in caso di dichiarazione mendace l’iscrizione anagrafica sarà nulla, per espressa previsione di legge, con decorrenza dalla data della dichiarazione stessa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="3" width="489" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Si allegano i seguenti documenti:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="22" width="489" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[- Copia del documento d’identità del richiedente;]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="19" y="41" width="489" height="20">
+					<printWhenExpression><![CDATA[!$F{altroAllegato}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA["- "+$F{altroAllegato}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="46">
+			<printWhenExpression><![CDATA[$F{titoloAbitativo}.equals("A")]]></printWhenExpression>
+			<staticText>
+				<reportElement x="9" y="1" width="489" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[di essere proprietario dell'abitazione contraddistinta dai seguenti estremi catastali:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="146" y="21" width="41" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{foglio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="289" y="21" width="35" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Sub.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="21" width="42" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Foglio:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="45" y="21" width="43" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="21" width="33" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Sez.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="21" width="32" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subalterno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="195" y="21" width="48" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Part.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="246" y="21" width="39" height="20"/>
+				<textFieldExpression><![CDATA[$F{particella}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="73">
+			<printWhenExpression><![CDATA[$F{titoloAbitativo}.equals("B")]]></printWhenExpression>
+			<staticText>
+				<reportElement x="10" y="3" width="489" height="28"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[di essere intestatario del contratto di locazione regolarmente registrato presso l'Agenzia delle Entrante seguente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="33" width="47" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Agenzia:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="57" y="33" width="156" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titoloAbitativoAgenzia1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="221" y="33" width="97" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[data registrazione:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="318" y="33" width="102" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titoloAbitativoData1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="422" y="33" width="19" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[n°:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="441" y="33" width="57" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titoloAbitativoNumero1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="53" width="489" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[dell'abitazione contraddistinta dai seguenti estremi catastali:]]></text>
+			</staticText>
+		</band>
+		<band height="52">
+			<printWhenExpression><![CDATA[$F{titoloAbitativo}.equals("C")]]></printWhenExpression>
+			<staticText>
+				<reportElement x="10" y="4" width="488" height="27"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[di essere intestatario di contratto di locazione relativo a immobile di Edilizia Residenziale Pubblica (allegare copia del contratto o del verbale di consegna dell'immobile) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="32" width="489" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[dell'abitazione contraddistinta dai seguenti estremi catastali:]]></text>
+			</staticText>
+		</band>
+		<band height="73">
+			<printWhenExpression><![CDATA[$F{titoloAbitativo}.equals("D")]]></printWhenExpression>
+			<staticText>
+				<reportElement x="10" y="4" width="489" height="28"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[di essere comodatario con contratto di comodato d'uso gratuito regolarmente registrato presso l'Agenzia delle Entrate seguente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="318" y="32" width="102" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titoloAbitativoData2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="57" y="32" width="156" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titoloAbitativoAgenzia2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="32" width="57" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titoloAbitativoNumero2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="422" y="32" width="19" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[n°:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="32" width="47" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Agenzia:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="32" width="97" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[data registrazione:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="53" width="489" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[dell'abitazione contraddistinta dai seguenti estremi catastali:]]></text>
+			</staticText>
+		</band>
+		<band height="66">
+			<printWhenExpression><![CDATA[$F{titoloAbitativo}.equals("E")]]></printWhenExpression>
+			<staticText>
+				<reportElement x="11" y="5" width="488" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[di essere usufruttario, in forza del seguente titolo costitutivo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="11" y="26" width="488" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titoloAbitativoAltro1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="46" width="489" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[l'abitazione contraddistinta dai seguenti estremi catastali:]]></text>
+			</staticText>
+		</band>
+		<band height="66">
+			<printWhenExpression><![CDATA[$F{titoloAbitativo}.equals("F")]]></printWhenExpression>
+			<staticText>
+				<reportElement x="11" y="4" width="488" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[di occupare legittimamente in base al titolo di seguito descritto:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="11" y="26" width="488" height="20"/>
+				<textFieldExpression><![CDATA[$F{titoloAbitativoAltro2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="46" width="489" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[l'abitazione contraddistinta dai seguenti estremi catastali:]]></text>
+			</staticText>
+		</band>
+		<band height="27">
+			<printWhenExpression><![CDATA[!$F{titoloAbitativo}.equals("A")]]></printWhenExpression>
+			<textField>
+				<reportElement x="45" y="2" width="43" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sezione}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="246" y="2" width="39" height="20"/>
+				<textFieldExpression><![CDATA[$F{particella}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="2" width="33" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Sez.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="195" y="2" width="48" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Part.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="289" y="2" width="35" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Sub.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="2" width="32" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subalterno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="102" y="2" width="42" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Foglio:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="146" y="2" width="41" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{foglio}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="156">
+			<frame>
+				<reportElement x="1" y="12" width="555" height="144"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="25" y="9" width="524" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<text><![CDATA[Tutte le comunicazioni inerenti la presente dichiarazione dovranno essere inviate ai seguenti recapiti:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="54" width="62" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Via/Piazza:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="32" width="61" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Comune:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="76" width="61" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Telefono:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="284" y="54" width="80" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Numero civico:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="284" y="32" width="80" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Provincia:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="284" y="76" width="80" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Cellulare:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="284" y="98" width="80" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Email:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="98" width="60" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Fax:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="93" y="32" width="170" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{recComuneHidden}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="93" y="54" width="170" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{recVia}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="93" y="76" width="170" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{recTelefono}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="93" y="98" width="170" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{recFax}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="364" y="32" width="188" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{recProvincia}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="364" y="54" width="76" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{recCivico}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="364" y="76" width="188" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{recCellulare}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="364" y="98" width="188" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{recEmail}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="25" y="120" width="60" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[PEC:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="93" y="119" width="170" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{recPec}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="497" y="54" width="55" height="20"/>
+					<textFieldExpression><![CDATA[$F{recEsponente}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="450" y="54" width="47" height="20"/>
+					<textElement>
+						<font fontName="DejaVu Sans" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[esp.:]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="61">
+			<printWhenExpression><![CDATA[$F{noteGenerali} != null && !$F{noteGenerali}.isEmpty()]]></printWhenExpression>
+			<staticText>
+				<reportElement x="0" y="11" width="73" height="15"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Note generali:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="88" y="11" width="447" height="40"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noteGenerali}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="97">
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="45" y="23" width="134" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="295" y="59" width="215" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="287" y="63" width="230" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Firma del dichiarante (per esteso e leggibile)]]></text>
+			</staticText>
+		</band>
+		<band height="68">
+			<printWhenExpression><![CDATA[$F{familiari} != null && !$F{familiari}.isEmpty()]]></printWhenExpression>
+			<componentElement>
+				<reportElement key="table" x="33" y="43" width="468" height="23"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="ComponentiDataset">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{familiari})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="471">
+						<jr:detailCell height="31" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="96" height="22"/>
+								<textElement verticalAlignment="Middle">
+									<font size="10"/>
+								</textElement>
+								<text><![CDATA[Cognome e nome]]></text>
+							</staticText>
+							<line>
+								<reportElement x="137" y="15" width="273" height="1"/>
+							</line>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="33" y="23" width="468" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Firma degli altri componenti maggiorenni della famiglia]]></text>
+			</staticText>
+		</band>
+		<band height="150">
+			<staticText>
+				<reportElement x="10" y="53" width="535" height="97"/>
+				<textElement textAlignment="Justified">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Si avvisano gli utenti che, ai sensi dell'art. 5, c. 3, del D.L. n. 5/2012, la registrazione delle dichiarazioni di residenza/cambio di abitazione ricevute avverrà nei due giorni lavorativi successivi alla presentazione delle stesse, fermo restando che gli effetti giuridici di tali dichiarazioni decorrono dalla data di presentazione.
+In caso di presentazione delle dichiarazioni negli orari e nei giorni di chiusura dell'Ufficio Anagrafe (sabato e festivi), verrà considerata, come data di presentazione, il primo giorno lavorativo successivo.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20"/>
+	</pageFooter>
+</jasperReport>

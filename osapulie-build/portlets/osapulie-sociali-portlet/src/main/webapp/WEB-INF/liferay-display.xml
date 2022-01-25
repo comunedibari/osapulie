@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Liferay manifest file for portlet categorization.
+	At deployment time, the information from liferay-display.xml is used to register 
+	the portlet with the Liferay portal server. 
+ -->
+<display>
+	<category name="category.osapulie">
+		<portlet id="anzianicaseriposo" />
+		<portlet id="trasportoachiamata" />
+		<portlet id="anzianiassistenza" />
+		<portlet id="serviziorifiuti" />
+		<portlet id="volontariato" />
+		<portlet id="promosociale" />
+		<portlet id="disabiliparcheggio" />
+	</category>
+</display>

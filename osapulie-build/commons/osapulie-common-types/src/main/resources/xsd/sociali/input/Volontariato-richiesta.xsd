@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="CommonTypes.xsd" />
+	
+	<xs:element name="volontariatoRichiesta">
+		<xs:annotation>
+			<xs:documentation>Volontariato (Interoperabilità) </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="nome" type="xs:string" minOccurs="1"/>
+				<xs:element name="cognome" type="xs:string" minOccurs="1"/>
+				<xs:element name="ruolo" type="xs:string" />
+				<xs:element name="organizzazione" type="xs:string" />
+				<xs:element name="indirizzo" type="xs:string" />
+				<xs:element name="telefono" type="xs:string" />
+				<xs:element name="cfAssociazione" type="xs:string" />
+				<xs:element name="dataCostituzione" type="xs:string" />
+				<xs:element name="comuneCostituzione" type="xs:string" />
+				<xs:element name="provCostituzione" type="xs:string" />
+				<xs:element name="aree" type="xs:string" minOccurs="1" maxOccurs="unbounded" />
+				<xs:element name="artDemocraticita" type="xs:string" />
+				<xs:element name="artNoFiniLucro" type="xs:string" />
+				<xs:element name="artElettivitaCariche" type="xs:string" />
+				<xs:element name="artGratuitaPrestaz" type="xs:string" />				
+				<xs:element name="artDirittiEObblighi" type="xs:string" />				
+				<xs:element name="artFormazione" type="xs:string" />
+				<xs:element name="artDevoluzione" type="xs:string" />
+				<!-- Dati presenti soltanto nel caso di iscrizione delle Associazioni di Volontariato -->
+				<xs:element name="artCriteriAmmissione" type="xs:string"   nillable="true"/>
+				<!-- Dati presenti soltanto nel caso di iscrizione delle Associazioni di Promozione Sociale -->
+				<xs:element name="artRappLegale" type="xs:string" nillable="true"/>
+				<xs:element name="artSedeLegale" type="xs:string" nillable="true" />				
+				<xs:element name="artReinvAvanzi" type="xs:string" nillable="true" />
+				<xs:element name="artUtilSociale" type="xs:string" nillable="true" />
+			</xs:sequence>
+		</xs:complexType>
+
+	</xs:element>
+</xs:schema>

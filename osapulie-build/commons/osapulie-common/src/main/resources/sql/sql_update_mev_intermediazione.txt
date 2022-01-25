@@ -1,0 +1,11 @@
+-- inserimento flag agg_operatori per settare la possibilit� di aggiungere o no operatori
+ALTER TABLE osapulie.tb_azienda 
+ADD COLUMN agg_operatori TINYINT(1) NULL DEFAULT '0' COMMENT '' AFTER fk_profiloutentecittadino;
+
+-- per tutti i CAF gi� presenti in tabella setto l'opzione di aggiunta operatori a 1 
+UPDATE osapulie.tb_azienda 
+SET agg_operatori = 1
+WHERE tipo = 'CAF';
+
+ALTER TABLE `osapulie`.`tb_azienda` 
+CHANGE COLUMN `tipo` `tipo` VARCHAR(20) NULL DEFAULT NULL ;

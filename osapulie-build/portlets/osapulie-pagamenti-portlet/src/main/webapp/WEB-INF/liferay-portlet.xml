@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.0.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_0_0.dtd">
+<!-- 
+	Liferay portlet manifest.
+ -->
+<liferay-portlet-app>
+	<portlet>
+		<portlet-name>visura-tosapcosap-perm</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>visura-tosapcosap-temp</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>visura-servizi-cimiteriali</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>visura-posizione-tributaria</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>pagamento-tosapcosap-perm</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>pagamento-tosapcosap-temp</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>pagamento-servizicimiteriali</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>pagamento-affissioni</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>pagamento-pubblicita</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>pagamento-tarsu</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+</liferay-portlet-app>

@@ -1,0 +1,22 @@
+<div>
+    <p>Gentile ${cognome} ${nome},</br>	
+    la sua richiesta di modifica account per usufruire dell'autenticazione forte al portale &egrave; stata <b>ACCETTATA</b>.
+    </p>
+    
+    <p>Il PIN assegnato &egrave;: <b>${pin}</b></br>
+    </p>
+	<p>
+		<b>Conservi questo codice con cura.</b>
+		D'ora in avanti l'accesso al portale potr&agrave; essere effettuato solo tramite questo PIN, 
+		inserendolo al posto della sua vecchia password di accesso. 
+	</p>
+	<p>
+		Se dovesse smarrire o non ricordare il PIN di accesso, potr&agrave; accedere al portale utilizzando la procedura di
+		"Password dimenticata": in tal caso, l'autenticazione al portale torner&agrave; debole fino a quando non si effettuer&agrave; una
+		nuova richiesta di PIN.
+	</p>
+    
+    <p>Cordiali saluti.</br>	
+    ${firmaComune}
+    </p>
+</div>	

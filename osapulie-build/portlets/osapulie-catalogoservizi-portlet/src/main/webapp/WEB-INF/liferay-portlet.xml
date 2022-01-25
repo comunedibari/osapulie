@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.0.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_0_0.dtd">
+<!-- 
+	Liferay portlet manifest.
+ -->
+<liferay-portlet-app>
+	<portlet>
+		<portlet-name>osapulie-listaservizi-fe</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>https://use.fontawesome.com/releases/v5.0.13/css/all.css</header-portlet-css>
+		<header-portlet-css>/css/displaytable.css</header-portlet-css>
+		<header-portlet-javascript>/js/scripts.js</header-portlet-javascript>
+	</portlet>
+
+	<portlet>
+		<portlet-name>osapulie-listaservizi-be</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/displaytable.css</header-portlet-css>
+		<header-portlet-javascript>/js/scripts.js</header-portlet-javascript>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>osapulie-menuservizi</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>osapulie-infoservizio</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>osapulie-linkservizio</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+	</portlet>
+</liferay-portlet-app>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="CommonTypes.xsd" />
+	<xs:element name="anzianiAssistenzaRichiesta">
+		<xs:annotation>
+			<xs:documentation>Anziani: richiesta assistenza (Interoperabilità) </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="richiedente" minOccurs="1" type="Soggetto" />
+				<xs:element name="affine" type="affine" />
+				<xs:element name="etaPensionabile" type="xs:boolean" />
+				<xs:element name="coniugato" type="xs:boolean" />
+				<xs:element name="motiviConiugato" type="xs:string" />
+				<xs:element name="serviziSimiliEnte" type="xs:boolean" />
+				<xs:element name="serviziSimiliComune" type="xs:boolean" />
+				<xs:element name="serviziComune" type="xs:string" />
+				<xs:element name="serviziEntiPubblici" type="xs:string" />
+				<xs:element name="parenti" type="Familiare" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="affine">
+		<xs:sequence>
+			<xs:element name="nome" type="xs:string" />
+			<xs:element name="cognome" type="xs:string" />
+			<xs:element name="indirizzoResidenza" type="xs:string" />
+			<xs:element name="civicoResidenza" type="xs:string" />
+			<xs:element name="telefono" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

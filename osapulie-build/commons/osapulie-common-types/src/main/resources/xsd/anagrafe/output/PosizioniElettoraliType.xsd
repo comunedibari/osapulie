@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="posizioniElettorali">
+		<xs:sequence>
+			<xs:element name="toponimoIndirizzo" type="xs:string" nillable="true" /> <!-- toponimo dell'indirizzo di residenza del cittadino -->
+			<xs:element name="descrizioneVia" type="xs:string" nillable="true" /> <!-- descrizione dell'indirizzo di residenza del cittadino -->
+			<xs:element name="numeroCivico" type="xs:string" nillable="true" /> <!-- numero civico dell'indirizzo di residenza del cittadino -->
+			<xs:element name="esponente" type="xs:string" minOccurs="0" /> <!-- esponente dell'indirizzo di residenza del cittadino -->
+			<xs:element name="piano" type="xs:string" minOccurs="0" /> <!-- numero del piano della residenza del cittadino -->
+			<xs:element name="scala" type="xs:string" minOccurs="0" /> <!-- scala della residenza del cittadino -->
+			<xs:element name="interno" type="xs:string" minOccurs="0" /> <!-- interno della residenza del cittadino -->
+			<xs:element name="cognome" type="xs:string" nillable="true" /> <!-- cognome del cittadino -->
+			<xs:element name="nome" type="xs:string" nillable="true" /> <!-- nome del cittadino -->
+			<xs:element name="dataNascita" type="xs:date" nillable="true" /> <!-- data di nascita del cittadino (formato: aaaa-mm-gg) -->
+			<xs:element name="dataVerbaleIscrizione" type="xs:date" minOccurs="0" /> <!-- data del verbale di iscrizione elettorale del cittadino (formato: aaaa-mm-gg) -->
+			<xs:element name="numVerbaleIscrizione" type="xs:string" minOccurs="0" /> <!-- numero del verbale di iscrizione elettorale del cittadino -->
+			<xs:element name="annoIscrizioneElett" type="xs:int" nillable="true" /> <!-- anno di iscrizione elettorale del cittadino (formato: aaaa) -->
+			<xs:element name="numeroFascicolo" type="xs:string" nillable="true" /> <!-- numero del fascicolo elettorale del cittadino -->
+			<xs:element name="numeroListaGenerale" type="xs:string" nillable="true" /> <!-- numero della lista generale elettorale del cittadino -->
+			<xs:element name="numeroListaSezionale" type="xs:string" nillable="true" /> <!-- numero della lista sezionale elettorale del cittadino -->
+			<xs:element name="descrizioneLista" type="xs:string" nillable="true" /> <!-- descrizione della lista elettorale del cittadino -->
+			<xs:element name="tipoElettore" type="xs:string" nillable="true" /> <!-- descrizione della tipologia dell'elettore -->
+			<xs:element name="numeroSezione" type="xs:int" nillable="true" /> <!-- numero della sezione elettorale del cittadino -->
+			<xs:element name="numeroTesseraElettorale" type="xs:string" nillable="true" /> <!-- numero della tessera elettorale del cittadino -->
+			<xs:element name="dataRilascioTesseraElett" type="xs:date" nillable="true" /> <!-- data di rilascio della tessera elettorale del cittadino (formato: aaaa-mm-gg) -->
+			<xs:element name="iscrizioneAlboPresidente" type="xs:boolean" nillable="true" /> <!-- informazione relativo all'iscrizione o meno del cittadino nell'albo dei presidenti -->
+			<xs:element name="iscrizioneAlboScrutatori" type="xs:boolean" nillable="true" /> <!-- informazione relativo all'iscrizione o meno del cittadino nell'albo degli scrutatori -->
+			<xs:element name="numVerbIscrAlboScrut" type="xs:int" minOccurs="0" /> <!-- numero del verbale di iscrizione del cittadino all'albo degli scrutatori -->
+			<xs:element name="dataVerbIscrAlboScrut" type="xs:string" minOccurs="0" /> <!-- data del verbale di iscrizione del cittadino all'albo degli scrutatori (formato: aaaa-mm-gg) -->
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,5 @@
+<!-- Adapter per OS Apulie -->
+<service name="PDDSAdapter" provider="java:RPC" style="wrapped" use="literal">
+	<parameter name="allowedMethods" value="*"/>
+	<parameter name="className" value="it.osapulie.web.ws.adapter.pdd.PDDSAdapter"/>
+</service> 

@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://types.input.anagrafe.osapulie.it" targetNamespace="http://types.input.anagrafe.osapulie.it" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="1.0">
+	<xs:include schemaLocation="CommonTypes.xsd" />
+	<xs:element name="dichiarazioneCambioResidenzaRichiesta">
+		<xs:annotation>
+			<xs:documentation>Richiesta di dichiarazione cambio residenza</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element name="iscrizione" type="tns:Iscrizione" />
+					<xs:element name="iscrizioneDaStatoEstero" type="tns:IscrizioneDaStatoEstero" />
+					<xs:element name="iscrizioneAIRE" type="tns:IscrizioneDaStatoEsteroAIRE" />
+					<xs:element name="trasferimento" type="tns:Trasferimento" />
+					<xs:element name="altro" type="tns:IscrizioneAltroMotivo" />
+				</xs:choice>
+				<xs:element name="documento" minOccurs="0" maxOccurs="unbounded" type="tns:Documento" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Iscrizione">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per una dichiarazione di cambio residenza da un altro comune</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:Dichiarazione">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="IscrizioneDaStatoEstero">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per una dichiarazione di cambio residenza da uno stato estero</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:Dichiarazione">
+				<xs:sequence>
+					<xs:element name="statoEstero" type="tns:Codifica">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Codice dello stato estero</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="IscrizioneDaStatoEsteroAIRE">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per una dichiarazione di cambio residenza da uno stato estero iscritti all'AIRE (Anagrafe degli italiani residenti all'estero).
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:IscrizioneDaStatoEstero">
+				<xs:sequence>
+					<xs:element name="comuneIscrizioneAIRE" type="tns:Codifica">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Codice catastale del comune AIRE</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="IscrizioneAltroMotivo">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per una dichiarazione di cambio residenza per altro motivo</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:Dichiarazione">
+				<xs:sequence>
+					<xs:element name="altroMotivo" type="tns:Codifica">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Codifica motivo dell'iscrizione</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Trasferimento">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per una dichiarazione di cambio residenza nell'ambito dello stesso comune</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:Dichiarazione">
+				<xs:sequence>
+					<xs:element name="tipoRegistrazione" type="tns:Codifica">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Tipologia di registrazione: 1: spostamento del nucleo famigliare, 2: creazione di un nuovo nucleo familiare</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Dichiarazione">
+		<xs:sequence>
+			<xs:element name="dichiarante" type="tns:Dichiarante" />
+			<xs:element name="familiare" type="tns:Componente" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="data" type="xs:dateTime" />
+			<xs:element name="abitazione" type="tns:Immobile" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Dati della nuova residenza anagrafica</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="titoloOccupazioneImmpobile" type="tns:TitoloOccupazioneImmobile" />
+			<xs:element name="residenteIscritto" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Viene indicata, qualora esistesse, la persona gia residente all'interno dell'abitazione
+					</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="tns:Componente">
+							<xs:sequence>
+								<xs:element name="parentela" type="xs:boolean">
+									<xs:annotation>
+										<xs:documentation xml:lang="it">Indica se esistono rapporti di coniugio, parentela, affinita', adozione, tutela o vincoli affettivi con i componenti
+											della famiglia gia residente
+										</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="vincoloParentela" type="tns:Codifica" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation xml:lang="it">Indica il vincolo di parentela che potrebbe sussistere rispetto al suindicato componente della famiglia gia residente
+										</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="permessoSoggiorno" type="tns:PermessoSoggiorno" minOccurs="0" />
+			<xs:element name="tracciamento" type="tns:Tracciamento" minOccurs="0" />
+			<xs:element name="note" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Annotazioni</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Dichiarante">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di un dichiarante ai fini della dichiarazione</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:Componente">
+				<xs:sequence>
+					<xs:element name="residenza" type="tns:Immobile" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Dati di residenza del dichiarante</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="recapito" type="tns:Recapito" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Dati dell'eventuale recapito (differente dalla residenza anagrafica) del componente per la ricezione delle comunicazioni
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Componente">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati anagrafici di una persona fisica</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="identificativo" type="xs:string" />
+			<xs:element name="identificativoFamiglia" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Identificativo del nucleo familiare di appartenenza</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cognome" type="xs:string" />
+			<xs:element name="nome" type="xs:string" />
+			<xs:element name="codiceFiscale" type="xs:string" />
+			<xs:element name="partitaIVA" type="xs:string" minOccurs="0" />
+			<xs:element name="cittadinanza" type="tns:Codifica" />
+			<xs:element name="dataNascita" type="xs:date" />
+			<xs:element name="comuneNascita" type="tns:Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Comune di nascita codificato tramite il codice ISTAT o se nato all'estero codifica ISTAT dello stato estero</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="provinciaNascita" type="tns:Codifica" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Provincia di nascita del componente. Sara' presente solo se nato in Italia</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="statoEsteroNascita" type="tns:Codifica" minOccurs="0" />
+			<xs:element name="statoCivile" type="tns:Codifica" minOccurs="0" />
+			<xs:element name="sesso" type="tns:Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">M: Mascio, F: Femmina</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="posizioneProfessionale" type="tns:Codifica" minOccurs="0" />
+			<xs:element name="condizioneNonProfessionale" type="tns:Codifica" minOccurs="0" />
+			<xs:element name="titoloStudio" type="tns:Codifica" minOccurs="0" />
+			<xs:element name="relazioneParentela" type="tns:Codifica" minOccurs="0" />
+			<xs:element name="patente" type="tns:Patente" minOccurs="0" />
+			<xs:element name="veicolo" type="tns:Veicolo" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="email" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Indirizzo di Posta Elettronica del dichiarante</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pec" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Indirizzo di Posta Elettronica Certificata (P.E.C.) del dichiarante</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="telefono" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Numero di telefono di contatto del dichiarante</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cellulare" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Numero di cellulare di contatto del dichiarante</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fax" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Numero di fax di contatto del dichiarante</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Tracciamento">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati utili al tracciamento di una richiesta</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="nomeOperatore" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Denominazione dell'operatore (es. Nome e cognome persona fisica, Denominazione sociale di uno studio commercialista)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceFiscaleOperatore" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Codice fiscale dell'operatore</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="partitaIvaOperatore" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Partita IVA dell'operatore</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="emailOperatore" type="xs:string">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Indirizzo email dell'operatore</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Recapito">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati di recapito di un contribuente. Se il comune &amp;egrave; quello attuale specificare viaCodificata altrimenti
+				viaNonCodificata
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:Indirizzo">
+				<xs:sequence>
+					<xs:element name="presso" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation xml:lang="it">Denominazione della persona (o altro) intestario dell'indirizzo di recapito</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="telefono" type="xs:string" minOccurs="0" />
+					<xs:element name="cellulare" type="xs:string" minOccurs="0" />
+					<xs:element name="fax" type="xs:string" minOccurs="0" />
+					<xs:element name="email" type="xs:string" minOccurs="0" />
+					<xs:element name="pec" type="xs:string" minOccurs="0" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="TitoloOccupazioneImmobile">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati riguardanti il titolo occupazione immobile
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="proprietario" type="xs:boolean" />
+				<xs:element name="contrattoLocazioneIntestatario" type="tns:ContrattoLocazione" />
+				<xs:element name="contrattoLocazioneIntestatarioEdiliziaPubblica" type="tns:ContrattoLocazione" />
+				<xs:element name="contrattoLocazioneComodatario">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:choice>
+								<xs:element name="contrattoLocazione" type="tns:ContrattoLocazione" />
+								<xs:element name="nonRegistrato" type="xs:boolean" />
+							</xs:choice>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="titoloUsufruttuario" type="xs:string" />
+				<xs:element name="titoloOccupante" type="xs:string" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ContrattoLocazione">
+		<xs:sequence>
+			<xs:element name="agenziaEntrate" type="xs:string" />
+			<xs:element name="numero" type="xs:string" />
+			<xs:element name="data" type="xs:date" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PermessoSoggiorno">
+		<xs:sequence>
+			<xs:element name="questura" type="xs:string" />
+			<xs:element name="numero" type="xs:string" />
+			<xs:element name="dataRilascio" type="xs:date" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Patente">
+		<xs:sequence>
+			<xs:element name="carattereControllo" type="xs:string" />
+			<xs:element name="categoria" type="xs:string" />
+			<xs:element name="organoRilascio" type="tns:Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">P: Prefettura, M: Motorizzazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dataRilascio" type="xs:dateTime" />
+			<xs:element name="provincia" type="tns:Codifica" />
+			<xs:element name="numero" type="xs:string" />
+			<xs:element name="sigla" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Veicolo">
+		<xs:sequence>
+			<xs:element name="tipo" type="tns:Codifica" />
+			<xs:element name="targa" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

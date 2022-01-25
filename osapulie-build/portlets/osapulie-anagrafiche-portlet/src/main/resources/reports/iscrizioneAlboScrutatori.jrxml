@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="iscrizioneAlboScrutatori" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="685"/>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="titoloStudio" class="java.lang.String"/>
+	<parameter name="annoStudio" class="java.lang.String"/>
+	<parameter name="sedeStudio" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="dichiarazioneCondizione" class="java.lang.String"/>
+	<parameter name="dichiarazionePresso" class="java.lang.String"/>
+	<parameter name="dichiarazioneProfessione" class="java.lang.String"/>
+	<parameter name="email" class="java.lang.String"/>
+	<field name="cognome" class="java.lang.String">
+		<fieldDescription><![CDATA[cognome]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="comuneNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneNascita]]></fieldDescription>
+	</field>
+	<field name="dataNascita" class="java.util.Calendar">
+		<fieldDescription><![CDATA[dataNascita]]></fieldDescription>
+	</field>
+	<field name="provinciaNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[provinciaNascita]]></fieldDescription>
+	</field>
+	<field name="indirizzo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="155" splitType="Stretch">
+			<staticText>
+				<reportElement x="136" y="0" width="394" height="27"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[UFFICIO ELETTORALE
+DEL COMUNE DI]]></text>
+			</staticText>
+			<line>
+				<reportElement x="18" y="144" width="513" height="1"/>
+			</line>
+			<line>
+				<reportElement x="415" y="40" width="115" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="415" y="26" width="115" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{comune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="18" y="98" width="513" height="46"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RICHIESTA ISCRIZIONE NELL’ALBO DEGLI SCRUTATORI DI SEGGIO ELETTORALE]]></text>
+			</staticText>
+			<image>
+				<reportElement key="Logo" x="244" y="16" width="86" height="69" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="321" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="0" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[La/Il Sottoscritta/o]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="121" y="0" width="133" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cognome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="30" width="48" height="18"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[nata/o a ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement x="376" y="30" width="156" height="18"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataNascita}.getTime()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="355" y="30" width="21" height="18"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[il ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="69" y="30" width="172" height="18"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comuneNascita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="30" width="111" height="18"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["("+$F{provinciaNascita}+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="132" width="526" height="65"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[di essere iscritto nell’albo delle persone idonee all’ufficio di Scrutatore di Seggio Elettorale previsto dall’art. 1 della legge 8.3.1989, n. 95 e, a tale proposito, consapevole delle sanzioni penali previste in caso di dichiarazione mendace, ai sensi degli artt. 75 – 76 del D.P.R. n. 445/2000,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="196" width="114" height="28"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DICHIARA]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="254" y="0" width="218" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="245" y="56" width="289" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{indirizzo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="80" y="56" width="127" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{comune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="56" width="59" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[residente a ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="56" width="30" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="105" width="114" height="28"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHIEDE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="264" width="543" height="56"/>
+				<textElement textAlignment="Justified">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[	• di non trovarsi nelle condizioni di cui all’art. 38 del Testo Unico delle leggi recanti norme per la
+	elezione della Camera dei Deputati, approvato con D.P.R. 30 marzo 1957, n. 361, ed all’art. 23 del
+	Testo Unico delle leggi per la composizione e la elezione degli organi delle amministrazioni comunali,
+	approvato con D.P.R. 16 maggio 1960, n. 570;  (1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="245" width="295" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[	• di essere iscritto nelle liste elettorali del Comune di]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="294" y="245" width="259" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{comune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="226" width="295" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[	• di essere cittadino/a italiano/a;]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="82" y="85" width="452" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="23" y="85" width="59" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[email]]></text>
+			</staticText>
+		</band>
+		<band height="23">
+			<textField>
+				<reportElement x="223" y="11" width="330" height="12" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{dichiarazioneCondizione} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dichiarazioneCondizione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="40" y="11" width="182" height="12" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[o di essere nella condizione di ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="0" width="186" height="12" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[	• di esercitare la professione]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="373" y="0" width="180" height="12" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$P{dichiarazionePresso} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dichiarazionePresso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="0" width="151" height="12">
+					<printWhenExpression><![CDATA[$P{dichiarazioneProfessione} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dichiarazioneProfessione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="337" y="0" width="36" height="12"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[presso]]></text>
+			</staticText>
+		</band>
+		<band height="155">
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="37" y="109" width="134" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="307" y="122" width="215" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="309" y="129" width="218" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Firma del dichiarante (per esteso e leggibile)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="43" width="555" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[	• di avere assolto agli obblighi scolastici e di avere conseguito il seguente titolo di studio: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="543" height="42"/>
+				<textElement textAlignment="Justified">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[	• di non aver riportato condanne, anche non definitive, per i reati previsti dall’art 96 del citato
+	Testo Unico, approvato con D.P.R. 16 maggio 1960 n. 570 e dall’art 104, secondo comma, del citato
+	Testo Unico, approvato con D.P.R. 30 marzo 1957 n. 361.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="58" width="490" height="16"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{titoloStudio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="73" width="106" height="16"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[conseguito nell'anno]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="146" y="73" width="40" height="16"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{annoStudio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="186" y="73" width="37" height="16"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[presso]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="222" y="73" width="308" height="16"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sedeStudio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="109">
+			<staticText>
+				<reportElement x="16" y="46" width="523" height="61"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(1) Sono esclusi dalle funzioni di Scrutatore di Seggio Elettorale:
+a) i dipendenti dei Ministeri dell’Interno, delle Poste e Telecomunicazioni e dei Trasporti;
+b) gli appartenenti a Forze Armate in servizio;
+c) i medici provinciali, gli ufficiali sanitari ed i medici condotti;
+d) i segretari comunali ed i dipendenti dei Comuni, addetti o comandati a prestare servizio presso gli Uffici Elettorali Comunali;
+e) i candidati alle elezioni per le quali si svolge la votazione.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="17" y="43" width="522" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="15" y="2" width="527" height="41"/>
+				<textElement textAlignment="Justified">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ai sensi del Regolamento Europeo 2016/679 e ss.mm.ii. i dati sopra riportati sono prescritti dalle disposizioni vigenti ai fini del procedimento per il quale sono richiesti e verranno utilizzati unicamente a tale scopo. La sottoscrizione del presente modulo vale come consenso al trattamento dei dati, per le finalità indicate.]]></text>
+			</staticText>
+		</band>
+	</lastPageFooter>
+</jasperReport>

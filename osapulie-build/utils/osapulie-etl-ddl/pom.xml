@@ -1,0 +1,116 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>it.osapulie</groupId>
+	<artifactId>osapulie-etl-ddl</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0</version>
+	<name>OSApulie :: Schema DDL ETL</name>
+	<description>Tool per la generazione degli schema</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<eclipselink.version>2.2.1</eclipselink.version>
+		<slf4j.version>1.6.1</slf4j.version>
+		<logback.version>1.1.3</logback.version>
+		<org.slf4j.api.version>1.7.25</org.slf4j.api.version>
+	</properties>
+	
+	<dependencies>
+		<!-- Questo ci serve perchè contiene le classi del domain -->
+		<dependency>
+			<groupId>it.osapulie</groupId>
+			<artifactId>osapulie-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>	
+	
+		<dependency>
+			<groupId>it.osapulie.build.3rdparty</groupId>
+			<artifactId>persistence-eclipselink</artifactId>
+			<version>${eclipselink.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+		    <groupId>commons-dbcp</groupId>
+		    <artifactId>commons-dbcp</artifactId>
+		    <version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.17</version>
+		</dependency>
+
+		<!-- SLF4J -->
+		<!--
+			Logging uses SLF4J (Required for Hibernate)
+		-->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j.api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency> -->
+		<!-- Wraps common-logging (used internally by Spring) -->
+		<!-- <dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency> -->
+		<!-- Use Log4J as logging backend (layered frameworks rule! ;) ) -->
+		<!-- <dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency> -->
+		<!-- <dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency> -->
+		
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<!-- other plugin configurations ... -->
+		</plugins>		
+	</build>
+</project>

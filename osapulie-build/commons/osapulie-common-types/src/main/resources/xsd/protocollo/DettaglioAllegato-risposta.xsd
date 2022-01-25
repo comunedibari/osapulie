@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.web.protocollo.osapulie.it" targetNamespace="http://ws.web.protocollo.osapulie.it"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="ProtocolloResponseType.xsd"/>
+	<xs:include schemaLocation="ErroreType.xsd"/>
+	<xs:element name="dettaglioAllegatoResponse">
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="allegato" type="tns:Allegato" minOccurs="0" />
+				<xs:element name="errore" type="tns:Errore" minOccurs="0" />
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

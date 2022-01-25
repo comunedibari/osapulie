@@ -1,0 +1,237 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>it.osapulie.build</groupId>
+		<artifactId>portlets</artifactId>
+		<version>1.0</version>
+		<relativePath>../</relativePath>
+	</parent>
+
+	<groupId>it.osapulie</groupId>
+	<artifactId>osapulie-profiloutente-portlet</artifactId>
+	<packaging>war</packaging>
+	<name>OSApulie :: Profilo Utente Portlet</name>
+	<description>Portlet di gestione Profilo Utente per OS Apulie</description>
+	<properties>
+		<logback.version>1.1.3</logback.version>
+		<org.slf4j.api.version>1.7.25</org.slf4j.api.version>
+		<jackson.version>2.9.6</jackson.version><!--per java 6 -->
+		
+		<com.itextpdf.itextpdf.version>5.5.13</com.itextpdf.itextpdf.version>
+		<org.apache.pdfbox.version>1.3.1</org.apache.pdfbox.version>
+		<org.apache.pdfbox.fontbox.version>1.3.1</org.apache.pdfbox.fontbox.version>
+		<org.apache.pdfbox.jempbox.version>1.3.1</org.apache.pdfbox.jempbox.version>
+		<com.lowagie.itext.version>2.1.7</com.lowagie.itext.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>it.osapulie</groupId>
+			<artifactId>osapulie-common</artifactId>
+			<version>${project.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>apache-cxf</artifactId>
+					<groupId>it.osapulie.profiloutente.build.3rdparty</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>mail</artifactId>
+					<groupId>javax.mail</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>	
+   
+		<dependency>
+			<groupId>it.osapulie.build.3rdparty</groupId>
+			<artifactId>jasper-reports</artifactId>
+			<type>pom</type>
+			<version>${jasper-reports.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.osapulie</groupId>
+			<artifactId>osapulie-shared</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+			<!-- AUDIT -->  
+	      <dependency>  
+	        <groupId>eng.tz.audit</groupId>  
+	        <artifactId>common-audit</artifactId>  
+	        <version>0.0.1</version>  
+	        <scope>provided</scope>  
+	      </dependency>  
+	    <!-- PDF -->  
+	  
+	      <dependency>  
+	      <groupId>org.apache.pdfbox</groupId>  
+	      <artifactId>jempbox</artifactId>  
+	      <version>${org.apache.pdfbox.jempbox.version}</version>  
+	    </dependency>  
+	    <dependency>  
+	      <groupId>org.apache.pdfbox</groupId>  
+	      <artifactId>fontbox</artifactId>  
+	      <version>${org.apache.pdfbox.fontbox.version}</version>  
+	    </dependency>      
+     
+    <dependency>  
+      <groupId>org.apache.pdfbox</groupId>  
+      <artifactId>pdfbox</artifactId>  
+      <version>${org.apache.pdfbox.version}</version>  
+      <exclusions>  
+        <exclusion>  
+          <groupId>commons-logging</groupId>  
+          <artifactId>commons-logging</artifactId>  
+        </exclusion>  
+      </exclusions>  
+    </dependency>     
+    <!-- END PDF -->  
+      
+    <!-- JSON -->  
+    <dependency>  
+            <groupId>com.fasterxml.jackson.core</groupId>  
+            <artifactId>jackson-core</artifactId>  
+            <version>${jackson.version}</version>  
+        </dependency>  
+         
+         <dependency>  
+            <groupId>com.fasterxml.jackson.core</groupId>  
+            <artifactId>jackson-databind</artifactId>  
+            <version>${jackson.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>com.fasterxml.jackson.core</groupId>  
+            <artifactId>jackson-annotations</artifactId>  
+            <version>${jackson.version}</version>  
+        </dependency>  
+    <!--  -->  
+		
+		<dependency>
+			<groupId>it.osapulie</groupId>
+			<artifactId>osapulie-common-types</artifactId>
+			<version>${project.version}</version>
+		</dependency>	
+		
+		<!--
+			Web Services support 
+		-->		 
+		<dependency>
+			<groupId>it.osapulie.build.3rdparty</groupId>
+			<artifactId>apache-cxf</artifactId>
+			<version>${cxf.version}</version>
+			<type>pom</type>
+			<exclusions>
+				<exclusion>
+					<artifactId>geronimo-javamail_1.4_spec</artifactId>
+					<groupId>org.apache.geronimo.specs</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j.api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.6.4</version>
+		</dependency>
+<!-- 		
+		<dependency>
+			<groupId>it.puglia.rupar</groupId>
+			<artifactId>egov-pdds</artifactId>
+			<version>3.0.0</version>
+		</dependency>		
+ -->
+		<dependency>
+			<groupId>org.vps.crypt</groupId>
+			<artifactId>crypt</artifactId>
+			<version>1.6</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>unstandard</artifactId>
+			<version>1.0.N20060829</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<filters>
+			<filter>../../filters/${build.profile.id}/configuration.properties</filter>
+		</filters>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>		
+	</build>
+	<profiles>
+		<profile>
+			<id>sviluppo</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<build.profile.id>sviluppo</build.profile.id>
+			</properties>
+		</profile>
+		<profile>
+			<id>test_torre</id>
+			<properties>
+				<build.profile.id>test_torre</build.profile.id>
+			</properties>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>collaudo</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<build.profile.id>collaudo</build.profile.id>
+			</properties>
+		</profile>
+		<profile>
+			<id>produzione</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<build.profile.id>produzione</build.profile.id>
+			</properties>
+		</profile>
+	</profiles>
+	<organization>
+		<name>Links Management &amp; Tecnologies S.p.A.</name>
+		<url>http://www.linksmt.it</url>
+	</organization>
+</project>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<hook>
+	<language-properties>messages/Language_it.properties</language-properties>
+	<language-properties>messages/Language_en_US.properties</language-properties>
+	<model-listener>
+		<model-listener-class>it.osapulie.hook.listener.UserListener</model-listener-class>
+		<model-name>com.liferay.portal.model.User</model-name>
+	</model-listener>
+	<portal-properties>portal.properties</portal-properties>
+	<custom-jsp-dir>/custom_jsp</custom-jsp-dir>
+	<service>
+	    <service-type>com.liferay.portal.service.UserLocalService</service-type>
+	    <service-impl>it.osapulie.hook.login.service.UserLocalServiceImpl</service-impl>
+    </service>
+</hook>

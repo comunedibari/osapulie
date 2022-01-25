@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="Indirizzo">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per un indirizzo completo</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="comune" type="Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Codice ISTAT del comune</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="via" type="Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Codice/descrizione della via</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="civico">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Dati del civico</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="codice" type="xs:string" minOccurs="0" />
+						<xs:element name="numero" type="xs:int" />
+						<xs:element name="esponente" type="xs:string" minOccurs="0" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="localita" type="xs:string" minOccurs="0" />
+			<xs:element name="cap" type="xs:string" minOccurs="0" />
+			<xs:element name="corte" type="xs:string" minOccurs="0" />
+			<xs:element name="piano" type="xs:string" minOccurs="0" />
+			<xs:element name="interno" type="xs:string" minOccurs="0" />
+			<xs:element name="scala" type="xs:string" minOccurs="0" />
+			<xs:element name="suffisso" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Soggetto">
+		<xs:sequence>
+			<xs:element name="codiceFiscale" minOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="16" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="nome" type="xs:string" minOccurs="1" />
+			<xs:element name="cognome" type="xs:string" minOccurs="1" />
+			<xs:element name="sesso" type="xs:string"/>
+			<xs:element name="dataNascita" type="xs:date" />
+			<xs:element name="comuneNascita" type="xs:string" />
+			<xs:element name="provinciaNascita" type="xs:string" />
+			<xs:element name="email" type="xs:string" />
+			<xs:element name="telefono" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Immobile">
+		<xs:sequence>
+			<xs:element name="caratteristicaImmobile" type="Codifica">
+				<xs:annotation>
+					<xs:documentation>
+						1 (Terreno Agricolo)
+						2 (Area Fabbricabile)
+						3 (Fabbricato con valore determinato sulla base della rendita catastale)
+						4 (Fabbricato con valore determinato sulla base delle scritture contabili)
+						5.1 (Per Immobili non produttivi di reddito fondiario, ai sensi dell'art. 43 del TUIR)
+						5.2 (Per Immobili Locati)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="indirizzoUtenzaImmobile">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="sit" type="xs:int" />
+						<xs:element name="indirizzo" type="xs:string" />
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="codiceCatasto" type="xs:string" minOccurs="0" />
+			<xs:element name="tipoCatasto" type="xs:string" minOccurs="0" />
+			<xs:element name="classe" type="xs:string" minOccurs="0" />
+			<xs:element name="numeroProtocollo" type="xs:string" minOccurs="0" />
+			<xs:element name="dataProtocollo" type="xs:date" minOccurs="0" />
+			<xs:element name="inagibile" type="xs:boolean" minOccurs="0" />
+			<xs:element name="dataInizioPossesso" type="xs:date" minOccurs="0" />
+			<xs:element name="diAcquisto" type="xs:boolean" minOccurs="0" />
+			<xs:element name="diCessione" type="xs:boolean" minOccurs="0" />
+			<xs:element name="agenziaEntrate" type="xs:string" minOccurs="0" />
+			<xs:element name="estremiTitolo" type="xs:string" minOccurs="0" />
+			<xs:element name="numero" type="xs:int" minOccurs="0" />
+			<xs:element name="sezione" type="xs:string" minOccurs="0" />
+			<xs:element name="foglio" type="xs:string" />
+			<xs:element name="particella" type="xs:string" />
+			<xs:element name="subalterno" type="xs:string" minOccurs="0" />
+			<xs:element name="valoreImmobile" type="xs:double">
+				<xs:annotation>
+					<xs:documentation>espresso in centesimi di euro</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="categoriaImmobile" type="xs:string"  />
+			<xs:element name="percentualePossesso" type="xs:double" minOccurs="0" />
+			<xs:element name="mesiPossesso" type="xs:int" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Codifica">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati relativi a qualsiasi dato codificato: permette di definire, per ogni tipo di dato per cui e' prevista una codifica, la coppia
+				di valori codice/descrizione</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="codice" type="xs:string" minOccurs="0"/>
+			<xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Riduzione">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati riguardanti la riduzione</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="articolo" type="Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Articolo del regolamento tassa rifiuti a cui si riferisce la riduzione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="valore" type="Codifica" />
+			<xs:element name="note" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

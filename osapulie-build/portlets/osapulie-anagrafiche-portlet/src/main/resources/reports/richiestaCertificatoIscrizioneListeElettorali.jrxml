@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="richiestaCertificatoIscrizioneListeElettorali" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="0.9313819845887326"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="comuneRes" class="java.lang.String"/>
+	<parameter name="provRes" class="java.lang.String"/>
+	<parameter name="numeroSezione" class="java.lang.Integer"/>
+	<parameter name="statoIscrizione" class="java.lang.String"/>
+	<parameter name="comuneNascita" class="java.lang.String"/>
+	<parameter name="provinciaNascita" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\WSLinks\\ComuneBari\\osapulie-build\\portlets\\osapulie-anagrafiche-portlet\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subreportParameter" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subreportParameters" class="java.util.List"/>
+	<parameter name="codiceFiscale" class="java.lang.String"/>
+	<parameter name="dataNascita" class="java.lang.String"/>
+	<parameter name="cognome" class="java.lang.String"/>
+	<parameter name="nome" class="java.lang.String"/>
+	<parameter name="sindaco" class="java.lang.String"/>
+	<parameter name="viaRes" class="java.lang.String"/>
+	<parameter name="capRes" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<textField pattern="">
+				<reportElement mode="Transparent" x="145" y="32" width="286" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["COMUNE DI " + $P{comune}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="43" y="12" width="73" height="94"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement mode="Transparent" x="145" y="52" width="286" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Città Metropolitana di Bari]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="190" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="30" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[SI CERTIFICA  CHE ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="10" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICATO DI ISCRIZIONE ALLE LISTE ELETTORALI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="28" y="84" width="317" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Codice Fiscale  " +  $P{codiceFiscale}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="28" y="101" width="488" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["nato il " + $P{dataNascita} + " a " + $P{comuneNascita} + " (" + $P{provinciaNascita} + ")"]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="28" y="64" width="233" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cognome} + " " + $P{nome}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="28" y="151" width="511" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["RISULTA ISCRITTO NELLE SEGUENTI LISTE ELETTORALI DEL COMUNE DI  "+$P{comuneRes}+" ("+$P{provRes}+")"]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="28" y="121" width="424" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Redidente in " + $P{viaRes} +"  "+$P{capRes} +" "+$P{comuneRes}+" ("+$P{provRes}+")"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="74">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="72"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subreportParameters})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{subreportParameter}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="162">
+			<textField pattern="">
+				<reportElement x="29" y="16" width="233" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{comune} + ", " + new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement positionType="Float" x="372" y="79" width="158" height="52"/>
+				<imageExpression><![CDATA[$P{sindaco}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="372" y="51" width="156" height="28"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IL SINDACO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="18" y="-268" width="521" height="1"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="89">
+			<staticText>
+				<reportElement x="19" y="13" width="502" height="50"/>
+				<textElement textAlignment="Justified">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Il presente certificato non può essere prodotto agli organi della pubblica amministrazione o ai privati gestori di pubblici servizi. (l'articolo 15, comma 1, della legge 12 novembre 2011, n. 183)
+All'indirizzo https://egov.ba.it/timbro-digitale è possibile verificare gratuitamente il timbro digitale sottostante, ed accertare l'autenticità del presente documento.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

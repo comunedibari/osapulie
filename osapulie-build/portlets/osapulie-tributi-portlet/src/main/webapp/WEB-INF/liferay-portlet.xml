@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.0.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_0_0.dtd">
+<!-- 
+	Liferay portlet manifest.
+ -->
+<liferay-portlet-app>
+	
+	<portlet>
+		<portlet-name>dichiarazionetassaimmobili</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+		<header-portlet-css>/css/jquery-ui.min.css</header-portlet-css>
+		<header-portlet-javascript>/js/jquery.js</header-portlet-javascript>
+		<header-portlet-javascript>/js/jquery-ui.min.js</header-portlet-javascript>
+		<header-portlet-javascript>/js/datepicker-it.js</header-portlet-javascript>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>dichiarazionetari</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+		<header-portlet-css>/css/jquery-ui.min.css</header-portlet-css>
+		<header-portlet-css>/css/select2.min.css</header-portlet-css>
+		<header-portlet-css>/css/select2-flat.css</header-portlet-css>
+		<header-portlet-javascript>/js/jquery.js</header-portlet-javascript>
+		<header-portlet-javascript>/js/jquery-ui.min.js</header-portlet-javascript>
+		<header-portlet-javascript>/js/datepicker-it.js</header-portlet-javascript>
+	    <footer-portlet-javascript>/js/script_dichiarazione_tari.js</footer-portlet-javascript>
+	    <footer-portlet-javascript>/js/select2/select2.min.js</footer-portlet-javascript>
+	    <footer-portlet-javascript>/js/select2/i18n/it.js</footer-portlet-javascript>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>variazioneimu</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+		<header-portlet-css>/css/jquery-ui.min.css</header-portlet-css>
+		<header-portlet-javascript>/js/jquery.js</header-portlet-javascript>
+		<header-portlet-javascript>/js/jquery-ui.min.js</header-portlet-javascript>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>variazionetasi</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+		<header-portlet-css>/css/jquery-ui.min.css</header-portlet-css>
+		<header-portlet-javascript>/js/jquery.js</header-portlet-javascript>
+		<header-portlet-javascript>/js/jquery-ui.min.js</header-portlet-javascript>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>rimborsotassaimmobili</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>rimborsotassarifiuti</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>rimborsoicp</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>rimborsoaffissioni</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+		
+	<portlet>
+		<portlet-name>rimborsoservizicimiteriali</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>rimborsocosaptosap</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>calcolotasi</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>calcoloimu</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>visuratasi</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>visuratassarifiuti</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>visuracatastale</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>cessazionetari</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+		<header-portlet-css>/css/jquery-ui.min.css</header-portlet-css>
+		<header-portlet-javascript>/js/jquery.js</header-portlet-javascript>
+		<header-portlet-javascript>/js/jquery-ui.min.js</header-portlet-javascript>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>visuraprovvedimentirimborsotasi</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>visuraprovvedimentiautotutelaimu</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>visuraavvisibonaritari</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>agevolazionetari</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+		<header-portlet-css>/css/valutaservizio.css</header-portlet-css>
+		<header-portlet-css>/css/jquery-ui.min.css</header-portlet-css>
+		<header-portlet-css>/css/select2.min.css</header-portlet-css>
+		<header-portlet-css>/css/select2-flat.css</header-portlet-css>
+		<header-portlet-javascript>/js/jquery.js</header-portlet-javascript>
+		<header-portlet-javascript>/js/jquery-ui.min.js</header-portlet-javascript>
+		<header-portlet-javascript>/js/datepicker-it.js</header-portlet-javascript>
+	    <footer-portlet-javascript>/js/script_agevolazione_tari.js</footer-portlet-javascript>
+	    <footer-portlet-javascript>/js/select2/select2.min.js</footer-portlet-javascript>
+	    <footer-portlet-javascript>/js/select2/i18n/it.js</footer-portlet-javascript>
+	</portlet>
+	
+</liferay-portlet-app>

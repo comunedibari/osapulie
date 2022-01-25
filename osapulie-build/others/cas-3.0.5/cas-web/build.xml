@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<project name="cas-web" basedir="./" default="dist">
+	
+	<!-- Default Properties (eventually overridden by build.{username}.properties ) -->
+	<!-- see build.properties for details -->
+	<property file="build.properties" />
+	
+	<property name="dist" location="${liferaySdk.dist}"/>
+	
+	<!-- Project settings -->
+	<property name="warFilename" value="cas-web.war"/>
+	<property name="src" location="src"/>
+	<property name="build" location="WebContent/WEB-INF/classes"/>
+	<property name="lib" location="WebContent/WEB-INF/lib"/>
+	
+	<!-- Build PTR Core Project and copy jar into this project -->
+	<target name="compile">
+		<echo message="compiling files cas-web Project"/>
+		<javac srcdir="${src}" destdir="${build}" encoding="ISO8859-1" />
+	</target>
+	
+	<target name="dist" description="Distribuite the war" depends="compile">
+		<javac srcdir="${src}" destdir="${build}"/>
+		<delete file="${dist}/${warFilename}"></delete>
+		<war destfile="${dist}/${warFilename}" webxml="WebContent/WEB-INF/web.xml">
+			<fileset dir="WebContent">
+				<!-- Need to exclude it since webxml is an attribute of the war tag above -->
+				<exclude name="WEB-INF/web.xml" />
+			</fileset>
+		</war>
+	</target>
+</project>

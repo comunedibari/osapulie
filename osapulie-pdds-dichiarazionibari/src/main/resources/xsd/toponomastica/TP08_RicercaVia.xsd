@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sinergis.it/xsd/toponomastica" targetNamespace="http://www.sinergis.it/xsd/toponomastica" elementFormDefault="unqualified">
+	<xs:include schemaLocation="common.xsd"/>
+	<xs:element name="TP08_RicercaVia_request" substitutionGroup="service_paramsAbstract" nillable="false">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="service_paramsAbstractType">
+					<xs:sequence>
+						<xs:element ref="indirizzo_ricercato"/>
+						<xs:element ref="max_rows_ret" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TP08_RicercaVia_response" substitutionGroup="data_outputAbstract" nillable="false">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="data_outputAbstractType">
+					<xs:choice>
+						<xs:element ref="via"/>
+						<xs:element ref="elenco_vie"/>
+					</xs:choice>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

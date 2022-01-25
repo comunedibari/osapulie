@@ -1,0 +1,378 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>it.osapulie.build</groupId>
+		<artifactId>osapulie-build</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>portlets</artifactId>
+	<packaging>pom</packaging>
+	<name>OSApulie :: Portlet base project template</name>
+	<description>Base project that includes standard Portlet template dependencies</description>
+
+	<organization>
+		<name>Links Management &amp; Technology S.p.A.</name>
+		<url>http://www.linksmt.it</url>
+	</organization>
+
+	<properties>
+		<!-- Maven Settings -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Dependencies -->
+		<liferay.version>6.0.6</liferay.version>
+		<eclipselink.version>2.2.1</eclipselink.version>
+		<hibernate.version>3.6.7.Final</hibernate.version>
+		<cxf.version>2.4.2</cxf.version>
+		<spring.version>3.0.6.RELEASE</spring.version>
+		<spring.security.version>3.0.7.RELEASE</spring.security.version>
+		<spring.ws.version>2.0.2.RELEASE</spring.ws.version>
+		<jasper-reports.version>4.1.2</jasper-reports.version>
+		<openam.version>9.5.3</openam.version>
+		<!-- 
+			Deploy automatico tramite maven-cargo-plugin.
+			Queste impostazioni sono dipendenti dal particolare host quindi candidate a finire nel settings.xml 
+			oppure fornite a linea di comando.
+		-->
+	</properties>
+	
+	<modules>
+		<module>osapulie-anagrafiche-portlet</module>
+		<module>osapulie-consultazionepraticheweb-portlet</module>
+		<module>osapulie-pagamenti-portlet</module>
+		<module>osapulie-profiloutente-portlet</module>
+		<module>osapulie-servizicomune-portlet</module>
+		<module>osapulie-tributi-portlet</module>
+		<module>osapulie-utilities-portlet</module>
+		<module>osapulie-catalogoservizi-portlet</module>
+		<module>osapulie-sociali-portlet</module>
+		<module>osapulie-fascicoloutente-ws</module>
+	</modules>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<pluginManagement>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<webResources>
+						<resource>
+							<directory>src/main/webapp</directory>
+							<filtering>true</filtering>
+						</resource>
+					</webResources>
+                    <packagingExcludes>WEB-INF/lib/xml-api*.jar</packagingExcludes>
+				</configuration>
+			</plugin>
+	
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4.3</version>
+				<configuration>
+					<includes>
+						<include>**/*Tests.java</include>
+					</includes>
+					<excludes>
+						<exclude>**/Abstract*.java</exclude>
+					</excludes>
+					<forkMode>once</forkMode>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.1.2</version>
+				<configuration>
+					<container>
+						<containerId>jboss51x</containerId>
+						<append>false</append>
+						<log>${project.build.directory}/logs/jboss51x.log</log>
+						<output>${project.build.directory}/logs/jboss51x.out</output>
+						<timeout>600000</timeout><!-- 10 minutes -->
+					</container>
+					<configuration>
+						<type>existing</type>
+						<home>${deploy.jboss5x.home}</home>
+						<properties>
+							<cargo.servlet.port>8080</cargo.servlet.port>
+							<cargo.jboss.configuration>default</cargo.jboss.configuration>
+							<cargo.rmi.port>1099</cargo.rmi.port>
+							<cargo.logging>high</cargo.logging>
+						</properties>
+					</configuration>
+				</configuration>
+ 			</plugin>
+
+			<!-- Aggiunge le directory con i sorgenti auto-generati al progetto eclipse -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>target/generated-sources/cxf</source>
+								<source>target/generated-sources/xjc</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>		
+		<!-- </plugins> -->
+		<!-- </pluginManagement> -->
+		<!-- 
+			See http://wiki.eclipse.org/M2E_plugin_execution_not_covered#execute_plugin_goal 
+			for an explanation.
+		 -->
+ 		<!-- <pluginManagement> -->
+ 			<!-- <plugins> -->
+ 				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+ 				<plugin>
+ 					<groupId>org.eclipse.m2e</groupId>
+ 					<artifactId>lifecycle-mapping</artifactId>
+ 					<version>1.0.0</version>
+ 					<configuration>
+ 						<lifecycleMappingMetadata>
+ 							<pluginExecutions>
+								<pluginExecution> 
+ 									<pluginExecutionFilter>
+ 										<groupId>org.apache.cxf</groupId>
+ 										<artifactId>cxf-codegen-plugin</artifactId>
+ 										<versionRange>[2.4.0,)</versionRange>
+ 										<goals>
+ 											<goal>wsdl2java</goal>
+ 										</goals>
+ 									</pluginExecutionFilter>
+ 									<action>
+ 										<ignore />
+ 									</action>
+ 								</pluginExecution>
+ 								<pluginExecution>
+ 									<pluginExecutionFilter>
+ 										<groupId>org.jvnet.jaxb2.maven2</groupId>
+ 										<artifactId>maven-jaxb2-plugin</artifactId>
+ 										<versionRange>[0.8.0,)</versionRange>
+ 										<goals>
+ 											<goal>generate</goal>
+ 										</goals>
+ 									</pluginExecutionFilter>
+ 									<action>
+ 										<execute />
+ 									</action>
+ 								</pluginExecution>
+ 							</pluginExecutions>
+ 						</lifecycleMappingMetadata>
+ 					</configuration>
+ 				</plugin>
+ 			</plugins>
+ 		</pluginManagement>	
+	</build>
+
+	<!-- 
+		Per non ripetere costantemente le versioni delle dipendenze, alcune le 
+		dichiariamo qui.
+	 -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+			    <groupId>displaytag</groupId>
+			    <artifactId>displaytag</artifactId>
+			    <version>1.2</version>
+			    <exclusions>
+			    	<exclusion>
+			    		<artifactId>jcl104-over-slf4j</artifactId>
+			    		<groupId>org.slf4j</groupId>
+			    	</exclusion>
+       				<exclusion>
+            			<groupId>org.slf4j</groupId>
+            			<artifactId>slf4j-log4j12</artifactId>
+        			</exclusion>
+        			<exclusion>
+            			<groupId>log4j</groupId>
+            			<artifactId>log4j</artifactId>
+        			</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+			    <groupId>displaytag</groupId>
+			    <artifactId>displaytag-portlet</artifactId>
+			    <version>1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>cglib</groupId>
+				<artifactId>cglib</artifactId>
+				<version>2.2</version>
+			</dependency>
+			<dependency>
+			    <groupId>commons-fileupload</groupId>
+			    <artifactId>commons-fileupload</artifactId>
+			    <version>1.2.2</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- Spring framework. -->
+		<dependency>
+			<groupId>it.osapulie.build.3rdparty</groupId>
+			<artifactId>spring-framework</artifactId>
+			<version>${spring.version}</version>
+			<type>pom</type>
+		</dependency>
+
+		 
+
+		<!-- Spring framework Testing dependecies -->
+		<dependency>
+			<groupId>it.osapulie.build.3rdparty</groupId>
+			<artifactId>spring-framework-test</artifactId>
+			<version>${spring.version}</version>
+			<type>pom</type>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Hibernate dependencies 
+		<dependency>
+			<groupId>it.osapulie.build.3rdparty</groupId>
+			<artifactId>persistence-hibernate</artifactId>
+			<version>${hibernate.version}</version>
+			<type>pom</type>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>it.osapulie.build.3rdparty</groupId>
+			<artifactId>persistence-eclipselink</artifactId>
+			<version>${eclipselink.version}</version>
+			<type>pom</type>
+		</dependency>
+
+		<!-- 
+			Spring Security 
+			TODO mettere in un meta-POM apposito
+		 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-aspects</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.springframework.security.extensions</groupId>
+			<artifactId>spring-security-portlet</artifactId>
+			<version>1.0.0.CI-SNAPSHOT</version>
+		</dependency> -->
+		
+		<!--
+			Misc
+		-->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency> 
+		<dependency>
+			<groupId>javax.portlet</groupId>
+			<artifactId>portlet-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<!-- API + Hibernate implementation of the JSR-330 (Bean Validation) API -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator-annotation-processor</artifactId>
+			<version>4.1.0.Final</version>
+		</dependency>
+
+		<!-- 
+			La maggior parte delle portlet usano Displaytag per la paginazione.
+		 -->
+		<dependency>
+		    <groupId>displaytag</groupId>
+		    <artifactId>displaytag</artifactId>
+		    <exclusions>
+		    	<exclusion>
+		    		<artifactId>itext</artifactId>
+		    		<groupId>com.lowagie</groupId>
+		    	</exclusion>
+				<exclusion>
+					<artifactId>jcl104-over-slf4j</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+       			<exclusion>
+            		<groupId>org.slf4j</groupId>
+            		<artifactId>slf4j-log4j12</artifactId>
+        		</exclusion>
+        		<exclusion>
+            		<groupId>log4j</groupId>
+            		<artifactId>log4j</artifactId>
+        		</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+		    <groupId>displaytag</groupId>
+		    <artifactId>displaytag-portlet</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+		</dependency>
+
+		<!--
+			Liferay specific See http://www.liferay.com/web/thiago.moreira/blog/-/blogs/liferay-s-artifact-are-now-mavenized
+		-->
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>portal-service</artifactId>
+			<version>${liferay.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+        <dependency>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>util-taglib</artifactId>
+            <version>6.0.6</version>
+        </dependency>
+	</dependencies>
+</project>

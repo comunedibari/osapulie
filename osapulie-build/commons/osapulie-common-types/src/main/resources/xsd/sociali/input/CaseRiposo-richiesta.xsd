@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="CommonTypes.xsd" />
+	<xs:element name="caseRiposoRichiesta">
+		<xs:annotation>
+			<xs:documentation>Anziani: richiesta case riposo (Interoperabilità) </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="richiedente" minOccurs="1" type="Soggetto" />
+				<xs:element name="ruolo" type="xs:string" minOccurs="1" />
+				<xs:element name="affinita" type="xs:string" />
+				<xs:element name="anziano" type="Soggetto" nillable="true" />
+				<xs:element name="tipologia" type="xs:string" />
+				<xs:element name="denominazione" type="xs:string" />
+				<xs:element name="ubicazione" type="xs:string" />
+				<xs:element name="allegatoUno" type="AllegatoUno" />
+				<xs:element name="parenti" type="Familiare" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="AllegatoUno">
+		<xs:sequence>
+			<xs:element name="nome" type="xs:string" />
+			<xs:element name="cognome" type="xs:string" />
+			<xs:element name="comuneNascita" type="xs:string" />
+			<xs:element name="provinciaNascita" type="xs:string" />
+			<xs:element name="dataNascita" type="xs:string" />
+			<xs:element name="autosufficiente" type="xs:boolean" />
+			<xs:element name="parzialmenteAutosuff" type="xs:boolean" />
+			<xs:element name="patolTemporanea" type="xs:boolean" />
+			<xs:element name="serviziSimiliEnte" type="xs:boolean" />
+			<xs:element name="serviziSimiliComune" type="xs:boolean" />
+			<xs:element name="serviziComune" type="xs:string" />
+			<xs:element name="serviziEntiPubblici" type="xs:string" />
+			<xs:element name="parentiAlimenti" type="Familiare" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="alimenti" type="xs:boolean" />
+			<xs:element name="appartamentoProprio" type="xs:boolean" />
+			<xs:element name="canoneAppartamento" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AllegatoDue">
+		<xs:sequence>
+			<xs:element name="nome" type="xs:string" />
+			<xs:element name="cognome" type="xs:string" />
+			<xs:element name="comuneNascita" type="xs:string" />
+			<xs:element name="provinciaNascita" type="xs:string" />
+			<xs:element name="dataNascita" type="xs:string" />
+			<xs:element name="ruolo" type="xs:string" />
+			<xs:element name="altro" type="xs:string" />
+			<xs:element name="reddito" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

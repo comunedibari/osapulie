@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://ws.web.pratiche.osapulie.it"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified"
+	targetNamespace="http://ws.web.pratiche.osapulie.it" version="1.0">
+
+	<xs:include schemaLocation="ErroreType.xsd"/>
+	<xs:element name="documentiContenutiResponse">
+		<xs:complexType >
+		<xs:choice>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:docInfo" />
+			<xs:element name="errore" type="tns:Errore" minOccurs="0" />
+		</xs:choice>
+	</xs:complexType>
+	</xs:element>
+	<xs:complexType name="docInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="creator" type="xs:string" />
+			<xs:element minOccurs="0" name="dataCreazione" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="dataProtocollo" type="xs:dateTime" />
+			<xs:element minOccurs="0" name="file" type="tns:docFile" />
+			<xs:element minOccurs="0" name="note" type="xs:string" />
+			<xs:element minOccurs="0" name="numeroProtocollo" type="xs:string" />
+			<xs:element minOccurs="0" name="protocollato" type="xs:boolean" />
+			<xs:element minOccurs="0" name="tipoProtocollo" type="xs:string" />
+			<xs:element minOccurs="0" name="tipologia" type="xs:string" />
+			<xs:element minOccurs="0" name="titolo" type="xs:string" />
+			<xs:element minOccurs="0" name="uuid" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="docFile">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="content" type="xs:base64Binary" />
+			<xs:element minOccurs="0" name="dimensione" type="xs:string" />
+			<xs:element minOccurs="0" name="encoding" type="xs:string" />
+			<xs:element minOccurs="0" name="mimeType" type="xs:string" />
+			<xs:element minOccurs="0" name="nome" type="xs:string" />
+			<xs:element minOccurs="0" name="uuid" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	</xs:schema>

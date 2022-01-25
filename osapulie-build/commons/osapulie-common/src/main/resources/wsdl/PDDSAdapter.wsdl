@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://localhost:8080/pdds/services/PDDSAdapter" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://localhost:8080/pdds/services/PDDSAdapter" xmlns:intf="http://localhost:8080/pdds/services/PDDSAdapter" xmlns:tns1="http://pdd.adapter.ws.web.osapulie.it" xmlns:tns2="http://portaDiDominio.pdd.egov.rupar.puglia.it" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://pdd.adapter.ws.web.osapulie.it" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://portaDiDominio.pdd.egov.rupar.puglia.it"/>
+   <element name="chiamaEnte">
+    <complexType>
+     <sequence>
+      <element name="area" type="xsd:string"/>
+      <element name="mittente" type="xsd:string"/>
+      <element name="servizio" type="xsd:string"/>
+      <element name="url" type="xsd:string"/>
+      <element name="message" type="xsd:string"/>
+      <element name="titolo" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="chiamaEnteResponse">
+    <complexType>
+     <sequence>
+      <element name="chiamaEnteReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="eseguiRichiestaServizio">
+    <complexType>
+     <sequence>
+      <element name="xmlRichiesta" type="xsd:string"/>
+      <element name="nomeServizio" type="xsd:string"/>
+      <element name="indirizzoPddRemota" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="eseguiRichiestaServizioResponse">
+    <complexType>
+     <sequence>
+      <element name="eseguiRichiestaServizioReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://portaDiDominio.pdd.egov.rupar.puglia.it" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="EccezionePDDS">
+    <sequence/>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://localhost:8080/pdds/services/PDDSAdapter" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://portaDiDominio.pdd.egov.rupar.puglia.it"/>
+   <element name="fault" type="tns2:EccezionePDDS"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="chiamaEnteResponse">
+
+      <wsdl:part element="tns1:chiamaEnteResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="chiamaEnteRequest">
+
+      <wsdl:part element="tns1:chiamaEnte" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="eseguiRichiestaServizioResponse">
+
+      <wsdl:part element="tns1:eseguiRichiestaServizioResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="eseguiRichiestaServizioRequest">
+
+      <wsdl:part element="tns1:eseguiRichiestaServizio" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="EccezionePDDS">
+
+      <wsdl:part element="impl:fault" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PDDSAdapter">
+
+      <wsdl:operation name="chiamaEnte">
+
+         <wsdl:input message="impl:chiamaEnteRequest" name="chiamaEnteRequest"/>
+
+         <wsdl:output message="impl:chiamaEnteResponse" name="chiamaEnteResponse"/>
+
+         <wsdl:fault message="impl:EccezionePDDS" name="EccezionePDDS"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="eseguiRichiestaServizio">
+
+         <wsdl:input message="impl:eseguiRichiestaServizioRequest" name="eseguiRichiestaServizioRequest"/>
+
+         <wsdl:output message="impl:eseguiRichiestaServizioResponse" name="eseguiRichiestaServizioResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="PDDSAdapterSoapBinding" type="impl:PDDSAdapter">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="chiamaEnte">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="chiamaEnteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="chiamaEnteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EccezionePDDS">
+
+            <wsdlsoap:fault name="EccezionePDDS" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="eseguiRichiestaServizio">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="eseguiRichiestaServizioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="eseguiRichiestaServizioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PDDSAdapterService">
+
+      <wsdl:port binding="impl:PDDSAdapterSoapBinding" name="PDDSAdapter">
+
+         <wsdlsoap:address location="http://localhost:8080/pdds/services/PDDSAdapter"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

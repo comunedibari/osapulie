@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dichiarazione_tari_dom_subreport1" pageWidth="555" pageHeight="809" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="1"/>
+	<property name="ireport.y" value="85"/>
+	<subDataset name="dataset1"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="700" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="407" width="555" height="287"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="407" width="713" height="287"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[
+     Ai sensi dell’articolo 13 del D.Lgs. n. 196/2003 (“Codice in materia di protezione dei dati personali”), si informa che:
+          a)  i dati personali comunicati saranno trattati al solo scopo di procedere all’istruttoria della pratica, con strumenti informatici e
+               cartacei idonei a garantirne la riservatezza e la sicurezza. I dati verranno altresì conservati nelle rispettive banche dati;
+          b)  il conferimento dei dati (ad esclusione dei dati di contatto ulteriori) è obbligatorio per il corretto svolgimento dell’istruttoria e
+               degli altri adempimenti, mentre il conferimento dei dati ulteriori di contatto (e-mail, cellulare, telefono, fax, posta elettronica
+               certificata) è facoltativo, ma garantisce una migliore comunicazione delle informazioni inerenti la pratica;
+          c)  in relazione al procedimento ed alle attività correlate, il Comune può comunicare i dati acquisiti ad altri Enti competenti (ad
+               eccezione dei dati sensibili e giudiziari e dei dati ulteriori di contatto). Potranno venirne a conoscenza i responsabili e gli
+               incaricati, anche esterni, del trattamento, i quali li tratteranno nel rispetto di quanto indicato nella presente informativa;
+          d)  l’interessato può esercitare i diritti previsti dall’articolo 7 del D.Lgs. n. 196/2003. In particolare, mediante richiesta al titolare o
+               ai responsabili del trattamento, può:
+               -      ottenere la conferma dell’esistenza o meno dei dati e la loro messa a disposizione in forma intellegibile;
+               -      avere conoscenza dell’origine dei dati, delle finalità e delle modalità del trattamento, nonché della logica applicata per il
+                      trattamento effettuato con gli strumenti informatici;
+               -      ottenere la cancellazione, la trasformazione in forma anonima o il blocco dei dati trattati in violazione di legge, nonché
+                      l’aggiornamento, la rettificazione o l’integrazione dei dati;
+               -      opporsi, per motivi legittimi, al trattamento.
+          e)  Il Titolare del trattamento dei dati è il Comune di Bari, con sede legale in Bari, C.so Vittorio Emanuele II, 87.
+              I responsabili del trattamento dei dati sono, ciascuno per le rispettive competenze: il responsabile dello sportello e relazione
+              con il cittadino e il responsabile della comunicazione esterna del Comune di Bari; i dirigenti del Comune di Bari, preposti alla o
+              alle Strutture coinvolte nel procedimento e le società partecipate dal Comune di Bari, coinvolte nel procedimento o nella
+              manutenzione dei servizi informatici del Comune stesso.
+              E’ possibile trovare l’indicazione dei responsabili del trattamento nel sito www.comune.bari.it., alle apposite sezioni.
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="387" width="210" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[  3     TRATTAMENTO DEI DATI PERSONALI ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="198" y="387" width="357" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ - Nota informativa per la privacy ai sensi del Decreto Legislativo 196/2003]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="299" width="555" height="72"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="302" y="239" width="253" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ - Spuntare le caselle relative agli allegati presentati]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="299" width="713" height="72"/>
+				<textElement>
+					<font size="11" isBold="false" isItalic="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[
+         Copia fotostatica del documento d’identità del firmatario
+         Copia fotostatica del documento di identità della persona che consegna la domanda [da
+            presentare qualora la domanda non venga consegnata dal firmatario]
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="239" width="302" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[  2     ALLEGATI DA PRESENTARE UNITAMENTE ALLA DOMANDA ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="259" width="555" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[A TAL FINE ALLEGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="279" width="555" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[  ALLEGATI OBBLIGATORI AI FINI DELLA RICEVIBILITÀ SOTTO CONDIZIONE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-11" y="107" width="713" height="120"/>
+				<textElement>
+					<font size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[
+     a) Che sui dati dichiarati potranno essere effettuati, ai sensi dell’art. 71 del D.P.R. n. 445/2000, controlli finalizzati ad accertare la
+         veridicità delle informazioni fornite;
+     b) Che dovrà produrre tutta la documentazione eventualmente richiesta dall’ufficio per consentire il completo svolgimento dei
+         controlli descritti al punto precedente;
+     c) Che, qualora emerga la non veridicità del contenuto della dichiarazione, il richiedente che l’ha sottoscritta decade dal diritto ai
+         benefici eventualmente conseguenti al provvedimento emanato sulla base della dichiarazione non veritiera, ai sensi dell’art. 75
+         del D.P.R. già citato, ed incorre nelle sanzioni penali previste dall’art. 76 (pene a carattere detentivo anche fino a 5 anni e multe);
+     d) Che è fatto obbligo al sottoscrittore della domanda di comunicare per iscritto, alla data della variazione, ogni modifica
+         intervenuta ai requisiti dichiarati.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="87" width="221" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[  1     DICHIARAZIONI DI PRESA CONOSCENZA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="221" y="87" width="334" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[- Leggere attentamente]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="27" y="317" width="4" height="4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="27" y="332" width="4" height="4"/>
+			</rectangle>
+		</band>
+	</detail>
+</jasperReport>

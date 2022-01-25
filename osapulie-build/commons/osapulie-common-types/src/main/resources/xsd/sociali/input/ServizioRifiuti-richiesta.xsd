@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="CommonTypes.xsd" />
+	
+	<xs:element name="servizioRifiutiRichiesta">
+		<xs:annotation>
+			<xs:documentation>Servizio rifiuti (Interoperabilità) </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="nome" type="xs:string" />
+				<xs:element name="cognome" type="xs:string" />
+				<xs:element name="comune" type="xs:string" />
+				<xs:element name="provincia" type="xs:string" />
+				<xs:element name="indirizzo" type="xs:string" />
+				<xs:element name="modalitaContatto" type="xs:string" />
+				<xs:element name="telefono" type="xs:string" />
+				<xs:element name="email" type="xs:string" />
+				<xs:element name="materiali" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="altro" type="xs:string" />
+				<xs:element name="note" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

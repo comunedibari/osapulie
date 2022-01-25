@@ -1,0 +1,35 @@
+.strutturaosapulie .pulsante{
+	margin: 10px 0;
+	text-align: center;
+}
+.strutturaosapulie .pulsante a.custom_pulsante{
+	display: inline-block;
+}
+
+.strutturaservizi_aree .areeTematiche{
+	margin: 10px 0;
+}
+
+.strutturaservizi_aree .comuni{
+	margin: 10px 0;
+}
+
+.strutturanews .titoloNotizia{
+	font-size: 16px;
+	color: #EE1B22;
+	font-family: Arial,Helvetica Neue,Helvetica,sans-serif; 
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.strutturanews .sottotitoloNotizia{
+	padding: 5px;
+}
+.strutturanews .immagineNotizia img{
+	padding: 2px;
+	border: 1px solid #EE1B22;
+	background: #fff;
+}
+.strutturanews .testoNotizia{
+	padding: 5px;
+}
+

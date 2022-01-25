@@ -1,0 +1,583 @@
+
+= Osapulie Api PA - Guida servizi REST
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+
+Il presente documento ha l’obiettivo di descrivere i servizi REST esposti dalla piattaforma
+
+[[overview]]
+= Overview
+
+
+
+I servizi REST esposti al momento sono i seguenti:
+
+|===
+| Verb | Servizio | Descrizione
+
+| `GET`
+| **totale-accessi-servizi**
+| `Il servizio ritorna il totale di richieste effettuate ad ogni servizio attivo`
+
+| `GET`
+| **comune-servizi-attivi**
+| `Il servizio ritorna la lista dettaglio di servizi attivi per ogni comune`
+
+| `GET`
+| **totale-servizi-comune**
+| `Il servizio ritorna il totale di servizi attivi per ogni comune`
+
+| `GET`
+| **totale-all-servizi**
+| `Il servizio ritorna il totale di tutte richieste ai servizi`
+
+| `GET`
+| **richieste-servizi-azienda**
+| `Il servizio ritorna le richieste effettuate ad ogni servizio da parte di aziende`
+
+| `GET`
+| **dettaglio-accessi-servizi**
+| `Il servizio ritorna il totale delle richieste effettuate ad ogni servizio per data`
+
+| `GET`
+| **dettaglio-accessi-servizi-azienda**
+| `Il servizio ritorna il totale delle richieste effettuate ad ogni servizio per azienda`
+
+| `GET`
+| **azienda**
+| `Il servizio ritorna la lista aziende attive`
+
+| `GET`
+| **cambio-residenza-partenza-arrivi**
+| `Il servizio ritorna il totale di persone migrate da un comune verso un nuovo comune`
+
+| `GET`
+| **servizi-attribute**
+| `Il servizio ritorna la lista di info basate su servizio utente cittadino azienda`
+
+| `GET`
+| **servizi-richiesti-geolocalizzazione**
+| `Il servizio ritorna la lista servizi richiesti con info sulla localita di richiesta`
+
+| `GET`
+| **servizi-completi-incompleti**
+| `Il servizio ritorna la lista dei servizi richiesti conclusi ed non completati`
+
+| `GET`
+| **servizi-media-tempo**
+| `Il servizio ritorna la lista dei servizi con media tempo di esecuzione in millisecondi``
+
+| `GET`
+| **servizi-media-eta**
+| `Il servizio ritorna la lista dei servizi richiesti con media di fascia eta'`
+
+| `GET`
+| **servizio**
+| `Il servizio ritorna la lista di codice servizio con nome servizio` 
+
+| `GET`
+| **servizi-fascia-eta**
+| `Il servizio ritorna la lista dei servizi richiesti per fascia di eta'` 
+|===
+
+
+[[overview-http-verbs]]
+== Metodi HTTP
+
+
+In letteratura i metodi HTTP nei servizi REST sono utilizzati come di seguito specificato
+
+|===
+| Verb | Utilizzo
+
+| `GET`
+| Usato per recuperare una risorsa
+
+| `POST`
+| Utilizzato per creare una nuova risorsa
+
+| `PUT`
+| Utilizzato per aggiornare una risorsa (anche per update parziali)
+
+| `DELETE`
+| Utilizzato per cancellare una risorsa
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+
+A secondo dall'esito dell'operazione il WS REST esposto può rispondere con diversi HTTP status code.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| Richiesta eseguita correttamente.
+
+| `204 NO CONTENT`
+| La ricerca non ha prodotto nessun risultato
+
+| `500 INTERNAL SERVER ERROR`
+| È avvenuto un errore durante il tentativo di gestione della richiesta
+|===
+
+
+
+[[resources-login]]
+== Processo di richiesta 
+
+==== Servizio **totale-accessi-servizi**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati **totale-accessi-servizi**
+
+ 
+
+===== Esempio di request HTTP
+
+include::{snippets}/totale-accessi-servizi/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/totale-accessi-servizi/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/totale-accessi-servizi/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/totale-accessi-servizi/response-fields.adoc[]
+
+
+== Processo di richiesta 
+
+==== Servizio **comune-servizi-attivi**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati **comune-servizi-attivi**
+
+
+===== Esempio di request HTTP
+
+include::{snippets}/comune-servizi-attivi/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/comune-servizi-attivi/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/comune-servizi-attivi/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/comune-servizi-attivi/response-fields.adoc[]
+
+
+
+== Processo di richiesta 
+
+==== Servizio **totale-servizi-comune**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati **totale-servizi-comune**
+ 
+
+===== Esempio di request HTTP
+
+include::{snippets}/totale-servizi-comune/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/totale-servizi-comune/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/totale-servizi-comune/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/totale-servizi-comune/response-fields.adoc[]
+
+
+== Processo di richiesta 
+
+==== Servizio **totale-all-servizi**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati **totale-all-servizi**
+
+ 
+
+===== Esempio di request HTTP
+
+include::{snippets}/totale-all-servizi/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/totale-all-servizi/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/totale-all-servizi/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/totale-all-servizi/response-fields.adoc[]
+
+
+== Processo di richiesta 
+
+==== Servizio **richieste-servizi-azienda**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati **richieste-servizi-azienda**
+
+ 
+
+===== Esempio di request HTTP
+
+include::{snippets}/richieste-servizi-azienda/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/richieste-servizi-azienda/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/richieste-servizi-azienda/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/richieste-servizi-azienda/response-fields.adoc[]
+
+
+== Processo di richiesta 
+
+==== Servizio **richieste-servizi-azienda**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati **dettaglio-accessi-servizi**
+
+
+===== Parametri di request
+---- 
+{data from}	yyyy-MM-dd type String
+----
+----
+{data to}		yyyy-MM-dd type String
+----
+----
+url con parametri:
+url: osapaapi/api/dettaglio-accessi-servizi/{from}/{to}
+----
+
+===== Esempio di request HTTP
+
+include::{snippets}/dettaglio-accessi-servizi/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/dettaglio-accessi-servizi/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/dettaglio-accessi-servizi/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/dettaglio-accessi-servizi/response-fields.adoc[]
+
+
+== Processo di richiesta 
+
+==== Servizio **dettaglio-accessi-servizi-azienda**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati **dettaglio-accessi-servizi-azienda**
+
+
+===== Parametri di request
+----
+{iduser}	cod.Utente type String
+----
+----
+url con parametri:
+url: osapaapi/api/dettaglio-accessi-servizi-azienda/{isuser}
+----
+----
+url: osapaapi/api/dettaglio-accessi-servizi-azienda
+----
+===== Esempio di request HTTP
+
+include::{snippets}/dettaglio-accessi-servizi-azienda/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/dettaglio-accessi-servizi-azienda/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/dettaglio-accessi-servizi-azienda/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/dettaglio-accessi-servizi-azienda/response-fields.adoc[]
+
+
+
+
+== Processo di richiesta 
+
+==== Servizio **azienda**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati 
+**azienda**
+
+
+===== Esempio di request HTTP
+
+include::{snippets}/azienda/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/azienda/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/azienda/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/azienda/response-fields.adoc[]
+
+
+
+== Processo di richiesta 
+
+==== Servizio **cambio-residenza-partenza-arrivi**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati 
+**cambio-residenza-partenza-arrivi**
+
+
+===== Esempio di request HTTP
+
+include::{snippets}/cambio-residenza-partenza-arrivi/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/cambio-residenza-partenza-arrivi/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/cambio-residenza-partenza-arrivi/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/cambio-residenza-partenza-arrivi/response-fields.adoc[]
+
+
+
+== Processo di richiesta 
+
+==== Servizio **servizi-attribute**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati 
+**servizi-attribute**
+
+===== Parametri di request
+----
+Per la ricerca accetta come parametro il Codice Servizio (oppure) Nome Servizio
+Esempio:
+----
+----
+{codeOrName}	codeOrName type String
+----
+----
+url con parametri codiceServizio:
+url: osapaapi/api/dettaglio-accessi-servizi-azienda/{CodiceServizio}
+oppure nomeServizio:
+url: osapaapi/api/dettaglio-accessi-servizi-azienda/{NomeServizio}
+----
+----
+oppure Tutti:
+url: osapaapi/api/dettaglio-accessi-servizi-azienda
+----
+
+
+
+===== Esempio di request HTTP
+
+include::{snippets}/servizi-attribute/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/servizi-attribute/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/servizi-attribute/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/servizi-attribute/response-fields.adoc[]
+
+
+
+== Processo di richiesta 
+
+==== Servizio **servizi-media-eta**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati 
+**servizi-media-eta**
+
+
+===== Esempio di request HTTP
+
+include::{snippets}/servizi-media-eta/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/servizi-media-eta/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/servizi-media-eta/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/servizi-media-eta/response-fields.adoc[]
+
+
+
+
+== Processo di richiesta 
+
+==== Servizio **servizi-media-tempo**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati 
+**servizi-media-tempo**
+
+
+===== Esempio di request HTTP
+
+include::{snippets}/servizi-media-tempo/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/servizi-media-tempo/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/servizi-media-tempo/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/servizi-media-tempo/response-fields.adoc[]
+
+
+
+== Processo di richiesta 
+
+==== Servizio **servizi-completi-incompleti**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati 
+**servizi-completi-incompleti**
+
+
+===== Esempio di request HTTP
+
+include::{snippets}/servizi-completi-incompleti/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/servizi-completi-incompleti/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/servizi-completi-incompleti/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/servizi-completi-incompleti/response-fields.adoc[]
+
+
+
+== Processo di richiesta 
+
+==== Servizio **servizi-richiesti-geolocalizzazione**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati 
+**servizi-richiesti-geolocalizzazione**
+
+
+===== Esempio di request HTTP
+
+include::{snippets}/servizi-richiesti-geolocalizzazione/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/servizi-richiesti-geolocalizzazione/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/servizi-richiesti-geolocalizzazione/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/servizi-richiesti-geolocalizzazione/response-fields.adoc[]
+
+
+
+
+== Processo di richiesta 
+
+==== Servizio **servizio**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati 
+**servizio**
+
+
+===== Esempio di request HTTP
+
+include::{snippets}/servizio/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/servizio/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/servizio/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/servizio/response-fields.adoc[]
+
+
+== Processo di richiesta 
+
+==== Servizio **servizi-fascia-eta**
+
+In questa sezione sono riportati esempi di chiamate per il recupero dati 
+**servizi-fascia-eta**
+
+
+===== Esempio di request HTTP
+
+include::{snippets}/servizi-fascia-eta/http-request.adoc[]
+
+===== Esempio curl request
+
+include::{snippets}/servizi-fascia-eta/curl-request.adoc[]
+
+===== Response di esempio
+
+include::{snippets}/servizi-fascia-eta/http-response.adoc[]
+
+===== Descrizione parametri di response
+
+include::{snippets}/servizi-fascia-eta/response-fields.adoc[]
+
+
+

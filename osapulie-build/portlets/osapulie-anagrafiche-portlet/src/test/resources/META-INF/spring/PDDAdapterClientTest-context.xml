@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:core="http://cxf.apache.org/core"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-3.0.xsd
+		http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config />
+	<util:properties id="applicationProperties" location="classpath:test.application.properties" />
+	<context:property-placeholder location="classpath:test.application.properties" />
+
+	<import resource="classpath*:/META-INF/cxf/webservices-client-context.xml" />
+	<import resource="classpath*:/META-INF/spring/infrastructure-layer-context.xml" />
+
+	<bean id="visureService" class="it.osapulie.anagrafe.service.impl.VisureServiceImpl" />
+	<bean id="mailSenderHelper" class="it.osapulie.anagrafe.web.portlet.util.MailSenderHelper">
+       <property name="mailSender" ref="mailSender"/>      
+   </bean>
+    
+	<!-- Configure the mail sender -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+      <property name="host" value="mail.sincon.it"/>
+   </bean>
+</beans>

@@ -1,0 +1,17 @@
+<div>
+    <p>Gentile ${cognome} ${nome},</br>	
+    la sua richiesta di modifica account per usufruire dell'autenticazione forte al portale &egrave; stata <b>RESPINTA</b>.
+    </p>
+	<p>
+		Motivazione:
+	</p>
+	<p>
+		<i>
+			${motivazione}
+		</i>
+	</p>
+    
+    <p>Cordiali saluti.</br>	
+    ${firmaComune}
+    </p>
+</div>	

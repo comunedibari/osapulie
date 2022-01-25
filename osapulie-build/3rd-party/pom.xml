@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>it.osapulie.build</groupId>
+		<artifactId>osapulie-build</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>3rd-party-libraries</artifactId>
+	<packaging>pom</packaging>
+	<name>3rd Party Libraries</name>
+	<description>3rd Party Libraries meta-POMs</description>
+
+	<organization>
+		<name>Links Management &amp; Technology S.p.A.</name>
+		<url>http://www.linksmt.it</url>
+	</organization>
+
+	<properties>
+		<!-- Maven Settings -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<modules>
+		<module>apache-cxf</module>
+		<module>jasper-reports</module>
+		<!-- <module>openam</module> -->
+		<module>persistence-eclipselink</module>
+		<module>persistence-hibernate</module>
+		<module>scatel</module>
+		<module>spring-framework</module>
+		<module>spring-framework-test</module>
+		<module>spring-security-portlet/spring-security-portlet</module>
+		<!-- Questo esempio rimane solo come riferimento ma non è necessario per 
+			il build del progetto. <module>spring-security-portlet/spring-security-portlet-sample</module> -->
+	</modules>
+</project>

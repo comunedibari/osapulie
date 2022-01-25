@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="#language("lang.dir")" dir="#language("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title - $company_name</title>
+	
+	#js("$javascript_folder/jquery-1.6.2.min.js")
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.areaTematicaServiziTitle').click(function(){
+				$(this).toggleClass("aperto");
+				$(this).next().slideToggle("slow");
+			});	
+		});
+	</script>
+
+	$theme.include($top_head_include)
+	<script src="$javascript_folder/jquery-cookie/jquery.cookie.js" type="text/javascript"></script>
+	<link  href="$javascript_folder/jquery-cookie/cookiecuttr.css" rel="stylesheet" />
+	<script src="$javascript_folder/jquery-cookie/jquery.cookiecuttr.js" type="text/javascript"></script>
+	<script src="$javascript_folder/jquery-cookie/manage.cookie.js" type="text/javascript"></script>
+
+</head>
+
+<body class="$css_class">
+
+	#if($is_signed_in && ($userHasAdministratorRole == 'true'))
+		#dockbar()
+	#end
+	
+<header id="banner" role="banner">
+	<div class="heading_wrapper">
+		<hgroup id="heading" class="leftFloat">
+			#if($is_signed_in)
+				<a class="logo" href="/group/guest/" title="#language("go-to") $company_name">
+					<span>$company_name</span>
+				</a>
+			#else
+				<a class="logo" href="$company_url" title="#language("go-to") $company_name">
+					<span>$company_name</span>
+				</a>
+			#end
+		</hgroup>
+		#if ($layout.isPublicLayout() == "false")
+			<div class="logoComuni rightFloat">
+				#set ($VOID = $velocityPortletPreferences.setValue('portlet-setup-show-borders', 'false'))
+				#set ($myPortletId = "osapulielogocomune_WAR_osapulieservizicomuneportlet")
+				$theme.runtime($myPortletId, '', $velocityPortletPreferences.toString())
+				#set ($VOID = $velocityPortletPreferences.reset())
+			</div>
+		#end
+		<div class="reset"></div>
+		<div class="languageBox" style="display:none;">
+			<div class="language">
+				#set ($VOID = $velocityPortletPreferences.setValue('portlet-setup-show-borders', 'false'))
+				#set ($myPortletId = "82")
+				$theme.runtime($myPortletId, '', $velocityPortletPreferences.toString())
+				#set ($VOID = $velocityPortletPreferences.reset())
+			</div>
+		</div>
+		<div class="reset"></div>
+		<div class="signIn">
+			#if($propsUtil.get("auth.login.url").contains("idp-login"))
+				#set ($sign_in_url = $propsUtil.get("auth.login.url"))
+				#set ($language_id = $locale.toString())
+				
+				#if($language_id.contains("en"))
+					#set ($sign_in_url = "/en"  + $sign_in_url)
+				#end
+				
+				#set ($create_account_url = $propsUtil.get("osapulie.deployment.scenario3.idp.registration.url"))
+				#set ($authentication_channels = $propsUtil.get("osapulie.deployment.scenario3.authentication.channels"))
+				
+			#end
+			#if(!$is_signed_in)
+				<a href="$sign_in_url" id="sign-in" rel="nofollow" title="$sign_in_text">$accedi</a> 
+				#if(!$authentication_channels.contains("SPID"))
+					<a href="$create_account_url" id="register" rel="nofollow" title="$registrazione">$registrazione</a>
+				#end
+			#else
+				$benvenuto&nbsp;&nbsp;<a href="/group/guest/profilo-utente" title="$my_account_text"><strong>$user_first_name&nbsp;&nbsp;$user_last_name&nbsp;&nbsp;</strong></a><a href="$sign_out_url" id="sign-out" rel="nofollow" title="$sign_out_text">$sign_out_text</a>
+			#end
+		</div>
+	</div>
+	<div class="navigation">
+		<div class="navigation_wrapper">
+			#if ($has_navigation)
+				#parse ("$full_templates_path/navigation.vm")
+			#end
+		</div>
+	</div>
+</header>
+
+<div id="wrapper">
+	<div id="content">
+		#if ($isHomePage == "false")
+			<nav class="site-breadcrumbs" id="breadcrumbs">
+				#breadcrumbs()
+			</nav>
+		#end
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+</div>
+<footer id="footer" role="contentinfo">
+	<div class="footer_wrapper">
+		<img src="/osapulie-theme/images/footer_small.png" alt="Programma Operativo Regionale Puglia 2007-2013 Plano di Azione e Coesione - Programma Ordinario Convergenza. Asse I - Promozione, valorizzazione e diffusione della ricerca e dell'innovazione per lo competitività. Linea di intervento 1.5 -Interventi per lo sviluppo dei servizi pubblici digitali. Codice Progetto FE1.500025. Progetto cofinanziato con il 'FONDO EUROPEO DI SVILUPPO REGIONALE - FESR' - 'INVESTIAMO NEL VOSTRO FUTURO'">
+		<div class="reset"></div>
+	</div>
+</footer>
+
+</body>
+
+$theme.include($bottom_include)
+
+</html>

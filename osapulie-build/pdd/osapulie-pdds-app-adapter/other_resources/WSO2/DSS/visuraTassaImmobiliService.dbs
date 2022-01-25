@@ -1,0 +1,123 @@
+<data enableBatchRequests="false" enableBoxcarring="false" name="visuraTassaImmobiliService" serviceNamespace="http://servizi.osapulie.it" serviceStatus="active">
+   <config id="default">
+      <property name="carbon_datasource_name">OSAPULIE_SERVIZI_DS</property>
+   </config>
+   <query id="select_visura_by_cf_annoRiferimento" useConfig="default">
+      <sql>SELECT id, codiceFiscale, dataAggiornamento, contoCorrente, annoRiferimento, importoDocumento, descrizioneTassa FROM visura_tassa_immobili WHERE codiceFiscale = ? AND annoRiferimento >= ? AND annoRiferimento &lt;= ?</sql>
+      <result element="visureTassaImmobili" rowName="visuraTassaImmobili">
+         <element column="id" name="id" xsdType="xs:integer"/>
+	     <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="dataAggiornamento" name="dataAggiornamento" xsdType="xs:date"/>
+         <element column="contoCorrente" name="contoCorrente" xsdType="xs:string"/>
+         <element column="annoRiferimento" name="annoRiferimento" xsdType="xs:integer"/>
+         <element column="importoDocumento" name="importoDocumento" xsdType="xs:double"/>
+         <element column="descrizioneTassa" name="descrizioneTassa" xsdType="xs:string"/>
+      </result>
+      <param name="codiceFiscale" sqlType="STRING"/>
+      <param name="annoDa" sqlType="INTEGER"/>
+      <param name="annoA" sqlType="INTEGER"/>
+   </query>
+   <query id="select_visura_by_id" useConfig="default">
+      <sql>SELECT id, codiceFiscale, dataAggiornamento, contoCorrente, annoRiferimento, importoDocumento, descrizioneTassa FROM visura_tassa_immobili WHERE id = ?</sql>
+      <result element="visureTassaImmobili" rowName="visuraTassaImmobili">
+         <element column="id" name="id" xsdType="xs:integer"/>
+	     <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="dataAggiornamento" name="dataAggiornamento" xsdType="xs:date"/>
+         <element column="contoCorrente" name="contoCorrente" xsdType="xs:string"/>
+         <element column="annoRiferimento" name="annoRiferimento" xsdType="xs:integer"/>
+         <element column="importoDocumento" name="importoDocumento" xsdType="xs:double"/>
+         <element column="descrizioneTassa" name="descrizioneTassa" xsdType="xs:string"/>
+      </result>
+      <param name="id" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_tassa_immobili_posizioni_query" useConfig="default">
+      <sql>SELECT id, indirizzoUtenzaImmobile, sitUtenzaImmobile, caratteristicaImmobile, numero, sezione, foglio, particella, subalterno, valoreImmobile, categoriaImmobile, aliquota, importoDovuto, importoDetrazioneAbPrincipale, mesiDetrazione, percentualePossesso, mesiPossesso, posseduto3112, riduzione, abitazionePrincipale, idVisura FROM visura_tassa_immobili_posizioni WHERE idVisura=?</sql>
+      <result element="posizioniVisuraTassaImmobili" rowName="posizioneVisuraTassaImmobili">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="indirizzoUtenzaImmobile" name="indirizzoUtenzaImmobile" xsdType="xs:string"/>
+	 	 <element column="sitUtenzaImmobile" name="sitUtenzaImmobile" xsdType="xs:integer"/>
+         <element column="caratteristicaImmobile" name="caratteristicaImmobile" xsdType="xs:string"/>
+         <element column="numero" name="numero" xsdType="xs:integer"/>	 
+	     <element column="sezione" name="sezione" xsdType="xs:string"/>
+         <element column="foglio" name="foglio" xsdType="xs:integer"/>
+	     <element column="particella" name="particella" xsdType="xs:integer"/>
+	     <element column="subalterno" name="subalterno" xsdType="xs:integer"/>
+         <element column="valoreImmobile" name="valoreImmobile" xsdType="xs:double"/>
+         <element column="categoriaImmobile" name="categoriaImmobile" xsdType="xs:string"/>
+         <element column="aliquota" name="aliquota" xsdType="xs:double"/>
+         <element column="importoDovuto" name="importoDovuto" xsdType="xs:double"/>
+         <element column="importoDetrazioneAbPrincipale" name="importoDetrazioneAbPrincipale" xsdType="xs:double"/>
+         <element column="mesiDetrazione" name="mesiDetrazione" xsdType="xs:integer"/>
+         <element column="percentualePossesso" name="percentualePossesso" xsdType="xs:double"/>
+         <element column="mesiPossesso" name="mesiPossesso" xsdType="xs:integer"/>
+         <element column="posseduto3112" name="posseduto3112" xsdType="boolean"/>
+         <element column="riduzione" name="riduzione" xsdType="boolean"/>
+         <element column="abitazionePrincipale" name="abitazionePrincipale" xsdType="boolean"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="idVisura" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_tassa_immobili_rate_query" useConfig="default">
+      <sql>SELECT id, importoAbitazionePrincipale, importoAreaFabbricabile, importoTerreniAgricoli, importoAltriFabbricati, numeroFabbricati, importoDaPagare, identificativoRata, tipoRata, importoPagato, dataPagamento, idVisura FROM visura_tassa_immobili_rate WHERE idVisura=?</sql>
+      <result element="rateVisuraTassaImmobili" rowName="rataVisuraTassaImmobili">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="importoAbitazionePrincipale" name="importoAbitazionePrincipale" xsdType="xs:double"/>
+         <element column="importoAreaFabbricabile" name="importoAreaFabbricabile" xsdType="xs:double"/>
+         <element column="importoTerreniAgricoli" name="importoTerreniAgricoli" xsdType="xs:double"/>
+         <element column="importoAltriFabbricati" name="importoAltriFabbricati" xsdType="xs:double"/>
+         <element column="numeroFabbricati" name="numeroFabbricati" xsdType="xs:integer"/>
+         <element column="importoDaPagare" name="importoDaPagare" xsdType="xs:double"/>
+	 	 <element column="identificativoRata" name="identificativoRata" xsdType="xs:string"/>
+		 <element column="tipoRata" name="tipoRata" xsdType="xs:string"/>
+         <element column="importoPagato" name="importoPagato" xsdType="xs:double"/>
+         <element column="dataPagamento" name="dataPagamento" xsdType="xs:date"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="idVisura" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_identificativoRata_visura_tassa_immobili_rate_query" useConfig="default">
+      <sql>SELECT id, importoAbitazionePrincipale, importoAreaFabbricabile, importoTerreniAgricoli, importoAltriFabbricati, numeroFabbricati, importoDaPagare, identificativoRata, tipoRata, importoPagato, dataPagamento, idVisura FROM visura_tassa_immobili_rate WHERE identificativoRata=?</sql>
+      <result element="rateVisuraTassaImmobili" rowName="rataVisuraTassaImmobili">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="importoAbitazionePrincipale" name="importoAbitazionePrincipale" xsdType="xs:double"/>
+         <element column="importoAreaFabbricabile" name="importoAreaFabbricabile" xsdType="xs:double"/>
+         <element column="importoTerreniAgricoli" name="importoTerreniAgricoli" xsdType="xs:double"/>
+         <element column="importoAltriFabbricati" name="importoAltriFabbricati" xsdType="xs:double"/>
+         <element column="numeroFabbricati" name="numeroFabbricati" xsdType="xs:integer"/>
+         <element column="importoDaPagare" name="importoDaPagare" xsdType="xs:double"/>
+	 	 <element column="identificativoRata" name="identificativoRata" xsdType="xs:string"/>
+		 <element column="tipoRata" name="tipoRata" xsdType="xs:string"/>
+         <element column="importoPagato" name="importoPagato" xsdType="xs:double"/>
+         <element column="dataPagamento" name="dataPagamento" xsdType="xs:date"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="identificativoRata" sqlType="STRING"/>
+   </query>
+   <operation name="getVisureTassaImmobili">
+      <call-query href="select_visura_by_cf_annoRiferimento">
+         <with-param name="codiceFiscale" query-param="codiceFiscale"/>
+         <with-param name="annoDa" query-param="annoDa"/>
+         <with-param name="annoA" query-param="annoA"/>
+      </call-query>
+   </operation>
+   <operation name="getVisuraTassaImmobili">
+      <call-query href="select_visura_by_id">
+         <with-param name="id" query-param="id"/>
+      </call-query>
+   </operation>
+   <operation name="getPosizioniVisuraTassaImmobili">
+      <call-query href="select_with_key_visura_tassa_immobili_posizioni_query">
+         <with-param name="idVisura" query-param="idVisura"/>
+      </call-query>
+   </operation>
+   <operation name="getRateVisuraTassaImmobili">
+      <call-query href="select_with_key_visura_tassa_immobili_rate_query">
+         <with-param name="idVisura" query-param="idVisura"/>
+      </call-query>
+   </operation>
+   <operation name="getRataVisuraTassaImmobili">
+      <call-query href="select_with_key_identificativoRata_visura_tassa_immobili_rate_query">
+         <with-param name="identificativoRata" query-param="identificativoRata"/>
+      </call-query>
+   </operation>
+</data>

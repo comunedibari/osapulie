@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="Documento">
+		<xs:sequence>
+			<xs:element name="id" type="xs:string" /> <!-- identificativo univoco del documento -->
+			<xs:element name="nome" type="xs:string" /> <!-- nome del documento -->
+			<xs:element name="descrizione" type="xs:string" /> <!-- descrizione del documento -->
+			<xs:element name="contentType" type="xs:string" /> <!-- content type del documento -->
+			<xs:element minOccurs="0" name="binario" type="xs:base64Binary" />  <!-- binario del documento -->
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

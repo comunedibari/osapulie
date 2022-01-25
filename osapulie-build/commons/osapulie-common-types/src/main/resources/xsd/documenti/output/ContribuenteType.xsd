@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="Contribuente">
+		<xs:choice>
+			<xs:element name="codiceFiscale"> <!-- codice fiscale del cittadino -->
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="16" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="partitaIva" type="xs:string" />
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>

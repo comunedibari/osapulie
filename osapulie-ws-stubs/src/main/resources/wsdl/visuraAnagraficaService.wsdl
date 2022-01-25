@@ -1,0 +1,318 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://servizi.osapulie.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://servizi.osapulie.it">
+    <wsdl:documentation/>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://servizi.osapulie.it">
+            <xs:element name="getVisuraAnagrafica">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="visureAnagrafiche" type="ns0:visureAnagrafiche"/>
+            <xs:complexType name="visureAnagrafiche">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="visuraAnagrafica" type="ns0:visuraAnagrafica"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="visuraAnagrafica">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                    <xs:element name="cognome" nillable="true" type="xs:string"/>
+                    <xs:element name="nome" nillable="true" type="xs:string"/>
+                    <xs:element name="dataNascita" nillable="true" type="xs:date"/>
+                    <xs:element name="sesso" nillable="true" type="xs:string"/>
+                    <xs:element name="cap" nillable="true" type="xs:string"/>
+                    <xs:element name="toponimoIndirizzo" nillable="true" type="xs:string"/>
+                    <xs:element name="descrizioneVia" nillable="true" type="xs:string"/>
+                    <xs:element name="numeroCivico" nillable="true" type="xs:string"/>
+                    <xs:element name="esponente" nillable="true" type="xs:string"/>
+                    <xs:element name="piano" nillable="true" type="xs:string"/>
+                    <xs:element name="scala" nillable="true" type="xs:string"/>
+                    <xs:element name="interno" nillable="true" type="xs:string"/>
+                    <xs:element name="cognomeNomeConiuge" nillable="true" type="xs:string"/>
+                    <xs:element name="statoCivile" nillable="true" type="xs:string"/>
+                    <xs:element name="relazioneParentela" nillable="true" type="xs:string"/>
+                    <xs:element name="cittadinanzaItaliana" nillable="true" type="xs:boolean"/>
+                    <xs:element name="codiceIstatComuneNascita" nillable="true" type="xs:string"/>
+                    <xs:element name="descrizioneComuneEsteroNascita" nillable="true" type="xs:string"/>
+                    <xs:element name="statoEsteroNascita" nillable="true" type="xs:string"/>
+                    <xs:element name="numeroAttoNascita" nillable="true" type="xs:integer"/>
+                    <xs:element name="parteNascita" nillable="true" type="xs:string"/>
+                    <xs:element name="serieNascita" nillable="true" type="xs:string"/>
+                    <xs:element name="annoAttoNascita" nillable="true" type="xs:integer"/>
+                    <xs:element name="ufficioNascita" nillable="true" type="xs:string"/>
+                    <xs:element name="numeroAttoNascitaTrascritto" nillable="true" type="xs:integer"/>
+                    <xs:element name="parteNascitaTrascritto" nillable="true" type="xs:string"/>
+                    <xs:element name="serieNascitaTrascritto" nillable="true" type="xs:string"/>
+                    <xs:element name="annoNascitaTrascritto" nillable="true" type="xs:integer"/>
+                    <xs:element name="codiceIstatComuneNascitaTrascritto" nillable="true" type="xs:string"/>
+                    <xs:element name="numeroAttoMatrimonio" nillable="true" type="xs:integer"/>
+                    <xs:element name="parteMatrimonio" nillable="true" type="xs:string"/>
+                    <xs:element name="serieMatrimonio" nillable="true" type="xs:string"/>
+                    <xs:element name="annoMatrimonio" nillable="true" type="xs:integer"/>
+                    <xs:element name="ufficioMatrimonio" nillable="true" type="xs:string"/>
+                    <xs:element name="codiceIstatComuneMatrimonio" nillable="true" type="xs:string"/>
+                    <xs:element name="luogoMatrimonio" nillable="true" type="xs:string"/>
+                    <xs:element name="dataMatrimonio" nillable="true" type="xs:date"/>
+                    <xs:element name="numeroAttoMatrimonioTrascritto" nillable="true" type="xs:integer"/>
+                    <xs:element name="parteMatrimonioTrascritto" nillable="true" type="xs:string"/>
+                    <xs:element name="serieMatrimonioTrascritto" nillable="true" type="xs:string"/>
+                    <xs:element name="annoMatrimonioTrascritto" nillable="true" type="xs:integer"/>
+                    <xs:element name="codiceIstatComuneMatrimonioTrascritto" nillable="true" type="xs:string"/>
+                    <xs:element name="dataDecorrenzaDivorzio" nillable="true" type="xs:date"/>
+                    <xs:element name="dataSentenzaDivorzio" nillable="true" type="xs:date"/>
+                    <xs:element name="numeroSentenzaDivorzio" nillable="true" type="xs:string"/>
+                    <xs:element name="codiceIstatComuneTribunaleDivorzio" nillable="true" type="xs:string"/>
+                    <xs:element name="tipoDivorzio" nillable="true" type="xs:string"/>
+                    <xs:element name="dataAttoDivorzio" nillable="true" type="xs:date"/>
+                    <xs:element name="numeroAttoDivorzio" nillable="true" type="xs:integer"/>
+                    <xs:element name="parteDivorzio" nillable="true" type="xs:string"/>
+                    <xs:element name="serieDivorzio" nillable="true" type="xs:string"/>
+                    <xs:element name="volumeDivorzio" nillable="true" type="xs:string"/>
+                    <xs:element name="ufficioDivorzio" nillable="true" type="xs:string"/>
+                    <xs:element name="dataAttoDivorzioTrascritto" nillable="true" type="xs:date"/>
+                    <xs:element name="numeroAttoDivorzioTrascritto" nillable="true" type="xs:integer"/>
+                    <xs:element name="parteDivorzioTrascritto" nillable="true" type="xs:string"/>
+                    <xs:element name="serieDivorzioTrascritto" nillable="true" type="xs:string"/>
+                    <xs:element name="volumeDivorzioTrascritto" nillable="true" type="xs:string"/>
+                    <xs:element name="ufficioDivorzioTrascritto" nillable="true" type="xs:string"/>
+                    <xs:element name="codiceIstatComuneTrascrizioneDivorzio" nillable="true" type="xs:string"/>
+                    <xs:element name="dataAttoVedovanza" nillable="true" type="xs:date"/>
+                    <xs:element name="numeroAttoVedovanza" nillable="true" type="xs:integer"/>
+                    <xs:element name="parteVedovanza" nillable="true" type="xs:string"/>
+                    <xs:element name="serieVedovanza" nillable="true" type="xs:string"/>
+                    <xs:element name="volumeVedovanza" nillable="true" type="xs:string"/>
+                    <xs:element name="ufficioVedovanza" nillable="true" type="xs:string"/>
+                    <xs:element name="codiceIstatComuneMorte" nillable="true" type="xs:string"/>
+                    <xs:element name="dataMorte" nillable="true" type="xs:date"/>
+                    <xs:element name="numeroAttoMorte" nillable="true" type="xs:integer"/>
+                    <xs:element name="parteMorte" nillable="true" type="xs:string"/>
+                    <xs:element name="serieMorte" nillable="true" type="xs:string"/>
+                    <xs:element name="ufficioMorte" nillable="true" type="xs:string"/>
+                    <xs:element name="annoMorte" nillable="true" type="xs:integer"/>
+                    <xs:element name="codiceIstatComuneMorteConiugeTrascritto" nillable="true" type="xs:string"/>
+                    <xs:element name="numeroAttoMorteConiugeTrascritto" nillable="true" type="xs:integer"/>
+                    <xs:element name="parteMorteConiugeTrascritto" nillable="true" type="xs:string"/>
+                    <xs:element name="serieMorteConiugeTrascritto" nillable="true" type="xs:string"/>
+                    <xs:element name="annoMorteConiugeTrascritto" nillable="true" type="xs:integer"/>
+                    <xs:element name="professione" nillable="true" type="xs:string"/>
+                    <xs:element name="titoloStudio" nillable="true" type="xs:string"/>
+                    <xs:element name="numeroCartaIdentita" nillable="true" type="xs:string"/>
+                    <xs:element name="dataCartaIdentita" nillable="true" type="xs:date"/>
+                    <xs:element name="validaCartaIdentita" nillable="true" type="xs:boolean"/>
+                    <xs:element name="identificativoNucleoFamiliare" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getVisureAnagraficheNucleoFamiliare">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="identificativoNucleoFamiliare" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPensioniComponenteVisuraAnagrafica">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idComponente" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="pensioniComponenteVisuraAnagrafica" type="ns0:pensioniComponenteVisuraAnagrafica"/>
+            <xs:complexType name="pensioniComponenteVisuraAnagrafica">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="pensioneComponenteVisuraAnagrafica" type="ns0:pensioneComponenteVisuraAnagrafica"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="pensioneComponenteVisuraAnagrafica">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="numeroPensione" nillable="true" type="xs:string"/>
+                    <xs:element name="codicePensione" nillable="true" type="xs:string"/>
+                    <xs:element name="idComponente" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+            <xs:element name="DataServiceFault" type="xs:string"/>
+            <xs:element name="REQUEST_STATUS" type="xs:string"/>
+            <xs:element name="DATA_SERVICE_RESPONSE">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getVisuraAnagraficaRequest">
+        <wsdl:part name="parameters" element="ns0:getVisuraAnagrafica"/>
+    </wsdl:message>
+    <wsdl:message name="getVisuraAnagraficaResponse">
+        <wsdl:part name="parameters" element="ns0:visureAnagrafiche"/>
+    </wsdl:message>
+    <wsdl:message name="DataServiceFault">
+        <wsdl:part name="parameters" element="ns1:DataServiceFault"/>
+    </wsdl:message>
+    <wsdl:message name="getVisureAnagraficheNucleoFamiliareRequest">
+        <wsdl:part name="parameters" element="ns0:getVisureAnagraficheNucleoFamiliare"/>
+    </wsdl:message>
+    <wsdl:message name="getVisureAnagraficheNucleoFamiliareResponse">
+        <wsdl:part name="parameters" element="ns0:visureAnagrafiche"/>
+    </wsdl:message>
+    <wsdl:message name="getPensioniComponenteVisuraAnagraficaRequest">
+        <wsdl:part name="parameters" element="ns0:getPensioniComponenteVisuraAnagrafica"/>
+    </wsdl:message>
+    <wsdl:message name="getPensioniComponenteVisuraAnagraficaResponse">
+        <wsdl:part name="parameters" element="ns0:pensioniComponenteVisuraAnagrafica"/>
+    </wsdl:message>
+    <wsdl:portType name="visuraAnagraficaServicePortType">
+        <wsdl:operation name="getVisuraAnagrafica">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getVisuraAnagraficaRequest" wsaw:Action="urn:getVisuraAnagrafica"/>
+            <wsdl:output message="ns0:getVisuraAnagraficaResponse" wsaw:Action="urn:getVisuraAnagraficaResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisuraAnagraficaDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureAnagraficheNucleoFamiliare">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getVisureAnagraficheNucleoFamiliareRequest" wsaw:Action="urn:getVisureAnagraficheNucleoFamiliare"/>
+            <wsdl:output message="ns0:getVisureAnagraficheNucleoFamiliareResponse" wsaw:Action="urn:getVisureAnagraficheNucleoFamiliareResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisureAnagraficheNucleoFamiliareDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPensioniComponenteVisuraAnagrafica">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getPensioniComponenteVisuraAnagraficaRequest" wsaw:Action="urn:getPensioniComponenteVisuraAnagrafica"/>
+            <wsdl:output message="ns0:getPensioniComponenteVisuraAnagraficaResponse" wsaw:Action="urn:getPensioniComponenteVisuraAnagraficaResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getPensioniComponenteVisuraAnagraficaDataServiceFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="visuraAnagraficaServiceSOAP11Binding" type="ns0:visuraAnagraficaServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getVisuraAnagrafica">
+            <soap:operation soapAction="urn:getVisuraAnagrafica" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureAnagraficheNucleoFamiliare">
+            <soap:operation soapAction="urn:getVisureAnagraficheNucleoFamiliare" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPensioniComponenteVisuraAnagrafica">
+            <soap:operation soapAction="urn:getPensioniComponenteVisuraAnagrafica" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraAnagraficaServiceSOAP12Binding" type="ns0:visuraAnagraficaServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getVisuraAnagrafica">
+            <soap12:operation soapAction="urn:getVisuraAnagrafica" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureAnagraficheNucleoFamiliare">
+            <soap12:operation soapAction="urn:getVisureAnagraficheNucleoFamiliare" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPensioniComponenteVisuraAnagrafica">
+            <soap12:operation soapAction="urn:getPensioniComponenteVisuraAnagrafica" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraAnagraficaServiceHttpBinding" type="ns0:visuraAnagraficaServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getVisuraAnagrafica">
+            <http:operation location="getVisuraAnagrafica"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureAnagraficheNucleoFamiliare">
+            <http:operation location="getVisureAnagraficheNucleoFamiliare"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPensioniComponenteVisuraAnagrafica">
+            <http:operation location="getPensioniComponenteVisuraAnagrafica"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="visuraAnagraficaService">
+        <wsdl:port name="SOAP11Endpoint" binding="ns0:visuraAnagraficaServiceSOAP11Binding">
+            <soap:address location="http://10.0.5.19:9764/services/visuraAnagraficaService.SOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:visuraAnagraficaServiceSOAP11Binding">
+            <soap:address location="https://10.0.5.19:9444/services/visuraAnagraficaService.SecureSOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:visuraAnagraficaServiceSOAP12Binding">
+            <soap12:address location="https://10.0.5.19:9444/services/visuraAnagraficaService.SecureSOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SOAP12Endpoint" binding="ns0:visuraAnagraficaServiceSOAP12Binding">
+            <soap12:address location="http://10.0.5.19:9764/services/visuraAnagraficaService.SOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="HTTPEndpoint" binding="ns0:visuraAnagraficaServiceHttpBinding">
+            <http:address location="http://10.0.5.19:9764/services/visuraAnagraficaService.HTTPEndpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureHTTPEndpoint" binding="ns0:visuraAnagraficaServiceHttpBinding">
+            <http:address location="https://10.0.5.19:9444/services/visuraAnagraficaService.SecureHTTPEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

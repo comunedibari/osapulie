@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="caseriposoA1_subreport" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.3310000000000033"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="756"/>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\WSLinks\\ComuneBari\\osapulie-build\\portlets\\osapulie-sociali-portlet\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subSubReportParameter1" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subSubReportParameter2" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="subSubReportParameter3" class="net.sf.jasperreports.engine.JasperReport"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="cognome" class="java.lang.String"/>
+	<field name="comuneNascita" class="java.lang.String"/>
+	<field name="provinciaNascita" class="java.lang.String"/>
+	<field name="dataNascita" class="java.lang.String"/>
+	<field name="parenti" class="java.util.List"/>
+	<field name="serviziComune" class="java.lang.String"/>
+	<field name="serviziEntiPubblici" class="java.lang.String"/>
+	<field name="appartamentoProprio" class="java.lang.Boolean"/>
+	<field name="canoneAppartamento" class="java.lang.String"/>
+	<field name="alimenti" class="java.lang.Boolean"/>
+	<field name="autosufficiente" class="java.lang.Boolean"/>
+	<field name="parzialmenteAutosuf" class="java.lang.Boolean"/>
+	<field name="patolTemporanea" class="java.lang.Boolean"/>
+	<field name="serviziSimiliEnte" class="java.lang.Boolean"/>
+	<field name="serviziSimiliComune" class="java.lang.Boolean"/>
+	<title>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="28" width="499" height="21"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dichiarazione sostitutiva di certificazione e di atto di notorietà resa ai sensi degli artt. 46 e 47 del D.P.R. 445/2000.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="10" width="499" height="14"/>
+				<text><![CDATA[ALLEGATO 1]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="420" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="10" width="206" height="20"/>
+				<textFieldExpression><![CDATA["Il sottoscritto "+$F{nome}+" "+$F{cognome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="216" y="10" width="201" height="20"/>
+				<textFieldExpression><![CDATA["nato a "+$F{comuneNascita}+"("+$F{provinciaNascita}+")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="30" width="217" height="20"/>
+				<textFieldExpression><![CDATA["il "+$F{dataNascita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="50" width="549" height="54"/>
+				<text><![CDATA[consapevole delle conseguenze e responsabilità anche penali nel caso di dichiarazioni mendaci e che sui dati dichiarati potranno essere effettuati controlli e che la non veridicità del contenuto della dichiarazione comporta la decadenza dai benefici eventualmente conseguenti al provvedimento emanato sulla base della dichiarazione non veritiera ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="234" y="104" width="100" height="14"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DICHIARA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="123" width="255" height="20"/>
+				<text><![CDATA[•  Di trovarsi nelle seguenti condizioni:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="147" width="497" height="20"/>
+				<text><![CDATA[autosufficiente, ma con situazione di disagio sociale;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="167" width="497" height="27"/>
+				<text><![CDATA[solo, affetto da patologie e /o invalidità con temporanea riduzione dell’autosufficienza (allegare certificato medico o documentazione attestante l’invalidità);]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="194" width="497" height="33"/>
+				<text><![CDATA[parzialmente autosufficiente, anche con familiari che per comprovati impedimenti (età, salute, etc.) non siano in grado di fornire adeguata assistenza;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="227" width="497" height="20"/>
+				<text><![CDATA[di non usufruire di altri servizi a carico del comune;]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="47" y="272" width="497" height="29">
+					<printWhenExpression><![CDATA[$F{serviziSimiliComune}]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["specificare i servizi: "+$F{serviziComune}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="47" y="311" width="497" height="20"/>
+				<text><![CDATA[di non usufruire di altri servizi a carico di altri Enti pubblici;]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="331" width="497" height="20"/>
+				<text><![CDATA[di  usufruire di altri servizi a carico di altri Enti pubblici;]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="30" y="153" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="32" y="155" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{autosufficiente}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="30" y="180" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="32" y="182" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{patolTemporanea}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="30" y="206" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="32" y="208" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{parzialmenteAutosuf}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="30" y="231" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="32" y="233" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[!$F{serviziSimiliComune}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="31" y="317" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="33" y="319" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[!$F{serviziSimiliEnte}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="31" y="337" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="33" y="339" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{serviziSimiliEnte}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<staticText>
+				<reportElement x="47" y="248" width="497" height="20"/>
+				<text><![CDATA[di usufruire di altri servizi a carico del comune;]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="30" y="253" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="32" y="255" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{serviziSimiliComune}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<textField>
+				<reportElement x="47" y="357" width="497" height="35">
+					<printWhenExpression><![CDATA[$F{serviziSimiliEnte}]]></printWhenExpression>
+				</reportElement>
+				<textFieldExpression><![CDATA["specificare i servizi: "+$F{serviziEntiPubblici}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="395" width="255" height="20"/>
+				<text><![CDATA[•  che il proprio stato di famiglia è così composto:]]></text>
+			</staticText>
+		</band>
+		<band height="46">
+			<subreport>
+				<reportElement x="31" y="0" width="524" height="45"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{parenti})]]></dataSourceExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subSubReportParameter1}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="24">
+			<staticText>
+				<reportElement x="28" y="4" width="516" height="20"/>
+				<text><![CDATA[•   che il reddito del nucleo familiare è il seguente:]]></text>
+			</staticText>
+		</band>
+		<band height="39">
+			<subreport>
+				<reportElement x="33" y="0" width="522" height="39"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{parenti})]]></dataSourceExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subSubReportParameter2}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="254">
+			<ellipse>
+				<reportElement x="31" y="13" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="33" y="15" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[!$F{alimenti}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+			<staticText>
+				<reportElement x="47" y="7" width="497" height="20"/>
+				<text><![CDATA[DI NON AVERE PARENTI TENUTI PER LEGGE AGLI ALIMENTI ai sensi degli art. 433 e 434 del Codice Civile.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="29" width="497" height="174"/>
+				<text><![CDATA[Art. 433 c.c.: Persone obbligate.
+All’obbligo di prestare gli alimenti sono tenuti per legge nell’ordine:
+1.coniuge;
+2.figli legittimi o legittimati o naturali o adottivi e, in loro mancanza i discendenti prossimi anche naturali;
+3. genitori (e in loro mancanza gli ascendenti prossimi anche naturali,gli adottanti);
+4. genero, nuora;
+5. suocero/a.
+6.i fratelli e le sorelle germani o unilaterali con precedenza ai germani sugli unilaterali
+Art. 434 c.c. Cessazione dell’obbligo tra affini.
+L’obbligazione dei suocero/a del genero e della nuora cessano:
+1. quando la persona che ha diritto agli alimenti è passata a nuove nozze;
+2. quando il coniuge, da cui deriva l’affinità, e i figli nati dalla sua unione con l’altro coniuge e i loro discendenti sono morti.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="217" width="497" height="36"/>
+				<text><![CDATA[DI AVERE PARENTI TENUTI PER LEGGE AGLI ALIMENTI ai sensi degli art. 433 del Codice Civile. Specificare quali: ]]></text>
+			</staticText>
+			<ellipse>
+				<reportElement x="31" y="223" width="9" height="9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</ellipse>
+			<ellipse>
+				<reportElement x="33" y="225" width="5" height="5" backcolor="#000000">
+					<printWhenExpression><![CDATA[$F{alimenti}]]></printWhenExpression>
+				</reportElement>
+			</ellipse>
+		</band>
+		<band height="54">
+			<subreport>
+				<reportElement x="47" y="2" width="508" height="51"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{parenti})]]></dataSourceExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{subSubReportParameter3}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="271">
+			<textField>
+				<reportElement x="28" y="24" width="516" height="35"/>
+				<textFieldExpression><![CDATA["• che l’appartamento in cui abita solo o con il proprio nucleo familiare è: "+(($F{appartamentoProprio}) ? " di proprietà  " : (" condotto in locazione con canone mensile di euro "+$F{canoneAppartamento}))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="59" width="516" height="35"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Autorizzo il Comune di Bari al trattamento dei dati sensibili ai sensi dell’art. 20 Dlgs. 196/2003 esclusivamente per rispondere alle richieste di intervento che riguardano il sottoscritto.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="28" y="117" width="225" height="20"/>
+				<textFieldExpression><![CDATA[$P{comune}+", "+new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="409" y="117" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="409" y="152" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="28" y="180" width="516" height="61"/>
+				<text><![CDATA[Alla presente dichiarazione deve essere allegato:
+1.	copia fotostatica del documento di identità del sottoscrittore, in corso di validità;
+2.	certificato sanitario attestante lo stato di salute o idonea documentazione a riprova dell’invalidità;
+3.	certificazione ISEE rilasciata da un CAAF del reddito del proprio nucleo familiare.
+]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

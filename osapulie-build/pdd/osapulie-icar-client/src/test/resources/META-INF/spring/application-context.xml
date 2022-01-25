@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd
+		http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<context:annotation-config />
+	
+	<oxm:jaxb2-marshaller id="marshallerInterrogaDoc" contextPath="it.linksmt.protocollo.ws.types.icar.interrogaDoc"/>
+	<oxm:jaxb2-marshaller id="marshallerInterrogaFasc" contextPath="it.linksmt.protocollo.ws.types.icar.interrogaFasc"/>
+	<oxm:jaxb2-marshaller id="marshallerRicercaDoc" contextPath="it.linksmt.protocollo.ws.types.icar.ricercaDoc"/>
+	
+	<bean id="xmlHelperInterrogaDoc" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerInterrogaDoc" />
+		<property name="unmarshaller" ref="marshallerInterrogaDoc" />
+	</bean>
+	
+	<bean id="xmlHelperInterrogaFasc" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerInterrogaFasc" />
+		<property name="unmarshaller" ref="marshallerInterrogaFasc" />
+	</bean>
+	
+	<bean id="xmlHelperRicercaDoc" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerRicercaDoc" />
+		<property name="unmarshaller" ref="marshallerRicercaDoc" />
+	</bean>
+	
+	<jaxws:client id="pddsAdapterClient"
+		serviceClass="it.osapulie.web.ws.pddsintegration.PddsIntegration"
+		address="http://10.0.5.240:8080/pdds_integration/services/PddsIntegrationSOAP" />
+</beans>

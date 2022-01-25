@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://pddsintegration.osapulie.it" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PddsIntegration" targetNamespace="http://pddsintegration.osapulie.it">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://pddsintegration.osapulie.it">
+      <xsd:element name="getRichiestaPdd">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="richiesta" type="xsd:string"/>
+            <xsd:element name="servizio" type="xsd:string"/>
+            <xsd:element name="url" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getRichiestaPddResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getRichiestaPddRequest">
+    <wsdl:part element="tns:getRichiestaPdd" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getRichiestaPddResponse">
+    <wsdl:part element="tns:getRichiestaPddResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="PddsIntegration">
+    <wsdl:operation name="getRichiestaPdd">
+      <wsdl:input message="tns:getRichiestaPddRequest"/>
+      <wsdl:output message="tns:getRichiestaPddResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PddsIntegrationSOAP" type="tns:PddsIntegration">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getRichiestaPdd">
+      <soap:operation soapAction="http://pddsintegration.osapulie.it/getRichiestaPdd"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PddsIntegration">
+    <wsdl:port binding="tns:PddsIntegrationSOAP" name="PddsIntegrationSOAP">
+      <soap:address location="http://localhost:6289/pdds_integration/services/PddsIntegrationSOAP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

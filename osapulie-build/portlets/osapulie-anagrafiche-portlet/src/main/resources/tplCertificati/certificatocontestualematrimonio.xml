@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<request>
+	<LAYOUT>
+		<INTESTAZIONE_PDF>
+			<![CDATA[
+				<fo:inline font-size="16">SETTORE SERVIZI DEMOGRAFICI</fo:inline>
+			]]>
+		</INTESTAZIONE_PDF>
+		<MARCA_DA_BOLLO>~marcaDaBollo</MARCA_DA_BOLLO>
+		<CORPO_PDF>
+			<![CDATA[
+				<fo:block space-before="4pt" space-after="4pt" text-align="center">
+					<fo:inline font-weight="bold">
+						<fo:inline font-size="15">
+							CERTIFICATO CONTESTUALE DI MATRIMONIO
+						</fo:inline>
+					</fo:inline>
+				</fo:block>
+				<fo:block space-before="4pt" space-after="4pt" text-align="center">
+					<fo:inline font-size="12">
+						IL SINDACO
+					</fo:inline>
+				</fo:block>
+				<fo:block space-before="4pt" space-after="4pt" text-align="center">
+					<fo:inline font-size="10">
+						Visti gli atti d'ufficio
+						<fo:block>
+						</fo:block>
+						Visti gli artt. 46-47 del D.P.R. n. 445 del 28 dicembre 2000
+					</fo:inline>
+				</fo:block>
+				<fo:block space-before="4pt" space-after="4pt" text-align="center">
+					<fo:inline font-size="12">CERTIFICA CHE</fo:inline>
+				</fo:block>
+				<fo:block space-before="4pt" space-after="4pt">
+					<fo:inline font-size="12">
+						<fo:inline font-weight="bold">
+							~nome ~cognome
+						</fo:inline>
+						<fo:block>
+						</fo:block>
+					</fo:inline>
+					<fo:inline font-size="10">
+						<fo:block>
+							Cod. Fisc. ~codFisc
+						</fo:block>
+						<fo:block>
+							nato/a il ~dataN a ~comuneN (~provN)
+						</fo:block>
+						<fo:block>
+							atto N. ~attoN p. ~parteN s. ~serieN
+						</fo:block>
+					</fo:inline>
+					<fo:inline font-size="12" text-align="center">
+						<fo:block space-before="4pt" space-after="4pt">
+							E' RESIDENTE
+						</fo:block>
+					</fo:inline>
+					<fo:inline font-size="10">
+						<fo:block>
+							in ~via
+						</fo:block>
+						<fo:block>
+							~capRes ~comuneRes ( ~provRes )
+						</fo:block>
+						<fo:block>
+							~cittadinanza
+						</fo:block>
+						<fo:block>
+							STATO CIVILE
+							~statoCivile
+						</fo:block>
+					</fo:inline>
+				</fo:block>
+			]]>	
+		</CORPO_PDF>
+		<DESCRIZIONE_FIRMA>
+			<![CDATA[
+				<fo:block-container text-align="left" space-before="100pt">
+					<fo:block>
+						<fo:inline font-size="12">
+							~comuneFirma, ~dataCorr
+						</fo:inline>
+					</fo:block>
+				</fo:block-container>
+				<fo:block-container text-align="right">
+					<fo:block>
+						<fo:inline padding-right="17mm" font-size="12">
+							IL SINDACO
+						</fo:inline>
+					</fo:block>
+				</fo:block-container>
+			]]>
+		</DESCRIZIONE_FIRMA>
+		<PIEDE_PDF>
+			<![CDATA[
+				<fo:block space-before="5pt">
+					<fo:inline font-size="7pt">
+						All'indirizzo https://~osapulieHost/timbro è possibile scaricare gratuitamente il software per verificare il timbro digitale sottostante, ed accertare l'autenticità del presente documento.
+					</fo:inline>
+				</fo:block>
+			]]>
+		</PIEDE_PDF>
+	</LAYOUT>
+</request>

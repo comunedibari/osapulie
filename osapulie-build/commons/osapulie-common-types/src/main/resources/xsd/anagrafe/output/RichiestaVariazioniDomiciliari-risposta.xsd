@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:element name="variazioniDomiciliari" type="DatiIndirizzo">
+		<xs:annotation>
+			<xs:documentation>Nel caso di errore i tags richiesti dovranno essere forniti con valore uguale a null</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="DatiIndirizzo">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="variazioniDomicilio" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="dataInizioInd" type="xs:date" /> <!-- data di inizio del domicilio del cittadino (formato: aaaa-mm-gg) -->
+							<xs:element name="descComune" type="xs:string" /> <!-- descrizione del comune di domicilio del cittadino -->
+							<xs:element name="dataIscrizioneCom" type="xs:date" minOccurs="0" /> <!-- data di registrazione agli atti da parte del comune del nuovo domicilio del cittadino (formato: aaaa-mm-gg) -->
+							<xs:element name="descrizioneTopSto" type="xs:string" /> <!-- toponimo dell'indirizzo di domicilio del cittadino -->
+							<xs:element name="descrizioneViaSto" type="xs:string" /> <!-- descrizione dell'indirizzo di domicilio del cittadino -->
+							<xs:element name="numeroCivicoSto" type="xs:string" /> <!-- numero civico dell'indirizzo di domicilio del cittadino -->
+							<xs:element name="esponenteSto" type="xs:string" minOccurs="0" /> <!-- esponente dell'indirizzo di domicilio del cittadino -->
+							<xs:element name="pianoSto" type="xs:string" minOccurs="0" /> <!-- numero del piano del domicilio del cittadino -->
+							<xs:element name="scalaSto" type="xs:string" minOccurs="0" /> <!-- scala di residenza del cittadino -->
+							<xs:element name="internoSto" type="xs:string" minOccurs="0" /> <!-- numero di interno del domicilio del cittadino -->
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="errore">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="codice" type="xs:int">
+								<xs:annotation>
+									<xs:documentation>
+										 Decodifica errore:
+										 1.Server non disponibile
+										 2.Codice fiscale non trovato
+										 3.Dati non disponibili          
+										 4.Errore generico
+                					</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

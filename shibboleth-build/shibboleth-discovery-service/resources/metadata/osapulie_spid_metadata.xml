@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" ID="_9e0804ca3a321d05db65a7ead855f63fd44fbe79" entityID="https://svil.osapulie.it/sp">
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <ds:SignedInfo> 
+    <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/> 
+    <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+    <ds:Reference>
+      <ds:Transforms> 
+        <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/> 
+        <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/> 
+      </ds:Transforms> 
+      <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/> 
+      <ds:DigestValue>ENgzyvPWfZrof4Ce6ASdkR5geozwCGvriDiWixX0bDU=</ds:DigestValue> 
+    </ds:Reference> 
+    </ds:SignedInfo> 
+  <ds:SignatureValue>MYw9eSV1fNolpPXDrcdWVxDGUwjgHfH5kMSO2O/ah2l+suRG63lLz/YkZTheCusj
+S9P8qTUTIyUOcYGwLEwpXwKv9ohPcVZHR6pK1qlJwNoAXt+vU3rOkmGtUXkrnNiu
+/ROiwaorimgNN8gxjF2fwxNALuhO6ErizlMp1YzaI6xSDd6916coJuWJiikf+6RF
+14xAsJXEkbJbQtMDPXAtiirVISJXZAxarLjXEXygcAg2mu9e2zz+HzYLpQEC3Fw3
+QZh5zEKaHHGgT5EiPHrs05HJFlQjf9Kb1uE5x5+u3ZtMhUNbPNsJ/tLh9gPl0t2b
+YCNNXWoj+NgxiAuEBMeXVg==</ds:SignatureValue> 
+  <ds:KeyInfo> 
+    <ds:X509Data>
+<ds:X509Certificate>MIIDRTCCAi2gAwIBAgIJAPHSOerVtzsQMA0GCSqGSIb3DQEBCwUAMFQxCzAJBgNV
+BAYTAklUMQ8wDQYDVQQIDAZQdWdsaWExDjAMBgNVBAcMBUxlY2NlMREwDwYDVQQK
+DAhMaW5rcyBNVDERMA8GA1UEAwwIb3NhcHVsaWUwHhcNMTYwNjMwMDk0OTIyWhcN
+MjYwMzMwMDk0OTIyWjBUMQswCQYDVQQGEwJJVDEPMA0GA1UECAwGUHVnbGlhMQ4w
+DAYDVQQHDAVMZWNjZTERMA8GA1UECgwITGlua3MgTVQxETAPBgNVBAMMCG9zYXB1
+bGllMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs0WVZzurcajx/LZp
+URpF6CwUUdBVLIkCJebECcCWTNrLhip94xA0erK6KDMsUWu5uO5FjD5Sg5FfkpDb
+y/oDiOp2nx6QQ4yeB7xSzOWrt0Z7mVFh6Vs8geW9yxs64WfcGvHSKgKbfhRk/GNM
+/nndJoMZIixC/1yKPG4stshC2Y3YGiZ3XUWHeRJlhlO1JFUUZQUKLgS6DmHKDiKP
+9/NAAXSeaJlgPrZSfFGxTaYGMQEU8YAnsJhb/2xNKSqTtU5ND2pX4/dW14SOqdiT
+TIy3QhsttH/ukt9UaO6B/9DZflK43ex3OerW4ydDceG/oNX0VuYuFSm1XZEp0EuO
+HKsUmQIDAQABoxowGDAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DANBgkqhkiG9w0B
+AQsFAAOCAQEAKhTILcu7BeGUgmp9UIKfu1KRswx1ilNyh9SpcaQhrub4yHUanJG7
+f7Rvlwcx6W0vT4otNuUmtN1TQgQAC9civ1EhooLtgvZnfMBMWphgOzQQ8TOmzluZ
+oi9mHIkob8NUo9+kypScfujZcm4ZaYX9diiSgajalOMUEj3OyaMAlvUfyk7F5hDw
+HYyM9T4GL8g4ZjfFPIYuXypVzYpd1sOxrLyDe1QPqNLjQdIfPzQNQjmkfBk3ZbbR
+L0IE1MeCLjPAeZUg6pzcjPyF2Y9HbZjuHEiWbMvDxz+b6lRo16FgHRrMtLdT6ubZ
+HYZ9khyW3OK9dyj6mRvWloGqDhgPBA/zug==</ds:X509Certificate>
+</ds:X509Data> 
+  </ds:KeyInfo> 
+</ds:Signature>
+
+  <md:SPSSODescriptor AuthnRequestSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://svil.osapulie.it/Shibboleth.sso/Login"/>
+      <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://svil.osapulie.it/Shibboleth.sso/Login" index="1"/>
+    </md:Extensions>
+    <md:KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyName>osapulie</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>CN=osapulie,O=Links MT,L=Lecce,ST=Puglia,C=IT</ds:X509SubjectName>
+          <ds:X509Certificate>MIIDRTCCAi2gAwIBAgIJAPHSOerVtzsQMA0GCSqGSIb3DQEBCwUAMFQxCzAJBgNV
+BAYTAklUMQ8wDQYDVQQIDAZQdWdsaWExDjAMBgNVBAcMBUxlY2NlMREwDwYDVQQK
+DAhMaW5rcyBNVDERMA8GA1UEAwwIb3NhcHVsaWUwHhcNMTYwNjMwMDk0OTIyWhcN
+MjYwMzMwMDk0OTIyWjBUMQswCQYDVQQGEwJJVDEPMA0GA1UECAwGUHVnbGlhMQ4w
+DAYDVQQHDAVMZWNjZTERMA8GA1UECgwITGlua3MgTVQxETAPBgNVBAMMCG9zYXB1
+bGllMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs0WVZzurcajx/LZp
+URpF6CwUUdBVLIkCJebECcCWTNrLhip94xA0erK6KDMsUWu5uO5FjD5Sg5FfkpDb
+y/oDiOp2nx6QQ4yeB7xSzOWrt0Z7mVFh6Vs8geW9yxs64WfcGvHSKgKbfhRk/GNM
+/nndJoMZIixC/1yKPG4stshC2Y3YGiZ3XUWHeRJlhlO1JFUUZQUKLgS6DmHKDiKP
+9/NAAXSeaJlgPrZSfFGxTaYGMQEU8YAnsJhb/2xNKSqTtU5ND2pX4/dW14SOqdiT
+TIy3QhsttH/ukt9UaO6B/9DZflK43ex3OerW4ydDceG/oNX0VuYuFSm1XZEp0EuO
+HKsUmQIDAQABoxowGDAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DANBgkqhkiG9w0B
+AQsFAAOCAQEAKhTILcu7BeGUgmp9UIKfu1KRswx1ilNyh9SpcaQhrub4yHUanJG7
+f7Rvlwcx6W0vT4otNuUmtN1TQgQAC9civ1EhooLtgvZnfMBMWphgOzQQ8TOmzluZ
+oi9mHIkob8NUo9+kypScfujZcm4ZaYX9diiSgajalOMUEj3OyaMAlvUfyk7F5hDw
+HYyM9T4GL8g4ZjfFPIYuXypVzYpd1sOxrLyDe1QPqNLjQdIfPzQNQjmkfBk3ZbbR
+L0IE1MeCLjPAeZUg6pzcjPyF2Y9HbZjuHEiWbMvDxz+b6lRo16FgHRrMtLdT6ubZ
+HYZ9khyW3OK9dyj6mRvWloGqDhgPBA/zug==
+</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://svil.osapulie.it/Shibboleth.sso/SLO/SOAP"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://svil.osapulie.it/Shibboleth.sso/SLO/Redirect"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://svil.osapulie.it/Shibboleth.sso/SLO/POST"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://svil.osapulie.it/Shibboleth.sso/SAML2/POST" index="0" isDefault="true"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://svil.osapulie.it/Shibboleth.sso/SAML2/POST" index="1"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://svil.osapulie.it/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+    <md:AttributeConsumingService index="0">
+      <md:ServiceName xml:lang="it">Servizio accesso SPID</md:ServiceName>
+      <md:ServiceDescription xml:lang="it">Servizio di accesso Discovery SPID</md:ServiceDescription>
+      <md:RequestedAttribute Name="spidCode"/>
+      <md:RequestedAttribute Name="name"/>
+      <md:RequestedAttribute Name="familyName"/>
+      <md:RequestedAttribute Name="fiscalNumber"/>
+      <md:RequestedAttribute Name="email"/>
+      <md:RequestedAttribute Name="placeOfBirth"/>
+      <md:RequestedAttribute Name="countyOfBirth"/>
+      <md:RequestedAttribute Name="dateOfBirth"/>
+      <md:RequestedAttribute Name="gender"/>
+      <md:RequestedAttribute Name="companyName"/>
+      <md:RequestedAttribute Name="registeredOffice"/>
+      <md:RequestedAttribute Name="ivaCode"/>
+      <md:RequestedAttribute Name="idCard"/>
+      <md:RequestedAttribute Name="mobilePhone"/>
+      <md:RequestedAttribute Name="address"/>
+      <md:RequestedAttribute Name="expirationDate"/>
+      <md:RequestedAttribute Name="digitalAddress"/>
+</md:AttributeConsumingService>  </md:SPSSODescriptor>
+
+<md:Organization>
+    <md:OrganizationName xml:lang="it">Links MT</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="it">Links Management &amp; Technology S.p.A.</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="it">http://www.linksmt.it</md:OrganizationURL>
+  </md:Organization></md:EntityDescriptor>

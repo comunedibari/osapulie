@@ -1,0 +1,366 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://servizi.osapulie.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://servizi.osapulie.it">
+    <wsdl:documentation/>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://servizi.osapulie.it">
+            <xs:element name="getRataVisuraImposteInsegnePubblicita">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="identificativoRata" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="rateVisuraImposteInsegnePubblicita" type="ns0:rateVisuraImposteInsegnePubblicita"/>
+            <xs:complexType name="rateVisuraImposteInsegnePubblicita">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="rataVisuraImposteInsegnePubblicita" type="ns0:rataVisuraImposteInsegnePubblicita"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="rataVisuraImposteInsegnePubblicita">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="importoRata" nillable="true" type="xs:double"/>
+                    <xs:element name="scadenzaRata" nillable="true" type="xs:date"/>
+                    <xs:element name="numeroRata" nillable="true" type="xs:integer"/>
+                    <xs:element name="identificativoRata" nillable="true" type="xs:string"/>
+                    <xs:element name="importoPagato" nillable="true" type="xs:double"/>
+                    <xs:element name="dataPagamento" nillable="true" type="xs:date"/>
+                    <xs:element name="idVisura" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getVisureImposteInsegnePubblicita">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                        <xs:element name="annoDa" nillable="true" type="xs:int"/>
+                        <xs:element name="annoA" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="visureImposteInsegnePubblicita" type="ns0:visureImposteInsegnePubblicita"/>
+            <xs:complexType name="visureImposteInsegnePubblicita">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="visuraImposteInsegnePubblicita" type="ns0:visuraImposteInsegnePubblicita"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="visuraImposteInsegnePubblicita">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                    <xs:element name="dataAggiornamento" nillable="true" type="xs:date"/>
+                    <xs:element name="contoCorrente" nillable="true" type="xs:string"/>
+                    <xs:element name="importoDocumento" nillable="true" type="xs:double"/>
+                    <xs:element name="numeroDocumento" nillable="true" type="xs:string"/>
+                    <xs:element name="annoRiferimento" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getPosizioniVisuraImposteInsegnePubblicita">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idVisura" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="posizioniVisuraImposteInsegnePubblicita" type="ns0:posizioniVisuraImposteInsegnePubblicita"/>
+            <xs:complexType name="posizioniVisuraImposteInsegnePubblicita">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="posizioneVisuraImposteInsegnePubblicita" type="ns0:posizioneVisuraImposteInsegnePubblicita"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="posizioneVisuraImposteInsegnePubblicita">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="indirizzoPubblicita" nillable="true" type="xs:string"/>
+                    <xs:element name="descrizionePubblicita" nillable="true" type="xs:string"/>
+                    <xs:element name="mq" nillable="true" type="xs:double"/>
+                    <xs:element name="mesi" nillable="true" type="xs:integer"/>
+                    <xs:element name="importoPubblicita" nillable="true" type="xs:double"/>
+                    <xs:element name="idVisura" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getVisuraImposteInsegnePubblicita">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getRateVisuraImposteInsegnePubblicita">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idVisura" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+            <xs:element name="DataServiceFault" type="xs:string"/>
+            <xs:element name="REQUEST_STATUS" type="xs:string"/>
+            <xs:element name="DATA_SERVICE_RESPONSE">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getRataVisuraImposteInsegnePubblicitaRequest">
+        <wsdl:part name="parameters" element="ns0:getRataVisuraImposteInsegnePubblicita"/>
+    </wsdl:message>
+    <wsdl:message name="getRataVisuraImposteInsegnePubblicitaResponse">
+        <wsdl:part name="parameters" element="ns0:rateVisuraImposteInsegnePubblicita"/>
+    </wsdl:message>
+    <wsdl:message name="DataServiceFault">
+        <wsdl:part name="parameters" element="ns1:DataServiceFault"/>
+    </wsdl:message>
+    <wsdl:message name="getPosizioniVisuraImposteInsegnePubblicitaRequest">
+        <wsdl:part name="parameters" element="ns0:getPosizioniVisuraImposteInsegnePubblicita"/>
+    </wsdl:message>
+    <wsdl:message name="getPosizioniVisuraImposteInsegnePubblicitaResponse">
+        <wsdl:part name="parameters" element="ns0:posizioniVisuraImposteInsegnePubblicita"/>
+    </wsdl:message>
+    <wsdl:message name="getVisureImposteInsegnePubblicitaRequest">
+        <wsdl:part name="parameters" element="ns0:getVisureImposteInsegnePubblicita"/>
+    </wsdl:message>
+    <wsdl:message name="getVisureImposteInsegnePubblicitaResponse">
+        <wsdl:part name="parameters" element="ns0:visureImposteInsegnePubblicita"/>
+    </wsdl:message>
+    <wsdl:message name="getVisuraImposteInsegnePubblicitaRequest">
+        <wsdl:part name="parameters" element="ns0:getVisuraImposteInsegnePubblicita"/>
+    </wsdl:message>
+    <wsdl:message name="getVisuraImposteInsegnePubblicitaResponse">
+        <wsdl:part name="parameters" element="ns0:visureImposteInsegnePubblicita"/>
+    </wsdl:message>
+    <wsdl:message name="getRateVisuraImposteInsegnePubblicitaRequest">
+        <wsdl:part name="parameters" element="ns0:getRateVisuraImposteInsegnePubblicita"/>
+    </wsdl:message>
+    <wsdl:message name="getRateVisuraImposteInsegnePubblicitaResponse">
+        <wsdl:part name="parameters" element="ns0:rateVisuraImposteInsegnePubblicita"/>
+    </wsdl:message>
+    <wsdl:portType name="visuraImpostaInsegnePubblicitaServicePortType">
+        <wsdl:operation name="getRataVisuraImposteInsegnePubblicita">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getRataVisuraImposteInsegnePubblicitaRequest" wsaw:Action="urn:getRataVisuraImposteInsegnePubblicita"/>
+            <wsdl:output message="ns0:getRataVisuraImposteInsegnePubblicitaResponse" wsaw:Action="urn:getRataVisuraImposteInsegnePubblicitaResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getRataVisuraImposteInsegnePubblicitaDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraImposteInsegnePubblicita">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getPosizioniVisuraImposteInsegnePubblicitaRequest" wsaw:Action="urn:getPosizioniVisuraImposteInsegnePubblicita"/>
+            <wsdl:output message="ns0:getPosizioniVisuraImposteInsegnePubblicitaResponse" wsaw:Action="urn:getPosizioniVisuraImposteInsegnePubblicitaResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getPosizioniVisuraImposteInsegnePubblicitaDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureImposteInsegnePubblicita">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getVisureImposteInsegnePubblicitaRequest" wsaw:Action="urn:getVisureImposteInsegnePubblicita"/>
+            <wsdl:output message="ns0:getVisureImposteInsegnePubblicitaResponse" wsaw:Action="urn:getVisureImposteInsegnePubblicitaResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisureImposteInsegnePubblicitaDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraImposteInsegnePubblicita">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getVisuraImposteInsegnePubblicitaRequest" wsaw:Action="urn:getVisuraImposteInsegnePubblicita"/>
+            <wsdl:output message="ns0:getVisuraImposteInsegnePubblicitaResponse" wsaw:Action="urn:getVisuraImposteInsegnePubblicitaResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisuraImposteInsegnePubblicitaDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getRateVisuraImposteInsegnePubblicita">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getRateVisuraImposteInsegnePubblicitaRequest" wsaw:Action="urn:getRateVisuraImposteInsegnePubblicita"/>
+            <wsdl:output message="ns0:getRateVisuraImposteInsegnePubblicitaResponse" wsaw:Action="urn:getRateVisuraImposteInsegnePubblicitaResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getRateVisuraImposteInsegnePubblicitaDataServiceFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="visuraImpostaInsegnePubblicitaServiceSOAP11Binding" type="ns0:visuraImpostaInsegnePubblicitaServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getRataVisuraImposteInsegnePubblicita">
+            <soap:operation soapAction="urn:getRataVisuraImposteInsegnePubblicita" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraImposteInsegnePubblicita">
+            <soap:operation soapAction="urn:getPosizioniVisuraImposteInsegnePubblicita" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureImposteInsegnePubblicita">
+            <soap:operation soapAction="urn:getVisureImposteInsegnePubblicita" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraImposteInsegnePubblicita">
+            <soap:operation soapAction="urn:getVisuraImposteInsegnePubblicita" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRateVisuraImposteInsegnePubblicita">
+            <soap:operation soapAction="urn:getRateVisuraImposteInsegnePubblicita" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraImpostaInsegnePubblicitaServiceSOAP12Binding" type="ns0:visuraImpostaInsegnePubblicitaServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getRataVisuraImposteInsegnePubblicita">
+            <soap12:operation soapAction="urn:getRataVisuraImposteInsegnePubblicita" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraImposteInsegnePubblicita">
+            <soap12:operation soapAction="urn:getPosizioniVisuraImposteInsegnePubblicita" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureImposteInsegnePubblicita">
+            <soap12:operation soapAction="urn:getVisureImposteInsegnePubblicita" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraImposteInsegnePubblicita">
+            <soap12:operation soapAction="urn:getVisuraImposteInsegnePubblicita" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRateVisuraImposteInsegnePubblicita">
+            <soap12:operation soapAction="urn:getRateVisuraImposteInsegnePubblicita" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraImpostaInsegnePubblicitaServiceHttpBinding" type="ns0:visuraImpostaInsegnePubblicitaServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getRataVisuraImposteInsegnePubblicita">
+            <http:operation location="getRataVisuraImposteInsegnePubblicita"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraImposteInsegnePubblicita">
+            <http:operation location="getPosizioniVisuraImposteInsegnePubblicita"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVisureImposteInsegnePubblicita">
+            <http:operation location="getVisureImposteInsegnePubblicita"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraImposteInsegnePubblicita">
+            <http:operation location="getVisuraImposteInsegnePubblicita"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRateVisuraImposteInsegnePubblicita">
+            <http:operation location="getRateVisuraImposteInsegnePubblicita"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="visuraImpostaInsegnePubblicitaService">
+        <wsdl:port name="SOAP11Endpoint" binding="ns0:visuraImpostaInsegnePubblicitaServiceSOAP11Binding">
+            <soap:address location="http://10.0.5.19:9764/services/visuraImpostaInsegnePubblicitaService.SOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:visuraImpostaInsegnePubblicitaServiceSOAP11Binding">
+            <soap:address location="https://10.0.5.19:9444/services/visuraImpostaInsegnePubblicitaService.SecureSOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:visuraImpostaInsegnePubblicitaServiceSOAP12Binding">
+            <soap12:address location="https://10.0.5.19:9444/services/visuraImpostaInsegnePubblicitaService.SecureSOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SOAP12Endpoint" binding="ns0:visuraImpostaInsegnePubblicitaServiceSOAP12Binding">
+            <soap12:address location="http://10.0.5.19:9764/services/visuraImpostaInsegnePubblicitaService.SOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="HTTPEndpoint" binding="ns0:visuraImpostaInsegnePubblicitaServiceHttpBinding">
+            <http:address location="http://10.0.5.19:9764/services/visuraImpostaInsegnePubblicitaService.HTTPEndpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureHTTPEndpoint" binding="ns0:visuraImpostaInsegnePubblicitaServiceHttpBinding">
+            <http:address location="https://10.0.5.19:9444/services/visuraImpostaInsegnePubblicitaService.SecureHTTPEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

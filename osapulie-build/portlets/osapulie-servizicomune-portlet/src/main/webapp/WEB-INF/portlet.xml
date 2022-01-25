@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Standard portlet metadata per OS Apulie.
+ -->
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+	<!--
+		Portlet esposte da questa web application.
+	 -->
+
+	<portlet>
+		<portlet-name>osapulie-segnalazione</portlet-name>
+		<display-name>OSApulie Invio segnalazione utenti</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.segnalazione</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-listaservizi</portlet-name>
+		<display-name>OSApulie Lista Servizi Back-End Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.listaservizi</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-selezioneprofilo</portlet-name>
+		<display-name>OSApulie Selezione Profilo Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.selezioneprofilo</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-gestionecomuni</portlet-name>
+		<display-name>OSApulie Gestione Comuni Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.gestionecomuni</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-gestionecategorieimmobili</portlet-name>
+		<display-name>OSApulie Gestione Aliquote Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.gestionecategorieimmobili</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-gestionedeleghe</portlet-name>
+		<display-name>OSApulie Gestione Deleghe Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.gestionedeleghe</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-gestionepin</portlet-name>
+		<display-name>OSApulie Gestione Pin Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.gestionepin</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-gestionefascicolo</portlet-name>
+		<display-name>OSApulie Gestione Fascicolo Utente Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.gestionefascicolo</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-logocomune</portlet-name>
+		<display-name>OSApulie Logo Comune Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.logocomune</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-circolaritaanagrafica</portlet-name>
+		<display-name>OSApulie Circolarita Anagrafica Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.circolaritaanagrafica</resource-bundle>
+	</portlet>
+
+	<portlet>
+		<portlet-name>osapulie-gestioneaziende</portlet-name>
+		<display-name>OSApulie Gestione Aziende Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.gestioneaziende</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-gestioneutenti</portlet-name>
+		<display-name>OSApulie Gestione Utenti Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.gestioneutenti</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-gestionecaf</portlet-name>
+		<display-name>OSApulie Gestione Deleghe Azienda Portlet</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.gestionecaf</resource-bundle>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-monitoraggio</portlet-name>
+		<display-name>OSApulie Monitoraggio</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>messages.monitoraggio</resource-bundle>
+	</portlet>
+	<!--
+		Mappatura degli attributi utente che vogliamo il portale passi a Spring Security:
+		dipendono dal particolare portale (?) (questi sono per Liferay).
+	 -->
+	<user-attribute>
+		<name>user.login.id</name>
+	</user-attribute>
+	<user-attribute>
+		<name>user.name</name>
+	</user-attribute>
+	<user-attribute>
+		<name>user.name.full</name>
+	</user-attribute>
+	<default-namespace>http://www.linksmt.it/osapulie/params</default-namespace>
+</portlet-app>

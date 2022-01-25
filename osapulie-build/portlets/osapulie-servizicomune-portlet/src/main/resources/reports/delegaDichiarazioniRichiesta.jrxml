@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2018-10-02T17:27:53 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="delegaDichiarazioniRichiesta" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" >
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="DatasetServiziTable" >
+		<field name="nomeServizio" class="java.lang.String"/>
+		<field name="descrizione" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="cognomeDelegante" class="java.lang.String"/>
+	<field name="nomeDelegante" class="java.lang.String"/>
+	<field name="nDocumento" class="java.lang.String"/>
+	<field name="dataScadenzaDocumento" class="java.lang.String"/>
+	<field name="rilasciatoDa" class="java.lang.String"/>
+	<field name="cfDelegante" class="java.lang.String"/>
+	<field name="firmaDelegante" class="java.io.InputStream"/>
+	<field name="servizi" class="java.util.List"/>
+	<field name="cognomeDelegato" class="java.lang.String"/>
+	<field name="nomeDelegato" class="java.lang.String"/>
+	<field name="cfDelegato" class="java.lang.String"/>
+	<field name="tipoAzienda" class="java.lang.String"/>
+	<field name="denominazione" class="java.lang.String"/>
+	<field name="cfAzienda" class="java.lang.String"/>
+	<field name="comuneAzienda" class="java.lang.String"/>
+	<field name="viaAzienda" class="java.lang.String"/>
+	<field name="telAzienda" class="java.lang.String"/>
+	<field name="pecMailAzienda" class="java.lang.String"/>
+	<detail>
+		<band height="400" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="19" width="560" height="30" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INCARICO PER LA TRASMISSIONE DELLE DICHIARAZIONI / RICHIESTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="81" width="336" height="19" />
+				<text><![CDATA[Ai sensi della normativa vigente il/la sottoscritto/a]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="20" y="110" width="250" height="30" />
+				<textFieldExpression><![CDATA["Cognome: "+$F{cognomeDelegante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="110" width="254" height="30" />
+				<textFieldExpression><![CDATA["Nome: "+$F{nomeDelegante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="198" width="250" height="30" />
+				<textFieldExpression><![CDATA["n. documento: "+$F{nDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="198" width="254" height="30" />
+				<textFieldExpression><![CDATA["data scadenza: "+$F{dataScadenzaDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="153" width="320" height="30" />
+				<textFieldExpression><![CDATA["Codice Fiscale: "+$F{cfDelegante}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="240" y="291" width="100" height="30" />
+				<text><![CDATA[Firma autografata:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="360" y="281" width="185" height="50" />
+				<imageExpression><![CDATA[$F{firmaDelegante}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="343" width="560" height="30" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DICHIARO DI CONFERIRE DELEGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="376" width="176" height="21" />
+				<text><![CDATA[Per l'inoltro al comune di Bari della]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="21" y="240" width="320" height="30" />
+				<textFieldExpression><![CDATA["rilasciato da: "+$F{rilasciatoDa}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="60">
+			<componentElement>
+				<reportElement key="table" x="4" y="0" width="541" height="60" />
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="DatasetServiziTable" >
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{servizi})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="213" >
+						<jr:columnHeader  height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="213" height="30" />
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[Nome ]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell  height="30">
+							<textField>
+								<reportElement x="0" y="0" width="213" height="30" />
+								<textElement verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{nomeServizio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="328" >
+						<jr:columnHeader  height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="328" height="30" />
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[Descrizione]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell  height="30">
+							<textField>
+								<reportElement x="0" y="0" width="328" height="30" />
+								<textElement textAlignment="Left" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{descrizione}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="300">
+			<staticText>
+				<reportElement x="10" y="0" width="534" height="30" />
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[a]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="30" width="534" height="50" />
+				<textFieldExpression><![CDATA[$F{cognomeDelegato}+" "+$F{nomeDelegato}+" codice fiscale "+$F{cfDelegato}+", in qualità di addetto "+$F{tipoAzienda}+" denominato "+$F{denominazione}+", codice fiscale "+$F{cfAzienda}+", con sede in "+$F{comuneAzienda}+" alla via "+$F{viaAzienda}+", telefono "+$F{telAzienda}+", pec/mail "+$F{pecMailAzienda}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-3" y="80" width="560" height="30" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[IL QUALE DICHIARA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="110" width="514" height="20" />
+				<textElement verticalAlignment="Middle">
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[che si è proceduto con l'identificazione del richiedente la prestazione;                                ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="130" width="514" height="60" />
+				<textElement verticalAlignment="Middle">
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[che le informazioni che vengono trasmesse corrispondono a quelle consegnate dal soggetto richiedente per l'espletamento degli edempimenti di cu alla sopra citata pratica. Si informa che i dati contenuti nel presente modello saranno utilizzati esclusivamente per gli adempimenti amministrativi relativi alla presentazione telematica della richiesta di agevolazione;]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="20" y="117" width="5" height="5" backcolor="#000000" />
+			</rectangle>
+			<rectangle>
+				<reportElement x="20" y="140" width="5" height="5" backcolor="#000000" />
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="192" width="514" height="18" />
+				<textElement verticalAlignment="Middle">
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[che conserverà la presente delega in originale presso la sede del proprio ufficio;]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="21" y="199" width="5" height="5" backcolor="#000000" />
+			</rectangle>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rimborsoServiziCimiteriali_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="2.1435888100000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="indirizzoUtenza" class="java.lang.String"/>
+	<field name="zonaUtenza" class="java.lang.String"/>
+	<field name="superficie" class="java.lang.Double"/>
+	<field name="descrizioneTariffa" class="java.lang.String"/>
+	<field name="dataPagamento" class="java.util.Date"/>
+	<field name="importoDaPagare" class="java.lang.Double"/>
+	<field name="importoPagato" class="java.lang.Double"/>
+	<field name="importoDovuto" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="320" y="0" width="86" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Importo da pagare]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="476" y="0" width="79" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Importo Dovuto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="76" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Indirizzo utenza]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="0" width="34" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Zona]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="0" width="48" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Superficie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="0" width="88" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Descrizione Tariffa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="246" y="0" width="74" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Data pagamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="0" width="70" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Importo pagato]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="76" height="20"/>
+				<textElement>
+					<font size="8" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{indirizzoUtenza}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="320" y="0" width="86" height="20"/>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{importoDaPagare}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="476" y="0" width="79" height="20"/>
+				<textElement textAlignment="Right">
+					<font pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{importoDovuto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="76" y="0" width="34" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{zonaUtenza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="48" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{superficie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="0" width="88" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descrizioneTariffa}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement x="246" y="0" width="74" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dataPagamento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="406" y="0" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{importoPagato}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

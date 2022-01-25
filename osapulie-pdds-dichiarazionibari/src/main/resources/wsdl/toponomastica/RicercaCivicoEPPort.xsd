@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.3-b01-. -->
+<xs:schema xmlns:tns="http://toponomastica.project.sinergis/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://toponomastica.project.sinergis/">
+	<xs:element name="eseguiRichiesta" type="tns:eseguiRichiesta" />
+	<xs:element name="eseguiRichiestaResponse" type="tns:eseguiRichiestaResponse" />
+
+	<xs:complexType name="eseguiRichiesta">
+		<xs:sequence>
+			<xs:element name="arg0" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="eseguiRichiestaResponse">
+		<xs:sequence>
+			<xs:element name="return" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

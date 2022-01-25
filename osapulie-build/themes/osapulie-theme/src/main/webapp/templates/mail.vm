@@ -1,0 +1,22 @@
+<html>
+
+	<head>
+		<title>$title.getData()</title>
+	</head>
+
+<body>   
+
+	<div class="headerMail">
+	</div>
+	
+	<div> 
+	  
+	   ${user.userName} ha pubblicato:
+	   
+	   ${user.emailAddress}
+	         
+	</div>   
+
+</body>   
+
+</html> 

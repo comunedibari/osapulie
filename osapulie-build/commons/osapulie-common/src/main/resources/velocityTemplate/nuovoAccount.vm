@@ -1,0 +1,14 @@
+Gentile ${cognome} ${nome},<br>
+Di seguito le credenziali utente per accedere al portale ${osapulieHost}:
+
+<ul>
+	<li>
+		Username: <b>${username}</b>
+	</li>
+	<li>
+		password: <b>${password}</b>
+	</li>
+</ul>
+Puoi effettuare il login cliccando sul link "Accedi come utente di sistema" nella pagina di accesso raggiungibile <a href="${osapulieHost}/idp-login">qui</a>.<br>
+
+Cordiali saluti.

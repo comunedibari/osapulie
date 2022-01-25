@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="variazioneImu_subreport_contitolari" pageWidth="555" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.3660269107301426"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="cognome" class="java.lang.String">
+		<fieldDescription><![CDATA[cognome]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="comuneNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneNascita]]></fieldDescription>
+	</field>
+	<field name="dataNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[dataNascita]]></fieldDescription>
+	</field>
+	<field name="provinciaNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[provinciaNascita]]></fieldDescription>
+	</field>
+	<field name="sesso" class="java.lang.String"/>
+	<field name="codiceFiscale" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="capResidenza" class="java.lang.String"/>
+	<field name="comuneResidenza" class="java.lang.String"/>
+	<field name="provResidenza" class="java.lang.String"/>
+	<field name="indirizzoResidenza" class="java.lang.String"/>
+	<field name="civico" class="java.lang.String"/>
+	<field name="percentualePossesso" class="java.lang.Double"/>
+	<field name="detrazioneAbitazionePrincipale" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="260" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="34" height="140"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Opaque" x="34" y="0" width="521" height="260" backcolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="41" y="8" width="92" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Denominazione:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="133" y="8" width="402" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cognome}+" "+$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="353" y="34" width="53" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prov. :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="336" y="61" width="89" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataNascita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="41" y="61" width="82" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codice fiscale:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="123" y="61" width="120" height="20"/>
+				<textFieldExpression><![CDATA[$F{codiceFiscale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="41" y="90" width="134" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Indirizzo di residenza: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="176" y="121" width="350" height="20"/>
+				<textFieldExpression><![CDATA[$F{comuneResidenza} + " ("+$F{provResidenza}+") - " + $F{capResidenza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="175" y="90" width="353" height="20"/>
+				<textFieldExpression><![CDATA[$F{indirizzoResidenza} + " " + $F{civico}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="59" y="152" width="74" height="20"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[% Possesso:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="147" width="110" height="30"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Detrazione per l'abitazione principale:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="279" y="239" width="255" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="279" y="192" width="255" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Firma]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="140" width="34" height="120" backcolor="#FCD1AE"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="41" y="34" width="116" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comune di nascita:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="157" y="34" width="196" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comuneNascita}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="406" y="34" width="128" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{provinciaNascita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="243" y="61" width="93" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data di nascita: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="61" width="62" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sesso: ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="498" y="61" width="17" height="17"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="526" y="61" width="17" height="17"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="498" y="61" width="17" height="17"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="526" y="61" width="17" height="17"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[F]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="498" y="62" width="17" height="17"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{sesso}.equals("M") ? "X" : " "]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="59" y="192" width="74" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="526" y="62" width="17" height="17"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{sesso}.equals("F") ? "X" : " "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="42" y="121" width="134" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Indirizzo di residenza: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="59" y="192" width="74" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[($F{percentualePossesso} == null) ?
+  "0.00" : new java.text.DecimalFormat("#.##").format($F{percentualePossesso})]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="147" y="192" width="93" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="147" y="192" width="93" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[($F{percentualePossesso} == null) ?
+  "0.00" : new java.text.DecimalFormat("#.##").format($F{percentualePossesso})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="1" y="0" width="32" height="66" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["N. d'Ordine " + $V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

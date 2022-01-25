@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="CategoriaImmobile">
+		<xs:sequence>
+			<xs:element name="codice" type="xs:string" />
+			<xs:element name="descrizione" type="xs:string" />
+			<xs:element name="coefficienteRivalutazione" type="xs:double" />
+			<xs:element name="coefficienteMoltiplicazione" type="xs:double" />
+			<xs:element name="percentualeProprietario" type="xs:double" />
+			<xs:element name="percentualeInquilinoComodatario" type="xs:double" />
+			<xs:element name="tributi" type="Tributo" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Tributo">
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer" />
+			<xs:element name="codice" type="xs:integer" />
+			<xs:element name="aliquota" type="xs:double" />
+			<xs:element name="agevolazioni" type="Agevolazione" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="detrazioni" type="Detrazione" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="esenzioni" type="Esenzione" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Agevolazione">
+		<xs:sequence>
+			<xs:element name="descrizione" type="xs:string" />
+			<xs:element name="valore" type="xs:double" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Detrazione">
+		<xs:sequence>
+			<xs:element name="descrizione" type="xs:string" />
+			<xs:element name="tipo" type="TipoDetrazione" />
+			<xs:element name="importo" type="xs:double" />
+			<xs:element name="info" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TipoDetrazione">
+		<xs:sequence>
+			<xs:element name="codice" type="xs:string" />
+			<xs:element name="descrizione" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Esenzione">
+		<xs:sequence>
+			<xs:element name="descrizione" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

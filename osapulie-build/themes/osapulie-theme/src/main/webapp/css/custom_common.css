@@ -1,0 +1,84 @@
+/* ---------- Breadcrumbs ---------- */
+.breadcrumbs {
+	margin-bottom: 1.5em;
+}
+.breadcrumbs li {
+	background: url(../images/arrows/05_right.png) no-repeat 100% 50%;
+	display: inline-block;
+	margin-right: 5px;
+	max-width: 50%;
+	padding-right: 15px;
+	vertical-align: middle;
+}
+.ie7 .breadcrumbs li, .ie6 .breadcrumbs li {
+	display: inline;
+	zoom: 1;
+}
+.ie6 .breadcrumbs {
+	zoom: 1;
+}
+.breadcrumbs a {
+	display: block;
+}
+.breadcrumbs .last {
+	background-image: none;
+	margin-top: 0.2em;
+}
+/* ---------- Site breadcrumbs ---------- */
+.site-breadcrumbs {
+	margin: 10px 0 5px;
+	width: auto;
+}
+.site-breadcrumbs ul {
+	background-color: #FFF;
+	border: 1px solid #E5E5E5;
+	margin: 0;
+	padding-right: 40px;
+}
+.site-breadcrumbs li {
+	background-image: none;
+	margin-right: 0;
+	padding-left: 0.75em;
+	padding-right: 0;
+}
+.site-breadcrumbs li span {
+	background: url(../images/common/arrow_breadcrumb.png) no-repeat scroll left center;
+	display: block;
+	padding: 5px 5px 5px 15px;
+}
+.site-breadcrumbs li span a {
+	text-decoration: none;
+}
+.site-breadcrumbs li.first a {
+	color: #EE1B22;
+	font-weight: bold;
+}
+.site-breadcrumbs .last {
+	margin-top: 0;
+	padding-right: 0;
+}
+.site-breadcrumbs .first span {
+	background-image: none;
+	padding: 0;
+}
+/* ---------- Hidden Accessible ---------- */
+#skip-to-content, #banner h2, #banner h3, #navigation h1, .site-breadcrumbs h1 {
+	clip: rect(0 0 0 0);
+	position: absolute;
+}
+/* ---------- Extras ---------- */
+.aui-tab-active:after {
+	border: 10px solid;
+	border-bottom-width: 0;
+	border-color: #333 transparent transparent;
+	bottom: -7px;
+	content: '-';
+	display: block;
+	height: 0;
+	left: 50%;
+	margin-left: -10px;
+	position: absolute;
+	text-indent: -9999px;
+	width: 0;
+	z-index: 20;
+}

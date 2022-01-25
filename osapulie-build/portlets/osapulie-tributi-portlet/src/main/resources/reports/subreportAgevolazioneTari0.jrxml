@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subreportRimborso" pageWidth="570" pageHeight="842" columnWidth="570" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="cognome" class="java.lang.String">
+		<fieldDescription><![CDATA[cognome]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="codiceFiscale" class="java.lang.String"/>
+	<field name="idContribuente" class="java.lang.String"/>
+	<field name="comuneNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[comuneNascita]]></fieldDescription>
+	</field>
+	<field name="provinciaNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[provinciaNascita]]></fieldDescription>
+	</field>
+	<field name="dataNascita" class="java.lang.String">
+		<fieldDescription><![CDATA[dataNascita]]></fieldDescription>
+	</field>
+	<field name="comuneResidenza" class="java.lang.String"/>
+	<field name="provinciaResidenza" class="java.lang.String"/>
+	<field name="indirizzoResidenza" class="java.lang.String"/>
+	<field name="civicoResidenza" class="java.lang.String"/>
+	<field name="indirizzoResidenzaTextHidden" class="java.lang.String"/>
+	<field name="civicoResidenzaTextHidden" class="java.lang.String"/>
+	<field name="esponenteResidenza" class="java.lang.String"/>
+	<field name="scalaResidenza" class="java.lang.String"/>
+	<field name="pianoResidenza" class="java.lang.String"/>
+	<field name="internoResidenza" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="immobili" class="java.util.List"/>
+	<field name="dataDecorrenza" class="java.lang.String"/>
+	<field name="stradarioEnabled" class="java.lang.Boolean"/>
+	<field name="comuneNascitaHidden" class="java.lang.String"/>
+	<field name="statoEstero" class="java.lang.String"/>
+	<field name="comuneNascitaEstero" class="java.lang.String"/>
+	<field name="denominazioneEstero" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="290">
+			<staticText>
+				<reportElement x="40" y="103" width="512" height="169"/>
+				<textElement>
+					<font fontName="Tahoma" size="11"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[ABITAZIONE di Via _____________________________ n. ___ pal.___ scala ___  piano ___  int. ___
+di mq. dichiarati ai fini Tari __________ avente i seguenti identificativi catastali:
+Sezione ______Foglio _____ Particella_______ Subalterno ________
+PERTINENZA di Via _____________________________ n. ___ pal.___ scala ___  piano ___  int. ___
+di mq. dichiarati ai fini Tari __________ avente i seguenti identificativi catastali:
+Sezione ______Foglio _____ Particella_______ Subalterno ________
+PERTINENZA di Via _____________________________ n. ___ pal.___ scala ___  piano ___  int. ___
+di mq. dichiarati ai fini Tari __________ avente i seguenti identificativi catastali:
+Sezione ______Foglio _____ Particella_______ Subalterno ________    ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="-11" width="552" height="114"/>
+				<textElement markup="styled">
+					<font fontName="Tahoma" size="11"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[
+Il/La sottoscritto/a___________________________________________________________________________
+nato/a a_______________________________________________   stato estero ________________________
+prov. ______  il __________cod. fisc. _______________________  codice contribuente __________________
+residente  in Bari alla Via _________________________________ pal.____ scala ____  piano ____  int. ____
+tel ____________
+<style isBold="true" pdfFontName="Helvetica-Bold">PER LA SEGUENTE ABITAZIONE E RELATIVE PERTINENZE SITE IN BARI</style>
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="126" y="62" width="198" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{indirizzoResidenzaTextHidden} + " " + $F{civicoResidenzaTextHidden} + ($F{esponenteResidenza} != null && !$F{esponenteResidenza}.isEmpty() ? "/" + $F{esponenteResidenza} : "")]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="187" y="42" width="137" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codiceFiscale}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="78" width="74" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
+				<reportElement x="80" y="42" width="59" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataNascita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="4" width="458" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" isItalic="false" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cognome}.toUpperCase()+" "+$F{nome}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="44" y="22" width="280" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{statoEstero}.isEmpty() ? $F{comuneNascitaHidden}.toUpperCase() : $F{comuneNascitaEstero}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="23" width="153" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{denominazioneEstero}!=null && !$F{statoEstero}.isEmpty()) ? $F{denominazioneEstero}.toUpperCase() : ""]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="430" y="43" width="118" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idContribuente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="272" width="552" height="17"/>
+				<textElement markup="styled">
+					<font fontName="Tahoma" size="11" pdfFontName="Helvetica-Bold"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">A DECORRERE DAL __________</style>
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="346" y="62" width="24" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{esponenteResidenza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="61" width="32" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{scalaResidenza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="463" y="62" width="32" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pianoResidenza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="513" y="62" width="32" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{internoResidenza}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="26" y="107" width="4" height="4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="26" y="164" width="4" height="4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="26" y="220" width="4" height="4"/>
+			</rectangle>
+			<textField>
+				<reportElement x="142" y="99" width="164" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stradarioEnabled} ? ((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getViaTextHidden() : ((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getViaCodificata()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="525" y="99" width="23" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getInterno()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="481" y="99" width="21" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getPiano()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="99" width="24" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getEsponente()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="99" width="20" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getScala()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="118" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getSuperficie()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="137" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getSezione()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="137" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getFoglio()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="137" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getParticella()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="137" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getInterno()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="99" width="23" height="20">
+					<printWhenExpression><![CDATA[(((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getCivicoTextHidden() !=null) || (((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getCivico()!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stradarioEnabled} ? ((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getCivicoTextHidden() : ((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(0)).getCivico()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="155" width="164" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stradarioEnabled} ? ((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getViaTextHidden() : ((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getViaCodificata()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="526" y="155" width="23" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getInterno()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="482" y="155" width="21" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getPiano()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="379" y="155" width="24" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getEsponente()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="155" width="20" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getScala()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="174" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getSuperficie()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="193" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getSezione()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="193" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getFoglio()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="238" y="193" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getParticella()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="193" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getInterno()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="155" width="23" height="20">
+					<printWhenExpression><![CDATA[(((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getCivicoTextHidden() !=null) || (((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getCivico()!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stradarioEnabled} ? ((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getCivicoTextHidden() : ((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(1)).getCivico()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="142" y="212" width="164" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stradarioEnabled} ? ((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getViaTextHidden() : ((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getViaCodificata()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="525" y="212" width="23" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getInterno()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="481" y="212" width="21" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getPiano()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="212" width="24" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getEsponente()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="212" width="20" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getScala()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="231" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getSuperficie()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="250" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getSezione()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="250" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getFoglio()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="250" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getParticella()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="335" y="250" width="56" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getInterno()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="335" y="212" width="23" height="20">
+					<printWhenExpression><![CDATA[(((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getCivicoTextHidden() !=null) || (((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getCivico()!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stradarioEnabled} ? ((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getCivicoTextHidden() : ((it.osapulie.tributi.web.portlet.agevolazionetari.form.DatiImmobileAgevolazioneTari)$F{immobili}.get(2)).getCivico()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="269" width="71" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataDecorrenza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="46" width="100" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true" pdfFontName="Helvetica-Bold" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{statoEstero}.isEmpty() ? $F{provinciaNascita}.toUpperCase() : ""]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

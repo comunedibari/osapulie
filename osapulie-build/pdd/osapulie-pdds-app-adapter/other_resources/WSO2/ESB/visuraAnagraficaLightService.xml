@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="visuraAnagraficaLightService"
+       transports="https http"
+       startOnLoad="true"
+       trace="disable">
+   <target>
+      <endpoint>
+         <address uri="http://localhost:9764/services/visuraAnagraficaLightService/"/>
+      </endpoint>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </target>
+</proxy>

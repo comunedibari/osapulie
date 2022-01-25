@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	Configurazione condivisa (attraverso l'importazione) tra le varie portlet.
+ -->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<mvc:annotation-driven />
+
+	<!--======================================================================= 
+    	Security interceptors
+    	Questo va esteso all'interno dell'XML context di ogni singola portlet
+    	aggiungendo il portlet mapping.
+	 =======================================================================-->
+    <bean id="portletModeHandlerMappingTemplate" abstract="true"
+    	class="org.springframework.web.portlet.handler.PortletModeHandlerMapping">
+        <property name="interceptors">
+            <list>
+                <ref bean="portletContextIntegrationInterceptor"/>
+                <ref bean="portletAuthenticationInterceptor"/>
+                <ref bean="editFavoriteComuneHandlerInterceptorAdapter" />
+                <ref bean="servicePortletAccessHandlerInterceptorAdapter" />
+            </list>            
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,66 @@
+<data enableBatchRequests="false" enableBoxcarring="false" name="visuraOsapTemporaneaService" serviceNamespace="http://servizi.osapulie.it" serviceStatus="active">
+   <config id="default">
+      <property name="carbon_datasource_name">OSAPULIE_SERVIZI_DS</property>
+   </config>
+   <query id="select_with_key_visura_osap_temporanea_query" useConfig="default">
+      <sql>SELECT id, codiceFiscale, dataAggiornamento, contoCorrente, importoDocumento, numeroDocumento, annoRiferimento FROM visura_osap_temporanea WHERE codiceFiscale = ? AND annoRiferimento >= ? AND annoRiferimento &lt;= ?</sql>
+      <result element="visureOsapTemporanea" rowName="visuraOsapTemporanea">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="dataAggiornamento" name="dataAggiornamento" xsdType="xs:date"/>
+         <element column="contoCorrente" name="contoCorrente" xsdType="xs:string"/>
+         <element column="importoDocumento" name="importoDocumento" xsdType="xs:double"/>
+         <element column="numeroDocumento" name="numeroDocumento" xsdType="xs:string"/>
+         <element column="annoRiferimento" name="annoRiferimento" xsdType="xs:integer"/>
+      </result>
+      <param name="codiceFiscale" sqlType="STRING"/>
+      <param name="annoDa" sqlType="INTEGER"/>
+      <param name="annoA" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_osap_temporanea_posizioni_query" useConfig="default">
+      <sql>SELECT id, indirizzoUtenza, superficie, zona, descrizioneTariffa, durataOccupazione, importoDaPagare, importoPagato, dataPagamento, idVisura FROM visura_osap_temporanea_posizioni WHERE idVisura=?</sql>
+      <result element="posizioniVisuraOsapTemporanea" rowName="posizioneVisuraOsapTemporanea">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="indirizzoUtenza" name="indirizzoUtenza" xsdType="xs:string"/>
+         <element column="superficie" name="superficie" xsdType="xs:double"/>
+         <element column="zona" name="zona" xsdType="xs:string"/>
+         <element column="descrizioneTariffa" name="descrizioneTariffa" xsdType="xs:string"/>
+         <element column="durataOccupazione" name="durataOccupazione" xsdType="xs:integer"/>
+         <element column="importoDaPagare" name="importoDaPagare" xsdType="xs:double"/>
+         <element column="importoPagato" name="importoPagato" xsdType="xs:double"/>
+         <element column="dataPagamento" name="dataPagamento" xsdType="xs:date"/>
+         <element column="idVisura" name="idVisura" xsdType="xs:integer"/>
+      </result>
+      <param name="idVisura" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_numeroDocumento_visura_osap_temporanea_query" useConfig="default">
+      <sql>SELECT id, codiceFiscale, dataAggiornamento, contoCorrente, importoDocumento, numeroDocumento, annoRiferimento FROM visura_osap_temporanea WHERE numeroDocumento = ?</sql>
+      <result element="visureOsapTemporanea" rowName="visuraOsapTemporanea">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="dataAggiornamento" name="dataAggiornamento" xsdType="xs:date"/>
+         <element column="contoCorrente" name="contoCorrente" xsdType="xs:string"/>
+         <element column="importoDocumento" name="importoDocumento" xsdType="xs:double"/>
+         <element column="numeroDocumento" name="numeroDocumento" xsdType="xs:string"/>
+         <element column="annoRiferimento" name="annoRiferimento" xsdType="xs:integer"/>
+      </result>
+      <param name="numeroDocumento" sqlType="STRING"/>
+   </query>
+   <operation name="getVisureOsapTemporanea">
+      <call-query href="select_with_key_visura_osap_temporanea_query">
+         <with-param name="codiceFiscale" query-param="codiceFiscale"/>
+         <with-param name="annoDa" query-param="annoDa"/>
+         <with-param name="annoA" query-param="annoA"/>
+      </call-query>
+   </operation>
+   <operation name="getPosizioniVisuraOsapTemporanea">
+      <call-query href="select_with_key_visura_osap_temporanea_posizioni_query">
+         <with-param name="idVisura" query-param="idVisura"/>
+      </call-query>
+   </operation>
+   <operation name="getVisuraOsapTemporanea">
+      <call-query href="select_with_key_numeroDocumento_visura_osap_temporanea_query">
+         <with-param name="numeroDocumento" query-param="numeroDocumento"/>
+      </call-query>
+   </operation>
+</data>

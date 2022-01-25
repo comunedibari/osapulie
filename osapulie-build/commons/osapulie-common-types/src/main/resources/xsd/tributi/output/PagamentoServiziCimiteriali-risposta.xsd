@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://types.output.tributi.osapulie.it" targetNamespace="http://types.output.tributi.osapulie.it" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:include schemaLocation="PagamentoServiziCimiterialiType.xsd" />
+	<xs:element name="pagamentiServiziCimiterialiRisposta">
+		<xs:annotation>
+			<xs:documentation>Dati di risposta del servizio - Pagamento Servizi Cimiteriali</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="elencoPagamentiCimiteriali" type="tns:PagamentiServiziCimiterialiType" maxOccurs="unbounded" />
+				<xs:element name="errore">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="codice" type="xs:int">
+								<xs:annotation>
+									<xs:documentation>
+										Decodifica errore:
+										1.Server non disponibile
+										2.Codice fiscale non trovato
+										3.Dati non disponibili
+										4.Errore generico
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="descrizione" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

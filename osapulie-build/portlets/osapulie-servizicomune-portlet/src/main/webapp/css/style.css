@@ -1,0 +1,153 @@
+.buttonsDiv {
+	margin: 15px;
+	text-align: center;
+	padding: 15px;
+	text-decoration: none;
+}
+
+.buttonsDiv A.button {
+	border-radius: 4px 4px 4px 4px;
+	margin: 2px 4px 2px 2px;
+	padding-bottom: 7px;
+	padding-top: 6px;
+	text-decoration: none !important;
+}
+
+.buttonsDiv A.button SPAN {
+	margin: 10px;
+}
+
+.upperCase {
+	text-transform: uppercase;
+}
+
+.mainDiv DIV.comuneSelezionatoTitle {
+	margin-bottom: 15px;
+}
+
+.mainDiv TABLE {
+	width: 100%;
+}
+
+.delegaDetail TABLE TD {
+	width: 50%;
+}
+
+.center {
+	text-align: center;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.displayNone {
+	display: none;
+}
+
+.datiObbligatoriDiv {
+	text-align: right;
+	color: #5B677D;
+}
+
+.inputTextNewValueChecked {
+	border: 2px solid #F11F1F !important;
+}
+
+.logoComuneImg {
+	width: 100px;
+}
+
+.areaTematicaServiziTitle {
+	background-attachment: scroll;
+	background-color: #fafafa;
+	background-position: center right;
+	background-repeat: no-repeat;
+	background-image: url('../images/chiuso.png');
+	cursor: pointer;
+	padding: 5px;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.areaTematicaServiziTitle.aperto {
+	background-image: url('../images/aperto.png') !important;
+}
+
+.iconModifica {
+	background: transparent url("../images/modifica.png");
+	background-repeat: no-repeat;
+	padding-right: 5px;
+	width: 24px;
+	height: 24px;
+	float: left;
+}
+
+.iconElimina {
+	background: transparent url("../images/list-delete.png");
+	background-repeat: no-repeat;
+	padding-right: 5px;
+	width: 24px;
+	height: 24px;
+	float: left;
+}
+
+.cfUtenteAssociatoDiv {
+	margin: 10px;
+}
+
+.mainDiv SELECT.searchSelect {
+	width: 70%;
+}
+
+.mainDiv DIV.descrizioneCAF {
+	margin-bottom: 15px;
+}
+
+.mainDiv DIV.ricercaUtenteDiv {
+	float: left;
+	margin-right: 10px;
+}
+
+.mainDiv DIV.aggiungiUtenteDiv {
+	
+}
+
+.clear {
+	clear: both;
+}
+
+.elencoRisultati th.operazioni {
+	width: 120px;
+}
+
+.mainDiv DIV.motiviSegnalazioneDiv label {
+	margin-left: 5px;
+	vertical-align: super;
+}
+
+/* select2 */
+.select2-container--classic .select2-selection--single {
+	background: #fff !important;
+	border-radius: 0 !important;
+	border: 1px solid #e5e5e5 !important;
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__arrow
+	{
+	border-radius: 0px !important;
+	width: 10px !important;
+}
+
+.select2-container--classic.select2-container--open .select2-selection--single
+	{
+	border-color: #e5e5e5 !important;
+}
+
+.select2-container--classic.select2-container--open .select2-dropdown {
+	border-color: #e5e5e5 !important;
+}
+
+.select2-container--classic .select2-results__option--highlighted[aria-selected] {
+	background-color: #828282 !important;
+}

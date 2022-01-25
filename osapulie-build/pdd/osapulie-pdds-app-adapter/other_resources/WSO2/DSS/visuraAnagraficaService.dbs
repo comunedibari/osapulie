@@ -1,0 +1,214 @@
+<data enableBatchRequests="false" enableBoxcarring="false" name="visuraAnagraficaService" serviceNamespace="http://servizi.osapulie.it" serviceStatus="active">
+   <config id="default">
+      <property name="carbon_datasource_name">OSAPULIE_SERVIZI_DS</property>
+   </config>
+   <query id="select_with_key_codiceFiscale_all_visura_anagrafica_query" useConfig="default">
+      <sql>SELECT id, codiceFiscale, cognome, nome, dataNascita, sesso, cap, toponimoIndirizzo, descrizioneVia, numeroCivico, esponente, piano, scala, interno, statoCivile, cognomeNomeConiuge, relazioneParentela, cittadinanzaItaliana, codiceIstatComuneNascita, descrizioneComuneEsteroNascita, statoEsteroNascita, numeroAttoNascita, parteNascita, serieNascita, annoAttoNascita, ufficioNascita, numeroAttoNascitaTrascritto, parteNascitaTrascritto, serieNascitaTrascritto, annoNascitaTrascritto, codiceIstatComuneNascitaTrascritto, numeroAttoMatrimonio, parteMatrimonio, serieMatrimonio, annoMatrimonio, ufficioMatrimonio, codiceIstatComuneMatrimonio, luogoMatrimonio, dataMatrimonio, numeroAttoMatrimonioTrascritto, parteMatrimonioTrascritto, serieMatrimonioTrascritto, annoMatrimonioTrascritto, codiceIstatComuneMatrimonioTrascritto, dataDecorrenzaDivorzio, dataSentenzaDivorzio, numeroSentenzaDivorzio, codiceIstatComuneTribunaleDivorzio, tipoDivorzio, dataAttoDivorzio, numeroAttoDivorzio, parteDivorzio, serieDivorzio, volumeDivorzio, ufficioDivorzio, dataAttoDivorzioTrascritto, numeroAttoDivorzioTrascritto, parteDivorzioTrascritto, serieDivorzioTrascritto, volumeDivorzioTrascritto, ufficioDivorzioTrascritto, codiceIstatComuneTrascrizioneDivorzio, dataAttoVedovanza, numeroAttoVedovanza, parteVedovanza, serieVedovanza, volumeVedovanza, ufficioVedovanza, codiceIstatComuneMorte, dataMorte, numeroAttoMorte, parteMorte, serieMorte, ufficioMorte, annoMorte, codiceIstatComuneMorteConiugeTrascritto, numeroAttoMorteConiugeTrascritto, parteMorteConiugeTrascritto, serieMorteConiugeTrascritto, annoMorteConiugeTrascritto, professione, titoloStudio, numeroCartaIdentita, dataCartaIdentita, validaCartaIdentita, identificativoNucleoFamiliare FROM visura_anagrafica WHERE codiceFiscale=?</sql>
+      <result element="visureAnagrafiche" rowName="visuraAnagrafica">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="cognome" name="cognome" xsdType="xs:string"/>
+         <element column="nome" name="nome" xsdType="xs:string"/>
+         <element column="dataNascita" name="dataNascita" xsdType="xs:date"/>
+         <element column="sesso" name="sesso" xsdType="xs:string"/>
+		 <element column="cap" name="cap" xsdType="xs:string"/>
+		 <element column="toponimoIndirizzo" name="toponimoIndirizzo" xsdType="xs:string"/>
+		 <element column="descrizioneVia" name="descrizioneVia" xsdType="xs:string"/>
+		 <element column="numeroCivico" name="numeroCivico" xsdType="xs:string"/>
+		 <element column="esponente" name="esponente" xsdType="xs:string"/>
+		 <element column="piano" name="piano" xsdType="xs:string"/>
+		 <element column="scala" name="scala" xsdType="xs:string"/>
+		 <element column="interno" name="interno" xsdType="xs:string"/>
+         <element column="cognomeNomeConiuge" name="cognomeNomeConiuge" xsdType="xs:string"/>
+	 	 <element column="statoCivile" name="statoCivile" xsdType="xs:string"/>
+         <element column="relazioneParentela" name="relazioneParentela" xsdType="xs:string"/>
+         <element column="cittadinanzaItaliana" name="cittadinanzaItaliana" xsdType="xs:boolean"/>
+         <element column="codiceIstatComuneNascita" name="codiceIstatComuneNascita" xsdType="xs:string"/>
+         <element column="descrizioneComuneEsteroNascita" name="descrizioneComuneEsteroNascita" xsdType="xs:string"/>
+         <element column="statoEsteroNascita" name="statoEsteroNascita" xsdType="xs:string"/>
+         <element column="numeroAttoNascita" name="numeroAttoNascita" xsdType="xs:integer"/>
+         <element column="parteNascita" name="parteNascita" xsdType="xs:string"/>
+         <element column="serieNascita" name="serieNascita" xsdType="xs:string"/>
+         <element column="annoAttoNascita" name="annoAttoNascita" xsdType="xs:integer"/>
+         <element column="ufficioNascita" name="ufficioNascita" xsdType="xs:string"/>
+         <element column="numeroAttoNascitaTrascritto" name="numeroAttoNascitaTrascritto" xsdType="xs:integer"/>
+         <element column="parteNascitaTrascritto" name="parteNascitaTrascritto" xsdType="xs:string"/>
+         <element column="serieNascitaTrascritto" name="serieNascitaTrascritto" xsdType="xs:string"/>
+         <element column="annoNascitaTrascritto" name="annoNascitaTrascritto" xsdType="xs:integer"/>
+         <element column="codiceIstatComuneNascitaTrascritto" name="codiceIstatComuneNascitaTrascritto" xsdType="xs:string"/>
+         <element column="numeroAttoMatrimonio" name="numeroAttoMatrimonio" xsdType="xs:integer"/>
+         <element column="parteMatrimonio" name="parteMatrimonio" xsdType="xs:string"/>
+         <element column="serieMatrimonio" name="serieMatrimonio" xsdType="xs:string"/>
+         <element column="annoMatrimonio" name="annoMatrimonio" xsdType="xs:integer"/>
+         <element column="ufficioMatrimonio" name="ufficioMatrimonio" xsdType="xs:string"/>
+         <element column="codiceIstatComuneMatrimonio" name="codiceIstatComuneMatrimonio" xsdType="xs:string"/>
+         <element column="luogoMatrimonio" name="luogoMatrimonio" xsdType="xs:string"/>
+         <element column="dataMatrimonio" name="dataMatrimonio" xsdType="xs:date"/>
+         <element column="numeroAttoMatrimonioTrascritto" name="numeroAttoMatrimonioTrascritto" xsdType="xs:integer"/>
+         <element column="parteMatrimonioTrascritto" name="parteMatrimonioTrascritto" xsdType="xs:string"/>
+         <element column="serieMatrimonioTrascritto" name="serieMatrimonioTrascritto" xsdType="xs:string"/>
+         <element column="annoMatrimonioTrascritto" name="annoMatrimonioTrascritto" xsdType="xs:integer"/>
+         <element column="codiceIstatComuneMatrimonioTrascritto" name="codiceIstatComuneMatrimonioTrascritto" xsdType="xs:string"/>
+         <element column="dataDecorrenzaDivorzio" name="dataDecorrenzaDivorzio" xsdType="xs:date"/>
+         <element column="dataSentenzaDivorzio" name="dataSentenzaDivorzio" xsdType="xs:date"/>
+         <element column="numeroSentenzaDivorzio" name="numeroSentenzaDivorzio" xsdType="xs:string"/>
+         <element column="codiceIstatComuneTribunaleDivorzio" name="codiceIstatComuneTribunaleDivorzio" xsdType="xs:string"/>
+         <element column="tipoDivorzio" name="tipoDivorzio" xsdType="xs:string"/>
+         <element column="dataAttoDivorzio" name="dataAttoDivorzio" xsdType="xs:date"/>
+         <element column="numeroAttoDivorzio" name="numeroAttoDivorzio" xsdType="xs:integer"/>
+         <element column="parteDivorzio" name="parteDivorzio" xsdType="xs:string"/>
+         <element column="serieDivorzio" name="serieDivorzio" xsdType="xs:string"/>
+         <element column="volumeDivorzio" name="volumeDivorzio" xsdType="xs:string"/>
+         <element column="ufficioDivorzio" name="ufficioDivorzio" xsdType="xs:string"/>
+         <element column="dataAttoDivorzioTrascritto" name="dataAttoDivorzioTrascritto" xsdType="xs:date"/>
+         <element column="numeroAttoDivorzioTrascritto" name="numeroAttoDivorzioTrascritto" xsdType="xs:integer"/>
+         <element column="parteDivorzioTrascritto" name="parteDivorzioTrascritto" xsdType="xs:string"/>
+         <element column="serieDivorzioTrascritto" name="serieDivorzioTrascritto" xsdType="xs:string"/>
+         <element column="volumeDivorzioTrascritto" name="volumeDivorzioTrascritto" xsdType="xs:string"/>
+         <element column="ufficioDivorzioTrascritto" name="ufficioDivorzioTrascritto" xsdType="xs:string"/>
+         <element column="codiceIstatComuneTrascrizioneDivorzio" name="codiceIstatComuneTrascrizioneDivorzio" xsdType="xs:string"/>
+         <element column="dataAttoVedovanza" name="dataAttoVedovanza" xsdType="xs:date"/>
+         <element column="numeroAttoVedovanza" name="numeroAttoVedovanza" xsdType="xs:integer"/>
+         <element column="parteVedovanza" name="parteVedovanza" xsdType="xs:string"/>
+         <element column="serieVedovanza" name="serieVedovanza" xsdType="xs:string"/>
+         <element column="volumeVedovanza" name="volumeVedovanza" xsdType="xs:string"/>
+         <element column="ufficioVedovanza" name="ufficioVedovanza" xsdType="xs:string"/>
+         <element column="codiceIstatComuneMorte" name="codiceIstatComuneMorte" xsdType="xs:string"/>
+         <element column="dataMorte" name="dataMorte" xsdType="xs:date"/>
+         <element column="numeroAttoMorte" name="numeroAttoMorte" xsdType="xs:integer"/>
+         <element column="parteMorte" name="parteMorte" xsdType="xs:string"/>
+         <element column="serieMorte" name="serieMorte" xsdType="xs:string"/>
+         <element column="ufficioMorte" name="ufficioMorte" xsdType="xs:string"/>
+         <element column="annoMorte" name="annoMorte" xsdType="xs:integer"/>
+         <element column="codiceIstatComuneMorteConiugeTrascritto" name="codiceIstatComuneMorteConiugeTrascritto" xsdType="xs:string"/>
+         <element column="numeroAttoMorteConiugeTrascritto" name="numeroAttoMorteConiugeTrascritto" xsdType="xs:integer"/>
+         <element column="parteMorteConiugeTrascritto" name="parteMorteConiugeTrascritto" xsdType="xs:string"/>
+         <element column="serieMorteConiugeTrascritto" name="serieMorteConiugeTrascritto" xsdType="xs:string"/>
+         <element column="annoMorteConiugeTrascritto" name="annoMorteConiugeTrascritto" xsdType="xs:integer"/>
+         <element column="professione" name="professione" xsdType="xs:string"/>
+         <element column="titoloStudio" name="titoloStudio" xsdType="xs:string"/>
+         <element column="numeroCartaIdentita" name="numeroCartaIdentita" xsdType="xs:string"/>
+         <element column="dataCartaIdentita" name="dataCartaIdentita" xsdType="xs:date"/>
+         <element column="validaCartaIdentita" name="validaCartaIdentita" xsdType="xs:boolean"/>
+         <element column="identificativoNucleoFamiliare" name="identificativoNucleoFamiliare" xsdType="xs:integer"/>
+      </result>
+      <param name="codiceFiscale" ordinal="1" sqlType="STRING"/>
+   </query>
+   <query id="select_with_key_identificativoNucleoFamiliare_all_visura_anagrafica_query" useConfig="default">
+      <sql>SELECT id, codiceFiscale, cognome, nome, dataNascita, sesso, cap, toponimoIndirizzo, descrizioneVia, numeroCivico, esponente, piano, scala, interno, statoCivile, cognomeNomeConiuge, relazioneParentela, cittadinanzaItaliana, codiceIstatComuneNascita, descrizioneComuneEsteroNascita, statoEsteroNascita, numeroAttoNascita, parteNascita, serieNascita, annoAttoNascita, ufficioNascita, numeroAttoNascitaTrascritto, parteNascitaTrascritto, serieNascitaTrascritto, annoNascitaTrascritto, codiceIstatComuneNascitaTrascritto, numeroAttoMatrimonio, parteMatrimonio, serieMatrimonio, annoMatrimonio, ufficioMatrimonio, codiceIstatComuneMatrimonio, luogoMatrimonio, dataMatrimonio, numeroAttoMatrimonioTrascritto, parteMatrimonioTrascritto, serieMatrimonioTrascritto, annoMatrimonioTrascritto, codiceIstatComuneMatrimonioTrascritto, dataDecorrenzaDivorzio, dataSentenzaDivorzio, numeroSentenzaDivorzio, codiceIstatComuneTribunaleDivorzio, tipoDivorzio, dataAttoDivorzio, numeroAttoDivorzio, parteDivorzio, serieDivorzio, volumeDivorzio, ufficioDivorzio, dataAttoDivorzioTrascritto, numeroAttoDivorzioTrascritto, parteDivorzioTrascritto, serieDivorzioTrascritto, volumeDivorzioTrascritto, ufficioDivorzioTrascritto, codiceIstatComuneTrascrizioneDivorzio, dataAttoVedovanza, numeroAttoVedovanza, parteVedovanza, serieVedovanza, volumeVedovanza, ufficioVedovanza, codiceIstatComuneMorte, dataMorte, numeroAttoMorte, parteMorte, serieMorte, ufficioMorte, annoMorte, codiceIstatComuneMorteConiugeTrascritto, numeroAttoMorteConiugeTrascritto, parteMorteConiugeTrascritto, serieMorteConiugeTrascritto, annoMorteConiugeTrascritto, professione, titoloStudio, numeroCartaIdentita, dataCartaIdentita, validaCartaIdentita, identificativoNucleoFamiliare FROM visura_anagrafica WHERE identificativoNucleoFamiliare=?</sql>
+      <result element="visureAnagrafiche" rowName="visuraAnagrafica">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="codiceFiscale" name="codiceFiscale" xsdType="xs:string"/>
+         <element column="cognome" name="cognome" xsdType="xs:string"/>
+         <element column="nome" name="nome" xsdType="xs:string"/>
+         <element column="dataNascita" name="dataNascita" xsdType="xs:date"/>
+         <element column="sesso" name="sesso" xsdType="xs:string"/>
+		 <element column="cap" name="cap" xsdType="xs:string"/>
+		 <element column="toponimoIndirizzo" name="toponimoIndirizzo" xsdType="xs:string"/>
+		 <element column="descrizioneVia" name="descrizioneVia" xsdType="xs:string"/>
+		 <element column="numeroCivico" name="numeroCivico" xsdType="xs:string"/>
+		 <element column="esponente" name="esponente" xsdType="xs:string"/>
+		 <element column="piano" name="piano" xsdType="xs:string"/>
+		 <element column="scala" name="scala" xsdType="xs:string"/>
+		 <element column="interno" name="interno" xsdType="xs:string"/>
+         <element column="cognomeNomeConiuge" name="cognomeNomeConiuge" xsdType="xs:string"/>
+	 	 <element column="statoCivile" name="statoCivile" xsdType="xs:string"/>
+         <element column="relazioneParentela" name="relazioneParentela" xsdType="xs:string"/>
+         <element column="cittadinanzaItaliana" name="cittadinanzaItaliana" xsdType="xs:boolean"/>
+         <element column="codiceIstatComuneNascita" name="codiceIstatComuneNascita" xsdType="xs:string"/>
+         <element column="descrizioneComuneEsteroNascita" name="descrizioneComuneEsteroNascita" xsdType="xs:string"/>
+         <element column="statoEsteroNascita" name="statoEsteroNascita" xsdType="xs:string"/>
+         <element column="numeroAttoNascita" name="numeroAttoNascita" xsdType="xs:integer"/>
+         <element column="parteNascita" name="parteNascita" xsdType="xs:string"/>
+         <element column="serieNascita" name="serieNascita" xsdType="xs:string"/>
+         <element column="annoAttoNascita" name="annoAttoNascita" xsdType="xs:integer"/>
+         <element column="ufficioNascita" name="ufficioNascita" xsdType="xs:string"/>
+         <element column="numeroAttoNascitaTrascritto" name="numeroAttoNascitaTrascritto" xsdType="xs:integer"/>
+         <element column="parteNascitaTrascritto" name="parteNascitaTrascritto" xsdType="xs:string"/>
+         <element column="serieNascitaTrascritto" name="serieNascitaTrascritto" xsdType="xs:string"/>
+         <element column="annoNascitaTrascritto" name="annoNascitaTrascritto" xsdType="xs:integer"/>
+         <element column="codiceIstatComuneNascitaTrascritto" name="codiceIstatComuneNascitaTrascritto" xsdType="xs:string"/>
+         <element column="numeroAttoMatrimonio" name="numeroAttoMatrimonio" xsdType="xs:integer"/>
+         <element column="parteMatrimonio" name="parteMatrimonio" xsdType="xs:string"/>
+         <element column="serieMatrimonio" name="serieMatrimonio" xsdType="xs:string"/>
+         <element column="annoMatrimonio" name="annoMatrimonio" xsdType="xs:integer"/>
+         <element column="ufficioMatrimonio" name="ufficioMatrimonio" xsdType="xs:string"/>
+         <element column="codiceIstatComuneMatrimonio" name="codiceIstatComuneMatrimonio" xsdType="xs:string"/>
+         <element column="luogoMatrimonio" name="luogoMatrimonio" xsdType="xs:string"/>
+         <element column="dataMatrimonio" name="dataMatrimonio" xsdType="xs:date"/>
+         <element column="numeroAttoMatrimonioTrascritto" name="numeroAttoMatrimonioTrascritto" xsdType="xs:integer"/>
+         <element column="parteMatrimonioTrascritto" name="parteMatrimonioTrascritto" xsdType="xs:string"/>
+         <element column="serieMatrimonioTrascritto" name="serieMatrimonioTrascritto" xsdType="xs:string"/>
+         <element column="annoMatrimonioTrascritto" name="annoMatrimonioTrascritto" xsdType="xs:integer"/>
+         <element column="codiceIstatComuneMatrimonioTrascritto" name="codiceIstatComuneMatrimonioTrascritto" xsdType="xs:string"/>
+         <element column="dataDecorrenzaDivorzio" name="dataDecorrenzaDivorzio" xsdType="xs:date"/>
+         <element column="dataSentenzaDivorzio" name="dataSentenzaDivorzio" xsdType="xs:date"/>
+         <element column="numeroSentenzaDivorzio" name="numeroSentenzaDivorzio" xsdType="xs:string"/>
+         <element column="codiceIstatComuneTribunaleDivorzio" name="codiceIstatComuneTribunaleDivorzio" xsdType="xs:string"/>
+         <element column="tipoDivorzio" name="tipoDivorzio" xsdType="xs:string"/>
+         <element column="dataAttoDivorzio" name="dataAttoDivorzio" xsdType="xs:date"/>
+         <element column="numeroAttoDivorzio" name="numeroAttoDivorzio" xsdType="xs:integer"/>
+         <element column="parteDivorzio" name="parteDivorzio" xsdType="xs:string"/>
+         <element column="serieDivorzio" name="serieDivorzio" xsdType="xs:string"/>
+         <element column="volumeDivorzio" name="volumeDivorzio" xsdType="xs:string"/>
+         <element column="ufficioDivorzio" name="ufficioDivorzio" xsdType="xs:string"/>
+         <element column="dataAttoDivorzioTrascritto" name="dataAttoDivorzioTrascritto" xsdType="xs:date"/>
+         <element column="numeroAttoDivorzioTrascritto" name="numeroAttoDivorzioTrascritto" xsdType="xs:integer"/>
+         <element column="parteDivorzioTrascritto" name="parteDivorzioTrascritto" xsdType="xs:string"/>
+         <element column="serieDivorzioTrascritto" name="serieDivorzioTrascritto" xsdType="xs:string"/>
+         <element column="volumeDivorzioTrascritto" name="volumeDivorzioTrascritto" xsdType="xs:string"/>
+         <element column="ufficioDivorzioTrascritto" name="ufficioDivorzioTrascritto" xsdType="xs:string"/>
+         <element column="codiceIstatComuneTrascrizioneDivorzio" name="codiceIstatComuneTrascrizioneDivorzio" xsdType="xs:string"/>
+         <element column="dataAttoVedovanza" name="dataAttoVedovanza" xsdType="xs:date"/>
+         <element column="numeroAttoVedovanza" name="numeroAttoVedovanza" xsdType="xs:integer"/>
+         <element column="parteVedovanza" name="parteVedovanza" xsdType="xs:string"/>
+         <element column="serieVedovanza" name="serieVedovanza" xsdType="xs:string"/>
+         <element column="volumeVedovanza" name="volumeVedovanza" xsdType="xs:string"/>
+         <element column="ufficioVedovanza" name="ufficioVedovanza" xsdType="xs:string"/>
+         <element column="codiceIstatComuneMorte" name="codiceIstatComuneMorte" xsdType="xs:string"/>
+         <element column="dataMorte" name="dataMorte" xsdType="xs:date"/>
+         <element column="numeroAttoMorte" name="numeroAttoMorte" xsdType="xs:integer"/>
+         <element column="parteMorte" name="parteMorte" xsdType="xs:string"/>
+         <element column="serieMorte" name="serieMorte" xsdType="xs:string"/>
+         <element column="ufficioMorte" name="ufficioMorte" xsdType="xs:string"/>
+         <element column="annoMorte" name="annoMorte" xsdType="xs:integer"/>
+         <element column="codiceIstatComuneMorteConiugeTrascritto" name="codiceIstatComuneMorteConiugeTrascritto" xsdType="xs:string"/>
+         <element column="numeroAttoMorteConiugeTrascritto" name="numeroAttoMorteConiugeTrascritto" xsdType="xs:integer"/>
+         <element column="parteMorteConiugeTrascritto" name="parteMorteConiugeTrascritto" xsdType="xs:string"/>
+         <element column="serieMorteConiugeTrascritto" name="serieMorteConiugeTrascritto" xsdType="xs:string"/>
+         <element column="annoMorteConiugeTrascritto" name="annoMorteConiugeTrascritto" xsdType="xs:integer"/>
+         <element column="professione" name="professione" xsdType="xs:string"/>
+         <element column="titoloStudio" name="titoloStudio" xsdType="xs:string"/>
+         <element column="numeroCartaIdentita" name="numeroCartaIdentita" xsdType="xs:string"/>
+         <element column="dataCartaIdentita" name="dataCartaIdentita" xsdType="xs:date"/>
+         <element column="validaCartaIdentita" name="validaCartaIdentita" xsdType="xs:boolean"/>
+         <element column="identificativoNucleoFamiliare" name="identificativoNucleoFamiliare" xsdType="xs:integer"/>
+      </result>
+      <param name="identificativoNucleoFamiliare" ordinal="1" sqlType="INTEGER"/>
+   </query>
+   <query id="select_with_key_visura_anagrafica_pensioni_query" useConfig="default">
+      <sql>SELECT id, numeroPensione, codicePensione, idComponente FROM visura_anagrafica_pensioni WHERE idComponente=?</sql>
+      <result element="pensioniComponenteVisuraAnagrafica" rowName="pensioneComponenteVisuraAnagrafica">
+         <element column="id" name="id" xsdType="xs:integer"/>
+         <element column="numeroPensione" name="numeroPensione" xsdType="xs:string"/>
+         <element column="codicePensione" name="codicePensione" xsdType="xs:string"/>
+         <element column="idComponente" name="idComponente" xsdType="xs:integer"/>
+      </result>
+      <param name="idComponente" ordinal="1" sqlType="INTEGER"/>
+   </query>
+   <operation name="getVisuraAnagrafica">
+      <call-query href="select_with_key_codiceFiscale_all_visura_anagrafica_query">
+         <with-param name="codiceFiscale" query-param="codiceFiscale"/>
+      </call-query>
+   </operation>
+   <operation name="getVisureAnagraficheNucleoFamiliare">
+      <call-query href="select_with_key_identificativoNucleoFamiliare_all_visura_anagrafica_query">
+         <with-param name="identificativoNucleoFamiliare" query-param="identificativoNucleoFamiliare"/>
+      </call-query>
+   </operation>
+   <operation name="getPensioniComponenteVisuraAnagrafica">
+      <call-query href="select_with_key_visura_anagrafica_pensioni_query">
+         <with-param name="idComponente" query-param="idComponente"/>
+      </call-query>
+   </operation>
+</data>

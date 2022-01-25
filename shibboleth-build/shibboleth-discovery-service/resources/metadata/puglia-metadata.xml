@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idptest.ct.rupar.puglia.it/idp/shibboleth" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol"><Extensions><shibmd:Scope regexp="false">puglia.it</shibmd:Scope></Extensions><KeyDescriptor><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIDLTCCAuugAwIBAgIEU3HYyjALBgcqhkjOOAQDBQAwejELMAkGA1UEBhMCaXQx
+DTALBgNVBAgTBGJhcmkxEjAQBgNVBAcTCVZhbGVuemFubzEVMBMGA1UEChMMSW5u
+b3ZhcHVnbGlhMQwwCgYDVQQLEwNJVFMxIzAhBgNVBAMTGmlkcHRlc3QuY3QucnVw
+YXIucHVnbGlhLml0MB4XDTE0MDUxMzA4MzMxNFoXDTE0MDgxMTA4MzMxNFowejEL
+MAkGA1UEBhMCaXQxDTALBgNVBAgTBGJhcmkxEjAQBgNVBAcTCVZhbGVuemFubzEV
+MBMGA1UEChMMSW5ub3ZhcHVnbGlhMQwwCgYDVQQLEwNJVFMxIzAhBgNVBAMTGmlk
+cHRlc3QuY3QucnVwYXIucHVnbGlhLml0MIIBtzCCASwGByqGSM44BAEwggEfAoGB
+AP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2USZpRV1AIlH7WT2NWPq/xfW6
+MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4O1fnxqimFQ8E
++4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmC
+ouuEC/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeO
+utRZT+ZxBxCBgLRJFnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/
+C/ohNWLx+2J6ASQ7zKTxvqhRkImog9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoDgYQA
+AoGAcslVCGvH1TfcBYpfKKIBQM2P9II552a+qiUM4QZbCm20POCPIlkOMGglU8Mz
+hegImCDq8lUnkS6YmULRTHA41J50j+se2HnA06C0m5KCEgIRmOzbsOYZXR7ePlxj
+A+U28Xm4EKxf+LTN8v6UlrexyoYgvajaSjAKMQ2ObPwTtwswCwYHKoZIzjgEAwUA
+Ay8AMCwCFGcIO5+FeTlLYWrtRsvntbHslWdMAhRuTA6J1gU4RELyGLFzj1AjYRz3
+zg==</ds:X509Certificate></ds:X509Data></ds:KeyInfo></KeyDescriptor><ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idptest.ct.rupar.puglia.it/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/><ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idptest.ct.rupar.puglia.it/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/><NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat><NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat><SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idptest.ct.rupar.puglia.it/idp/profile/Shibboleth/SSO"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idptest.ct.rupar.puglia.it/idp/profile/SAML2/POST/SSO"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idptest.ct.rupar.puglia.it/idp/profile/SAML2/POST-SimpleSign/SSO"/><SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idptest.ct.rupar.puglia.it/idp/profile/SAML2/Redirect/SSO"/></IDPSSODescriptor><AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol"><Extensions><shibmd:Scope regexp="false">puglia.it</shibmd:Scope></Extensions><KeyDescriptor><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIDLTCCAuugAwIBAgIEU3HYyjALBgcqhkjOOAQDBQAwejELMAkGA1UEBhMCaXQx
+DTALBgNVBAgTBGJhcmkxEjAQBgNVBAcTCVZhbGVuemFubzEVMBMGA1UEChMMSW5u
+b3ZhcHVnbGlhMQwwCgYDVQQLEwNJVFMxIzAhBgNVBAMTGmlkcHRlc3QuY3QucnVw
+YXIucHVnbGlhLml0MB4XDTE0MDUxMzA4MzMxNFoXDTE0MDgxMTA4MzMxNFowejEL
+MAkGA1UEBhMCaXQxDTALBgNVBAgTBGJhcmkxEjAQBgNVBAcTCVZhbGVuemFubzEV
+MBMGA1UEChMMSW5ub3ZhcHVnbGlhMQwwCgYDVQQLEwNJVFMxIzAhBgNVBAMTGmlk
+cHRlc3QuY3QucnVwYXIucHVnbGlhLml0MIIBtzCCASwGByqGSM44BAEwggEfAoGB
+AP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2USZpRV1AIlH7WT2NWPq/xfW6
+MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4O1fnxqimFQ8E
++4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmC
+ouuEC/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeO
+utRZT+ZxBxCBgLRJFnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/
+C/ohNWLx+2J6ASQ7zKTxvqhRkImog9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoDgYQA
+AoGAcslVCGvH1TfcBYpfKKIBQM2P9II552a+qiUM4QZbCm20POCPIlkOMGglU8Mz
+hegImCDq8lUnkS6YmULRTHA41J50j+se2HnA06C0m5KCEgIRmOzbsOYZXR7ePlxj
+A+U28Xm4EKxf+LTN8v6UlrexyoYgvajaSjAKMQ2ObPwTtwswCwYHKoZIzjgEAwUA
+Ay8AMCwCFGcIO5+FeTlLYWrtRsvntbHslWdMAhRuTA6J1gU4RELyGLFzj1AjYRz3
+zg==</ds:X509Certificate></ds:X509Data></ds:KeyInfo></KeyDescriptor><AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idptest.ct.rupar.puglia.it/idp/profile/SAML1/SOAP/AttributeQuery"/><AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idptest.ct.rupar.puglia.it/idp/profile/SAML2/SOAP/AttributeQuery"/><NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat><NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat></AttributeAuthorityDescriptor></EntityDescriptor>

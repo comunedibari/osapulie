@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd
+		http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<context:annotation-config />
+	<task:annotation-driven /> 
+	
+	<bean id="dichiarazioniBariSystemPropertiesConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	    <property name="ignoreResourceNotFound" value="true" />
+	    <property name="placeholderPrefix" value="$dichiarazioniBari{" />
+	    <property name="placeholderSuffix" value="}" />
+	    <property name="locations">
+            <list>
+                <value>classpath:/dichiarazioniBari.properties</value>
+                <value>classpath:/webservices.properties</value>
+                <!-- <value>file:/opt/osapulie/commons.properties</value> -->
+            </list>
+	    </property>
+    </bean>
+	
+	<oxm:jaxb2-marshaller id="marshallerAnagrafeInput" contextPath="it.osapulie.anagrafe.web.ws.input.types"/>
+	<oxm:jaxb2-marshaller id="marshallerTributiInput" contextPath="it.osapulie.tributi.web.ws.input.types"/>
+	<oxm:jaxb2-marshaller id="marshallerStradario" contextPath="it.sinergis.xsd.toponomastica"/>
+	
+	<bean id="xmlHelperAnagrafeInput" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerAnagrafeInput" />
+		<property name="unmarshaller" ref="marshallerAnagrafeInput" />
+	</bean>
+
+	<bean id="xmlHelperTributiInput" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerTributiInput" />
+		<property name="unmarshaller" ref="marshallerTributiInput" />
+	</bean>
+
+	<bean id="xmlHelperStradario" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerStradario" />
+		<property name="unmarshaller" ref="marshallerStradario" />
+	</bean>
+	
+	<!-- Anagrafe -->
+	<bean class="it.osapulie.pdds.services.DichiarazioneCambioResidenzaService">
+		<property name="xmlHelper" ref="xmlHelperAnagrafeInput" />
+		<property name="webserviceUrl" value="$dichiarazioniBari{ascotweb.service.url}"/>
+		<property name="protocolloClient" ref="protocolloClientAnagrafe" />
+		<property name="emailClient" ref="emailClient" />
+		<property name="emailAddressDichiarazioniResidenza" value="$dichiarazioniBari{ascotweb.service.emailAddress}"/>
+		<property name="identificativoUtente" value="$dichiarazioniBari{ascotweb.service.identificativoUtente}"/>
+		<property name="passwordUtente" value="$dichiarazioniBari{ascotweb.service.passwordUtente}"/>
+
+		<property name="amministrazioneProtocollo" value="$dichiarazioniBari{ascotweb.protocollo.amministrazione}"/>
+		<property name="aooProtocollo" value="$dichiarazioniBari{ascotweb.protocollo.aoo}"/>
+		<property name="classificazioneProtocollo" value="$dichiarazioniBari{ascotweb.protocollo.classificazione}"/>
+	</bean>
+	
+	<!-- Tributi Input -->
+	<bean  class="it.osapulie.pdds.services.DichiarazioneTassaRifiutiService" init-method="init">
+		<property name="xmlHelper" ref="xmlHelperTributiInput" />
+		<property name="webserviceUrl" value="$dichiarazioniBari{gitri.service.url}"/>
+		<property name="identificativoUtente" value="$dichiarazioniBari{gitri.service.identificativoUtente}"/>
+		<property name="passwordUtente" value="$dichiarazioniBari{gitri.service.passwordUtente}"/>
+		<property name="protocolloClient" ref="protocolloClientTributi" />
+		<property name="emailClient" ref="emailClient" />
+		<property name="emailAddressDichiarazioniTari" value="$dichiarazioniBari{gitri.service.emailAddress}"/>
+		
+		<property name="amministrazioneProtocollo" value="$dichiarazioniBari{gitri.protocollo.amministrazione}"/>
+		<property name="aooProtocollo" value="$dichiarazioniBari{gitri.protocollo.aoo}"/>
+		<property name="classificazioneProtocollo" value="$dichiarazioniBari{gitri.protocollo.classificazione}"/>
+	</bean>
+	<!-- Stradario -->
+	<bean class="it.osapulie.pdds.services.StradarioService">
+		<property name="xmlHelper" ref="xmlHelperServizi" />
+		<property name="xmlHelperStradario" ref="xmlHelperStradario" />
+		<property name="webserviceRicercaCivicoUrl" value="$dichiarazioniBari{stradario.ricercacivico.service.url}"/>
+		<property name="webserviceRicercaViaUrl" value="$dichiarazioniBari{stradario.ricercavia.service.url}"/>
+	</bean>
+	
+	<!-- Stradario Ascot -->
+	<bean class="it.osapulie.pdds.services.StradarioAscotService">
+		<property name="xmlHelper" ref="xmlHelperServizi" />
+	</bean>
+	
+	<bean id="protocolloClientAnagrafe" class="it.osapulie.pdds.client.protocollo.ProtocolloClient">
+		<property name="webserviceUrl" value="$dichiarazioniBari{protocollo.service.url}"/>
+		<property name="idUtenteProtocollatore" value="$dichiarazioniBari{protocollo.anagrafe.service.id.utente}"/>
+		<property name="username" value="$dichiarazioniBari{protocollo.anagrafe.service.username}"/>
+		<property name="password" value="$dichiarazioniBari{protocollo.anagrafe.service.password}"/>
+	</bean>
+
+	<bean id="protocolloClientTributi" class="it.osapulie.pdds.client.protocollo.ProtocolloClient">
+		<property name="webserviceUrl" value="$dichiarazioniBari{protocollo.service.url}"/>
+		<property name="idUtenteProtocollatore" value="$dichiarazioniBari{protocollo.tributi.service.id.utente}"/>
+		<property name="username" value="$dichiarazioniBari{protocollo.tributi.service.username}"/>
+		<property name="password" value="$dichiarazioniBari{protocollo.tributi.service.password}"/>
+	</bean>
+	
+	<bean id="emailClient" class="it.osapulie.pdds.client.email.EmailClient" init-method="init">
+		<property name="protocol" value="$dichiarazioniBari{mail.protocol}"/>
+		<property name="host" value="$dichiarazioniBari{mail.host}"/>
+		<property name="port" value="$dichiarazioniBari{mail.port}"/>
+		<property name="socketPort" value="$dichiarazioniBari{mail.smtp.socketFactory.port}"/>
+		<property name="auth" value="$dichiarazioniBari{mail.smtp.auth}"/>
+		<property name="starttls" value="$dichiarazioniBari{mail.smtp.starttls.enable}"/>
+		<property name="startlls_required" value="$dichiarazioniBari{mail.smtp.starttls.required}"/>
+		<property name="debug" value="$dichiarazioniBari{mail.smtp.debug}"/>
+		<property name="fallback" value="$dichiarazioniBari{mail.smtp.socketFactory.fallback}"/>
+		<property name="from" value="$dichiarazioniBari{mail.from}"/>
+		<property name="username" value="$dichiarazioniBari{mail.username}"/>
+		<property name="password" value="$dichiarazioniBari{mail.password}"/>
+		<property name="timeout" value="$dichiarazioniBari{mail.timeout}"/>
+		<property name="maxSendCounter" value="$dichiarazioniBari{mail.maxSendCounter}"/>
+		<property name="mailUtil" ref="mailUtil"/>
+	</bean>
+	
+	<bean id="mailUtil" class="it.osapulie.pdds.client.email.MailUtil"/>
+	
+	<bean id="protocolloClientAnagrafeTEST" class="it.osapulie.pdds.client.protocollo.ProtocolloClient">
+		<property name="webserviceUrl" value="$dichiarazioniBari{protocollo.test.service.url}"/>
+		<property name="idUtenteProtocollatore" value="$dichiarazioniBari{protocollo.test.anagrafe.service.id.utente}"/>
+		<property name="username" value="$dichiarazioniBari{protocollo.test.anagrafe.service.username}"/>
+		<property name="password" value="$dichiarazioniBari{protocollo.test.anagrafe.service.password}"/>
+	</bean>
+	
+	<bean class="it.osapulie.pdds.services.DichiarazioneCambioResidenzaServiceTEST">
+		<property name="xmlHelper" ref="xmlHelperAnagrafeInput" />
+		<property name="webserviceUrl" value="$dichiarazioniBari{ascotweb.service.url}"/>
+		<property name="protocolloClient" ref="protocolloClientAnagrafeTEST" />
+		<property name="emailClient" ref="emailClient" />
+		<property name="emailAddressDichiarazioniResidenza" value="$dichiarazioniBari{ascotweb.test.service.emailAddress}"/>
+		<property name="identificativoUtente" value="$dichiarazioniBari{ascotweb.service.identificativoUtente}"/>
+		<property name="passwordUtente" value="$dichiarazioniBari{ascotweb.service.passwordUtente}"/>
+
+		<property name="amministrazioneProtocollo" value="$dichiarazioniBari{ascotweb.protocollo.amministrazione}"/>
+		<property name="aooProtocollo" value="$dichiarazioniBari{ascotweb.protocollo.aoo}"/>
+		<property name="classificazioneProtocollo" value="$dichiarazioniBari{ascotweb.protocollo.classificazione}"/>
+	</bean>
+</beans>

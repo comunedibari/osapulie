@@ -1,0 +1,7 @@
+L'operazione di creazione nuova Azienda effettuata da <b>${nomeUtenteCorrente} ${cognomeUtenteCorrente}</b> &eacute; andata a buon fine.
+Di seguito i dettagli dell'operazione: </br>
+
+<br>Azienda creata: <b>${ragSociale}</b></br>
+
+
+Cordiali saluti.

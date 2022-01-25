@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>it.osapulie.build</groupId>
+		<artifactId>3rd-party-libraries</artifactId>
+		<version>1.0</version>
+	</parent>
+	<groupId>it.osapulie.build.3rdparty</groupId>
+	<artifactId>openam</artifactId>
+	<packaging>pom</packaging>
+	<version>9.5.3</version>
+	<name>Open AM</name>
+	<description>Open AM Software dependencies</description>
+
+	<organization>
+		<name>Links Management &amp; Technology S.p.A.</name>
+		<url>http://www.linksmt.it</url>
+	</organization>
+
+	<properties>
+		<!-- Maven Settings -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Dependencies -->
+		<openam.version>953</openam.version>
+	</properties>
+
+	<!-- 
+		https://wikis.forgerock.org/confluence/display/openam/Using+Maven+and+OpenAM
+	 -->
+	<dependencies>
+		<dependency>
+			<groupId>com.forgerock.openam</groupId>
+			<artifactId>amserver</artifactId>
+			<version>${openam.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.forgerock.openam</groupId>
+			<artifactId>sharedlib</artifactId>
+			<version>${openam.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.forgerock.openam</groupId>
+			<artifactId>fedlib</artifactId>
+			<version>${openam.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.forgerock.openam</groupId>
+			<artifactId>clientsdk</artifactId>
+			<version>${openam.version}</version>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dichiarazione_tari_dom_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.6105100000000199"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="268"/>
+	<field name="presenzaFigliAttivitaGenitori" class="java.lang.Boolean"/>
+	<field name="presenzaFigliUnGenitore" class="java.lang.Boolean"/>
+	<field name="numSoggettiHandicap" class="java.lang.String"/>
+	<field name="numComponentiNucleoFamiliare" class="java.lang.String"/>
+	<field name="rc" class="java.lang.String"/>
+	<field name="pag" class="java.lang.String"/>
+	<field name="rcpag" class="java.lang.String"/>
+	<field name="rpm" class="java.lang.String"/>
+	<field name="dc" class="java.lang.String"/>
+	<field name="pmo" class="java.lang.String"/>
+	<field name="dpm" class="java.lang.String"/>
+	<field name="pim" class="java.lang.String"/>
+	<field name="dpi" class="java.lang.String"/>
+	<field name="codiceFiscaleContribuente" class="java.lang.String"/>
+	<field name="dataAttestazione" class="java.lang.String"/>
+	<field name="dataScadenza" class="java.lang.String"/>
+	<field name="valoreISE" class="java.lang.String"/>
+	<field name="scalaEquivalenza" class="java.lang.String"/>
+	<field name="valoreISEE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="700" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="159" width="555" height="135"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="119" width="555" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[      DATI RELATIVI AL MODELLO ISEE (INFORMAZIONI RIFERITE AL NUCLEO FAMILIARE)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="139" width="555" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Compilare gli appositi campi  inerenti l’ISEE  (Indicatore della Situazione  Economica Equivalente)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="467" y="265" width="20" height="18"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="444" y="265" width="20" height="18"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="467" y="210" width="20" height="18"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="444" y="210" width="20" height="18"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="159" width="713" height="135"/>
+				<textElement>
+					<font size="11" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[
+     °  Numero componenti nucleo familiare
+     °  Numero dei soggetti con handicap permanente grave o superiore al 66%
+     °  Presenza di figli minori e solo uno dei genitori                                                                  SI    NO
+     °  Presenza di figli minori, entrambi i genitori (o l’unico genitore se il nucleo è composto
+        esclusivamente dall’unico genitore e dai suoi figli) hanno svolto attività di lavoro o di impresa per
+        almeno sei mesi nell’anno in cui sono stati prodotti i redditi qui dichiarati                        SI    NO
+]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="442" y="172" width="50" height="14"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="442" y="190" width="50" height="14"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="354" width="555" height="257"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="304" width="555" height="40" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[      DATI RELATIVI AL MODELLO ISEE (INFORMAZIONI RIFERITE AL PATRIMONIO MOBILIARE ED IMMOBILIARE DEL
+       NUCLEO FAMILIARE)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="334" width="555" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Compilare gli appositi campi  inerenti l’ISEE  (Indicatore della Situazione  Economica Equivalente)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="400" y="373" width="136" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="400" y="390" width="136" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="400" y="407" width="136" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="400" y="425" width="136" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="400" y="444" width="136" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="400" y="462" width="136" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="400" y="480" width="136" height="13"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="400" y="480" width="19" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ €]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="462" width="19" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ €]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="407" width="19" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ €]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="425" width="19" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ €]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="444" width="19" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ €]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="390" width="19" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ €]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="373" width="19" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ €]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="56" y="373" width="121" height="13"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="56" y="373" width="19" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ €]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="218" y="373" width="121" height="13"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="218" y="373" width="19" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ €]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="354" width="713" height="257"/>
+				<textElement markup="styled">
+					<font size="11" isBold="false" isItalic="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[     °  Somma dei redditi della dichiarazione dei componenti il nucleo familiare
+         (RC)                                           (PAG)                                           (RC+PAG)
+     °  Rendimento del patrimonio mobiliare                                                     (RPM)
+     °  Detrazione per il canone di locazione                                                       (DC)
+     °  Patrimonio mobiliare dei componenti del nucleo familiare                     (PMO)
+     °  Detrazione per il patrimonio mobiliare                                                   (DPM)
+     °  Patrimonio immobiliare dei componenti del nucleo familiare                   (PIM)
+     °  Detrazione per il patrimonio immobiliare dei componenti del nucleo familiare
+     °  Codice fiscale del dichiarante ISEE  -
+     °  Attestazione ISEE rilasciata in data                           con scadenza in data
+     °  <style isBold="true" pdfFontName="Helvetica-Bold">VALORE  ISE</style>
+     °  <style isBold="true" pdfFontName="Helvetica-Bold">Scala di equivalenza</style>                                                     .
+     °  <style isBold="true" pdfFontName="Helvetica-Bold">VALORE  ISEE</style>
+
+]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="179" y="534" width="136" height="13"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="179" y="534" width="19" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ €]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="400" y="498" width="136" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="179" y="551" width="136" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="179" y="568" width="136" height="13"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="179" y="569" width="19" height="16"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ €]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="207" y="517" width="65" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="402" y="517" width="65" height="13"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="76" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[DATI RELATIVI AL MODELLO ISEE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="28" width="555" height="29"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[PARTE A CURA DEL CAF CONVENZIONATO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="444" y="173" width="48" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{numComponentiNucleoFamiliare}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="191" width="48" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{numSoggettiHandicap}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="447" y="213" width="15" height="16">
+					<printWhenExpression><![CDATA[$F{presenzaFigliUnGenitore} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="469" y="213" width="15" height="16">
+					<printWhenExpression><![CDATA[$F{presenzaFigliUnGenitore} == false]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="468" y="268" width="15" height="16">
+					<printWhenExpression><![CDATA[$F{presenzaFigliAttivitaGenitori} == false]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="446" y="268" width="15" height="16">
+					<printWhenExpression><![CDATA[$F{presenzaFigliAttivitaGenitori} == true]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="415" y="373" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{rcpag}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="390" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{rpm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="407" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="425" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pmo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="444" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dpm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="462" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pim}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="480" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dpi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="191" y="534" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{valoreISE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="191" y="569" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{valoreISEE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="191" y="552" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{scalaEquivalenza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="373" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pag}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="373" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{rc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="408" y="518" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dataScadenza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="518" width="120" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dataAttestazione}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="498" width="150" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{codiceFiscaleContribuente}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,2116 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://ws.wso2.org/dataservice" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ws.wso2.org/dataservice">
+    <wsdl:documentation></wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+            <xs:element name="DataServiceFault" type="xs:string"></xs:element>
+            <xs:element name="REQUEST_STATUS" type="xs:string"></xs:element>
+            <xs:element name="DATA_SERVICE_RESPONSE">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any minOccurs="0"></xs:any>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_tb_categoriaimmobile_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_tb_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="descrizione" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="importo" nillable="true" type="xs:double"></xs:element>
+                        <xs:element name="info" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="fk_tipologia_detrazione" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_tb_tributo_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="tb_tributoCollection" type="ns0:tb_tributoCollection"></xs:element>
+            <xs:complexType name="tb_tributoCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tb_tributo" type="ns0:tb_tributo"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="tb_tributo">
+                <xs:sequence>
+                    <xs:element name="ID" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="nome" nillable="true" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="insert_tb_tributo_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="nome" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_tb_agevolazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_tb_categoriaimmobile_tributo_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="tb_categoriaimmobile_tributoCollection" type="ns0:tb_categoriaimmobile_tributoCollection"></xs:element>
+            <xs:complexType name="tb_categoriaimmobile_tributoCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tb_categoriaimmobile_tributo" type="ns0:tb_categoriaimmobile_tributo"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="tb_categoriaimmobile_tributo">
+                <xs:sequence>
+                    <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="fk_tributo" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="codice_tributo" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="aliquota" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="anno" nillable="true" type="xs:integer"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="update_tb_esenzione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="descrizione" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_tributo" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_tb_categoriaimmobile_agevolazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_tributo" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="tb_categoriaimmobile_agevolazioneCollection" type="ns0:tb_categoriaimmobile_agevolazioneCollection"></xs:element>
+            <xs:complexType name="tb_categoriaimmobile_agevolazioneCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tb_categoriaimmobile_agevolazione" type="ns0:tb_categoriaimmobile_agevolazione"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="tb_categoriaimmobile_agevolazione">
+                <xs:sequence>
+                    <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="fk_tributo" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="fk_agevolazione" nillable="true" type="xs:integer"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="delete_tb_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_tb_categoriaimmobile_tributo_by_anno_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="anno" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_tb_categoriaimmobile_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="tb_categoriaimmobileCollection" type="ns0:tb_categoriaimmobileCollection"></xs:element>
+            <xs:complexType name="tb_categoriaimmobileCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tb_categoriaimmobile" type="ns0:tb_categoriaimmobile"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="tb_categoriaimmobile">
+                <xs:sequence>
+                    <xs:element name="ID" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="codice" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="descrizione" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="coefficienteRivalutazione" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="coefficienteMoltiplicazione" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="percentualeProprietario" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="percentualeInquilinoComodatario" nillable="true" type="xs:double"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="update_tb_tributo_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="nome" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_tb_esenzione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_tributo" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="tb_esenzioneCollection" type="ns0:tb_esenzioneCollection"></xs:element>
+            <xs:complexType name="tb_esenzioneCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tb_esenzione" type="ns0:tb_esenzione"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="tb_esenzione">
+                <xs:sequence>
+                    <xs:element name="ID" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="descrizione" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="fk_tributo" nillable="true" type="xs:integer"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="select_all_tb_esenzione_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_tb_categoriaimmobile_tributo_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_tb_categoriaimmobile_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_tb_categoriaimmobile_agevolazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_tributo" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_agevolazione" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_tb_tipologia_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="tb_tipologia_detrazioneCollection" type="ns0:tb_tipologia_detrazioneCollection"></xs:element>
+            <xs:complexType name="tb_tipologia_detrazioneCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tb_tipologia_detrazione" type="ns0:tb_tipologia_detrazione"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="tb_tipologia_detrazione">
+                <xs:sequence>
+                    <xs:element name="ID" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="codice" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="descrizione" nillable="true" type="xs:string"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="select_all_tb_tributo_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_tb_tributo_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_tb_tipologia_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_tb_categoriaimmobile_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_tributo" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_detrazione" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_tb_categoriaimmobile_tributo_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_tributo" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="codice_tributo" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="aliquota" nillable="true" type="xs:double"></xs:element>
+                        <xs:element name="anno" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_tb_tipologia_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_tb_agevolazione_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="tb_agevolazioneCollection" type="ns0:tb_agevolazioneCollection"></xs:element>
+            <xs:complexType name="tb_agevolazioneCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tb_agevolazione" type="ns0:tb_agevolazione"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="tb_agevolazione">
+                <xs:sequence>
+                    <xs:element name="ID" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="nome" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="valore" nillable="true" type="xs:double"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="insert_tb_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="descrizione" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="importo" nillable="true" type="xs:double"></xs:element>
+                        <xs:element name="info" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="fk_tipologia_detrazione" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_tb_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="tb_detrazioneCollection" type="ns0:tb_detrazioneCollection"></xs:element>
+            <xs:complexType name="tb_detrazioneCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tb_detrazione" type="ns0:tb_detrazione"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="tb_detrazione">
+                <xs:sequence>
+                    <xs:element name="ID" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="descrizione" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="importo" nillable="true" type="xs:double"></xs:element>
+                    <xs:element name="info" nillable="true" type="xs:string"></xs:element>
+                    <xs:element name="fk_tipologia_detrazione" nillable="true" type="xs:integer"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="delete_tb_esenzione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_tb_categoriaimmobile_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fk_tributo" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_detrazione" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_tb_categoriaimmobile_by_anno_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="anno" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_tb_categoriaimmobile_agevolazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_tributo" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_agevolazione" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_tb_categoriaimmobile_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="codice" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="descrizione" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="coefficienteRivalutazione" nillable="true" type="xs:double"></xs:element>
+                        <xs:element name="coefficienteMoltiplicazione" nillable="true" type="xs:double"></xs:element>
+                        <xs:element name="percentualeProprietario" nillable="true" type="xs:double"></xs:element>
+                        <xs:element name="percentualeInquilinoComodatario" nillable="true" type="xs:double"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_tb_agevolazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="nome" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="valore" nillable="true" type="xs:double"></xs:element>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_tb_categoriaimmobile_agevolazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fk_agevolazione" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_tb_categoriaimmobile_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_tb_categoriaimmobile_agevolazione_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_tb_categoriaimmobile_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_tributo" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="tb_categoriaimmobile_detrazioneCollection" type="ns0:tb_categoriaimmobile_detrazioneCollection"></xs:element>
+            <xs:complexType name="tb_categoriaimmobile_detrazioneCollection">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tb_categoriaimmobile_detrazione" type="ns0:tb_categoriaimmobile_detrazione"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="tb_categoriaimmobile_detrazione">
+                <xs:sequence>
+                    <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="fk_tributo" nillable="true" type="xs:integer"></xs:element>
+                    <xs:element name="fk_detrazione" nillable="true" type="xs:integer"></xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="update_tb_tipologia_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="codice" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="descrizione" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="delete_tb_categoriaimmobile_tributo_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_tb_categoriaimmobile_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="codice" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="descrizione" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="coefficienteRivalutazione" nillable="true" type="xs:double"></xs:element>
+                        <xs:element name="coefficienteMoltiplicazione" nillable="true" type="xs:double"></xs:element>
+                        <xs:element name="percentualeProprietario" nillable="true" type="xs:double"></xs:element>
+                        <xs:element name="percentualeInquilinoComodatario" nillable="true" type="xs:double"></xs:element>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update_tb_categoriaimmobile_tributo_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fk_tributo" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="codice_tributo" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="aliquota" nillable="true" type="xs:double"></xs:element>
+                        <xs:element name="anno" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_tb_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_tb_agevolazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="nome" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="valore" nillable="true" type="xs:double"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_tb_tipologia_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="codice" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="descrizione" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_all_tb_categoriaimmobile_detrazione_operation">
+                <xs:complexType>
+                    <xs:sequence></xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="insert_tb_esenzione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="descrizione" nillable="true" type="xs:string"></xs:element>
+                        <xs:element name="fk_categoriaimmobile" nillable="true" type="xs:int"></xs:element>
+                        <xs:element name="fk_tributo" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="select_with_key_tb_agevolazione_operation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ID" nillable="true" type="xs:int"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="update_tb_agevolazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_tb_agevolazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_tb_categoriaimmobile_tributo_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_tb_categoriaimmobile_tributo_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_categoriaimmobile_agevolazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_tb_categoriaimmobile_agevolazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_categoriaimmobile_agevolazione_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_categoriaimmobile_agevolazioneCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="DataServiceFault">
+        <wsdl:part name="parameters" element="ns0:DataServiceFault"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_categoriaimmobile_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_tb_categoriaimmobile_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_categoriaimmobile_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_categoriaimmobileCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_categoriaimmobile_by_anno_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_tb_categoriaimmobile_by_anno_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_categoriaimmobile_by_anno_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_categoriaimmobileCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_tb_tipologia_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_tb_tipologia_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_tb_esenzione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_tb_esenzione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_tb_categoriaimmobile_agevolazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_tb_categoriaimmobile_agevolazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_tipologia_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_tb_tipologia_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_tipologia_detrazione_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_tipologia_detrazioneCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_categoriaimmobile_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_tb_categoriaimmobile_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_categoriaimmobile_detrazione_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_categoriaimmobile_detrazioneCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_tb_tributo_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_tb_tributo_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_tb_tipologia_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_tb_tipologia_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_tb_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_tb_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_tb_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_detrazione_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_detrazioneCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_tb_categoriaimmobile_agevolazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_tb_categoriaimmobile_agevolazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_tb_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_tb_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_tb_categoriaimmobile_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_tb_categoriaimmobile_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_tb_tipologia_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_tb_tipologia_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_categoriaimmobile_agevolazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_tb_categoriaimmobile_agevolazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_categoriaimmobile_agevolazione_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_categoriaimmobile_agevolazioneCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_esenzione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_tb_esenzione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_esenzione_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_esenzioneCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_tributo_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_tb_tributo_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_tributo_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_tributoCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_agevolazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_tb_agevolazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_agevolazione_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_agevolazioneCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_categoriaimmobile_tributo_by_anno_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_tb_categoriaimmobile_tributo_by_anno_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_categoriaimmobile_tributo_by_anno_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_categoriaimmobile_tributoCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_tb_tributo_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_tb_tributo_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_categoriaimmobile_tributo_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_tb_categoriaimmobile_tributo_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_categoriaimmobile_tributo_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_categoriaimmobile_tributoCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_tb_esenzione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_tb_esenzione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_tb_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_tb_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_tb_categoriaimmobile_tributo_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_tb_categoriaimmobile_tributo_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_tb_categoriaimmobile_tributo_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_tb_categoriaimmobile_tributo_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_tb_tributo_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_tb_tributo_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_tb_categoriaimmobile_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_tb_categoriaimmobile_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_tb_categoriaimmobile_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_tb_categoriaimmobile_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_tb_categoriaimmobile_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_tb_categoriaimmobile_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_categoriaimmobile_tributo_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_tb_categoriaimmobile_tributo_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_categoriaimmobile_tributo_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_categoriaimmobile_tributoCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_agevolazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_tb_agevolazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_agevolazione_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_agevolazioneCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_tb_categoriaimmobile_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_tb_categoriaimmobile_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="insert_tb_agevolazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:insert_tb_agevolazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_tb_categoriaimmobile_agevolazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_tb_categoriaimmobile_agevolazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="delete_tb_agevolazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:delete_tb_agevolazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_categoriaimmobile_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_with_key_tb_categoriaimmobile_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_with_key_tb_categoriaimmobile_detrazione_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_categoriaimmobile_detrazioneCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_categoriaimmobile_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_tb_categoriaimmobile_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_categoriaimmobile_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_categoriaimmobileCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_tributo_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_tb_tributo_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_tributo_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_tributoCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_tb_categoriaimmobile_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_tb_categoriaimmobile_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="update_tb_esenzione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:update_tb_esenzione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_tipologia_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_tb_tipologia_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_tipologia_detrazione_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_tipologia_detrazioneCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_detrazione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_tb_detrazione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_detrazione_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_detrazioneCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_esenzione_operationRequest">
+        <wsdl:part name="parameters" element="ns0:select_all_tb_esenzione_operation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="select_all_tb_esenzione_operationResponse">
+        <wsdl:part name="parameters" element="ns0:tb_esenzioneCollection"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="categorieImmobiliServicePortType">
+        <wsdl:operation name="update_tb_agevolazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_tb_agevolazione_operationRequest" wsaw:Action="urn:update_tb_agevolazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_tributo_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_tb_categoriaimmobile_tributo_operationRequest" wsaw:Action="urn:delete_tb_categoriaimmobile_tributo_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_agevolazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_tb_categoriaimmobile_agevolazione_operationRequest" wsaw:Action="urn:select_all_tb_categoriaimmobile_agevolazione_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_tb_categoriaimmobile_agevolazione_operationResponse" wsaw:Action="urn:select_all_tb_categoriaimmobile_agevolazione_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_tb_categoriaimmobile_agevolazione_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_tb_categoriaimmobile_operationRequest" wsaw:Action="urn:select_with_key_tb_categoriaimmobile_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_tb_categoriaimmobile_operationResponse" wsaw:Action="urn:select_with_key_tb_categoriaimmobile_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_tb_categoriaimmobile_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_by_anno_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_tb_categoriaimmobile_by_anno_operationRequest" wsaw:Action="urn:select_all_tb_categoriaimmobile_by_anno_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_tb_categoriaimmobile_by_anno_operationResponse" wsaw:Action="urn:select_all_tb_categoriaimmobile_by_anno_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_tb_categoriaimmobile_by_anno_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_tipologia_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_tb_tipologia_detrazione_operationRequest" wsaw:Action="urn:delete_tb_tipologia_detrazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_esenzione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_tb_esenzione_operationRequest" wsaw:Action="urn:insert_tb_esenzione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_agevolazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_tb_categoriaimmobile_agevolazione_operationRequest" wsaw:Action="urn:insert_tb_categoriaimmobile_agevolazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_tipologia_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_tb_tipologia_detrazione_operationRequest" wsaw:Action="urn:select_with_key_tb_tipologia_detrazione_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_tb_tipologia_detrazione_operationResponse" wsaw:Action="urn:select_with_key_tb_tipologia_detrazione_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_tb_tipologia_detrazione_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_tb_categoriaimmobile_detrazione_operationRequest" wsaw:Action="urn:select_all_tb_categoriaimmobile_detrazione_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_tb_categoriaimmobile_detrazione_operationResponse" wsaw:Action="urn:select_all_tb_categoriaimmobile_detrazione_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_tb_categoriaimmobile_detrazione_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_tributo_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_tb_tributo_operationRequest" wsaw:Action="urn:insert_tb_tributo_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_tipologia_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_tb_tipologia_detrazione_operationRequest" wsaw:Action="urn:update_tb_tipologia_detrazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_tb_detrazione_operationRequest" wsaw:Action="urn:delete_tb_detrazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_tb_detrazione_operationRequest" wsaw:Action="urn:select_with_key_tb_detrazione_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_tb_detrazione_operationResponse" wsaw:Action="urn:select_with_key_tb_detrazione_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_tb_detrazione_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_agevolazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_tb_categoriaimmobile_agevolazione_operationRequest" wsaw:Action="urn:update_tb_categoriaimmobile_agevolazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_tb_detrazione_operationRequest" wsaw:Action="urn:insert_tb_detrazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_tb_categoriaimmobile_operationRequest" wsaw:Action="urn:insert_tb_categoriaimmobile_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_tipologia_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_tb_tipologia_detrazione_operationRequest" wsaw:Action="urn:insert_tb_tipologia_detrazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_agevolazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_tb_categoriaimmobile_agevolazione_operationRequest" wsaw:Action="urn:select_with_key_tb_categoriaimmobile_agevolazione_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_tb_categoriaimmobile_agevolazione_operationResponse" wsaw:Action="urn:select_with_key_tb_categoriaimmobile_agevolazione_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_tb_categoriaimmobile_agevolazione_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_esenzione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_tb_esenzione_operationRequest" wsaw:Action="urn:select_with_key_tb_esenzione_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_tb_esenzione_operationResponse" wsaw:Action="urn:select_with_key_tb_esenzione_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_tb_esenzione_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_tributo_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_tb_tributo_operationRequest" wsaw:Action="urn:select_with_key_tb_tributo_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_tb_tributo_operationResponse" wsaw:Action="urn:select_with_key_tb_tributo_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_tb_tributo_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_agevolazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_tb_agevolazione_operationRequest" wsaw:Action="urn:select_with_key_tb_agevolazione_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_tb_agevolazione_operationResponse" wsaw:Action="urn:select_with_key_tb_agevolazione_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_tb_agevolazione_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_tributo_by_anno_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_tb_categoriaimmobile_tributo_by_anno_operationRequest" wsaw:Action="urn:select_all_tb_categoriaimmobile_tributo_by_anno_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_tb_categoriaimmobile_tributo_by_anno_operationResponse" wsaw:Action="urn:select_all_tb_categoriaimmobile_tributo_by_anno_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_tb_categoriaimmobile_tributo_by_anno_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_tributo_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_tb_tributo_operationRequest" wsaw:Action="urn:update_tb_tributo_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_tributo_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_tb_categoriaimmobile_tributo_operationRequest" wsaw:Action="urn:select_all_tb_categoriaimmobile_tributo_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_tb_categoriaimmobile_tributo_operationResponse" wsaw:Action="urn:select_all_tb_categoriaimmobile_tributo_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_tb_categoriaimmobile_tributo_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_esenzione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_tb_esenzione_operationRequest" wsaw:Action="urn:delete_tb_esenzione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_tb_detrazione_operationRequest" wsaw:Action="urn:update_tb_detrazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_tributo_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_tb_categoriaimmobile_tributo_operationRequest" wsaw:Action="urn:update_tb_categoriaimmobile_tributo_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_tributo_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_tb_categoriaimmobile_tributo_operationRequest" wsaw:Action="urn:insert_tb_categoriaimmobile_tributo_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_tributo_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_tb_tributo_operationRequest" wsaw:Action="urn:delete_tb_tributo_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_tb_categoriaimmobile_detrazione_operationRequest" wsaw:Action="urn:insert_tb_categoriaimmobile_detrazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_tb_categoriaimmobile_operationRequest" wsaw:Action="urn:delete_tb_categoriaimmobile_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_tb_categoriaimmobile_detrazione_operationRequest" wsaw:Action="urn:update_tb_categoriaimmobile_detrazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_tributo_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_tb_categoriaimmobile_tributo_operationRequest" wsaw:Action="urn:select_with_key_tb_categoriaimmobile_tributo_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_tb_categoriaimmobile_tributo_operationResponse" wsaw:Action="urn:select_with_key_tb_categoriaimmobile_tributo_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_tb_categoriaimmobile_tributo_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_agevolazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_tb_agevolazione_operationRequest" wsaw:Action="urn:select_all_tb_agevolazione_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_tb_agevolazione_operationResponse" wsaw:Action="urn:select_all_tb_agevolazione_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_tb_agevolazione_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_tb_categoriaimmobile_detrazione_operationRequest" wsaw:Action="urn:delete_tb_categoriaimmobile_detrazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_agevolazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:insert_tb_agevolazione_operationRequest" wsaw:Action="urn:insert_tb_agevolazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_agevolazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_tb_categoriaimmobile_agevolazione_operationRequest" wsaw:Action="urn:delete_tb_categoriaimmobile_agevolazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_agevolazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:delete_tb_agevolazione_operationRequest" wsaw:Action="urn:delete_tb_agevolazione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_with_key_tb_categoriaimmobile_detrazione_operationRequest" wsaw:Action="urn:select_with_key_tb_categoriaimmobile_detrazione_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_with_key_tb_categoriaimmobile_detrazione_operationResponse" wsaw:Action="urn:select_with_key_tb_categoriaimmobile_detrazione_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_with_key_tb_categoriaimmobile_detrazione_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_tb_categoriaimmobile_operationRequest" wsaw:Action="urn:select_all_tb_categoriaimmobile_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_tb_categoriaimmobile_operationResponse" wsaw:Action="urn:select_all_tb_categoriaimmobile_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_tb_categoriaimmobile_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_tributo_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_tb_tributo_operationRequest" wsaw:Action="urn:select_all_tb_tributo_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_tb_tributo_operationResponse" wsaw:Action="urn:select_all_tb_tributo_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_tb_tributo_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_tb_categoriaimmobile_operationRequest" wsaw:Action="urn:update_tb_categoriaimmobile_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_esenzione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:update_tb_esenzione_operationRequest" wsaw:Action="urn:update_tb_esenzione_operation"></wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_tipologia_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_tb_tipologia_detrazione_operationRequest" wsaw:Action="urn:select_all_tb_tipologia_detrazione_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_tb_tipologia_detrazione_operationResponse" wsaw:Action="urn:select_all_tb_tipologia_detrazione_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_tb_tipologia_detrazione_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_detrazione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_tb_detrazione_operationRequest" wsaw:Action="urn:select_all_tb_detrazione_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_tb_detrazione_operationResponse" wsaw:Action="urn:select_all_tb_detrazione_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_tb_detrazione_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_esenzione_operation">
+            <wsdl:documentation></wsdl:documentation>
+            <wsdl:input message="ns0:select_all_tb_esenzione_operationRequest" wsaw:Action="urn:select_all_tb_esenzione_operation"></wsdl:input>
+            <wsdl:output message="ns0:select_all_tb_esenzione_operationResponse" wsaw:Action="urn:select_all_tb_esenzione_operationResponse"></wsdl:output>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:select_all_tb_esenzione_operationDataServiceFault"></soap:fault>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="categorieImmobiliServiceSOAP11Binding" type="ns0:categorieImmobiliServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+        <wsdl:operation name="update_tb_agevolazione_operation">
+            <soap:operation soapAction="urn:update_tb_agevolazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_tributo_operation">
+            <soap:operation soapAction="urn:delete_tb_categoriaimmobile_tributo_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_agevolazione_operation">
+            <soap:operation soapAction="urn:select_all_tb_categoriaimmobile_agevolazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_operation">
+            <soap:operation soapAction="urn:select_with_key_tb_categoriaimmobile_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_by_anno_operation">
+            <soap:operation soapAction="urn:select_all_tb_categoriaimmobile_by_anno_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_tipologia_detrazione_operation">
+            <soap:operation soapAction="urn:delete_tb_tipologia_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_esenzione_operation">
+            <soap:operation soapAction="urn:insert_tb_esenzione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_agevolazione_operation">
+            <soap:operation soapAction="urn:insert_tb_categoriaimmobile_agevolazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_tipologia_detrazione_operation">
+            <soap:operation soapAction="urn:select_with_key_tb_tipologia_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_detrazione_operation">
+            <soap:operation soapAction="urn:select_all_tb_categoriaimmobile_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_tributo_operation">
+            <soap:operation soapAction="urn:insert_tb_tributo_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_tipologia_detrazione_operation">
+            <soap:operation soapAction="urn:update_tb_tipologia_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_detrazione_operation">
+            <soap:operation soapAction="urn:delete_tb_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_detrazione_operation">
+            <soap:operation soapAction="urn:select_with_key_tb_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_agevolazione_operation">
+            <soap:operation soapAction="urn:update_tb_categoriaimmobile_agevolazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_detrazione_operation">
+            <soap:operation soapAction="urn:insert_tb_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_operation">
+            <soap:operation soapAction="urn:insert_tb_categoriaimmobile_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_tipologia_detrazione_operation">
+            <soap:operation soapAction="urn:insert_tb_tipologia_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_agevolazione_operation">
+            <soap:operation soapAction="urn:select_with_key_tb_categoriaimmobile_agevolazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_esenzione_operation">
+            <soap:operation soapAction="urn:select_with_key_tb_esenzione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_tributo_operation">
+            <soap:operation soapAction="urn:select_with_key_tb_tributo_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_agevolazione_operation">
+            <soap:operation soapAction="urn:select_with_key_tb_agevolazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_tributo_by_anno_operation">
+            <soap:operation soapAction="urn:select_all_tb_categoriaimmobile_tributo_by_anno_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_tributo_operation">
+            <soap:operation soapAction="urn:update_tb_tributo_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_tributo_operation">
+            <soap:operation soapAction="urn:select_all_tb_categoriaimmobile_tributo_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_esenzione_operation">
+            <soap:operation soapAction="urn:delete_tb_esenzione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_detrazione_operation">
+            <soap:operation soapAction="urn:update_tb_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_tributo_operation">
+            <soap:operation soapAction="urn:update_tb_categoriaimmobile_tributo_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_tributo_operation">
+            <soap:operation soapAction="urn:insert_tb_categoriaimmobile_tributo_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_tributo_operation">
+            <soap:operation soapAction="urn:delete_tb_tributo_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_detrazione_operation">
+            <soap:operation soapAction="urn:insert_tb_categoriaimmobile_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_operation">
+            <soap:operation soapAction="urn:delete_tb_categoriaimmobile_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_detrazione_operation">
+            <soap:operation soapAction="urn:update_tb_categoriaimmobile_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_tributo_operation">
+            <soap:operation soapAction="urn:select_with_key_tb_categoriaimmobile_tributo_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_agevolazione_operation">
+            <soap:operation soapAction="urn:select_all_tb_agevolazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_detrazione_operation">
+            <soap:operation soapAction="urn:delete_tb_categoriaimmobile_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_agevolazione_operation">
+            <soap:operation soapAction="urn:insert_tb_agevolazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_agevolazione_operation">
+            <soap:operation soapAction="urn:delete_tb_categoriaimmobile_agevolazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_agevolazione_operation">
+            <soap:operation soapAction="urn:delete_tb_agevolazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_detrazione_operation">
+            <soap:operation soapAction="urn:select_with_key_tb_categoriaimmobile_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_operation">
+            <soap:operation soapAction="urn:select_all_tb_categoriaimmobile_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_tributo_operation">
+            <soap:operation soapAction="urn:select_all_tb_tributo_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_operation">
+            <soap:operation soapAction="urn:update_tb_categoriaimmobile_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_esenzione_operation">
+            <soap:operation soapAction="urn:update_tb_esenzione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_tipologia_detrazione_operation">
+            <soap:operation soapAction="urn:select_all_tb_tipologia_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_detrazione_operation">
+            <soap:operation soapAction="urn:select_all_tb_detrazione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_esenzione_operation">
+            <soap:operation soapAction="urn:select_all_tb_esenzione_operation" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"></soap:fault>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="categorieImmobiliServiceSOAP12Binding" type="ns0:categorieImmobiliServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap12:binding>
+        <wsdl:operation name="update_tb_agevolazione_operation">
+            <soap12:operation soapAction="urn:update_tb_agevolazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_tributo_operation">
+            <soap12:operation soapAction="urn:delete_tb_categoriaimmobile_tributo_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_agevolazione_operation">
+            <soap12:operation soapAction="urn:select_all_tb_categoriaimmobile_agevolazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_operation">
+            <soap12:operation soapAction="urn:select_with_key_tb_categoriaimmobile_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_by_anno_operation">
+            <soap12:operation soapAction="urn:select_all_tb_categoriaimmobile_by_anno_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_tipologia_detrazione_operation">
+            <soap12:operation soapAction="urn:delete_tb_tipologia_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_esenzione_operation">
+            <soap12:operation soapAction="urn:insert_tb_esenzione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_agevolazione_operation">
+            <soap12:operation soapAction="urn:insert_tb_categoriaimmobile_agevolazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_tipologia_detrazione_operation">
+            <soap12:operation soapAction="urn:select_with_key_tb_tipologia_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_detrazione_operation">
+            <soap12:operation soapAction="urn:select_all_tb_categoriaimmobile_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_tributo_operation">
+            <soap12:operation soapAction="urn:insert_tb_tributo_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_tipologia_detrazione_operation">
+            <soap12:operation soapAction="urn:update_tb_tipologia_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_detrazione_operation">
+            <soap12:operation soapAction="urn:delete_tb_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_detrazione_operation">
+            <soap12:operation soapAction="urn:select_with_key_tb_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_agevolazione_operation">
+            <soap12:operation soapAction="urn:update_tb_categoriaimmobile_agevolazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_detrazione_operation">
+            <soap12:operation soapAction="urn:insert_tb_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_operation">
+            <soap12:operation soapAction="urn:insert_tb_categoriaimmobile_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_tipologia_detrazione_operation">
+            <soap12:operation soapAction="urn:insert_tb_tipologia_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_agevolazione_operation">
+            <soap12:operation soapAction="urn:select_with_key_tb_categoriaimmobile_agevolazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_esenzione_operation">
+            <soap12:operation soapAction="urn:select_with_key_tb_esenzione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_tributo_operation">
+            <soap12:operation soapAction="urn:select_with_key_tb_tributo_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_agevolazione_operation">
+            <soap12:operation soapAction="urn:select_with_key_tb_agevolazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_tributo_by_anno_operation">
+            <soap12:operation soapAction="urn:select_all_tb_categoriaimmobile_tributo_by_anno_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_tributo_operation">
+            <soap12:operation soapAction="urn:update_tb_tributo_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_tributo_operation">
+            <soap12:operation soapAction="urn:select_all_tb_categoriaimmobile_tributo_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_esenzione_operation">
+            <soap12:operation soapAction="urn:delete_tb_esenzione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_detrazione_operation">
+            <soap12:operation soapAction="urn:update_tb_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_tributo_operation">
+            <soap12:operation soapAction="urn:update_tb_categoriaimmobile_tributo_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_tributo_operation">
+            <soap12:operation soapAction="urn:insert_tb_categoriaimmobile_tributo_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_tributo_operation">
+            <soap12:operation soapAction="urn:delete_tb_tributo_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_detrazione_operation">
+            <soap12:operation soapAction="urn:insert_tb_categoriaimmobile_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_operation">
+            <soap12:operation soapAction="urn:delete_tb_categoriaimmobile_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_detrazione_operation">
+            <soap12:operation soapAction="urn:update_tb_categoriaimmobile_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_tributo_operation">
+            <soap12:operation soapAction="urn:select_with_key_tb_categoriaimmobile_tributo_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_agevolazione_operation">
+            <soap12:operation soapAction="urn:select_all_tb_agevolazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_detrazione_operation">
+            <soap12:operation soapAction="urn:delete_tb_categoriaimmobile_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_agevolazione_operation">
+            <soap12:operation soapAction="urn:insert_tb_agevolazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_agevolazione_operation">
+            <soap12:operation soapAction="urn:delete_tb_categoriaimmobile_agevolazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_agevolazione_operation">
+            <soap12:operation soapAction="urn:delete_tb_agevolazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_detrazione_operation">
+            <soap12:operation soapAction="urn:select_with_key_tb_categoriaimmobile_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_operation">
+            <soap12:operation soapAction="urn:select_all_tb_categoriaimmobile_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_tributo_operation">
+            <soap12:operation soapAction="urn:select_all_tb_tributo_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_operation">
+            <soap12:operation soapAction="urn:update_tb_categoriaimmobile_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_esenzione_operation">
+            <soap12:operation soapAction="urn:update_tb_esenzione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_tipologia_detrazione_operation">
+            <soap12:operation soapAction="urn:select_all_tb_tipologia_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_detrazione_operation">
+            <soap12:operation soapAction="urn:select_all_tb_detrazione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_esenzione_operation">
+            <soap12:operation soapAction="urn:select_all_tb_esenzione_operation" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="categorieImmobiliServiceHttpBinding" type="ns0:categorieImmobiliServicePortType">
+        <http:binding verb="POST"></http:binding>
+        <wsdl:operation name="update_tb_agevolazione_operation">
+            <http:operation location="update_tb_agevolazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_tributo_operation">
+            <http:operation location="delete_tb_categoriaimmobile_tributo_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_agevolazione_operation">
+            <http:operation location="select_all_tb_categoriaimmobile_agevolazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_operation">
+            <http:operation location="select_with_key_tb_categoriaimmobile_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_by_anno_operation">
+            <http:operation location="select_all_tb_categoriaimmobile_by_anno_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_tipologia_detrazione_operation">
+            <http:operation location="delete_tb_tipologia_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_esenzione_operation">
+            <http:operation location="insert_tb_esenzione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_agevolazione_operation">
+            <http:operation location="insert_tb_categoriaimmobile_agevolazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_tipologia_detrazione_operation">
+            <http:operation location="select_with_key_tb_tipologia_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_detrazione_operation">
+            <http:operation location="select_all_tb_categoriaimmobile_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_tributo_operation">
+            <http:operation location="insert_tb_tributo_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_tipologia_detrazione_operation">
+            <http:operation location="update_tb_tipologia_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_detrazione_operation">
+            <http:operation location="delete_tb_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_detrazione_operation">
+            <http:operation location="select_with_key_tb_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_agevolazione_operation">
+            <http:operation location="update_tb_categoriaimmobile_agevolazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_detrazione_operation">
+            <http:operation location="insert_tb_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_operation">
+            <http:operation location="insert_tb_categoriaimmobile_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_tipologia_detrazione_operation">
+            <http:operation location="insert_tb_tipologia_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_agevolazione_operation">
+            <http:operation location="select_with_key_tb_categoriaimmobile_agevolazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_esenzione_operation">
+            <http:operation location="select_with_key_tb_esenzione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_tributo_operation">
+            <http:operation location="select_with_key_tb_tributo_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_agevolazione_operation">
+            <http:operation location="select_with_key_tb_agevolazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_tributo_by_anno_operation">
+            <http:operation location="select_all_tb_categoriaimmobile_tributo_by_anno_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_tributo_operation">
+            <http:operation location="update_tb_tributo_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_tributo_operation">
+            <http:operation location="select_all_tb_categoriaimmobile_tributo_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_esenzione_operation">
+            <http:operation location="delete_tb_esenzione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_detrazione_operation">
+            <http:operation location="update_tb_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_tributo_operation">
+            <http:operation location="update_tb_categoriaimmobile_tributo_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_tributo_operation">
+            <http:operation location="insert_tb_categoriaimmobile_tributo_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_tributo_operation">
+            <http:operation location="delete_tb_tributo_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_categoriaimmobile_detrazione_operation">
+            <http:operation location="insert_tb_categoriaimmobile_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_operation">
+            <http:operation location="delete_tb_categoriaimmobile_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_detrazione_operation">
+            <http:operation location="update_tb_categoriaimmobile_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_tributo_operation">
+            <http:operation location="select_with_key_tb_categoriaimmobile_tributo_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_agevolazione_operation">
+            <http:operation location="select_all_tb_agevolazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_detrazione_operation">
+            <http:operation location="delete_tb_categoriaimmobile_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="insert_tb_agevolazione_operation">
+            <http:operation location="insert_tb_agevolazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_categoriaimmobile_agevolazione_operation">
+            <http:operation location="delete_tb_categoriaimmobile_agevolazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="delete_tb_agevolazione_operation">
+            <http:operation location="delete_tb_agevolazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_with_key_tb_categoriaimmobile_detrazione_operation">
+            <http:operation location="select_with_key_tb_categoriaimmobile_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_categoriaimmobile_operation">
+            <http:operation location="select_all_tb_categoriaimmobile_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_tributo_operation">
+            <http:operation location="select_all_tb_tributo_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_categoriaimmobile_operation">
+            <http:operation location="update_tb_categoriaimmobile_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="update_tb_esenzione_operation">
+            <http:operation location="update_tb_esenzione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_tipologia_detrazione_operation">
+            <http:operation location="select_all_tb_tipologia_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_detrazione_operation">
+            <http:operation location="select_all_tb_detrazione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="select_all_tb_esenzione_operation">
+            <http:operation location="select_all_tb_esenzione_operation"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="categorieImmobiliService">
+        <wsdl:port name="SOAP11Endpoint" binding="ns0:categorieImmobiliServiceSOAP11Binding">
+            <soap:address location="http://10.0.5.19:9764/services/categorieImmobiliService.SOAP11Endpoint/"></soap:address>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:categorieImmobiliServiceSOAP11Binding">
+            <soap:address location="https://10.0.5.19:9444/services/categorieImmobiliService.SecureSOAP11Endpoint/"></soap:address>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:categorieImmobiliServiceSOAP12Binding">
+            <soap12:address location="https://10.0.5.19:9444/services/categorieImmobiliService.SecureSOAP12Endpoint/"></soap12:address>
+        </wsdl:port>
+        <wsdl:port name="SOAP12Endpoint" binding="ns0:categorieImmobiliServiceSOAP12Binding">
+            <soap12:address location="http://10.0.5.19:9764/services/categorieImmobiliService.SOAP12Endpoint/"></soap12:address>
+        </wsdl:port>
+        <wsdl:port name="HTTPEndpoint" binding="ns0:categorieImmobiliServiceHttpBinding">
+            <http:address location="http://10.0.5.19:9764/services/categorieImmobiliService.HTTPEndpoint/"></http:address>
+        </wsdl:port>
+        <wsdl:port name="SecureHTTPEndpoint" binding="ns0:categorieImmobiliServiceHttpBinding">
+            <http:address location="https://10.0.5.19:9444/services/categorieImmobiliService.SecureHTTPEndpoint/"></http:address>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

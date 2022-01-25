@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="visuraOsapTemporaneaService"
+       transports="https http"
+       startOnLoad="true"
+       trace="disable">
+   <target>
+      <endpoint>
+         <address uri="http://localhost:9764/services/visuraOsapTemporaneaService/"/>
+      </endpoint>
+      <outSequence>
+         <send/>
+      </outSequence>
+   </target>
+</proxy>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="false" default-autowire="no" default-dependency-check="none">
+	<!-- Message source for this context, loaded from localized "messages_xx" files -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="basename" value="messages"></property>
+	</bean>
+	<!-- ID Generators -->
+	<bean id="ticketGrantingTicketUniqueIdGenerator" class="org.jasig.cas.util.DefaultUniqueTicketIdGenerator" lazy-init="default" autowire="default" dependency-check="default">
+		<constructor-arg index="0" value="50"></constructor-arg>
+	</bean>
+	<bean id="httpClient" class="org.jasig.cas.util.HttpClient3FactoryBean" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="soTimeout" value="5000"></property>
+		<property name="connectionManagerTimeout" value="5000"></property>
+		<property name="connectionTimeout" value="5000"></property>
+		<property name="defaultMaxConnectionsPerHost" value="50"></property>
+		<property name="maxTotalConnections" value="50"></property>
+	</bean>
+	<bean id="serviceTicketUniqueIdGenerator" class="org.jasig.cas.util.DefaultUniqueTicketIdGenerator" lazy-init="default" autowire="default" dependency-check="default">
+		<constructor-arg index="0" value="20"></constructor-arg>
+	</bean>
+	<!-- Expiration policies -->
+	<bean id="serviceTicketExpirationPolicy" class="org.jasig.cas.ticket.support.MultiTimeUseOrTimeoutExpirationPolicy" lazy-init="default" autowire="default" dependency-check="default">
+		<!-- This argument is the number of times that a ticket can be used before its considered expired. -->
+		<constructor-arg index="0" value="1"></constructor-arg>
+		<!-- This argument is the time a ticket can exist before its considered expired.  -->
+		<constructor-arg index="1" value="300000"></constructor-arg>
+	</bean>
+	<bean id="grantingTicketExpirationPolicy" class="org.jasig.cas.ticket.support.TimeoutExpirationPolicy" lazy-init="default" autowire="default" dependency-check="default">
+		<!-- This argument is the time a ticket can exist before its considered expired.  -->
+		<constructor-arg index="0" value="7200000"></constructor-arg>
+	</bean>
+	<!-- CentralAuthenticationService -->
+	<bean id="centralAuthenticationService" class="org.jasig.cas.CentralAuthenticationServiceImpl" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="ticketGrantingTicketExpirationPolicy" ref="grantingTicketExpirationPolicy"></property>
+		<property name="serviceTicketExpirationPolicy" ref="serviceTicketExpirationPolicy"></property>
+		<property name="authenticationManager" ref="authenticationManager"></property>
+		<property name="ticketGrantingTicketUniqueTicketIdGenerator" ref="ticketGrantingTicketUniqueIdGenerator"></property>
+		<property name="serviceTicketUniqueTicketIdGenerator" ref="serviceTicketUniqueIdGenerator"></property>
+		<property name="ticketRegistry" ref="ticketRegistry"></property>
+	</bean>
+	<bean id="proxy10Handler" class="org.jasig.cas.ticket.proxy.support.Cas10ProxyHandler" lazy-init="default" autowire="default" dependency-check="default"></bean>
+	<bean id="proxy20Handler" class="org.jasig.cas.ticket.proxy.support.Cas20ProxyHandler" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="httpClient" ref="httpClient"></property>
+	</bean>
+	<!-- Ticket Registry -->
+	<bean id="ticketRegistry" class="org.jasig.cas.ticket.registry.DefaultTicketRegistry" lazy-init="default" autowire="default" dependency-check="default"></bean>
+	<!--Quartz -->
+	<!-- TICKET REGISTRY CLEANER -->
+	<bean id="ticketRegistryCleaner" class="org.jasig.cas.ticket.registry.support.DefaultTicketRegistryCleaner" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="ticketRegistry" ref="ticketRegistry"></property>
+	</bean>
+	<bean id="jobDetailTicketRegistryCleaner" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="targetObject" ref="ticketRegistryCleaner"></property>
+		<property name="targetMethod" value="clean"></property>
+	</bean>
+	<bean id="triggerJobDetailTicketRegistryCleaner" class="org.springframework.scheduling.quartz.SimpleTriggerBean" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="jobDetail" ref="jobDetailTicketRegistryCleaner"></property>
+		<!--  How long after the application is started before we start attempting to clean out the registry. -->
+		<property name="startDelay" value="20000"></property>
+		<!-- How often the cleaner should be run to clean out the ticket registry. -->
+		<property name="repeatInterval" value="5000000"></property>
+	</bean>
+	<bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="default" autowire="default" dependency-check="default">
+		<property name="triggers">
+			<list>
+				<ref local="triggerJobDetailTicketRegistryCleaner"></ref>
+			</list>
+		</property>
+	</bean>
+	<!-- ADVISORS -->
+	<bean id="advisorAutoProxyCreator" class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" lazy-init="default" autowire="default" dependency-check="default"></bean>
+</beans>

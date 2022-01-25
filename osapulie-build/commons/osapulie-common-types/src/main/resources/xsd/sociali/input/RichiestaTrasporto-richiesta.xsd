@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="CommonTypes.xsd" />
+	
+	<xs:element name="richiestaTrasportoRichiesta">
+		<xs:annotation>
+			<xs:documentation>Disabili: servizio di trasporto a chiamata con taxi(Interoperabilità) </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="tipoRichiesta" type="xs:string" />
+				<xs:element name="nomeRichiedente" type="xs:string" />
+				<xs:element name="cognomeRichiedente" type="xs:string" />
+				<xs:element name="tipoRichiedente" type="xs:string" />
+				<xs:element name="disabile" type="Soggetto" nillable="true"/>
+				<xs:element name="sediaARotelle" type="xs:boolean" />
+				<xs:element name="isee" type="xs:string" />
+				<xs:element name="annoIsee" type="xs:string" />
+				<xs:element name="tipoSportello" type="xs:string" />
+				<xs:element name="sportello" type="xs:string" />
+				<xs:element name="indirizzoSportello" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

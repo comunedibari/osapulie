@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<!-- 
+		Abilitazione delle annotazioni dichiarative di Spring per la messa in sicurezza dei metodi 
+		(sono più potenti di quelle standard JSR-250).
+		Vedi http://static.springsource.org/spring-security/site/docs/3.0.x/reference/el-access.html#el-access-web
+	 -->
+<!--	<security:global-method-security  secured-annotations="enabled" pre-post-annotations="enabled" />-->
+	
+	<!--
+		Abilitazione delle espressioni di controllo dei permessi anche all'interno delle viste (JSP). 
+	 -->
+	<security:http use-expressions="true" entry-point-ref="preAuthenticatedEntryPoint" />
+	<bean id="preAuthenticatedEntryPoint" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
+
+
+	<!-- ======================================================================
+	 Authentication manager
+	 ====================================================================== -->
+    <security:authentication-manager alias="authenticationManager">
+    	<security:authentication-provider ref="portletAuthProvider" />
+    </security:authentication-manager>
+     
+    <bean id="portletAuthProvider" class="org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationProvider">
+        <property name="preAuthenticatedUserDetailsService" ref="authenticationUserDetailsService" />
+        <property name="throwExceptionWhenTokenRejected" value="true"/>
+    </bean>
+
+	<!-- ======================================================================
+		Security Interceptors
+	 ====================================================================== -->
+    <bean id="portletContextIntegrationInterceptor" class="org.springframework.security.extensions.portlet.PortletSessionContextIntegrationInterceptor" />
+    
+    <bean id="portletAuthenticationInterceptor" class="org.springframework.security.extensions.portlet.PortletProcessingInterceptor">
+        <property name="authenticationDetailsSource" ref="authenticationDetailsSource" />
+        <property name="authenticationManager" ref="authenticationManager"/>
+        <!-- Liferay doesn't seem to set the authType -->
+        <property name="useAuthTypeAsCredentials" value="false"/>
+    </bean>
+    
+    <bean id="servicePortletAccessHandlerInterceptorAdapter" class="it.osapulie.web.portlet.interceptor.ServicePortletAccessHandlerInterceptorAdapter" />
+
+	<!-- 
+		DEFAULT
+	 -->
+
+	<!-- UserDetailsService di default (recupera solo username e ruoli)
+	<bean id="authenticationUserDetailsService" class="org.springframework.security.web.authentication.preauth.PreAuthenticatedGrantedAuthoritiesUserDetailsService" />
+	 -->
+
+	<!-- 
+	<bean id="authenticationDetailsSource"
+		class="org.springframework.security.extensions.portlet.PortletPreAuthenticatedAuthenticationDetailsSource">
+		<property name="mappableRolesRetriever">
+			<bean
+				class="org.springframework.security.core.authority.mapping.SimpleMappableAttributesRetriever">
+				<property name="mappableAttributes">
+					<set>
+						<value>Administrator</value>
+						<value>Guest</value>
+						<value>User</value>
+						<value>Power User</value>
+					</set>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	 -->
+
+	<!-- ======================================================================
+		User Details per OS Apulie
+	 ====================================================================== -->
+	<!-- UserDetailsService che è a conoscenza dei profili utente di OS Apulie  -->	
+	<bean id="authenticationUserDetailsService" 
+		class="it.osapulie.infrastructure.security.impl.OSApuliePreAuthenticatedGrantedAuthoritiesUserDetailsService" />
+
+	<bean id="authenticationDetailsSource"
+		class="it.osapulie.infrastructure.security.impl.OSApuliePortletPreAuthenticatedAuthenticationDetailsSource">
+		<property name="mappableRolesRetriever">
+			<bean
+				class="org.springframework.security.core.authority.mapping.SimpleMappableAttributesRetriever">
+				<property name="mappableAttributes">
+					<set>
+						<!-- Some standard liferay roles -->
+						<value>Administrator</value>
+						<value>Guest</value>
+						<value>User</value>
+						<value>Power User</value>
+					</set>
+				</property>
+			</bean>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="Indirizzo">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per un indirizzo completo</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="comune" type="Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Codice ISTAT del comune</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="via" type="Codifica">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Codice/descrizione della via</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="civico">
+				<xs:annotation>
+					<xs:documentation xml:lang="it">Dati del civico</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="codice" type="xs:string" minOccurs="0" />
+						<xs:element name="numero" type="xs:int" />
+						<xs:element name="esponente" type="xs:string" minOccurs="0" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="localita" type="xs:string" minOccurs="0" />
+			<xs:element name="cap" type="xs:string" minOccurs="0" />
+			<xs:element name="corte" type="xs:string" minOccurs="0" />
+			<xs:element name="piano" type="xs:string" minOccurs="0" />
+			<xs:element name="interno" type="xs:string" minOccurs="0" />
+			<xs:element name="scala" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Documento">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i documenti allegati alla dichiarazione</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="nome" type="xs:string" />
+			<xs:element name="titolo" type="xs:string" minOccurs="0" />
+			<xs:element name="descrizione" type="xs:string" minOccurs="0" />
+			<xs:element name="contenuto" type="xs:base64Binary" />
+			<xs:element name="contentType" type="xs:string" />
+			<xs:element name="principale" type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Codifica">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati relativi a qualsiasi dato codificato: permette di definire, per ogni tipo di dato per cui e' prevista una codifica, la coppia
+				di valori codice/descrizione</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="codice" type="xs:string" minOccurs="0"/>
+			<xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Immobile">
+		<xs:sequence>
+			<xs:element name="indirizzo" type="Indirizzo"/>
+			<xs:element name="datiCatastali" type="DatiCatastali" />
+			<xs:element name="codiceCatasto" type="xs:string" minOccurs="0" />
+			<xs:element name="tipoCatasto" type="xs:string" minOccurs="0" />
+			<xs:element name="classe" type="xs:string" minOccurs="0" />
+			<xs:element name="categoriaImmobile" type="xs:string"  minOccurs="0"/>
+			<xs:element name="valoreImmobile" type="xs:double" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>espresso in centesimi di euro</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="numeroProtocollo" type="xs:string" minOccurs="0" />
+			<xs:element name="dataProtocollo" type="xs:date" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="DatiCatastali">
+		<xs:annotation>
+			<xs:documentation xml:lang="it">Tipo di dato complesso per i dati catastali di un immobile/fabbricato/area</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="sezione" type="xs:string" minOccurs="0" />
+			<xs:element name="foglio" type="xs:int" />
+			<xs:element name="particella" type="xs:int" />
+			<xs:element name="subalterno" type="xs:int" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

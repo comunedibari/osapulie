@@ -1,0 +1,62 @@
+.mainDiv .datiAnagraficiAvanzatitable .autenticazioneTd IMG {
+	margin-top: 5px;
+	vertical-align: bottom;
+}
+
+.mainDiv .datiAnagraficiAvanzatitable .autenticazioneTd SPAN {
+	font-weight: bold;
+	margin-left: 5px;
+}
+
+.buttonsDiv {
+	margin: 15px;
+	text-align: center;
+	padding: 15px;
+	text-decoration: none;
+}
+
+.buttonsDiv A.button {
+	border-radius: 4px 4px 4px 4px;
+	margin: 2px 4px 2px 2px;
+	padding-bottom: 7px;
+	padding-top: 6px;
+	text-decoration: none !important;
+}
+
+.buttonsDiv A.button SPAN {
+	margin: 10px;
+}
+
+.upperCase {
+	text-transform: uppercase;
+}
+
+.errorField {
+	background: url("../images/error.png") no-repeat scroll 6px 50% #FFDDDD;
+	border: 1px solid #FF0000;
+	font-weight: bold;
+	margin: 6px 15px 15px 0;
+	padding: 3px 6px 3px 30px;
+	text-align: left;
+}
+
+.mainDiv TABLE .serviziListBox {
+	width: 300px;
+}
+
+TABLE {
+	width: 100%;
+}
+
+.liferayUiDate {
+	min-width: 230px;
+}
+
+.datiObbligatoriDiv {
+	text-align: right;
+	color: #5B677D;
+}
+
+.textarea {
+	width: 100%;
+}

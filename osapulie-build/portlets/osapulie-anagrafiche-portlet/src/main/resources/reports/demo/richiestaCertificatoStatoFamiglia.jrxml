@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="richiestaCertificatoStatoFamiglia" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="0.9313819845887327"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="comune" class="java.lang.String"/>
+	<parameter name="viaRes" class="java.lang.String"/>
+	<parameter name="comuneRes" class="java.lang.String"/>
+	<parameter name="provRes" class="java.lang.String"/>
+	<parameter name="capRes" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\WSLinks\\ComuneBari\\osapulie-build\\portlets\\osapulie-anagrafiche-portlet\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subreportParameters" class="java.util.List"/>
+	<parameter name="uso" class="java.lang.String"/>
+	<parameter name="provinciaNascita" class="java.lang.String"/>
+	<parameter name="comuneNascita" class="java.lang.String"/>
+	<parameter name="provinciaNascitaFam" class="java.lang.String"/>
+	<parameter name="comuneNascitaFam" class="java.lang.String"/>
+	<field name="cognome" class="java.lang.String">
+		<fieldDescription><![CDATA[cognome]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="dataNascita" class="java.util.Calendar">
+		<fieldDescription><![CDATA[dataNascita]]></fieldDescription>
+	</field>
+	<field name="codiceFiscale" class="java.lang.String"/>
+	<field name="cittadinanzaItaliana" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="118" splitType="Stretch">
+			<staticText>
+				<reportElement x="105" y="79" width="344" height="27"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICATO DI STATO DI FAMIGLIA]]></text>
+			</staticText>
+			<image hAlign="Center">
+				<reportElement key="Logo" x="234" y="4" width="86" height="69" isRemoveLineWhenBlank="true"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="256" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="27" width="555" height="28"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[SI CERTIFICA  CHE ]]></text>
+			</staticText>
+			<textField pattern="">
+				<reportElement x="44" y="111" width="233" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome} + " " + $F{cognome}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="44" y="151" width="499" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["nato il " + new java.text.SimpleDateFormat("dd/MM/yyyy").format($F{dataNascita}.getTime()) + " a " + $P{comuneNascita} + " (" + $P{provinciaNascita} + ")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="44" y="131" width="317" height="20"/>
+				<textFieldExpression><![CDATA["Codice Fiscale  " +  $F{codiceFiscale}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="44" y="191" width="348" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["in "+$P{viaRes}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="44" y="171" width="369" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["residente a " +$P{comuneRes}+" ("+$P{provRes}+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="44" y="74" width="473" height="24"/>
+				<text><![CDATA[In questo registro della popolazione risulta iscritto lo stato di famiglia sotto riportato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="211" width="100" height="20"/>
+				<text><![CDATA[INTESTATARIO]]></text>
+			</staticText>
+		</band>
+		<band height="61">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="58"/>
+				<subreportParameter name="comuneNascitaFam">
+					<subreportParameterExpression><![CDATA[$P{comuneNascitaFam}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="provinciaNascitaFam">
+					<subreportParameterExpression><![CDATA[$P{provinciaNascitaFam}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{subreportParameters})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["/reports/demo/richiestaCertificatoStatoFamiglia_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="248" splitType="Prevent">
+			<textField pattern="">
+				<reportElement x="44" y="72" width="233" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{comune} + ", " + new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="361" y="92" width="156" height="28"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IL SINDACO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="26" y="162" width="491" height="20"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Utilizzo: " + $P{uso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="26" y="186" width="491" height="50"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Il presente certificato non può essere prodotto agli organi della pubblica amministrazione o ai privati gestori di pubblici servizi.
+
+(l'articolo 15, comma 1, della legge 12 novembre 2011, n. 183)]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="84">
+			<image>
+				<reportElement x="0" y="0" width="555" height="83"/>
+				<imageExpression><![CDATA["/reports/images/timbro_digitale.png"]]></imageExpression>
+			</image>
+		</band>
+	</lastPageFooter>
+</jasperReport>

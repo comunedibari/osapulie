@@ -1,0 +1,366 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://servizi.osapulie.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://servizi.osapulie.it">
+    <wsdl:documentation/>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://servizi.osapulie.it">
+            <xs:element name="getRataVisuraPubblicheAffissioni">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="identificativoRata" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="rateVisuraPubblicheAffissioni" type="ns0:rateVisuraPubblicheAffissioni"/>
+            <xs:complexType name="rateVisuraPubblicheAffissioni">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="rataVisuraPubblicheAffissioni" type="ns0:rataVisuraPubblicheAffissioni"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="rataVisuraPubblicheAffissioni">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="importoRata" nillable="true" type="xs:double"/>
+                    <xs:element name="scadenzaRata" nillable="true" type="xs:date"/>
+                    <xs:element name="numeroRata" nillable="true" type="xs:integer"/>
+                    <xs:element name="identificativoRata" nillable="true" type="xs:string"/>
+                    <xs:element name="importoPagato" nillable="true" type="xs:double"/>
+                    <xs:element name="dataPagamento" nillable="true" type="xs:date"/>
+                    <xs:element name="idVisura" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getPosizioniVisuraPubblicheAffissioni">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idVisura" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="posizioniVisuraPubblicheAffissioni" type="ns0:posizioniVisuraPubblicheAffissioni"/>
+            <xs:complexType name="posizioniVisuraPubblicheAffissioni">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="posizioneVisuraPubblicheAffissioni" type="ns0:posizioneVisuraPubblicheAffissioni"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="posizioneVisuraPubblicheAffissioni">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="numeroFogli" nillable="true" type="xs:integer"/>
+                    <xs:element name="numeroManifesti" nillable="true" type="xs:integer"/>
+                    <xs:element name="giorniAffissione" nillable="true" type="xs:integer"/>
+                    <xs:element name="tariffa" nillable="true" type="xs:double"/>
+                    <xs:element name="dimensioneManifesti" nillable="true" type="xs:string"/>
+                    <xs:element name="idVisura" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getVisuraPubblicheAffissioni">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="visurePubblicheAffissioni" type="ns0:visurePubblicheAffissioni"/>
+            <xs:complexType name="visurePubblicheAffissioni">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="visuraPubblicheAffissioni" type="ns0:visuraPubblicheAffissioni"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="visuraPubblicheAffissioni">
+                <xs:sequence>
+                    <xs:element name="id" nillable="true" type="xs:integer"/>
+                    <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                    <xs:element name="dataAggiornamento" nillable="true" type="xs:date"/>
+                    <xs:element name="contoCorrente" nillable="true" type="xs:string"/>
+                    <xs:element name="importoDocumento" nillable="true" type="xs:double"/>
+                    <xs:element name="numeroDocumento" nillable="true" type="xs:string"/>
+                    <xs:element name="annoRiferimento" nillable="true" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getRateVisuraPubblicheAffissioni">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="idVisura" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getVisurePubblicheAffissioni">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="codiceFiscale" nillable="true" type="xs:string"/>
+                        <xs:element name="annoDa" nillable="true" type="xs:int"/>
+                        <xs:element name="annoA" nillable="true" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+            <xs:element name="DataServiceFault" type="xs:string"/>
+            <xs:element name="REQUEST_STATUS" type="xs:string"/>
+            <xs:element name="DATA_SERVICE_RESPONSE">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getRateVisuraPubblicheAffissioniRequest">
+        <wsdl:part name="parameters" element="ns0:getRateVisuraPubblicheAffissioni"/>
+    </wsdl:message>
+    <wsdl:message name="getRateVisuraPubblicheAffissioniResponse">
+        <wsdl:part name="parameters" element="ns0:rateVisuraPubblicheAffissioni"/>
+    </wsdl:message>
+    <wsdl:message name="DataServiceFault">
+        <wsdl:part name="parameters" element="ns1:DataServiceFault"/>
+    </wsdl:message>
+    <wsdl:message name="getPosizioniVisuraPubblicheAffissioniRequest">
+        <wsdl:part name="parameters" element="ns0:getPosizioniVisuraPubblicheAffissioni"/>
+    </wsdl:message>
+    <wsdl:message name="getPosizioniVisuraPubblicheAffissioniResponse">
+        <wsdl:part name="parameters" element="ns0:posizioniVisuraPubblicheAffissioni"/>
+    </wsdl:message>
+    <wsdl:message name="getVisurePubblicheAffissioniRequest">
+        <wsdl:part name="parameters" element="ns0:getVisurePubblicheAffissioni"/>
+    </wsdl:message>
+    <wsdl:message name="getVisurePubblicheAffissioniResponse">
+        <wsdl:part name="parameters" element="ns0:visurePubblicheAffissioni"/>
+    </wsdl:message>
+    <wsdl:message name="getRataVisuraPubblicheAffissioniRequest">
+        <wsdl:part name="parameters" element="ns0:getRataVisuraPubblicheAffissioni"/>
+    </wsdl:message>
+    <wsdl:message name="getRataVisuraPubblicheAffissioniResponse">
+        <wsdl:part name="parameters" element="ns0:rateVisuraPubblicheAffissioni"/>
+    </wsdl:message>
+    <wsdl:message name="getVisuraPubblicheAffissioniRequest">
+        <wsdl:part name="parameters" element="ns0:getVisuraPubblicheAffissioni"/>
+    </wsdl:message>
+    <wsdl:message name="getVisuraPubblicheAffissioniResponse">
+        <wsdl:part name="parameters" element="ns0:visurePubblicheAffissioni"/>
+    </wsdl:message>
+    <wsdl:portType name="visuraPubblicheAffissioniServicePortType">
+        <wsdl:operation name="getRateVisuraPubblicheAffissioni">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getRateVisuraPubblicheAffissioniRequest" wsaw:Action="urn:getRateVisuraPubblicheAffissioni"/>
+            <wsdl:output message="ns0:getRateVisuraPubblicheAffissioniResponse" wsaw:Action="urn:getRateVisuraPubblicheAffissioniResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getRateVisuraPubblicheAffissioniDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraPubblicheAffissioni">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getPosizioniVisuraPubblicheAffissioniRequest" wsaw:Action="urn:getPosizioniVisuraPubblicheAffissioni"/>
+            <wsdl:output message="ns0:getPosizioniVisuraPubblicheAffissioniResponse" wsaw:Action="urn:getPosizioniVisuraPubblicheAffissioniResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getPosizioniVisuraPubblicheAffissioniDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getVisurePubblicheAffissioni">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getVisurePubblicheAffissioniRequest" wsaw:Action="urn:getVisurePubblicheAffissioni"/>
+            <wsdl:output message="ns0:getVisurePubblicheAffissioniResponse" wsaw:Action="urn:getVisurePubblicheAffissioniResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisurePubblicheAffissioniDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getRataVisuraPubblicheAffissioni">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getRataVisuraPubblicheAffissioniRequest" wsaw:Action="urn:getRataVisuraPubblicheAffissioni"/>
+            <wsdl:output message="ns0:getRataVisuraPubblicheAffissioniResponse" wsaw:Action="urn:getRataVisuraPubblicheAffissioniResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getRataVisuraPubblicheAffissioniDataServiceFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraPubblicheAffissioni">
+            <wsdl:documentation/>
+            <wsdl:input message="ns0:getVisuraPubblicheAffissioniRequest" wsaw:Action="urn:getVisuraPubblicheAffissioni"/>
+            <wsdl:output message="ns0:getVisuraPubblicheAffissioniResponse" wsaw:Action="urn:getVisuraPubblicheAffissioniResponse"/>
+            <soap:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:getVisuraPubblicheAffissioniDataServiceFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="visuraPubblicheAffissioniServiceSOAP11Binding" type="ns0:visuraPubblicheAffissioniServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getRateVisuraPubblicheAffissioni">
+            <soap:operation soapAction="urn:getRateVisuraPubblicheAffissioni" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraPubblicheAffissioni">
+            <soap:operation soapAction="urn:getPosizioniVisuraPubblicheAffissioni" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisurePubblicheAffissioni">
+            <soap:operation soapAction="urn:getVisurePubblicheAffissioni" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRataVisuraPubblicheAffissioni">
+            <soap:operation soapAction="urn:getRataVisuraPubblicheAffissioni" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraPubblicheAffissioni">
+            <soap:operation soapAction="urn:getVisuraPubblicheAffissioni" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraPubblicheAffissioniServiceSOAP12Binding" type="ns0:visuraPubblicheAffissioniServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getRateVisuraPubblicheAffissioni">
+            <soap12:operation soapAction="urn:getRateVisuraPubblicheAffissioni" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraPubblicheAffissioni">
+            <soap12:operation soapAction="urn:getPosizioniVisuraPubblicheAffissioni" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisurePubblicheAffissioni">
+            <soap12:operation soapAction="urn:getVisurePubblicheAffissioni" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRataVisuraPubblicheAffissioni">
+            <soap12:operation soapAction="urn:getRataVisuraPubblicheAffissioni" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraPubblicheAffissioni">
+            <soap12:operation soapAction="urn:getVisuraPubblicheAffissioni" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <soap:fault name="DataServiceFault">
+                <soap12:fault use="literal" name="DataServiceFault"/>
+            </soap:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="visuraPubblicheAffissioniServiceHttpBinding" type="ns0:visuraPubblicheAffissioniServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getRateVisuraPubblicheAffissioni">
+            <http:operation location="getRateVisuraPubblicheAffissioni"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPosizioniVisuraPubblicheAffissioni">
+            <http:operation location="getPosizioniVisuraPubblicheAffissioni"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVisurePubblicheAffissioni">
+            <http:operation location="getVisurePubblicheAffissioni"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRataVisuraPubblicheAffissioni">
+            <http:operation location="getRataVisuraPubblicheAffissioni"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVisuraPubblicheAffissioni">
+            <http:operation location="getVisuraPubblicheAffissioni"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="visuraPubblicheAffissioniService">
+        <wsdl:port name="SOAP11Endpoint" binding="ns0:visuraPubblicheAffissioniServiceSOAP11Binding">
+            <soap:address location="http://10.0.5.19:9764/services/visuraPubblicheAffissioniService.SOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:visuraPubblicheAffissioniServiceSOAP11Binding">
+            <soap:address location="https://10.0.5.19:9444/services/visuraPubblicheAffissioniService.SecureSOAP11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:visuraPubblicheAffissioniServiceSOAP12Binding">
+            <soap12:address location="https://10.0.5.19:9444/services/visuraPubblicheAffissioniService.SecureSOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SOAP12Endpoint" binding="ns0:visuraPubblicheAffissioniServiceSOAP12Binding">
+            <soap12:address location="http://10.0.5.19:9764/services/visuraPubblicheAffissioniService.SOAP12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="HTTPEndpoint" binding="ns0:visuraPubblicheAffissioniServiceHttpBinding">
+            <http:address location="http://10.0.5.19:9764/services/visuraPubblicheAffissioniService.HTTPEndpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="SecureHTTPEndpoint" binding="ns0:visuraPubblicheAffissioniServiceHttpBinding">
+            <http:address location="https://10.0.5.19:9444/services/visuraPubblicheAffissioniService.SecureHTTPEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

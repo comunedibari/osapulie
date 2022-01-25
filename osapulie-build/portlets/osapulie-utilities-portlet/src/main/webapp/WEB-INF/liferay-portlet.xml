@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.0.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_0_0.dtd">
+<!-- 
+	Liferay portlet manifest.
+ -->
+<liferay-portlet-app>
+	
+	<portlet>
+		<portlet-name>osapulie-stampa</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-statistiche</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-testservizi</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-redirect</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-stampaparametri</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+	</portlet>
+	<portlet>
+		<portlet-name>osapulie-testdichiarazioni</portlet-name>
+		<instanceable>false</instanceable>
+		<private-session-attributes>false</private-session-attributes>
+		<header-portlet-css>/css/style.css</header-portlet-css>
+	</portlet>
+</liferay-portlet-app>

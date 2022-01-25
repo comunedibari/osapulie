@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Liferay manifest file for portlet categorization.
+	At deployment time, the information from liferay-display.xml is used to register
+	the portlet with the Liferay portal server.
+ -->
+<display>
+	<category name="category.osapulie">
+		<portlet id="osapulie-listaservizi"></portlet>
+		<portlet id="osapulie-selezioneprofilo"></portlet>
+		<portlet id="osapulie-gestionecomuni"></portlet>
+		<portlet id="osapulie-gestionecategorieimmobili"></portlet>
+		<portlet id="osapulie-gestionedeleghe"></portlet>
+		<portlet id="osapulie-gestionepin"></portlet>
+		<portlet id="osapulie-gestionefascicolo"></portlet>
+		<portlet id="osapulie-segnalazione"></portlet>
+		<portlet id="osapulie-logocomune"></portlet>
+		<portlet id="osapulie-circolaritaanagrafica"></portlet>
+		<portlet id="osapulie-gestioneaziende"></portlet>
+		<portlet id="osapulie-gestioneutenti"></portlet>
+		<portlet id="osapulie-gestionecaf"></portlet>
+		<portlet id="osapulie-monitoraggio"></portlet>
+	</category>
+</display>

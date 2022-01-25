@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+  <!--
+
+Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.3.0 
+Vedere <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
+Generato il: 2018.10.31 alle 06:29:40 PM CET 
+
+  -->
+  <bindings xmlns:tns="urn:IRIS:SIPResult.xsd" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="it.eng.tz.area.vasta.conservazione.ws.sip.result.client"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="tns:SIPResult">
+      <class ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.SIPResult"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:Item">
+      <class ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.Item"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:InfoRiepilogoXTipoItem">
+      <class ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.InfoRiepilogoXTipoItem"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:File">
+      <class ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.File"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:MessaggioErrore">
+      <class ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.MessaggioErrore"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:ErroreWarning">
+      <class ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.ErroreWarning"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:Description">
+      <class ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.Description"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:ShortDescription">
+      <class ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.ShortDescription"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:LongDescription">
+      <class ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.LongDescription"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:Hash">
+      <class ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.Hash"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:ProduttoreSIP">
+      <class ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.ProduttoreSIP"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:Applicazione">
+      <class ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.Applicazione"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:FormaGiuridica">
+      <typesafeEnumClass ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.FormaGiuridica"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:ItemType">
+      <typesafeEnumClass ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.ItemType"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:SIPItemOper">
+      <typesafeEnumClass ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.SIPItemOper"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:RelVsSD">
+      <typesafeEnumClass ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.RelVsSD"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:CodiceEsitoElabSIP">
+      <typesafeEnumClass ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.CodiceEsitoElabSIP"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:CodiceEsitoElabItemDoc">
+      <typesafeEnumClass ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.CodiceEsitoElabItemDoc"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:HashFunc">
+      <typesafeEnumClass ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.HashFunc"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:DigestEncoding">
+      <typesafeEnumClass ref="it.eng.tz.area.vasta.conservazione.ws.sip.result.client.DigestEncoding"/>
+    </bindings>
+  </bindings>
+</bindings>

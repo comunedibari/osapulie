@@ -1,0 +1,15 @@
+#column-1,.portlet-title,.company-title,.community-title,.page-title,#navigation,.powered-by,.breadcrumbs,.dockbar,.printButton {
+	display: none;
+	width: 0px;
+}
+#column-2,#mainDiv,.printDiv,.printForm {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+.portlet {
+	border: 0px;
+}
+.print-only {
+	display: block;
+}

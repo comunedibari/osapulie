@@ -1,0 +1,589 @@
+/*generic classes*/
+.leftFloat{
+	float: left;
+}
+.rightFloat{
+	float: right;
+}
+.noFloat{
+	float: none;
+}
+.reset{
+	clear: both;
+	overflow: hidden;
+	height: 0px;
+	min-height: 0px;
+	font-size: 0px;
+	line-height: 0px;
+}
+ul,li{
+	list-style: none;
+}
+ul{
+	margin: 0.5em;
+}
+.noMargin{
+	margin: 0 !important;
+}
+.margin5{
+	margin: 5px;
+}
+.marginTop5{
+	margin-top: 5px;
+}
+.marginBottom5{
+	margin-bottom: 5px;
+}
+.marginLeft5{
+	margin-left: 5px;
+}
+.marginRight5{
+	margin-right: 5px;
+}
+.margin10{
+	margin: 10px;
+}
+.marginTop10{
+	margin-top: 10px;
+}
+.marginBottom10{
+	margin-bottom: 10px;
+}
+.marginLeft10{
+	margin-left: 10px;
+}
+.marginRight10{
+	margin-right: 10px;
+}
+.padding5{
+	padding: 5px;
+}
+.paddingTop5{
+	padding-top: 5px;
+}
+.paddingBottom5{
+	padding-bottom: 5px;
+}
+.paddingLeft5{
+	padding-left: 5px;
+}
+.paddingRight5{
+	padding-right: 5px;
+}
+.padding10{
+	padding: 10px;
+}
+.paddingTop10{
+	padding-top: 10px;
+}
+.paddingBottom10{
+	padding-bottom: 10px;
+}
+.paddingLeft10{
+	padding-left: 10px;
+}
+.paddingRight10{
+	padding-right: 10px;
+}
+.padding20{
+	padding: 20px;
+}
+.paddingTop20{
+	padding-top: 20px;
+}
+.paddingBottom20{
+	padding-bottom: 20px;
+}
+.paddingLeft20{
+	padding-left: 20px;
+}
+.paddingRight20{
+	padding-right: 20px;
+}
+.container_pulsante{
+	margin: 10px 0;
+	text-align: center;
+	background: #fafafa;
+	padding: 10px;
+}
+.contenitore_fafafa{
+	background: #fafafa;
+	margin: 10px 0;
+	padding: 5px;
+}
+.spacer{
+	display: inline-block;
+	width: 50px;
+	height: 1px;
+	background: transparent;
+	font-size: 0px;
+	line-height: 0px;
+}
+
+/*ovveride liferay classes*/
+html{
+	overflow: auto;
+}
+body{
+	font-family: Arial,Helvetica Neue,Helvetica,sans-serif; 
+	font-size: 13px;
+	line-height: 22px;
+	color: #777;
+}
+.custom_pulsante.disabled{
+	background: #999 !important;
+	cursor: not-allowed !important;
+}
+label{
+	font-weight: bold;
+}
+fieldset{
+    border: 1px solid #eef0f2;
+    margin-bottom: 15px !important;
+}
+legend {
+    background: none repeat scroll 0 0 #828282;
+    color: #fff;
+    font-weight: bold;
+    padding: 2px 0.5%;
+    text-align: center;
+    width: 99%;
+}
+table,
+table.genericTable{
+	width: 100%;
+	font-size: 13px;
+	margin-bottom: 15px;
+}
+table tr th,
+table.genericTable tr th{
+	vertical-align: middle;
+}
+table tr td,
+table.genericTable tr td{
+	padding: 5px 3px;
+	vertical-align: top;
+}
+table.noPadding tr td{
+	padding: 2px 0 !important;
+}
+.portlet-msg-info,
+.portlet-msg-success,
+.portlet-msg-danger,
+.portlet-msg-alert{
+	margin: 10px auto;
+	font-weight: bold;
+}
+
+#banner{
+	background: #fff;
+}
+#banner .heading_wrapper,
+#banner .navigation_wrapper{
+	margin: 0 auto;
+	min-width: 960px;
+	max-width: 90%;
+}
+#banner .heading_wrapper{
+	position: relative;
+	background: #fff;
+}
+#heading{
+	padding: 20px 0;
+}
+
+#banner .navigation{
+	background: #828282;
+}
+#banner .navigation_wrapper{
+	background: #828282;
+}
+.languageBox{
+	position: absolute;
+	right: 0px;
+	top: 20%;
+}
+.languageBox #portlet_82.portlet{
+	background: transparent;
+	border: none;
+	box-shadow: none;
+}
+.languageBox #portlet_82.portlet .portlet-topper{
+	display: none;
+}
+
+#banner .signIn{
+    bottom: 20px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    font-weight: bold;
+    min-height: 24px;
+}
+#banner .signIn #sign-in,
+#banner .signIn #sign-out,
+#banner .signIn #register{
+	font-weight: bold;
+	margin-left: 15px;
+	vertical-align: text-bottom;
+	display: inline-block;
+	padding-left: 30px;
+	min-height: 24px;
+	vertical-align: top;
+}
+#banner .signIn #sign-in{
+	background: transparent url('../images/common/login.png') scroll left center no-repeat;
+}
+#banner .signIn #sign-out{
+	background: transparent url('../images/common/logout.png') scroll left center no-repeat;
+}
+#banner .signIn #register{
+	background: transparent url('../images/portale/register.png') scroll left center no-repeat;
+}
+
+#footer{
+	background: #fff;
+	min-height: 50px;
+	text-align: center;
+	line-height: 20px;
+}
+#footer .footer_wrapper{
+	background: #fff;
+	min-width: 960px;
+	max-width: 90%;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+#footer img{
+	height: auto;
+	max-width: 100%;
+}
+
+/*asset publisher*/
+.portlet-asset-publisher ul.title-list .title-list a.taglib-icon .taglib-text{
+	text-decoration: none;
+}
+.portlet-asset-publisher ul.title-list .title-list img.icon{
+	display: none;
+}
+.portlet-asset-publisher li.title-list{
+    background: #fafafa;
+    border-left: 3px solid #ee1b22;
+    clear: both;
+    list-style: outside none none;
+    margin-bottom: 0.2em;
+    margin-right: 0;
+    padding: 10px;
+}
+.portlet-asset-publisher .taglib-header .header-back-to a{
+	float: none;
+}
+.portlet-asset-publisher .taglib-header .header-title{
+	display: none;
+}
+.portlet-asset-publisher .asset-full-content.show-asset-title .asset-content{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+/*layout*/
+/* .osapulie-home #column-1{ */
+/* 	background: #828282; */
+/* } */
+/* .osapulie-home .portlet-column-content-only, */
+/* .osapulie-home .portlet-column-content-first, */
+/* .osapulie-home .portlet-column-content-last{ */
+/* 	padding-left: 5px !important; */
+/* } */
+
+
+/*portlet*/
+/*classi generiche*/
+.mainDiv{
+	padding: 5px;
+}
+.mainDiv .titoletto{
+	color: #EE1B22;
+	font-weight: bold;
+}
+.mainDiv .titoletto.color9e2596{
+	color: #9e2596;
+}
+.mainDiv .row .titoletto{
+	font-size: 16px;
+	margin-bottom: 10px;
+	line-height: 20px;
+}
+
+
+/* DisplayTable */
+.elencoRisultati{
+	clear: both;
+	border: 1px solid #cccccc;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 2px;
+}
+.elencoRisultati TH{
+	background-color: #f6f6f6;
+	color: #666 !important;
+	font-weight: bold;
+	padding: 4px;
+}
+.elencoRisultati TH.sorted{
+	padding-left: 15px;
+}
+.elencoRisultati TH.sorted.order1{
+	background-image: url(../images/01_up.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 15px;
+}
+.elencoRisultati TH.sorted.order2{
+	background-image: url(../images/01_down.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 15px;
+}
+.elencoRisultati TH.sortable a{
+	text-decoration: none;
+}
+.elencoRisultati TD{
+	padding: 2px 3px;
+	vertical-align: middle !important;
+}
+.elencoRisultati TR.even TD{
+	background-color: #F6F6F6;
+}
+.elencoRisultati TR.odd TD{
+	background-color: #ffffff;
+}
+.elencoRisultati TR TD.centerTd,.elencoRisultati TR TH.centerTd{
+	text-align: center;
+}
+.elencoRisultati TD.campoLabel{
+	vertical-align: top;
+	font-weight: bold;
+}
+.paginazioneRisultati{
+	text-align: right;
+	padding: 3px;
+	font-weight: bold;
+}
+.paginazionePagine{
+	padding: 3px;
+	text-align: center;
+}
+.paginazionePagine STRONG{
+	color: #EE1B22 !important;
+	padding: 0px 3px;
+}
+.paginazionePagine A{
+	padding: 0px 3px;
+}
+.paginazionePagine A:link,.paginazionePagine A:visited{
+	color: #666 !important;
+}
+.paginazionePagine A:hover{
+	text-decoration: underline;
+	color: #EE1B22 !important;
+}
+.nessunRisultato{
+	margin: 10px;
+}
+
+.aui-datepicker-display,
+.aui-datepicker-select-wrapper,
+.aui-field-date .aui-datepicker-display,
+.aui-field-date .aui-datepicker-select-wrapper,
+.aui-datepicker-button-wrapper{
+	float: none !important;
+	display: inline-block !important; 
+}
+.aui-datepicker-button-wrapper .aui-buttonitem-content{
+	border: none !important;
+	background: transparent !important;
+	vertical-align: top !important;
+}
+/***********************/
+
+/*portlet stampa*/
+#p_p_id_osapuliestampa_WAR_osapulieutilitiesportlet_{
+	position: absolute;
+	top: 8px;
+	right: 10px;
+}
+
+.mainDiv ul.elenco{
+	margin-left: 20px !important;
+}
+
+
+/*home menuservizi*/
+.serviziPerTipologia li,
+.serviziPerAreaTematica li,
+.serviziPerComune li{
+}
+.serviziPerTipologia li a,
+.serviziPerAreaTematica li a,
+.serviziPerComune li a{
+	display: block;
+	padding: 3px 5px;
+}
+.serviziPerTipologia li a:hover,
+.serviziPerAreaTematica li a:hover,
+.serviziPerComune li a:hover{
+	background: #828282;
+	color: #fff;
+}
+.serviziPerTipologia li a.active,
+.serviziPerAreaTematica li a.active,
+.serviziPerComune li a.active,
+.serviziPerTipologia li a.active:hover,
+.serviziPerAreaTematica li a.active:hover,
+.serviziPerComune li a.active:hover{
+	background: #EE1B22;
+	color: #fff;
+}
+
+/*home infoservizio*/
+.descrizioneServizioDiv{
+	border: 1px solid #EEF0F2;
+}
+.descrizioneServizioDiv .nomeServizio{
+	background: #828282;
+	color: #fff;
+	padding: 5px;
+}
+.descrizioneServizioDiv .tipologieServizio,
+.descrizioneServizioDiv .areaTematicaServizio,
+.descrizioneServizioDiv .comuniServizio{
+	padding: 5px;
+}
+.descrizioneServizioDiv .areaTematicaServizio .nomeArea{
+	padding: 0.5em;
+}
+.descrizioneServizioDiv .labelAutenticazioneForte{
+	font-style: italic;
+	font-size: 11px;
+}
+
+/*home linkservizio*/
+
+/*dichiarazionetassaimmobili*/
+.datiObbligatoriDiv{
+	font-size: 11px;
+	font-style: italic;
+}
+.dichiarazioneTassaImmobili legend{
+    background: #ebdaeb;
+    color: #9e2596;
+    width: 100%;
+}
+
+/*calcoloImu*/
+table.calcoloImuTable th{
+	text-align: center !important;
+	font-size: 11px;
+}
+table.calcoloImuTable td{
+	text-align: center !important;
+	border-bottom: 1px solid #eee;
+	border-top: 1px solid #eee;
+}
+
+/*portlet servizi*/
+.areaTematicaServiziTitle{
+	background-attachment: scroll;
+	background-color: #fafafa;
+	background-position: center right;
+	background-repeat: no-repeat;
+	background-image: url('../images/chiuso.png');
+	cursor: pointer;
+	padding: 5px;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+.areaTematicaServiziTitle.aperto{
+	background-image: url('../images/aperto.png') !important;
+}
+
+/*portlet dei loghi dei comuni*/
+.logoComuni{
+    position: absolute;
+    bottom: 50px;
+    right: 75px;
+}
+.logoComuni .logoComuneDiv img.logoComuneImg{
+	max-width: 80px;
+	width: 80px;
+}
+
+/*descrizione dei servizi*/
+.descrizioneServizio{
+	font-size: 12px;
+/* 	font-style: italic; */
+	margin-bottom: 10px;
+}
+
+table.richTable{
+	background: #fafafa;
+/* 	border: 2px solid #e5e5e5; */
+}
+table.richTable tr td{
+	padding: 2px 5px;
+/* 	border-bottom: 1px solid #fff; */
+}
+table.richTable tr td:first-child{
+	background: #e5e5e5;
+	color: #444;
+}
+table.richTable tr td.cellaVuota{
+/* 	padding: 1px 0; */
+/* 	background: #ee1b22; */
+	padding: 2px 0;
+	background: #e5e5e5;
+	border: none;
+}
+table.richTable tr td.cellaPiena{
+/* 	padding: 1px 0; */
+	padding: 2px 0;
+	background: #e5e5e5;
+	border: none;
+}
+table.richTableWhite{
+	background: #fff;
+/* 	border: 2px solid #e5e5e5; */
+}
+table.richTableWhite tr td{
+	padding: 2px 5px;
+	border-bottom: 1px solid #e5e5e5;
+}
+table.richTableWhite tr td:first-child{
+	background: #fff;
+	color: #444;
+}
+table.richTableWhite tr td.cellaVuota{
+/* 	padding: 1px 0; */
+/* 	background: #828282; */
+	padding: 2px 0;
+	background: #fafafa;
+	border: none;
+}
+table.richTableWhite tr td.cellaPiena{
+	padding: 1px 0;
+	background: #e5e5e5;
+	border: none;
+}
+table.widthAuto{
+	width: auto;
+}
+
+.iscrizioneVolontariato table.genericTable input[type="checkbox"],
+.richiestaServizioRifiuti table.genericTable input[type="checkbox"],
+.iscrizionePromoSociale table.genericTable input[type="checkbox"]{
+	margin-right: 5px;
+	vertical-align: middle;
+}

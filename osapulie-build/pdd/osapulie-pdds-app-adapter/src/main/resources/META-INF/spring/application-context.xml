@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd">
+
+	<context:annotation-config />
+	
+	<bean class="it.osapulie.pdds.adapter.PortaApplicativaAdapter" init-method="init"/>
+	
+	<bean id="wsSystemPropertiesConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	    <property name="ignoreResourceNotFound" value="true" />
+	    <property name="placeholderPrefix" value="$webservices{" />
+	    <property name="placeholderSuffix" value="}" />
+	    <property name="locations">
+            <list>
+		    	<value>classpath:/webservices.properties</value>
+                <!-- <value>file:/opt/osapulie/commons.properties</value> -->
+            </list>
+	    </property>
+    </bean>
+
+	<bean id="commonsSystemPropertiesConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	    <property name="ignoreResourceNotFound" value="true" />
+	    <property name="placeholderPrefix" value="$commons{" />
+	    <property name="placeholderSuffix" value="}" />
+	    <property name="locations">
+            <list>
+                <value>classpath:/commons.properties</value>
+                <!-- <value>file:/opt/osapulie/commons.properties</value> -->
+            </list>
+	    </property>
+    </bean>
+    
+	<oxm:jaxb2-marshaller id="marshallerInterrogaDoc" contextPath="it.linksmt.protocollo.ws.client.icar.interrogaDoc"/>
+	<oxm:jaxb2-marshaller id="marshallerInterrogaFasc" contextPath="it.linksmt.protocollo.ws.client.icar.interrogaFasc"/>
+	<oxm:jaxb2-marshaller id="marshallerRicercaDoc" contextPath="it.linksmt.protocollo.ws.client.icar.ricercaDoc"/>
+	
+	<oxm:jaxb2-marshaller id="marshallerAnagrafe" contextPath="it.osapulie.anagrafe.web.ws.output.types"/>
+	<oxm:jaxb2-marshaller id="marshallerTributi" contextPath="it.osapulie.tributi.web.ws.output.types"/>
+	<oxm:jaxb2-marshaller id="marshallerServizi" contextPath="it.osapulie.servizi.web.ws.types"/>
+	<oxm:jaxb2-marshaller id="marshallerProtocollo" contextPath="it.osapulie.protocollo.web.ws.types"/>
+	<oxm:jaxb2-marshaller id="marshallerPratiche" contextPath="it.osapulie.pratiche.web.ws.types"/>
+	<oxm:jaxb2-marshaller id="marshallerDocumenti" contextPath="it.osapulie.documenti.web.ws.output.types"/>
+
+	<bean id="xmlHelperInterrogaDoc" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerInterrogaDoc" />
+		<property name="unmarshaller" ref="marshallerInterrogaDoc" />
+	</bean>
+	
+	<bean id="xmlHelperInterrogaFasc" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerInterrogaFasc" />
+		<property name="unmarshaller" ref="marshallerInterrogaFasc" />
+	</bean>
+	
+	<bean id="xmlHelperRicercaDoc" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerRicercaDoc" />
+		<property name="unmarshaller" ref="marshallerRicercaDoc" />
+	</bean>
+	
+	<bean id="xmlHelperAnagrafiche" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerAnagrafe" />
+		<property name="unmarshaller" ref="marshallerAnagrafe" />
+	</bean>
+
+	<bean id="xmlHelperTributi" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerTributi" />
+		<property name="unmarshaller" ref="marshallerTributi" />
+	</bean>
+	
+	<bean id="xmlHelperServizi" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerServizi" />
+		<property name="unmarshaller" ref="marshallerServizi" />
+	</bean>
+
+	<bean id="xmlHelperProtocollo" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerProtocollo" />
+		<property name="unmarshaller" ref="marshallerProtocollo" />
+	</bean>
+
+	<bean id="xmlHelperPratiche" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerPratiche" />
+		<property name="unmarshaller" ref="marshallerPratiche" />
+	</bean>
+	
+	<bean id="xmlHelperDocumenti" class="it.osapulie.pdds.adapter.util.impl.XMLHelperImpl">
+		<property name="marshaller" ref="marshallerDocumenti" />
+		<property name="unmarshaller" ref="marshallerDocumenti" />
+	</bean>
+
+	<!-- Servizi comuni -->
+	<bean id="commonService" class="it.osapulie.pdds.service.internal.CommonService" >
+		<property name="webservicesBaseUrl" value="$webservices{esb.ws.base.url}"/>
+	</bean>
+	
+	<!-- Altri servizi -->
+	<bean class="it.osapulie.pdds.service.internal.servizi.ServiziAttiviService" >
+		<property name="xmlHelper" ref="xmlHelperServizi" />
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.servizi.StradarioService" >
+		<property name="xmlHelper" ref="xmlHelperServizi" />
+	</bean>
+	
+	<!-- Anagrafici -->
+	<bean class="it.osapulie.pdds.service.internal.anagrafiche.DatiAnagraficiGeneraliService" >
+		<property name="xmlHelper" ref="xmlHelperAnagrafiche" />
+		<property name="webservicesBaseUrl" value="$webservices{esb.ws.base.url}"/>
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.anagrafiche.RichiestaDatiAnagraficiService" >
+		<property name="xmlHelper" ref="xmlHelperAnagrafiche" />
+		<property name="webservicesBaseUrl" value="$webservices{esb.ws.base.url}"/>
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.anagrafiche.RichiestaDatiElettoraliService" >
+		<property name="xmlHelper" ref="xmlHelperAnagrafiche" />
+		<property name="webservicesBaseUrl" value="$webservices{esb.ws.base.url}"/>
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.anagrafiche.RichiestaVariazioniDomiciliariService" >
+		<property name="xmlHelper" ref="xmlHelperAnagrafiche" />
+		<property name="webservicesBaseUrl" value="$webservices{esb.ws.base.url}"/>
+	</bean>
+	
+	<!-- Protocollo -->
+	<bean class="it.osapulie.pdds.service.internal.protocollo.InterrogaDocService" >
+		<property name="xmlHelper" ref="xmlHelperInterrogaDoc" />
+		<property name="webservicesBaseUrl" value="$webservices{protocollo.ws.base.url}"/>
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.protocollo.InterrogaFascService" >
+		<property name="xmlHelper" ref="xmlHelperInterrogaFasc" />
+		<property name="webservicesBaseUrl" value="$webservices{protocollo.ws.base.url}"/>
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.protocollo.RicercaService" >
+		<property name="xmlHelper" ref="xmlHelperRicercaDoc" />
+		<property name="webservicesBaseUrl" value="$webservices{protocollo.ws.base.url}"/>
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.protocollo.DettaglioAllegatoService" >
+		<property name="xmlHelper" ref="xmlHelperProtocollo" />
+		<property name="webservicesBaseUrl" value="$webservices{protocollo.ws.base.url}"/>
+		<property name="protocolloUsername" value="$webservices{protocollo.ws.user}"/>
+		<property name="protocolloPassword" value="$webservices{protocollo.ws.password}"/>
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.protocollo.DettaglioProtocolloService" >
+		<property name="xmlHelper" ref="xmlHelperProtocollo" />
+		<property name="webservicesBaseUrl" value="$webservices{protocollo.ws.base.url}"/>
+		<property name="protocolloUsername" value="$webservices{protocollo.ws.user}"/>
+		<property name="protocolloPassword" value="$webservices{protocollo.ws.password}"/>
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.protocollo.RichiestaProtocolloService" >
+		<property name="xmlHelper" ref="xmlHelperProtocollo" />
+		<property name="webservicesBaseUrl" value="$webservices{protocollo.ws.base.url}"/>
+		<property name="protocolloUsername" value="$webservices{protocollo.ws.user}"/>
+		<property name="protocolloPassword" value="$webservices{protocollo.ws.password}"/>
+	</bean>
+	
+	<!-- Tributi -->
+	<bean class="it.osapulie.pdds.service.internal.tributi.VisuraPosizioneTributariaService" >
+		<property name="xmlHelper" ref="xmlHelperTributi" />
+		<property name="commonService" ref="commonService" />
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.tributi.VisuraServiziCimiterialiService" >
+		<property name="xmlHelper" ref="xmlHelperTributi" />
+		<property name="webservicesBaseUrl" value="$webservices{esb.ws.base.url}"/>
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.tributi.PagamentoServiziRichiestaService" >
+		<property name="xmlHelper" ref="xmlHelperTributi" />
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.tributi.VisuraTosapRichiestaService" >
+		<property name="xmlHelper" ref="xmlHelperTributi" />
+		<property name="webservicesBaseUrl" value="$webservices{esb.ws.base.url}"/>
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.tributi.VisuraTosapTemporaneaRichiestaService" >
+		<property name="xmlHelper" ref="xmlHelperTributi" />
+		<property name="webservicesBaseUrl" value="$webservices{esb.ws.base.url}"/>
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.tributi.VisuraTassaRifiutiService" >
+		<property name="xmlHelper" ref="xmlHelperTributi" />
+		<property name="commonService" ref="commonService" />
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.tributi.VisuraDichiarazioneTassaRifiutiService" >
+		<property name="xmlHelper" ref="xmlHelperTributi" />
+		<property name="commonService" ref="commonService" />
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.tributi.CategorieImmobiliService" >
+		<property name="xmlHelper" ref="xmlHelperTributi" />
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.tributi.VisuraTasiService" >
+		<property name="xmlHelper" ref="xmlHelperTributi" />
+		<property name="commonService" ref="commonService" />
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.tributi.VisuraDichiarazioneTassaImmobiliService" >
+		<property name="xmlHelper" ref="xmlHelperTributi" />
+		<property name="commonService" ref="commonService" />
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.tributi.VisuraPosizioneTributariaPagamentiService" >
+		<property name="xmlHelper" ref="xmlHelperTributi" />
+		<property name="commonService" ref="commonService" />
+		<property name="webservicesBaseUrl" value="$webservices{esb.ws.base.url}"/>
+	</bean>
+	
+	<!-- Documenti -->
+	<bean class="it.osapulie.pdds.service.internal.documenti.VisuraDocumentiAnagrafeService" >
+		<property name="xmlHelper" ref="xmlHelperDocumenti" />
+		<property name="webservicesBaseUrl" value="$webservices{esb.ws.base.url}"/>
+	</bean>
+	<bean class="it.osapulie.pdds.service.internal.documenti.VisuraDocumentiTributiService" >
+		<property name="xmlHelper" ref="xmlHelperDocumenti" />
+		<property name="webservicesBaseUrl" value="$webservices{esb.ws.base.url}"/>
+	</bean>
+</beans>

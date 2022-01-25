@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://ws.web.pratiche.osapulie.it"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified"
+	targetNamespace="http://ws.web.pratiche.osapulie.it" version="1.0">
+
+	<xs:include schemaLocation="UserInfo.xsd" />
+	<xs:include schemaLocation="ProfiloUtenteDto.xsd" />
+
+	<xs:element name="uploadFile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="arg0" type="tns:userInfo" />
+				<xs:element minOccurs="0" name="arg1" type="xs:string" />
+				<xs:element minOccurs="0" name="arg2" type="xs:string" />
+				<xs:element minOccurs="0" name="arg3" type="xs:base64Binary" />
+				<xs:element minOccurs="0" name="arg4" type="tns:profiloUtenteDto" />
+				<xs:element minOccurs="0" name="arg5" type="xs:string" />
+				<xs:element minOccurs="0" name="arg6" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
