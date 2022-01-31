@@ -28,9 +28,9 @@ it:
   piattaforme:
     anpr: false
     cie: false
-    spid: false
+    spid: true
 legal:
-  license: EUPL-1.2
+  license: GPL-3.0-or-later
 localisation:
   availableLanguages:
     - it
@@ -45,6 +45,11 @@ maintenance:
 name: osapulie
 platforms:
   - web
+  - windows
+  - linux
+  - mac
+  - ios
+  - android
 releaseDate: '2021-03-01'
 softwareType: standalone/web
 url: 'https://github.com/comunedibari/osapulie'
