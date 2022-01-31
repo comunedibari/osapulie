@@ -1,32 +1,40 @@
 # OSAPULIE AREA VASTA BARI
 
+![image](https://user-images.githubusercontent.com/60508933/151830233-43c25c2c-6333-4e9f-87b1-a34f76952557.png)
+
 Il seguente readme ha l'obiettivo di descrivere brevemente i moduli che compongono il portale Osapulie per Area Vasta e descrivere i prerequisiti e gli step necessari alla costruzione dell'artefatto
 
 ### INFORMAZIONI GENERALI
 
-Osapulie-build si compone dei seguenti moduli:
+L'applicativo è formato dai seguenti moduli:
+- **osapulie-build**, composto dai moduli:
 
- - **commons**, composto dai moduli:
-	- **common** *(metodi in comune tra le portlet)*
-	- **common-audit** *(modulo per la gestione del log audit)*
-	- **common-types** *(classi comuni generate da xsd)*
-	- **shared** *(vedere paragrafo su configurazione liferay e tomcat)*
- - **osapulie-liferay-hook** *(in ambiente di sviluppo non utilizzato)*
- - **pdd**, che contiene tutte le classi utilizzate dalla porta di dominio  *(in ambiente di sviluppo attualmente non utilizzato)*
- - **portlets**, composto dai moduli:
-	- **anagrafiche-portlet** *(portlet per la gestione dell'anagrafica degli utenti)*
-	- **catalogoservizi-portlet** *(portlet di accesso e descrizione dei servizi)*
-	- **consultazionepraticheweb-portlet** *(portlet per la consultazione delle pratiche associate agli utenti)*
-	- **fascicoloutente-ws** *(non utilizzato)*
-	- **pagamenti-portlet** *(portlet per la compilazione dei bolletini di pagamento)*
-	- **profiloutente-portlet** *(portlet per la gestione del profilo degli utenti)*
-	- **servizicomune-portlet** *(portlet per la gestione dei servizi associati ai comuni)*
-	- **sociali-portlet** *(portlet per i servizi di assistenza e volontariato)*
-	- **tributi-portlet** *(portlet per la gestione dei servizi finanziari e delle tasse)*
-	- **utilities-portlet** *(portlet per la stampa, per i test e per la gestione degli errori)*
- - **themes**, che contiene il tema usato da osapulie
- - **utils**, che contiene una utility per la sincronizzazione tra modello jpa e db
-
+ 	- **commons**, composto dai moduli:
+		- **common** *(metodi in comune tra le portlet)*
+		- **common-audit** *(modulo per la gestione del log audit)*
+		- **common-types** *(classi comuni generate da xsd)*
+		- **shared** *(vedere paragrafo su configurazione liferay e tomcat)*
+ 	- **osapulie-liferay-hook** *(in ambiente di sviluppo non utilizzato)*
+ 	- **pdd**, che contiene tutte le classi utilizzate dalla porta di dominio  *(in ambiente di sviluppo attualmente non utilizzato)*
+ 	- **portlets**, composto dai moduli:
+		- **anagrafiche-portlet** *(portlet per la gestione dell'anagrafica degli utenti)*
+		- **catalogoservizi-portlet** *(portlet di accesso e descrizione dei servizi)*
+		- **consultazionepraticheweb-portlet** *(portlet per la consultazione delle pratiche associate agli utenti)*
+		- **fascicoloutente-ws** *(non utilizzato)*
+		- **pagamenti-portlet** *(portlet per la compilazione dei bolletini di pagamento)*
+		- **profiloutente-portlet** *(portlet per la gestione del profilo degli utenti)*
+		- **servizicomune-portlet** *(portlet per la gestione dei servizi associati ai comuni)*
+		- **sociali-portlet** *(portlet per i servizi di assistenza e volontariato)*
+		- **tributi-portlet** *(portlet per la gestione dei servizi finanziari e delle tasse)*
+		- **utilities-portlet** *(portlet per la stampa, per i test e per la gestione degli errori)*
+ 	- **themes**, che contiene il tema usato da osapulie
+ 	- **utils**, che contiene una utility per la sincronizzazione tra modello jpa e db
+- **Cookie portlet**: Portlet Liferay per la gestione dei cookies
+- **osapulie-pdds-dichiarazionibari**: modulo per la cooperazione applicativa con la pdd del comune di Bari
+- **osapulie-pdds-visuradocumenti**: contiene tutte le classi utilizzate dalla porta di dominio per la visura dei documenti sue/suap*(in ambiente di sviluppo attualmente non utilizzato)*
+- **osapulie-ws-stubs**: modulo di backend per la gestione delle logiche di cooperazione applicativa tramite ws con software di backoffice comunale (general purpose)
+- **osapulie_pa_api**: modulo deprecato e non documentato
+- **shibboleth-build**: modulo Shibboleth per l'autenticazione SPID
 
 ### FILE DI CONFIGURAZIONE APPLICATIVI
 
@@ -41,16 +49,8 @@ Per poter buildare l'applicativo è necessario che siano soddisfatti i seguenti 
 **JDK**: è necessario che la JDK sia installata. Si richiede installazione di *JDK 1.6*
 **Maven**: è necessario che il software Apache Maven sia installato sulla macchina. Il software è stato testato su *Apache Maven 3.5.2*. Quindi una qualsiasi versione di Maven 3.x dovrebbe essere sufficiente
 
-### DATABASE
-
-I DB per lo sviluppo sono installati sulla macchina **192.168.11.193:3306**, a cui si accede con le credenziali root/root, e sono:
-- *osapulie*
-- *lportal_osapulie*
-
 ### CONFIGURAZIONE SERVER LDAP
 
-Il software utilizza LDAP come repository degli utenti, un piccolo dump di LDAP di produzione è il file "*backup_ldap.ldif*".
-Le credenziali di accesso a LDAP sono: username "*dc=Directory Manager,dc=servizionline,dc=it*" e password "*area_vasta_ldap_admin_2018*".
 Per cambiare le credenziali di accesso, loggarsi come admin al portale e poi configurazione -> autenticazione -> ldap
 
 
@@ -85,8 +85,6 @@ Per costruire i vari artefatti digitare dopo aver lanciato i file .sh o .bat ind
 `mvn clean install -Dmaven.test.skip=true -P collaudo`: 
 
 `mvn clean install -Dmaven.test.skip=true -P produzione`: 
-
-`mvn clean install -Dmaven.test.skip=true -P test_torre`:  verranno creati gli artefatti dell'ambiente di test di torre annunziata coincidente con la macchina 10.0.5.9
 
 ### DETTAGLI ORGANIZZAZIONE LIFERAY
 
@@ -167,3 +165,16 @@ Per il corretto funzionamento della tavoletta wacom per l'acquisizione della fir
 
 Se si presentano problemi di visualizzazione dello schermo sulla tavoletta grafica, bisogna installare sul pc i driver DisplayLink:
 - https://www.displaylink.com/downloads
+
+Status del progetto:
+Versione stabile
+
+Detentori di copyright: 
+Software rilasciato da Municipia spa per l’amministrazione comunale di Bari con possibilità di riuso per la pubblica amministrazione.
+
+Nomi dei soggetti incaricati del mantenimento del progetto:
+Municipia SPA
+
+Per segnalazioni di sicurezza:
+[Segnalazioni AVMTB](mailto:avb.protocollo@eslabs.eng.it?subject=[OSAPULIE]%20Sengalazione%20di%20Sicurezza)
+
