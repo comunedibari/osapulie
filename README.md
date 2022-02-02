@@ -2,6 +2,10 @@
 
 ![image](https://user-images.githubusercontent.com/60508933/151830233-43c25c2c-6333-4e9f-87b1-a34f76952557.png)
 
+Osapulie rappresenta il core del progetto egov - Area Vasta Metropolitana Terra di Bari, portale di e-gov finalizzato ad offrire servizi al cittadino (anagrafici, tributari) e servizi ai professionisti (SUE, SUAP).
+
+Per la componente anagrafe e tributi, i moduli applicativi sono presenti in questo repository.
+
 Il seguente readme ha l'obiettivo di descrivere brevemente i moduli che compongono il portale Osapulie per Area Vasta e descrivere i prerequisiti e gli step necessari alla costruzione dell'artefatto
 
 ### INFORMAZIONI GENERALI
