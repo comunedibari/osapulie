@@ -44,6 +44,7 @@ L'applicativo è formato dai seguenti moduli:
 
 Le configurazioni dei moduli sono gestite dai propri **application.properties** e da profili maven opportuni, e le configurazioni dipendenti dagli ambienti sono censite nei vari file **configuration.properties** dei profili.
 Per la gestione delle properties sono utilizzati i filters di maven: all'interno del progetto principale, osapulie-build, si troveranno le directory filters con le sottodirectory legate ai vari profili.
+Queste vengono generate una volta lanciata la build maven.
 
 
 ### PREREQUISITI BUILDING APPLICAZIONE
@@ -94,6 +95,7 @@ Per costruire i vari artefatti digitare dopo aver lanciato i file .sh o .bat ind
 
 
 E' stato utilizzato **liferay-portal-6.0.6** con **tomcat-6.0.29**, aggiungendo alla cartella '*deploy*' di liferay i war delle portlet utili per il funzionamento del portale.
+Al deploy di Liferay, customizzato per avere all’interno tutte le portlet di osapulie, si deploya anche egov.
 
 Prima dell'esecuzione del portale bisogna effettuare delle operazioni preliminari:
 
