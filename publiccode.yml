@@ -4,7 +4,19 @@
 
 publiccodeYmlVersion: '0.2'
 categories:
-  - document-management
+  - digital-citizenship
+dependsOn:
+  open:
+    - name: MySQL
+      optional: false
+      version: '6'
+      versionMax: 'any'
+      versionMin: 'any'
+    - name: Liferay CE
+      optional: false
+      version: '6'
+      versionMax: '6'
+      versionMin: '6'
 description:
   it:
     features: 
